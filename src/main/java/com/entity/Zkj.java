@@ -2,7 +2,7 @@ package com.entity;
 
 public class Zkj {
 	String name;
-
+	
 	public String getName() {
 		return name;
 	}
