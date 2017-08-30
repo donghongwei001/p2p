@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>product.html</title>
+
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="this is my page">
+ <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+<link rel="stylesheet" type="text/css" href="../easyui/css/icon.css" />
+<link rel="stylesheet" type="text/css" href="../easyui/css/easyui.css" />
+
+
+
+<script src="../easyui/js/jquery.easyui.min.js"></script>
+<script src="../easyui/js/easyui-lang-zh_CN.js"></script>
+<script src="../easyui/js/product.js"></script>
+<style type="text/css">
+.formtable th {
+	border: 1ps dashed gray;
+}
+
+.formtable td {
+	border: 1ps dashed gray;
+	width: ;
+}
+</style>
+</head>
+
+<body>
+	<table id="proDataGrid"></table>
+	<div id="toolbar">
+		<a id="addbtn" href="javascript:void(0)" class="easyui-linkbutton"
+			data-options="iconCls:'icon-save'">增加</a> <a id="deletebtn"
+			href="javascript:void(0)" class="easyui-linkbutton"
+			data-options="iconCls:'icon-save'">删除</a>
+	</div>
+	<div id="handledialog">
+		<form id="myform" method="post">
+			<table with="100%" class="formtable">
+				<tr>
+					<th height="30">产品id:</th>
+					<td><input id="proid"></td>
+				</tr>
+				<tr>
+					<th height="30">产品名称:</th>
+					<td><input id="proName"></td>
+				</tr>
+				<tr>
+					<th height="30">产品类型：</th>
+					<td><input id="unitcost"></td>
+				</tr>
+				<tr>
+					<th height="25">年龄：</th><td><input id="status"
+					class="easyui-numberbox" data-options="min:18,max:25,precision:0"
+					></td>
+				</tr>
+				<tr>
+					<th height="30">产品类型：</th>
+					<td><input id="listprice" class="easyui-validatebox" data-options="required:true"></td>
+				</tr>
+				<tr>
+					<th height="25">日历：</th><td><input  id="attr1"
+					class="easyui-datetimebox" data-options="editable:false"
+					></td>
+				</tr>
+				<tr>
+					<th height="30">产品类型:</th>
+					<td><input id="proType" name="dept"></td>
+				</tr>
+
+			</table>
+		</form>
+	</div>
+</body>
+<script type="text/javascript">
+	
+</script>
+</html>
