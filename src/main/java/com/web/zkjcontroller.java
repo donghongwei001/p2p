@@ -16,9 +16,9 @@ import com.service.Zkjservicedao;
 public class zkjcontroller {
 	@Autowired
 	private Zkjservicedao servicedao;
-	public void saveproject(HttpServletRequest request,HttpSession session){
+	public void saveproject(Zkjproject pp,HttpServletRequest request,HttpSession session){
 		int userid=(int)session.getAttribute("userid");
-	String	projectname=request.getParameter("projectname");
+	/*String	projectname=request.getParameter("projectname");
 	String projecttype=request.getParameter("projecttype");
 	String location=request.getParameter("location");
 	SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -37,7 +37,8 @@ public class zkjcontroller {
 	pp.setTime(time);
 	pp.setMoney(money);
 	pp.setLifeloan(lifeloan);
-	pp.setRatemoney(ratemoney);
+	pp.setRatemoney(ratemoney);*/
+		pp.setUserid(userid);
 	servicedao.saveproject(pp);
 	
 	}
