@@ -20,9 +20,9 @@
 <link rel="stylesheet" type="text/css" href="icon.css" />
 <link rel="stylesheet" type="text/css" href="bootstrap/easyui.css" />
 	
-	<script src="jquery.min.js"></script>
-	<script src="jquery.easyui.min.js"></script>
-	<script src="easyui-lang-zh_CN.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.easyui.min.js"></script>
+	<script src="js/easyui-lang-zh_CN.js"></script>
   </head>
   
   <body class="easyui-layout">
