@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Home</title>
+<title></title>
 	<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css"></link>
 	<script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../bootstrap/js/jquery-1.8.2.min.js"></script>
