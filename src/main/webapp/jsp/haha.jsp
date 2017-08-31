@@ -25,14 +25,18 @@
 <script src="../easyui/js/jquery.easyui.min.js"></script>
 
 <script type="text/javascript" src="../easyui/js/easyui-lang-zh_CN.js"></script>
-
+<style type="text/css">
+	a{
+		font-size:30px;
+	}
+</style>
 </head>
 
 <body class="easyui-layout">
 	<div data-options="region:'north',title:'',split:false"
-		style="height:100px;align=:center" align="center"><h1>P2P管理系统</h2></div>
+		style="height:150px;align=:center;background:url(../image/61958PICJDB_1024.jpg);line-height:150px" align="center"><a>P2P管理系统</a></div>
 	<div data-options="region:'south',title:'',split:false"
-		style="height:100px; line-height:50px" align="center"><h1>本产品有qy68第七小组独家冠名</h1></div>
+		style="height:100px; line-height:50px" align="center"><h1>本产品由Qy68第七小组独家冠名</h1></div>
 
 	<div data-options="region:'west',title:'West',split:true"
 		style="width:200px;">
