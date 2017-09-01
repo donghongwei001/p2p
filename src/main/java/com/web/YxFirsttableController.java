@@ -1,5 +1,7 @@
 package com.web;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletResponse;
@@ -20,10 +22,18 @@ public class YxFirsttableController {
 	private YxFirsttableService firservice;
 	
 	@RequestMapping(value="/shenhe")
-	public void sert(@RequestBody String json,HttpServletResponse response){
+	public void sert(@RequestBody String json,HttpServletResponse response) throws ParseException{
+		System.out.println("11111111111111111");
 		YxFirsttable yft=JSON.parseObject(json,YxFirsttable.class);
 		
-		Date date=new Date();
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		String date=simpleDateFormat.format(new Date());
+		System.out.println(date);
+	//	Date dd=simpleDateFormat.parse(date);
+	//	System.out.println(dd);
+		
+		yft.setFirstdate(date);
+		System.out.println(yft);
 		int flag=firservice.addfirsts(yft);
 		try{
 			if(flag==1){

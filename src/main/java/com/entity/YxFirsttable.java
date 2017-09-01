@@ -1,11 +1,11 @@
 package com.entity;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class YxFirsttable {
 	int projectid;  // 项目id
 	int firststatus; // 审核状态
-	Date firstdate; //审核日期
+	String firstdate; //审核日期
 	String firstname; //审核人
 	String firstremarks;  //备注
 	public int getProjectid() {
@@ -20,14 +20,15 @@ public class YxFirsttable {
 	public void setFirststatus(int firststatus) {
 		this.firststatus = firststatus;
 	}
-	public Date getFirstdate() {
-		return firstdate;
-	}
-	public void setFirstdate(Date firstdate) {
-		this.firstdate = firstdate;
-	}
+	
 	public String getFirstname() {
 		return firstname;
+	}
+	public String getFirstdate() {
+		return firstdate;
+	}
+	public void setFirstdate(String firstdate) {
+		this.firstdate = firstdate;
 	}
 	public void setFirstname(String firstname) {
 		this.firstname = firstname;
@@ -37,6 +38,11 @@ public class YxFirsttable {
 	}
 	public void setFirstremarks(String firstremarks) {
 		this.firstremarks = firstremarks;
+	}
+	@Override
+	public String toString() {
+		return "YxFirsttable [projectid=" + projectid + ", firststatus=" + firststatus + ", firstdate=" + firstdate
+				+ ", firstname=" + firstname + ", firstremarks=" + firstremarks + "]";
 	}
 	
 }
