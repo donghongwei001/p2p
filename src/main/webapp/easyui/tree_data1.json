@@ -120,7 +120,7 @@
 			"id":121,
 			"text":"审视部审核",
 			"attributes":{    
-            "url":"product.html",    
+            "url":"http://localhost:9088/p2p/yx/first.do",    
             "price":100    
        		 } 
 		},{
