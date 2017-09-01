@@ -1,9 +1,8 @@
 package com.serviceimpl;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,9 +28,15 @@ public class dhwprojectserviceimpl implements dhwprojectService {
 		return dhwprojectdao.queryprojectone(str);
 	}
 	@Override
-	public List<Map> queryprojecttwo(String s1, String s2) {
+	public List<Map> queryprojecttwo(Date s1, Date s2) {
 		// TODO Auto-generated method stub
 		return dhwprojectdao.queryprojecttwo(s1, s2);
+	}
+
+	@Override
+	public List<Map> queryall(Date s1, Date s2, String name) {
+		// TODO Auto-generated method stub
+		return dhwprojectdao.queryall(s1, s2, name);
 	}
 
 }
