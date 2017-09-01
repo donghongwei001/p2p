@@ -40,7 +40,7 @@
 
     <link rel="icon" href="favicon.ico">
 
-    <title>Starter Template for Bootstrap</title>
+    
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../bootrap/scss/ie10-viewport-bug-workaround.css" rel="stylesheet">
    
@@ -51,7 +51,7 @@
 
 <body>
 		<div id="firstDiv" class="bg-success">
-			<h1 >哈哈行</h1>
+			
 		</div>
 		<div id="zeroDiv">
 		<div id="secondDiv">
