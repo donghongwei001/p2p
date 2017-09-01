@@ -22,7 +22,7 @@
 			<td>附件</td>
 			<td>审核状态</td>
 		</tr>
-		<c:forEach items="${ly }" var="l">
+		<c:forEach items="${ly}" var="l">
 			<tr>
 				<td> <input type="radio" name="nn"></td>
 				<td>${l.userid }</td>

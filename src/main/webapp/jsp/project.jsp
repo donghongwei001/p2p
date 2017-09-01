@@ -38,15 +38,23 @@
 #updbtn{
 	margin-left:83%;
 }
+#selall{
+	margin-left:650px;
+}
 </style>
 </head>
 <div></div>
 <body>
-	<div>账号:<input type="text" id="sel" class="easyui-numberbox" data-options="min:0"></input>
+	<div>项目名称:<input type="text" id="sel" class="easyui-textbox" data-options="prompt:'输入项目名称'"/>
+	开始时间：<input id="dd" type="text" class="easyui-datebox" required="required"data-options="editable:false">
+	结束时间：<input id="ddd" type="text" class="easyui-datebox" required="required"data-options="editable:false">
+	<a id="btn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-cut'">清空时间</a>
 		<a id="selbtn" href="javascript:void(0)" class="easyui-linkbutton"
 			data-options="iconCls:'icon-save'">查找 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+			<a id="selall" href="javascript:void(0)" class="easyui-linkbutton"
+			data-options="iconCls:'icon-save'">查询所有 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
 	</div>
-	<div id="toolbar">
+	<!-- <div id="toolbar">
 		<a id="addbtn" href="javascript:void(0)" class="easyui-linkbutton"
 			data-options="iconCls:'icon-save'">增加 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> <a id="deletebtn"
 			href="javascript:void(0)" class="easyui-linkbutton"
@@ -54,14 +62,14 @@
 		<a id="updbtn" href="javascript:void(0)" class="easyui-linkbutton"
 			data-options="iconCls:'icon-save'">修改 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
 			
-	</div>
+	</div> -->
 	
 	<table id="tb">
 
 
 	</table>
 	
-	<div id="dlg"></div>
+	<!-- <div id="dlg"></div>
 	<div id="handledialog">
 		<form id="myform" method="post">
 			<table with="100%" class="formtable">
@@ -104,12 +112,21 @@
 
 			</table>
 		</form>
-	</div>
+	</div> -->
 </body>
 <script>
 	$(function() {
+		$("#btn").click(function(){
+			$("#dd").textbox('setValue','');
+			$("#ddd").textbox('setValue','');
+		});
+		$("#selall").click(function(){
+			location.replace(location.href);
+
 		
-		$('#dialog').dialog(
+		})
+		
+		/* $('#dialog').dialog(
 						{
 							title : '我的模态框', //模态框标题
 							width : 400, //宽度
@@ -176,79 +193,154 @@
 											$('#handledialog').dialog("close")
 										}
 									} ]
-						})
-			$("#selbtn").click(function(){
-				/* $.ajax({ //发送了一个新的请求，与按钮这个请求完全不是一马事
-					type : "post", //请求方式
-					url : "/pingjiao/User/haha.do", //请求地址
-					data:{username:$("#sel").val()},//{nameha:$("#username").val(),passha:$("#password").val()},
-					dataType : "json",
-					success : function(data) { //请求成功后调用的回调函数，参数1【data】 请求返回的数据，这个数据类型是dataType制定
-							
-						    
-		       				alert("aaa");
-		        			
-							
-					} */
-					
-				$('#tb').datagrid(
-						{
-							url : '/pingjiao/User/haha.do',
-							queryParams: {          
-                				username:$("#sel").val()         
-              				},
-							striped : true,
-							rownumbers : true,
-							fitColumns : false,
-							singleSelect : false, //是否只能选择一行
-							pagination : true, //分页工具栏
-							pagePosition : "top",
-							toolbar : "#toolbar",
-							
-							onBeforeLoad:function(){
-								var item = $('#tb').datagrid('getRows');  
+						}) */
+						/* $.ajax({ //发送了一个新的请求，与按钮这个请求完全不是一马事
+						type : "post", //请求方式
+						url : "/pingjiao/User/haha.do", //请求地址
+						data:{username:$("#sel").val()},//{nameha:$("#username").val(),passha:$("#password").val()},
+						dataType : "json",
+						success : function(data) { //请求成功后调用的回调函数，参数1【data】 请求返回的数据，这个数据类型是dataType制定
 								
-            					if (item) {  
-                					for (var i = item.length - 1; i >= 0; i--) {  
-                    				var index = $('#tb').datagrid('getRowIndex', item[i]);  
-                    				
-                   					$('#tb').datagrid('deleteRow', index);  
-                					}  
-            					}  
-							},
-							columns : [ [
-									{
-										field : 'xuanze',
-										title : 'Code',
-										width : 200,
-										align : 'center',
-										checkbox:true
-									},
-									{
-										field : 'USERNAME',
-										title : '用户名',
-										width : 500,
-										align : 'center'
-									},
-									{
-										field : 'PASSWORD',
-										title : '密码',
-										width : 500,
-										align : 'center'
-									},
-									{
-										field : 'STATUS',
-										title : '状态',
-										align : 'center',
-										width : 500,
-										formatter : function(value,row,index){
-   
-                    					if(value=='1'){return '正常'}  
-                   						 else if(value=='2'){return '禁用'}                        
-                 						 } 
-									}] ]
-						});
-						$("#sel").val("");
+							    
+			       				alert("aaa");
+			        			
+								
+						} */
+			$("#selbtn").click(function(){
+				
+				var username=$("#sel").val();
+				var shijian1=$("#dd").val();
+				var shijian2=$("#ddd").val();
+				if (username!=""||(shijian1!=""&&shijian2!="")){
+					alert("1111")
+				
+					$('#tb').datagrid(
+							{
+								url : '/p2p/dhw/cha.do',
+								queryParams: {          
+	                				projectname:$("#sel").val(),  
+	                				shijian1:$("#dd").val(),
+	                				shijian2:$("#ddd").val()
+	              				},
+								striped : true,
+								rownumbers : true,
+								fitColumns : false,
+								singleSelect : false, //是否只能选择一行
+								pagination : true, //分页工具栏
+								pagePosition : "top",
+								toolbar : "#toolbar",
+								onLoadSuccess:function(){
+									$("#sel").textbox('setValue','')
+									$("#dd").textbox('setValue','');
+									$("#ddd").textbox('setValue','');
+									
+								},
+								onBeforeLoad:function(){
+									/* var item = $('#tb').datagrid('getRows');  
+									
+	            					if (item) {  
+	                					for (var i = item.length - 1; i >= 0; i--) {  
+	                    				var index = $('#tb').datagrid('getRowIndex', item[i]);  
+	                    				
+	                   					$('#tb').datagrid('deleteRow', index);  
+	                					}  
+	            					}   */
+								},columns : [ [
+												{
+													field : 'xuanze',
+													title : 'Code',
+													width : 200,
+													align : 'center',
+													checkbox:true
+												},
+												{
+													field : 'USERNAME',
+													title : '用户名',
+													width : 150,
+													align : 'center'
+												},
+												{
+													field : 'PROJECTNAME',
+													title : '项目名称',
+													width : 150,
+													align : 'center'
+												},
+												{
+													field : 'NAME',
+													title : '项目类型',
+													width : 150,
+													align : 'center'
+												},
+												{
+													field : 'LOCATION',
+													title : '项目地点',
+													width : 250,
+													align : 'center'
+												},
+												{
+													field : 'time1',
+													title : '申请时间',
+													width : 150,
+													align : 'center',
+													
+												},
+												{
+													field : 'MONEY',
+													title : '金额',
+													width : 150,
+													align : 'center'
+												},
+												{
+													field : 'LIFELOAN',
+													title : '借款年限',
+													width : 150,
+													align : 'center'
+												},
+												{
+													field : 'RATEMONEY',
+													title : '利率',
+													width : 150,
+													align : 'center'
+												},
+												{
+													field : 'APPENDIX',
+													title : '附件',
+													width : 150,
+													align : 'center'
+												},
+												{
+													field : 'ADUITSTATE',
+													title : '状态',
+													align : 'center',
+													width : 150,
+													formatter : function(value,row,index){
+			   
+			                    					if(value=='1'){return '未审核'}  
+			                   						 else if(value=='2'){return '已审核'}                        
+			                 						 } 
+												}/* ,
+												{
+													field : 'ciugai',
+													title : '修改',
+													width : 90,
+													align : 'center',
+													formatter : function formatOper(val,row,index){
+														return '<a href="javascript:void(0)"  onclick="editUser('+index+')">修改</a>';
+													}
+												} */ ] ]
+								
+							});
+					
+				}else {
+					alert("请输入正确格式后再查询！");
+					$("#sel").textbox('setValue','')
+					$("#dd").textbox('setValue','');
+					$("#ddd").textbox('setValue','');
+				}
+					
+				
+				
+						
 			
 			})		
 		
@@ -279,7 +371,7 @@
 			})
 		$('#tb').datagrid(
 						{
-							url : '/pingjiao/User/cha.do',
+							url : '/p2p/dhw/selpro.do',
 							striped : true,
 							rownumbers : true,
 							fitColumns : false,
@@ -295,6 +387,9 @@
                     			}
 							}, */
 							//fit : true,  
+							onLoadSuccess:function(list){
+								alert(list.list[0].TIME);
+							},
 							columns : [ [
 									{
 										field : 'xuanze',
@@ -306,24 +401,66 @@
 									{
 										field : 'USERNAME',
 										title : '用户名',
-										width : 500,
+										width : 150,
 										align : 'center'
 									},
 									{
-										field : 'PASSWORD',
-										title : '密码',
-										width : 500,
+										field : 'PROJECTNAME',
+										title : '项目名称',
+										width : 150,
 										align : 'center'
 									},
 									{
-										field : 'STATUS',
+										field : 'NAME',
+										title : '项目类型',
+										width : 150,
+										align : 'center'
+									},
+									{
+										field : 'LOCATION',
+										title : '项目地点',
+										width : 250,
+										align : 'center'
+									},
+									{
+										field : 'time1',
+										title : '申请时间',
+										width : 150,
+										align : 'center'
+									},
+									{
+										field : 'MONEY',
+										title : '金额',
+										width : 150,
+										align : 'center'
+									},
+									{
+										field : 'LIFELOAN',
+										title : '借款年限',
+										width : 150,
+										align : 'center'
+									},
+									{
+										field : 'RATEMONEY',
+										title : '利率',
+										width : 150,
+										align : 'center'
+									},
+									{
+										field : 'APPENDIX',
+										title : '附件',
+										width : 150,
+										align : 'center'
+									},
+									{
+										field : 'ADUITSTATE',
 										title : '状态',
 										align : 'center',
-										width : 500,
+										width : 150,
 										formatter : function(value,row,index){
    
-                    					if(value=='1'){return '正常'}  
-                   						 else if(value=='2'){return '禁用'}                        
+                    					if(value=='1'){return '未审核'}  
+                   						 else if(value=='2'){return '已审核'}                        
                  						 } 
 									}/* ,
 									{
