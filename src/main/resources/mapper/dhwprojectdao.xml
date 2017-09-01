@@ -10,7 +10,10 @@
 		select u.USERNAME,p.projectname,j.name,p.location,p.time,p.money,p.lifeloan,p.ratemoney,p.appendix,p.aduitstate from projectapplication p,subjectType j,usertable u where p.projecttype=j.id and p.userid=u.USERID	and p.projectname like #{name}
 	</select>
 	<select id="queryprojecttwo" resultType="java.util.HashMap">
-		select  u.USERNAME,p.projectname,j.name,p.location,p.time,p.money,p.lifeloan,p.ratemoney,p.appendix,p.aduitstate from projectapplication p,subjectType j,usertable u where p.projecttype=j.id and p.userid=u.USERID and to_char(p.time,&apos; yyyy-MM-dd &apos;)&gt;#{0} and to_char(p.time,&apos; yyyy-MM-dd &apos;)&lt; #{1}
+		select  u.USERNAME,p.projectname,j.name,p.location,p.time,p.money,p.lifeloan,p.ratemoney,p.appendix,p.aduitstate from projectapplication p,subjectType j,usertable u where p.projecttype=j.id and p.userid=u.USERID and p.time &gt;#{0} and p.time &lt; #{1}
+	</select>
+	<select id="queryall" resultType="java.util.HashMap">
+		select  u.USERNAME,p.projectname,j.name,p.location,p.time,p.money,p.lifeloan,p.ratemoney,p.appendix,p.aduitstate from projectapplication p,subjectType j,usertable u where p.projecttype=j.id and p.userid=u.USERID and p.time &gt;#{0} and p.time &lt; #{1} and p.projectname like #{2}
 	</select>
 
 </mapper>
