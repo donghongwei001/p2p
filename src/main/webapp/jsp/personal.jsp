@@ -47,7 +47,7 @@
 				<a href="#">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;			
 			</div>
 			<div id="top-login">										
-				尊敬的<a href="#"></a>,您好！ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<span>尊敬的<a href="#"></a>,您好！ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 				<a href="#"><span>帮助</span></a><span>|</span><a href="Home.jsp"><span>退出</span></a>
 			</div>
 		</div>
