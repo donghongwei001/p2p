@@ -1,6 +1,5 @@
 package com.entity;
 
-import java.util.Date;
 
 public class Zkjproject {
 	int ID ;

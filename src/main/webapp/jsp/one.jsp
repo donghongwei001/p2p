@@ -21,7 +21,7 @@
 			<td>附件</td>
 			<td>审核状态</td>
 		</tr>
-		<c:forEach items="${ly }" var="l">
+		<c:forEach items="${ly}" var="l">
 			<tr>
 				<td>${l.userid }</td>
 				<td>${l.projectname }</td>
