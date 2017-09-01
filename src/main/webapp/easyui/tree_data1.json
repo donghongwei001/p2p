@@ -86,7 +86,7 @@
 			"text":"贷款业务",
 			 
 			"attributes":{    
-               "url":"daikuan.jsp",
+               "url":"",
             "price":100    
        		 } 
 		},{

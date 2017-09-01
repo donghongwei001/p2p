@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.dhwrongziDao">	
+	<!-- <select id="selectproject" resultType="java.util.HashMap">
+		select u.USERNAME,p.projectname,j.name,p.location,p.time,p.money,p.lifeloan,p.ratemoney,p.appendix,p.aduitstate from projectapplication p,subjectType j,usertable u where p.projecttype=j.id and p.userid=u.USERID
+	</select>
+	<select id="queryprojectone" resultType="java.util.HashMap" parameterType="String">
+		select u.USERNAME,p.projectname,j.name,p.location,p.time,p.money,p.lifeloan,p.ratemoney,p.appendix,p.aduitstate from projectapplication p,subjectType j,usertable u where p.projecttype=j.id and p.userid=u.USERID	and p.projectname like #{name}
+	</select>
+	<select id="queryprojecttwo" resultType="java.util.HashMap">
+		select  u.USERNAME,p.projectname,j.name,p.location,p.time,p.money,p.lifeloan,p.ratemoney,p.appendix,p.aduitstate from projectapplication p,subjectType j,usertable u where p.projecttype=j.id and p.userid=u.USERID and p.time &gt;#{0} and p.time &lt; #{1}
+	</select>
+	<select id="queryall" resultType="java.util.HashMap">
+		select  u.USERNAME,p.projectname,j.name,p.location,p.time,p.money,p.lifeloan,p.ratemoney,p.appendix,p.aduitstate from projectapplication p,subjectType j,usertable u where p.projecttype=j.id and p.userid=u.USERID and p.time &gt;#{0} and p.time &lt; #{1} and p.projectname like #{2}
+	</select> -->
+	<select id="queryall" resultType="java.util.HashMap">
+		select p.id, v.NAME,p.PROJECTNAME,p.LOCATION,p.MONEY,p.RATEMONEY,t.USERNAME,i.MONEY ,i.TIME from invest i,projectapplication p,investor v,usertable t where i.subjectid=p.id and i.investorid = v.id and p.userid=t.userID
+		
+	</select>
+	<select id="queryprojectone" resultType="java.util.HashMap" parameterType="String">
+		select p.id, v.NAME,p.PROJECTNAME,p.LOCATION,p.MONEY,p.RATEMONEY,t.USERNAME,i.MONEY ,i.TIME from invest i,projectapplication p,investor v,usertable t where i.subjectid=p.id and i.investorid = v.id and p.userid=t.userID	and v.NAME like #{name}
+	</select>
+	<select id="queryprojecttwo" resultType="java.util.HashMap">
+		select p.id, v.NAME,p.PROJECTNAME,p.LOCATION,p.MONEY,p.RATEMONEY,t.USERNAME,i.MONEY ,i.TIME from invest i,projectapplication p,investor v,usertable t where i.subjectid=p.id and i.investorid = v.id and p.userid=t.userID and i.TIME &gt;#{0} and i.TIME &lt; #{1}
+	</select>
+	<select id="queryprojectthr" resultType="java.util.HashMap">
+		select p.id, v.NAME,p.PROJECTNAME,p.LOCATION,p.MONEY,p.RATEMONEY,t.USERNAME,i.MONEY ,i.TIME from invest i,projectapplication p,investor v,usertable t where i.subjectid=p.id and i.investorid = v.id and p.userid=t.userID and i.TIME &gt;#{0} and i.TIME &lt; #{1} and v.NAME like #{2}
+	</select>
+</mapper>
