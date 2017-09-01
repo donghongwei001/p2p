@@ -4,15 +4,16 @@ import java.util.Date;
 
 public class Zkjproject {
 	int ID ;
-	int userid ;
-	String projectname;
-	String projecttype;
-	String location;
-	String time;
-	double money;
-	int lifeloan;
-	double ratemoney;
-	String appendix;
+	int userid ;//用户ID
+	String projectname;//项目名称
+	String projecttype;//项目类型
+	String location;//地点
+	String time;//申请时间
+	double money;//申请金额
+	int lifeloan;//借款期限
+	double ratemoney;//利率
+	String appendix;//附件
+	int aduitstate;
 	public int getID() {
 		return ID;
 	}
@@ -73,6 +74,18 @@ public class Zkjproject {
 	}
 	public void setAppendix(String appendix) {
 		this.appendix = appendix;
+	}
+	public int getAduitstate() {
+		return aduitstate;
+	}
+	public void setAduitstate(int aduitstate) {
+		this.aduitstate = aduitstate;
+	}
+	@Override
+	public String toString() {
+		return "Zkjproject [ID=" + ID + ", userid=" + userid + ", projectname=" + projectname + ", projecttype="
+				+ projecttype + ", location=" + location + ", time=" + time + ", money=" + money + ", lifeloan="
+				+ lifeloan + ", ratemoney=" + ratemoney + ", appendix=" + appendix + ", aduitstate=" + aduitstate + "]";
 	}
 	
 }
