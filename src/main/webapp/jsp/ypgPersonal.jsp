@@ -22,7 +22,6 @@
 	</style>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	
-	<link type="text/css" rel="stylesheet" href="../bootstrap/css/style.css" />
 	<script type="text/javascript" src="../bootstrap/js/jquery-1.8.2.min.js"></script>
 	<script type="text/javascript" src="../bootstrap/js/menu.js"></script>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
