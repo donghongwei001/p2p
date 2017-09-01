@@ -38,6 +38,9 @@
 #updbtn{
 	margin-left:83%;
 }
+#selall{
+	margin-left:650px;
+}
 </style>
 </head>
 <div></div>
@@ -48,6 +51,8 @@
 	<a id="btn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-cut'">清空时间</a>
 		<a id="selbtn" href="javascript:void(0)" class="easyui-linkbutton"
 			data-options="iconCls:'icon-save'">查找 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+			<a id="selall" href="javascript:void(0)" class="easyui-linkbutton"
+			data-options="iconCls:'icon-save'">查询所有 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
 	</div>
 	<!-- <div id="toolbar">
 		<a id="addbtn" href="javascript:void(0)" class="easyui-linkbutton"
@@ -115,6 +120,11 @@
 			$("#dd").textbox('setValue','');
 			$("#ddd").textbox('setValue','');
 		});
+		$("#selall").click(function(){
+			location.replace(location.href);
+
+		
+		})
 		
 		/* $('#dialog').dialog(
 						{
@@ -223,6 +233,7 @@
 									$("#sel").textbox('setValue','')
 									$("#dd").textbox('setValue','');
 									$("#ddd").textbox('setValue','');
+									
 								},
 								onBeforeLoad:function(){
 									/* var item = $('#tb').datagrid('getRows');  
@@ -263,14 +274,15 @@
 												{
 													field : 'LOCATION',
 													title : '项目地点',
-													width : 150,
+													width : 250,
 													align : 'center'
 												},
 												{
-													field : 'TIME',
+													field : 'time1',
 													title : '申请时间',
 													width : 150,
-													align : 'center'
+													align : 'center',
+													
 												},
 												{
 													field : 'MONEY',
@@ -319,6 +331,11 @@
 								
 							});
 					
+				}else {
+					alert("请输入正确格式后再查询！");
+					$("#sel").textbox('setValue','')
+					$("#dd").textbox('setValue','');
+					$("#ddd").textbox('setValue','');
 				}
 					
 				
@@ -370,6 +387,9 @@
                     			}
 							}, */
 							//fit : true,  
+							onLoadSuccess:function(list){
+								alert(list.list[0].TIME);
+							},
 							columns : [ [
 									{
 										field : 'xuanze',
@@ -399,11 +419,11 @@
 									{
 										field : 'LOCATION',
 										title : '项目地点',
-										width : 150,
+										width : 250,
 										align : 'center'
 									},
 									{
-										field : 'TIME',
+										field : 'time1',
 										title : '申请时间',
 										width : 150,
 										align : 'center'
