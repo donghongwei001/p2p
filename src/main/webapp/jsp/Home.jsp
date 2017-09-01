@@ -5,12 +5,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
 <title>Home</title>
 	
 	<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="../easyui/js/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')</script>
-    <script type="text/javascript" src="../easyui/js/jquery.min.js"></script>
     <script src="../bootstrap/js/bootstrap.min.js"></script>
 	
 	<style type="text/css">
@@ -129,7 +129,7 @@
 								<tr>
 									<td width="220px;" align="right">密码：</td>
 									<td>
-										<input type="text" id="pwd" class="form-control" placeholder="请输入密码">
+										<input type="password" id="pwd" class="form-control" placeholder="请输入密码">
 									</td>
 									<td><div id="s2"></div></td>
 								</tr>
@@ -137,7 +137,7 @@
 									<td>&nbsp;&nbsp;</td>
 									<td>&nbsp;&nbsp;</td>
 								</tr>
-								<!-- <tr>
+								<tr>
 									<td width="220px;" align="right">确认密码：</td>
 									<td>
 										<input type="text" id="rpwd" class="form-control" placeholder="请确认密码">
@@ -147,7 +147,7 @@
 								<tr>
 									<td>&nbsp;&nbsp;</td>
 									<td>&nbsp;&nbsp;</td>
-								</tr> -->
+								</tr>
 								
 							</table>
 						</form>
@@ -161,7 +161,6 @@
 	</div>
 	<!-- 注册模态框结束 -->
 </body>
-
 	<script type="text/javascript">
   		$("#but").click(function(){
   			var data={};
