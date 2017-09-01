@@ -2,9 +2,10 @@
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.dao.zkjdao">	
+<mapper namespace="com.dao.Zkjdao">	
 	<insert parameterType="com.entity.Zkjproject" id="saveproject">
-		insert into projectapplication(ID,userid,projectname,projecttype,location,time,money,lifeloan,ratemoney)values(projectapplicationid.nextval,#{userid},#{projectname},#{projecttype},#{location},#{time}#{money},#{lifeloan},#{ratemoney})
+		insert into projectapplication(ID,userid,projectname,projecttype,location,time,money,lifeloan,ratemoney,appendix,aduitstate)
+		values( projectapplicationid.nextval,${userid},'${projectname}',${projecttype},'${location}',to_date('${time}','yyyy-MM-dd'),${money},${lifeloan},${ratemoney},'${appendix}',${aduitstate})
 	</insert>
 	
 </mapper>
