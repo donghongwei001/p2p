@@ -7,6 +7,12 @@
 		select * from usertable
 	</select>
 	<insert id="addUser" parameterType="com.entity.SzhUser">
-		insert into usertable values(#{userID},#{username},#{pwd},#{money})
+		insert into usertable values(#{userID,jdbcType=VARCHAR},#{username,jdbcType=VARCHAR},#{pwd,jdbcType=VARCHAR},#{money,jdbcType=VARCHAR})
+	</insert>
+	<select id="queryRole" resultType="com.entity.SzhRole">
+		select * from role
+	</select>
+	<insert id="addRole" parameterType="com.entity.SzhRole">
+		insert into role values(#{roleid,jdbcType=VARCHAR},#{rolename,jdbcType=VARCHAR},#{rolestatus,jdbcType=VARCHAR})
 	</insert>
 </mapper>
