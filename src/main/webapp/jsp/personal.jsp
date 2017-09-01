@@ -12,17 +12,29 @@
     
 	<style type="text/css">
 		body{/* background-color:#F5F5F5; */}
+		a{}
 		#body{width:100%;height:auto;}
 		#top{width:76%;height:auto;align:center;margin-left:12%;float:left;}
 		#top-img{float:left;}
 		#top-menu{float:left;margin-top:3.5%;margin-left:40px;}
 		#top-menu a{text-decoration:none;color:#333;font-size:18px;}
-		#top-login{float:right;margin-top:3%;margin-left:50px;}
-		#img{width:100%;height:auto;}
-		#content{width:76%;float:left;margin-left:12%;margin-top:20px;}
-		#content-left{width:69%;height:800px;float:left;/* background-color:#FFA07A; */}
-		#content-right{width:29%;height:800px;float:left;margin-left:15px;background-color:#FF7F50;}
-		#down{width:100%;border-top:1px solid #DCDCDC;float:left;margin-top:20px;}
+		#top-login{float:right;margin-top:3%;margin-left:50px;font-size:18px;}
+		#address{width:100%;height:30px;float:left;background-color:#87BCEE;}
+		#address-text{width:76%;font-size:17px;float:left;margin-left:12%;margin-top:0px;}
+		#con{width:100%;height:801px;float:left;background-color:#F5F5F5;}
+		#content{width:76%;float:left;margin-left:12%;margin-top:30px;}
+		#content-left{width:20%;height:800px;float:left;}
+		#left2:hover{background-color:#FFFFFF;}
+		#left3:hover{background-color:#FFFFFF;}
+		#left4:hover{background-color:#FFFFFF;}
+		#left5:hover{background-color:#FFFFFF;}
+		#left1{text-align:center;font-size:18px;width:100%;height:50px;line-height:50px;background-color:#FFFFFF;}
+		#left2{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
+		#left3{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
+		#left4{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
+		#left5{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
+		#content-right{width:78%;height:800px;float:left;margin-left:15px;background-color:#FFFFFF;}
+		#down{width:100%;border-top:1px solid #DCDCDC;float:left;}
 		#down-one{margin-left:35.5%;margin-top:20px;}
 		#down-two{margin-left:37.3%;}
 		#down-three{margin-left:41%;margin-bottom:20px;}
@@ -51,15 +63,24 @@
 				<a href="#"><span>帮助</span></a><span>|</span><a href="Home.jsp"><span>退出</span></a>
 			</div>
 		</div>
-		<div id="img">
-			<img src="../image/img6.png" width="100%" />
-		</div>		
-		<div id="content">
-			<div id="content-left">
-				
-				
+		<div id="address">
+			<div id="address-text">
+				<span>账户首页<span>>></span>我的资产</span>
 			</div>
-			<div id="content-right"></div>
+		</div>
+		<div id="con">		
+			<div id="content">
+				<div id="content-left">
+					<div id="left1"><a>我的资产</a></div>
+					<div id="left2">我的项目</div>
+					<div id="left3">我的投资</div>
+					<div id="left4">我的还款</div>
+					<div id="left5">个人信息</div>
+				</div>
+				<div id="content-right">
+					
+				</div>
+			</div>
 		</div>
 		<div id="down">
 			<div id="down-one">
