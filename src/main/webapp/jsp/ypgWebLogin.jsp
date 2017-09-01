@@ -33,9 +33,9 @@
 	</style>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	
-	<link type="text/css" rel="stylesheet" href="bootstrap/css/style.css" />
-	<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
-	<script type="text/javascript" src="js/menu.js"></script>
+	<link type="text/css" rel="stylesheet" href="../bootstrap/css/style.css" />
+	<script type="text/javascript" src="../bootstrap/js/jquery-1.8.2.min.js"></script>
+	<script type="text/javascript" src="../bootstrap/js/menu.js"></script>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
@@ -43,15 +43,15 @@
     <link rel="icon" href="favicon.ico">
 
     <title>Starter Template for Bootstrap</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../bootrap/scss/ie10-viewport-bug-workaround.css" rel="stylesheet">
    
 
     <script src="js/ie-emulation-modes-warning.js"></script>
 	
 </head>
 
-<body >
+<body>
 		<div id="firstDiv" class="bg-success">
 			<h1 >哈哈行</h1>
 		</div>
@@ -60,16 +60,16 @@
 			<form action="/p2p/person/nal.do" method="post">
 			<table class="table table-hover">
 				
-				<tr>
+				<tr class="warning">
 					<td>姓名:</td><td><input name="personalname" class="form-control" type="text"/></td>
 				</tr>
 				<tr class="warning">
 					<td>身份证号:</td><td><input name="idcard" class="form-control" type="text"/></td>
 				</tr>
-				<tr>
+				<tr class="danger">
 					<td>手机号:</td><td><input name="iphone" class="form-control" type="text"/></td>
 				</tr>
-				<tr>
+				<tr class="active">
 					<td>支付账号:</td><td><input name="accountnumber" class="form-control" type="text"/></td>
 				</tr>
 				<tr class="danger">
@@ -87,7 +87,7 @@
 				<tr class="danger">
 					<td>出生日期:</td><td><input name="birthday" class="form-control" type="text"/></td>
 				</tr>
-				<tr>
+				<tr class="success">
 					<td>学历:</td><td><input name="educational" class="form-control" type="text"/></td>
 				</tr>
 				<tr class="active">

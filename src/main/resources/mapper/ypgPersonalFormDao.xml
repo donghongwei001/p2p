@@ -3,8 +3,10 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dao.ypgPersonalFormDao">	
+	<select id="queryPersonalForm" resultType="java.util.HashMap">
+		select PERSONALNAME,IDCARD,IPHONE,ACCOUNTNUMBER,MAILBOX,SEX,BIRTHDAY,EDUCATIONAL,MARRIAGE,HAVACHIDREN,ADDRESS,HOMEPHONE,WORKLIFE,OCCUPATION,WORKUNIT,UNITPROPERTIES,UNITPHONE,MONTHLYINCOME,HAVEROOM,HOUSELOAN,HAVECAR,CARLOAN,CONTACTNAME,CONTACTRELATION,CONTACTPHONE from psersonalform
+	</select>
 	<insert id="insertPersonalForm" parameterType="com.entity.ypgPersonalForm">
-		insert into psersonalform values(psersonalid.nextval,#{userID,jdbcType=NUMERIC},#{personalname},#{idcard},#{iphone},#{accountnumber},#{mailbox},#{sex},to_date(#{birthday},"yyyy-MM-dd"),#{educational},#{marriage},#{havachidren},#{address},#{homephone},#{worklife},#{occupation},#{workunit},#{unitproperties},#{unitphone},#{monthlyincome},#{haveroom},#{houseloan},#{havecar},#{carloan},#{contactname},#{contactrelation},#{contactphone})
+		insert into psersonalform values(psersonalid.nextval,${userID},'${personalname}','${idcard}','${iphone}','${accountnumber}','${mailbox}','${sex}',to_date('${birthday}','yyyy-MM-dd'),'${educational}','${marriage}','${havachidren}','${address}','${homephone}','${worklife}','${occupation}','${workunit}','${unitproperties}','${unitphone}','${monthlyincome}','${haveroom}','${houseloan}','${havecar}','${carloan}','${contactname}','${contactrelation}','${contactphone}')
 	</insert>
-	
 </mapper>

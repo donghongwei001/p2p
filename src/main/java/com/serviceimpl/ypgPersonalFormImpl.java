@@ -1,5 +1,8 @@
 package com.serviceimpl;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
@@ -15,9 +18,16 @@ public class ypgPersonalFormImpl implements ypgPersonalFormService{
 	private ypgPersonalFormDao pfDao;
 	
 	@Override
+	public List<Map> getQueryPersonalForm() {
+		// TODO Auto-generated method stub
+		return pfDao.queryPersonalForm();
+	}
+	
+	@Override
 	public int getPersonalForm(ypgPersonalForm pf) {
 		// TODO Auto-generated method stub
 		return pfDao.insertPersonalForm(pf);
 	}
+
 	
 }
