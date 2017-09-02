@@ -7,5 +7,10 @@
 		insert into projectapplication(ID,userid,projectname,projecttype,location,time,money,lifeloan,ratemoney,appendix,aduitstate)
 		values( projectapplicationid.nextval,${userid},'${projectname}',${projecttype},'${location}',to_date('${time}','yyyy-MM-dd'),${money},${lifeloan},${ratemoney},'${appendix}',${aduitstate})
 	</insert>
-	
+	<select id="qyeryproject" resultType="java.util.HashMap">
+		select projectname,projecttype,location,time,money,lifeloan,ratemoney,appendix from projectapplication
+	</select>
+	<select id="selectusers" resultType="java.util.HashMap">
+		select userid,username,pwd from usertable
+	</select>
 </mapper>
