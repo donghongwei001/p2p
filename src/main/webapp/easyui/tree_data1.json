@@ -15,7 +15,8 @@
 		"children":[{
 			"id":121,
 			"text":"用户账号管理",
-			"attributes":{  
+			"attributes":{ 
+			"url":"yonghu.jsp", 
             "price":100    
        		 } 
 		},{
@@ -86,7 +87,7 @@
 			"text":"贷款业务",
 			 
 			"attributes":{    
-               "url":"daikuan.jsp",
+               "url":"",
             "price":100    
        		 } 
 		},{
@@ -94,7 +95,7 @@
 			"text":"融资业务",
 			  
 			"attributes":{
-				"url":"pingjiao.jsp"
+				"url":"rongzi.jsp"
 			}
 		},{
 			"id":163,
@@ -120,13 +121,14 @@
 			"id":171,
 			"text":"审视部审核",
 			"attributes":{    
-            "url":"product.html",    
+            "url":"http://localhost:9088/p2p/yx/first.do",    
             "price":100    
        		 } 
 		},{
 			"id":172,
 			"text":"理事审核",
 			"attributes":{
+				"url":"/p2p/add/selectproject.do", 
 				"p1":"Custom Attribute1",
 				"p2":"Custom Attribute2"
 			}
