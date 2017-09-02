@@ -11,6 +11,6 @@
 		select projectname,projecttype,location,time,money,lifeloan,ratemoney,appendix from projectapplication
 	</select>
 	<select id="selectusers" resultType="java.util.HashMap">
-		select userid,username,pwd from usertable
+		select state,username,pwd from usertable
 	</select>
 </mapper>
