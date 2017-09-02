@@ -10,7 +10,9 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.entity.ypgEmployee;
 import com.entity.ypgPersonalForm;
 import com.service.ypgPersonalFormService;
 
@@ -25,11 +27,25 @@ public class ypgPersonalFormController {
 		request.setAttribute("personal", list);
 		return "ypgPersonal";
 	}
+	@RequestMapping("/ypgEmployee")
+	public String getQueryEmployee(HttpServletRequest request){
+		List<Map> list=pfService.getQueryEmployee();
+		request.setAttribute("Employee", list);
+		return "ypgEmployee";
+	}
 	@RequestMapping("/nal")
 	public void insertPersonalForm(ypgPersonalForm pff,HttpSession session){
 		System.out.println(pff);
 		int userID =1;
 		pff.setUserID(userID);
 		pfService.getPersonalForm(pff);
+	}
+	@RequestMapping("/insertEmployee")
+	@ResponseBody
+	public int getinsertEmployee(ypgEmployee ee){
+		System.out.println(ee);
+		int flag = pfService.getInsertEmployee(ee);
+		System.out.println("sdljglsjljgldjldfglsfgl   "+flag);
+		return flag;
 	}
 }
