@@ -8,7 +8,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
-     <script src="../easyui/js/jquery.min.js"></script>
+  
     <script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')</script>
     <script src="../bootstrap/js/bootstrap.min.js"></script>
     <script src="../easyui/js/jquery.min.js"></script>
@@ -35,7 +35,7 @@
 			<label for="inputE" class="col-sm-2 control-label">项目地点</label>
 			<div class="col-sm-5">
 				 <div id="distpicker2">
-					  <select name="location1"></select>
+					  <select name="location1"  ></select>
 					  <select name="location2"></select>
 					  <select name="location3"></select>
 				</div>

@@ -1,5 +1,6 @@
 package com.web;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -9,8 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.entity.SzhRole;
 import com.entity.SzhUser;
 import com.service.SzhUserService;
 
@@ -19,17 +23,24 @@ public class SzhUserController {
 	@Autowired
 	SzhUserService sus;
 	@RequestMapping(value="/queryUser")
-	public String query(HttpServletRequest request){
+	public void queryUser(HttpServletResponse response){
 		List<SzhUser> su = sus.queryUser();
-		request.setAttribute("su",su);
-		return "SzhQxjm";
+		try {
+			response.setContentType("text/json");
+			response.setCharacterEncoding("UTF-8");
+			response.getWriter().write(JSON.toJSONString(su));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
 	}
 	
 	@RequestMapping(value="/addUser")
-	public void add(@RequestBody String json,HttpServletResponse response){
-		SzhUser su=JSON.parseObject(json,SzhUser.class);
+	@ResponseBody  
+	public int add(/*@RequestBody String json,HttpServletResponse response*/SzhUser su){
+		/*SzhUser su=JSON.parseObject(json,SzhUser.class);*/
 		int flag=sus.addUser(su);
-		try{
+		/*try{
 			if(flag==1){
 				response.getWriter().write("添加用户成功！");
 			}else{
@@ -39,6 +50,28 @@ public class SzhUserController {
 			response.getWriter().close();
 		}catch(Exception e){
 			
-		}
+		}*/
+		System.out.println(flag);
+		return flag;
+	}
+	
+	@RequestMapping(value="/queryRole")
+	public void queryRole(HttpServletResponse response){
+		List<SzhRole> sr = sus.queryRole();
+		try {
+			response.setContentType("text/json");
+			response.setCharacterEncoding("UTF-8");
+			response.getWriter().write(JSON.toJSONString(sr));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+	}
+	
+	@RequestMapping(value="/addRole")
+	@ResponseBody  
+	public int addRole(SzhRole sr){
+		int flag=sus.addRole(sr);
+		return flag;
 	}
 }

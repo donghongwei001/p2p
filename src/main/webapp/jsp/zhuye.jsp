@@ -14,6 +14,9 @@
 </script>
 <script src="../bootstrap/js/bootstrap.min.js"></script>
 <style type="text/css">
+body{
+	padding:70px;
+}
 #top-img {
 	margin-left: 200px;
 	float: left;
@@ -37,7 +40,7 @@
 }
 
 table {
-	margin-left: 500px;
+	margin-left:25%;
 }
 
 #zuo {
@@ -53,9 +56,39 @@ table {
 #three-top {
 	margin-left: 2%;
 }
+#tuone{
+	width:200px;
+	height:200px;
+	float:left;
+	margin-top:-46%;
+	margin-left:4%;
+}
+#tuthree{
+	width:200px;
+	height:200px;
+	float:left;
+	margin-top:-46%;
+	margin-left:34%;
+}
+#tutwo{
+	width:200px;
+	height:200px;
+	float:left;
+	margin-top:-46%;
+	margin-left:64%;
+}
+#tuone img:hover,#tutwo img:hover,#tuthree img:hover {
+width: 250px;
+height: 250px;
+padding: 0;
+}
+
 </style>
 </head>
 <body>
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div style="margin-top:1%;margin-left:70%;" class="container">您好！欢迎来到宜人贷！	</div>
+	</nav>
 	<div>
 
 		<!-- Nav tabs -->
@@ -66,7 +99,7 @@ table {
 				</div>
 			</li>
 			<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<li id="daow" role="presentation" class="active"><a href="#home"
+			<li id="daow" role="presentation" class="active"><a id="shouye" href="#home"
 				aria-controls="home" role="tab" data-toggle="tab"><span
 					id="daohang">首页</span></a></li>
 			<li id="daow" role="presentation"><a href="#profile"
@@ -130,7 +163,21 @@ table {
 				</div>
 				<table border="1">
 					<tr>
-						<td id="zuo"></td>
+						<td id="zuo">
+							<div id="tuone">
+								<a href="#profile"
+				aria-controls="profile" role="tab" data-toggle="tab"><img  src="../image/timg.jpg" width=100% height=100%>
+								</a>
+							</div>
+							<div id="tutwo">
+							<a href="#messages"aria-controls="messages" role="tab" data-toggle="tab">
+								<img  src="../image/timg (1).jpg" width=100% height=100%> </a>
+							</div>
+							<div id="tuthree">
+								<img src="../image/timg (2).jpg" width=100% height=100%>
+							</div>
+							
+						</td>
 						<td id="you">
 							<button style="margin-top: -700px;" type="button"
 								class="btn btn-success  btn-lg">登录</button>
@@ -140,7 +187,11 @@ table {
 					</tr>
 				</table>
 			</div>
-			<div role="tabpanel" class="tab-pane" id="profile">222222222222222222222222222222222222</div>
+			<div role="tabpanel" class="tab-pane" id="profile">
+				<!-- 融资页面 -->
+				123464564646464646
+
+			</div>
 			<div role="tabpanel" class="tab-pane" id="messages">
 				<div id="three-top">
 					<img src="../image/QQ20170831215435.png" />
@@ -197,4 +248,11 @@ table {
 	</div>
 
 </body>
+<script type="text/javascript">
+	$(function(){
+		$("#shouye").click(function(){
+			location.replace(location.href);
+		})
+	})
+</script>
 </html>

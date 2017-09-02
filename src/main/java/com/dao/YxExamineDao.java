@@ -8,4 +8,6 @@ import com.entity.YxExamine;
 
 public interface YxExamineDao {
 	List<YxExamine> queryAll();
+	
+	
 }

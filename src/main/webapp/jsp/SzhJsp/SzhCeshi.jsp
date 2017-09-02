@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>增加用户</title>
 
-<script type="text/javascript" src="js/jquery.min.js"></script>
+<script src="../easyui/js/jquery.min.js"></script>
 
 </head>
 <body>

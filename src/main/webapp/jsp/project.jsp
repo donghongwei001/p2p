@@ -39,7 +39,7 @@
 	margin-left:83%;
 }
 #selall{
-	margin-left:650px;
+	margin-left:500px;
 }
 </style>
 </head>
@@ -344,7 +344,7 @@
 			
 			})		
 		
-			$("#updbtn").click(function(){
+			/* $("#updbtn").click(function(){
 				var rows=$('#tb').datagrid("getSelections");
 						//getSelections选中的所有行
 			if (rows.length==1) {											//当选择成功时
@@ -368,7 +368,7 @@
 			}else{
 				alert("请选择一行再进行删除");
 			}
-			})
+			}) */
 		$('#tb').datagrid(
 						{
 							url : '/p2p/dhw/selpro.do',
@@ -476,10 +476,10 @@
 						
 				
 						
-		$("#addbtn").click(function() {
+		/* $("#addbtn").click(function() {
 			//dialog.init(); //点击增加按钮 
 			$('#handledialog').dialog("open"); //打开模态框
-		});
+		}); */
 		/* function editUser(index){
 		alert(index);
 			$('#tb').datagrid('selectRow',index);// 关键在这里
