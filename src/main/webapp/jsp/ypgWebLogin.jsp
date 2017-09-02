@@ -1,19 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="../easyui/css/icon.css" />
-<link rel="stylesheet" type="text/css" href="../easyui/css/easyui.css" />
-
-<script src="../easyui/js/jquery.min.js"></script>
-<script src="../easyui/js/jquery.easyui.min.js"></script>
-<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<script src="../bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="../easyui/js/easyui-lang-zh_CN.js"></script>
-<style>
+	<style>
 
 		body {
 			margin: 0;
@@ -40,10 +31,26 @@
 		}
 		
 	</style>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script type="text/javascript" src="../bootstrap/js/jquery-1.8.2.min.js"></script>
+	<script type="text/javascript" src="../bootstrap/js/menu.js"></script>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+
+    <link rel="icon" href="favicon.ico">
+
+    
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../bootrap/scss/ie10-viewport-bug-workaround.css" rel="stylesheet">
+   
+
+    <script src="js/ie-emulation-modes-warning.js"></script>
+	
 </head>
 
 <body>
-	<div id="firstDiv" class="bg-success">
+		<div id="firstDiv" class="bg-success">
 			
 		</div>
 		<div id="zeroDiv">
@@ -175,9 +182,5 @@
 			</form>
 		</div>
 	</div>
-</body>
-<script type="text/javascript">
-
-	 
-</script>
+</body>	
 </html>

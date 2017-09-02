@@ -38,6 +38,9 @@
 #updbtn{
 	margin-left:83%;
 }
+#selall{
+	margin-left:500px;
+}
 </style>
 </head>
 <div></div>
@@ -48,6 +51,8 @@
 	<a id="btn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-cut'">清空时间</a>
 		<a id="selbtn" href="javascript:void(0)" class="easyui-linkbutton"
 			data-options="iconCls:'icon-save'">查找 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+			<a id="selall" href="javascript:void(0)" class="easyui-linkbutton"
+			data-options="iconCls:'icon-save'">查询所有 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
 	</div>
 	<!-- <div id="toolbar">
 		<a id="addbtn" href="javascript:void(0)" class="easyui-linkbutton"
@@ -115,6 +120,11 @@
 			$("#dd").textbox('setValue','');
 			$("#ddd").textbox('setValue','');
 		});
+		$("#selall").click(function(){
+			location.replace(location.href);
+
+		
+		})
 		
 		/* $('#dialog').dialog(
 						{
@@ -223,6 +233,7 @@
 									$("#sel").textbox('setValue','')
 									$("#dd").textbox('setValue','');
 									$("#ddd").textbox('setValue','');
+									
 								},
 								onBeforeLoad:function(){
 									/* var item = $('#tb').datagrid('getRows');  
@@ -263,14 +274,15 @@
 												{
 													field : 'LOCATION',
 													title : '项目地点',
-													width : 150,
+													width : 250,
 													align : 'center'
 												},
 												{
-													field : 'TIME',
+													field : 'time1',
 													title : '申请时间',
 													width : 150,
-													align : 'center'
+													align : 'center',
+													
 												},
 												{
 													field : 'MONEY',
@@ -319,6 +331,11 @@
 								
 							});
 					
+				}else {
+					alert("请输入正确格式后再查询！");
+					$("#sel").textbox('setValue','')
+					$("#dd").textbox('setValue','');
+					$("#ddd").textbox('setValue','');
 				}
 					
 				
@@ -327,7 +344,7 @@
 			
 			})		
 		
-			$("#updbtn").click(function(){
+			/* $("#updbtn").click(function(){
 				var rows=$('#tb').datagrid("getSelections");
 						//getSelections选中的所有行
 			if (rows.length==1) {											//当选择成功时
@@ -351,7 +368,7 @@
 			}else{
 				alert("请选择一行再进行删除");
 			}
-			})
+			}) */
 		$('#tb').datagrid(
 						{
 							url : '/p2p/dhw/selpro.do',
@@ -370,6 +387,9 @@
                     			}
 							}, */
 							//fit : true,  
+							onLoadSuccess:function(list){
+								alert(list.list[0].TIME);
+							},
 							columns : [ [
 									{
 										field : 'xuanze',
@@ -399,11 +419,11 @@
 									{
 										field : 'LOCATION',
 										title : '项目地点',
-										width : 150,
+										width : 250,
 										align : 'center'
 									},
 									{
-										field : 'TIME',
+										field : 'time1',
 										title : '申请时间',
 										width : 150,
 										align : 'center'
@@ -456,10 +476,10 @@
 						
 				
 						
-		$("#addbtn").click(function() {
+		/* $("#addbtn").click(function() {
 			//dialog.init(); //点击增加按钮 
 			$('#handledialog').dialog("open"); //打开模态框
-		});
+		}); */
 		/* function editUser(index){
 		alert(index);
 			$('#tb').datagrid('selectRow',index);// 关键在这里

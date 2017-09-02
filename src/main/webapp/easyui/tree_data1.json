@@ -87,7 +87,7 @@
 			"text":"贷款业务",
 			 
 			"attributes":{    
-               "url":"daikuan.jsp",
+               "url":"",
             "price":100    
        		 } 
 		},{
@@ -95,7 +95,7 @@
 			"text":"融资业务",
 			  
 			"attributes":{
-				"url":"pingjiao.jsp"
+				"url":"rongzi.jsp"
 			}
 		},{
 			"id":163,
@@ -121,7 +121,7 @@
 			"id":171,
 			"text":"审视部审核",
 			"attributes":{    
-            "url":"product.html",    
+            "url":"http://localhost:9088/p2p/yx/first.do",    
             "price":100    
        		 } 
 		},{
