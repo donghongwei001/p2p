@@ -12,7 +12,7 @@
 	<insert id="insertPersonalForm" parameterType="com.entity.ypgPersonalForm">
 		insert into psersonalform values(psersonalid.nextval,${userID},'${personalname}','${idcard}','${iphone}','${accountnumber}','${mailbox}','${sex}',to_date('${birthday}','yyyy-MM-dd'),'${educational}','${marriage}','${havachidren}','${address}','${homephone}','${worklife}','${occupation}','${workunit}','${unitproperties}','${unitphone}','${monthlyincome}','${haveroom}','${houseloan}','${havecar}','${carloan}','${contactname}','${contactrelation}','${contactphone}')
 	</insert>
-	<insert id="insertEmployee" parameterType="com.entity.ypgEmployee">
-		insert into empty values(empid.nextval,'${empname}','${emppwd}','${name}','${sex}',${iphone},'${address}','${email}',to_date('${addtime}','yyyy-MM-dd'))
+	<insert id="insertEmployee" parameterType="com.entity.YpgEmployee">
+		insert into empty values(empid.nextval,#{empname,jdbcType=VARCHAR},#{emppwd,jdbcType=VARCHAR},#{name,jdbcType=VARCHAR},#{sex,jdbcType=VARCHAR},#{iphone,jdbcType=NUMERIC},#{address,jdbcType=VARCHAR},#{email,jdbcType=VARCHAR},to_date('${addtime}','yyyy-MM-dd'))
 	</insert>
 </mapper>

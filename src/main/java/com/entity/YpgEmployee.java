@@ -1,19 +1,20 @@
 package com.entity;
 
-public class ypgEmployee {
-	private int empid;
+public class YpgEmployee {
+	private Integer empid;
 	private String empname;
 	private String emppwd;
 	private String name;
 	private String sex;
-	private int iphone;
+	private String iphone;
 	private String address;
 	private String email;
 	private String addtime;
-	public int getEmpid() {
+	
+	public Integer getEmpid() {
 		return empid;
 	}
-	public void setEmpid(int empid) {
+	public void setEmpid(Integer empid) {
 		this.empid = empid;
 	}
 	public String getEmpname() {
@@ -40,10 +41,10 @@ public class ypgEmployee {
 	public void setSex(String sex) {
 		this.sex = sex;
 	}
-	public int getIphone() {
+	public String getIphone() {
 		return iphone;
 	}
-	public void setIphone(int iphone) {
+	public void setIphone(String iphone) {
 		this.iphone = iphone;
 	}
 	public String getAddress() {
@@ -64,11 +65,11 @@ public class ypgEmployee {
 	public void setAddtime(String addtime) {
 		this.addtime = addtime;
 	}
-	@Override
+	/*@Override
 	public String toString() {
 		return "ypgEmployee [empid=" + empid + ", empname=" + empname + ", emppwd=" + emppwd + ", name=" + name
 				+ ", sex=" + sex + ", iphone=" + iphone + ", address=" + address + ", email=" + email + ", addtime="
 				+ addtime + "]";
-	}
+	}*/
 	
 }

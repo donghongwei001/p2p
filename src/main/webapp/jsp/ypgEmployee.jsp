@@ -80,7 +80,7 @@
 					<th height="40">电子邮箱：</th><td><input id="email" name="email"></td>
 				</tr>
 				<tr>
-					<th height="40">日期：</th><td><input id="addtime" name="addtime" class="easyui-datebox" required="required"></td>
+					<th height="40">日期：</th><td><input id="addtime" name="addtime" class="easyui-datebox" data-options="required:true"></td>
 				</tr>
 				<tr>
 					<th height="40">角色：</th><td><input id="rolename"></td>
@@ -171,17 +171,28 @@
 				text : '确定',
 				iconCls : 'icon-save',
 				handler : function() {
-					$('#myForm').form('submit', {
+					$('#myForm').form('submit', {//form({})相当于表单的构造函数
+                        //easyui提交数据给后台是通过jQuery ajax中的序列化将数据提交给后台
 						url : "/p2p/person/insertEmployee.do",
-						onSubmit : function() {
+						onSubmit : function(param) {
+							/* param.empname =$("#empname").val();
+							param.emppwd =$("#emppwd").val();
+							param.name =$("#name").val();
+							param.sex =$("#sex").val();
+							param.iphone =$("#iphone").val();
+							param.address =$("#address").val();
+							param.email =$("#email").val(); */
+							//param.addtime =$("#addtime").val();
+							 //表单验证
 							var isValid = $(this).form('validate');
-							return isValid;
+							return isValid; 
 						},
-						success : function(data) {
-							alert(data);
-							if (data == 1) {
-								$('#proDataGrid').datagrid('insertRow', {
-									index : 0, // 索引从0开始
+						success : function(data1) {
+							alert(data1);
+							
+							 if (data1==1) {
+								/*  $('#proDataGrid').datagrid('insertRow', {
+									index : 3, // 索引从0开始
 									row : {
 										empname : $("#empname").val(),
 										emppwd : $("#emppwd").val(),
@@ -191,18 +202,20 @@
 										address : $("#address").val(),
 										email : $("#email").val(),
 										addtime : $("#addtime").val(),
-										rolename : $("#rolename").val()
 									}
 									
-								});
+								});  */
 								$('#handlerDialog').dialog("close");
 							}
+						},error: function(){
+							alert(1111111);
+							
 						}
 					});
 				}
 			}, {
 				text : '取消',
-				iconCls : 'icon-clear',
+				iconCls : 'icon-close',
 				handler : function() {
 					$('#handlerDialog').dialog("close")
 				}
