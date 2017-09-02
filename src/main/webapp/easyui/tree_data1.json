@@ -15,7 +15,8 @@
 		"children":[{
 			"id":121,
 			"text":"用户账号管理",
-			"attributes":{  
+			"attributes":{ 
+			"url":"yonghu.jsp", 
             "price":100    
        		 } 
 		},{
@@ -127,6 +128,7 @@
 			"id":172,
 			"text":"理事审核",
 			"attributes":{
+				"url":"/p2p/add/selectproject.do", 
 				"p1":"Custom Attribute1",
 				"p2":"Custom Attribute2"
 			}
