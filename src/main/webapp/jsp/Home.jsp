@@ -21,10 +21,10 @@
 		#top-menu{float:left;margin-top:3.5%;margin-left:40px;}
 		#top-menu a{text-decoration:none;color:#333;font-size:18px;}
 		#top-login{float:right;margin-top:3%;margin-left:50px;}
-		#img{width:100%;height:auto;}
+		#img{width:100%;height:auto;background-image:url(../image/img6.png) none;}
 		#content{width:76%;float:left;margin-left:12%;margin-top:20px;}
 		#content-left{width:69%;height:800px;float:left;/* background-color:#FFA07A; */}
-		#content-right{width:29%;height:800px;float:left;margin-left:15px;background-color:#FF7F50;}
+		#content-right{width:29%;height:800px;float:left;margin-left:15px;/* background-color:#FF7F50; */}
 		#down{width:100%;border-top:1px solid #DCDCDC;float:left;margin-top:20px;}
 		#down-one{margin-left:35.5%;margin-top:20px;}
 		#down-two{margin-left:37.3%;}
@@ -56,7 +56,7 @@
 			</div>
 		</div>
 		<div id="img">
-			<img src="../image/img6.png" width="100%" />
+			<!-- <img src="../image/img6.png" width="100%" /> -->
 		</div>		
 		<div id="content">
 			<div id="content-left">
@@ -81,7 +81,9 @@
 					</tbody>
 				</table>
 			</div>
-			<div id="content-right"></div>
+			<div id="content-right">
+							
+			</div>
 		</div>
 		<div id="down">
 			<div id="down-one">
@@ -105,8 +107,7 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 					<h4 class="modal-title" id="exampleModalLabel">用户注册</h4>

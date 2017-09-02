@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -24,12 +25,12 @@
 		#con{width:100%;height:801px;float:left;background-color:#F5F5F5;}
 		#content{width:76%;float:left;margin-left:12%;margin-top:30px;}
 		#content-left{width:20%;height:800px;float:left;}
-		#left2:hover{background-color:#FFFFFF;}
+		#left1:hover{background-color:#FFFFFF;}
 		#left3:hover{background-color:#FFFFFF;}
 		#left4:hover{background-color:#FFFFFF;}
 		#left5:hover{background-color:#FFFFFF;}
-		#left1{text-align:center;font-size:18px;width:100%;height:50px;line-height:50px;background-color:#FFFFFF;}
-		#left2{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
+		#left1{text-align:center;font-size:18px;width:100%;height:50px;line-height:50px;background-color:#DCDCDC;}
+		#left2{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#FFFFFF;}
 		#left3{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
 		#left4{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
 		#left5{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
@@ -65,7 +66,7 @@
 			</div>			
 			<div id="top-menu">
 				<a href="#">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="myproject.jsp">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="#">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="#">我要借款</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="#">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;			
 			</div>
@@ -82,36 +83,37 @@
 		<div id="con">		
 			<div id="content">
 				<div id="content-left">
-					<div id="left1"><a href="#">我的资产</a></div>
-					<div id="left2"><a href="myproject.jsp">我的项目</a></div>
+					<div id="left1"><a href="personal.jsp">我的资产</a></div>
+					<div id="left2"><a href="#">我的项目</a></div>
 					<div id="left3">我的投资</div>
 					<div id="left4">我的还款</div>
 					<div id="left5">个人信息</div>
 				</div>
 				<div id="content-right">
 					<div id="left-div">						
-						<div id="div-img">						
-							<img src="../image/tx.jpg" width="130px" height="130px">													
-						</div>
-						<div id="div-name">
-							<span>haha</span>
-						</div>
-						<div id="th"></div>						
-						<div id="div-yuer">
-							<span>账户余额：</span>
-						</div>
-						<div id="div-money">
-							<span id="span-money">0.0</span>&nbsp;&nbsp;&nbsp;<span>元</span>
-						</div>
-					</div>	
-					<div id="right-but">
-						<div id="recharge">
-							<button type="button" style="font-size:18px" class="btn btn-success">我要充值</button>
-						</div>
-						<div id="cash">
-							<button type="button" style="font-size:18px" class="btn btn-info">我要提现</button>
-						</div>
-					</div>
+						<table class="table">
+							<thead>
+								<tr>
+									<th>项目编号</th>
+									<th>项目名称</th>
+									<th>借款资金</th>
+									<th>借款时间</th>
+									<th>状态</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach items="${project}" var="user">
+									<tr>
+										<td>${user.id}</td>
+										<td>${user.projectname}</td>
+										<td>${user.money}</td>
+										<td>${user.time}</td>
+										<td>${user.codename}</td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+					</div>					
 				</div>
 			</div>
 		</div>
