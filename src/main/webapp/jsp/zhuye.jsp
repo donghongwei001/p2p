@@ -175,7 +175,7 @@ padding: 0;
 							</div>
 							<div id="tuthree">
 								<img src="../image/timg (2).jpg" width=100% height=100%>
-							</div>
+							</div> 
 							
 						</td>
 						<td id="you">
