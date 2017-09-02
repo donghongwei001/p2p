@@ -18,19 +18,14 @@
 	</table>
 </body>
 </html>
-<script type="text/javascript">
+<script type="text/javascript"> 
 	$(function(){
 		$('#dg').datagrid({    
-		    url:'/p2p/',    
+		    url:'/p2p/add/user.do',    
 		    columns:[[    
-		        {field:'PROJECTNAME',title:'PROJECTNAME',width:100},    
-		        {field:'PROJECTTYPE',title:'PROJECTTYPE',width:100},    
-		        {field:'LOCATION',title:'LOCATION',width:100},
-		        {field:'TIME',title:'TIME',width:100}, 
-		        {field:'MONEY',title:'MONEY',width:100}, 
-		        {field:'LIFELOAN',title:'LIFELOAN',width:100}, 
-		        {field:'RATEMONEY',title:'RATEMONEY',width:100}, 
-		        {field:'APPENDIX',title:'APPENDIX',width:100}
+		        {field:'USERID',title:'USERID',width:100},    
+		        {field:'USERNAME',title:'USERNAME',width:100},    
+		        {field:'PWD',title:'PWD',width:100}
 		    ]]    
 		});
 		

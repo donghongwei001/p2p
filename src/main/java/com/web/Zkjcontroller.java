@@ -54,10 +54,10 @@ public class Zkjcontroller {
 	/*
 	 * 查询用户
 	 */
-	/*@RequestMapping("/user")
-	public String selectusers(){
+	@RequestMapping("/user")
+	public List<Map> selectusers(){
 		List<Map> listu=servicedao.selectusers();
 
-		return "yonghu";
-	}*/
+		return listu;
+	}
 }
