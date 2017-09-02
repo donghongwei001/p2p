@@ -88,4 +88,19 @@ public class dhwsubjectController {
 		return null;
 		
 	}
+	//查看项目详情
+	@RequestMapping("/xiang")
+	public @ResponseBody List<Map> selxiangqing(HttpServletRequest request){
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		int  id=Integer.parseInt(request.getParameter("id"));
+		System.out.println(id);
+		List<Map> list=dhwprojectService.selxiangqing(id);
+		for (int i = 0; i < list.size(); i++) {
+			String time=simpleDateFormat.format(list.get(i).get("TIME"));
+			list.get(i).put("time1", time);
+			
+		}
+		return list;
+		
+	}
 }

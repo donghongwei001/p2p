@@ -35,6 +35,11 @@ public class DhwrongziServiceimpl implements DhwrongziService {
 		// TODO Auto-generated method stub
 		return dhwrongzidao.queryprojectthr(str1, str2, str3);
 	}
+	@Override
+	public List<Map> selxiangqing(int id) {
+		// TODO Auto-generated method stub
+		return dhwrongzidao.selxiangqing(id);
+	}
 	
 
 }

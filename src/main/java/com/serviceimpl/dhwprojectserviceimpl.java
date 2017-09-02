@@ -39,4 +39,10 @@ public class dhwprojectserviceimpl implements dhwprojectService {
 		return dhwprojectdao.queryall(s1, s2, name);
 	}
 
+	@Override
+	public List<Map> selxiangqing(int id) {
+		// TODO Auto-generated method stub
+		return dhwprojectdao.selxiangqing(id);
+	}
+
 }
