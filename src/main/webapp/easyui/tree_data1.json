@@ -128,15 +128,15 @@
 			"id":172,
 			"text":"理事审核",
 			"attributes":{
-				"url":"/p2p/add/selectproject.do", 
+				"url":"http://localhost:9088/p2p/yx/chushe.do", 
 				"p1":"Custom Attribute1",
 				"p2":"Custom Attribute2"
 			}
 		},{
 			"id":173,
-			"text":"Microsoft Office",
+			"text":"逾期项目",
 			"attributes":{    
-            "url":"",    
+            "url":"http://localhost:9088/p2p/yx/yuqi.do",    
             "price":100    
        		 } 
 		},{

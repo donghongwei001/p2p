@@ -35,6 +35,7 @@
 				<td><input type="text" size="5" name="xm_id"
 										style="border:0px;background:rgba(0, 0, 0, 0);"
 										value="${l.userid }"></td>
+				<td>${l.username }</td>
 				<td>${l.projectname }</td>
 				<td>${l.projecttype }</td>
 				<td>${l.location }</td>
@@ -72,9 +73,13 @@
 	toolbar : "#toolbar",
 	frozenColumns : [ [ {
 		field : 'userid',
-		title : '用户',
+		title : '用户id',
 		width : 50
 	}, {
+		field : 'username',
+		title : '用户姓名',
+		width : 100
+	},{
 		field : 'projectname',
 		title : '项目名称',
 		width : 100

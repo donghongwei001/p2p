@@ -6,4 +6,7 @@
 	<insert id="addfirst" parameterType="com.entity.YxFirsttable">
 		insert into firsttable values(${projectid},${firststatus},to_date('${firstdate}','yyyy-MM-dd'),'${firstname}','${firstremarks}')
 	</insert>
+	<insert id="addsecond" parameterType="com.entity.YxFinaltable">
+		insert into finaltable values(${projectid},${finalstatus},to_date('${finaldate}','yyyy-MM-dd'),'${finalname}','${finalremarks}',${poststatus})
+	</insert>
 </mapper>

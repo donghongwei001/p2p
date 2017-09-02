@@ -4,7 +4,14 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dao.YxExamineDao">	
 	<select id="queryAll" resultType="com.entity.YxExamine">
-		select userid,projectname,projecttype,location,time,money,lifeloan,ratemoney,appendix,aduitstate from projectapplication where aduitstate='1'
+		select p.userid,u.username,p.projectname,p.projecttype,p.location,p.time,p.money,p.lifeloan,p.ratemoney,p.appendix,p.aduitstate from projectapplication p,usertable u where u.userid=p.userid and p.aduitstate='1'
 	</select>
    
+   <select id="queryxm" resultType="com.entity.Outtime">
+		select p.projectname,o.outday,o.outmoney from outtime o,projectapplication p where o.projrctid=p.id
+	</select>
+	
+	<select id="queryft" resultType="com.entity.YxFirst">
+		select f.projectid,p.projectname,f.firststatus,f.firstdate,f.firstname,f.firstremarks from firsttable f,projectapplication p where f.projectid=p.id
+	</select>
 </mapper>
