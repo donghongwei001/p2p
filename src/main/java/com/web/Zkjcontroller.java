@@ -71,14 +71,31 @@ public class Zkjcontroller {
 	@RequestMapping("/disable")
 	@ResponseBody
 	public String disableuser(@RequestBody String name){
-		System.out.println("aaa");
 		
+		System.out.println(name);
 	String[] aa=name.split(",");
+	//String str="";
 	for(int i=0;i<aa.length;i++){
-		System.out.println(aa[i]);
+		servicedao.updateuser(aa[i]);
+		//str=str+"'"+aa[i]+"'"+",";
 	}
+	/*String str1="";
+	for(int i=0;i<str.length()-1;i++){
+		str1=str1+str.charAt(i);
+	}
+	servicedao.updateuser(str1);
+	System.out.println(str1);*/
 	
-	
+		return "success";
+	}
+	@RequestMapping("/start")
+	@ResponseBody
+	public String startuser(@RequestBody String str){
+		String[] aa=str.split(",");
+		for(int i=0;i<aa.length;i++){
+			servicedao.updatestartuser(aa[i]);
+			System.out.println(aa[i]);
+		}
 		return "success";
 	}
 }
