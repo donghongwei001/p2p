@@ -88,6 +88,7 @@ public class dhwsubjectController {
 		return null;
 		
 	}
+	//查看项目详情
 	@RequestMapping("/xiang")
 	public @ResponseBody List<Map> selxiangqing(HttpServletRequest request){
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");

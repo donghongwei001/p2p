@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.DhwzhuyeDao">	
+	<select id="selectdemo" resultType="java.util.HashMap">
+		select p.id, p.PROJECTNAME,p.MONEY,p.LIFELOAN,j.NAME,n.PERSONALNAME,n.SEX,n.ADDRESS from PROJECTAPPLICATION p,PSERSONALFORM n,SUBJECTTYPE j where p.USERID=n.USERID and p.PROJECTTYPE=j.ID  and ROWNUM &lt;= 6 ORDER BY ROWNUM ASC
+	</select>
+	
+</mapper>
