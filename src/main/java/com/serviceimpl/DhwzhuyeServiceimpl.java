@@ -18,5 +18,26 @@ public class DhwzhuyeServiceimpl implements DhwzhuyeService {
 		// TODO Auto-generated method stub
 		return dhwzhudao.selectdemo();
 	}
+	@Override
+	public List<Map> selfabu() {
+		// TODO Auto-generated method stub
+		return dhwzhudao.selfabu();
+	}
+	@Override
+	public List<Map> selstatu() {
+		// TODO Auto-generated method stub
+		return dhwzhudao.selstatu();
+	}
+	@Override
+	public int selday() {
+		// TODO Auto-generated method stub
+		return dhwzhudao.selday();
+	}
+	@Override
+	public int selbody() {
+		// TODO Auto-generated method stub
+		return dhwzhudao.selbody();
+	}
+	
 
 }
