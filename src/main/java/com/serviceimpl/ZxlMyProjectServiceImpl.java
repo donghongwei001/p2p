@@ -12,10 +12,12 @@ import com.service.ZxlMyProjectService;
 public class ZxlMyProjectServiceImpl implements ZxlMyProjectService{
 	@Autowired
 	private ZxlMyProjectDao projectdao;
+	/**
+	 * 查询该用户的申请的项目
+	 */
 	@Override
 	public List<ZxlMyProject> listproject() {
 		List<ZxlMyProject> list=projectdao.listproject();
 		return list;
 	}
-
 }

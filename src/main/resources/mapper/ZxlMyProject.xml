@@ -5,6 +5,5 @@
 <mapper namespace="com.dao.ZxlMyProjectDao">	
 	<select id="listproject" resultType="com.entity.ZxlMyProject">
 		select p.id,p.projectname,p.money,p.time,c.codename from projectapplication p,code c where p.userid=2 and p.aduitstate=c.codeid
-	</select>
-	
+	</select>	
 </mapper>

@@ -13,7 +13,7 @@
     
 	<style type="text/css">
 		body{/* background-color:#F5F5F5; */}
-		a{text-decoration:none;}
+		div a{text-decoration:none;}
 		#body{width:100%;height:auto;}
 		#top{width:76%;height:auto;align:center;margin-left:12%;float:left;}
 		#top-img{float:left;}
@@ -34,8 +34,8 @@
 		#left3{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
 		#left4{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
 		#left5{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
-		#content-right{width:78%;height:800px;float:left;margin-left:15px;background-color:#FFFFFF;}
-		#left-div{width:76%;height:180px;border-bottom:1px dashed #DCDCDC;float:left;margin:50px 50px 50px 90px;}
+		#content-right{width:76%;height:800px;float:left;margin-left:15px;background-color:#FFFFFF;}
+		#right-div{width:76%;height:auto;float:left;margin:50px 50px 50px 90px;}
 		#div-img{float:left;}
 		#div-name{float:left;margin-left:20px;margin-right:20px;}	
 		#th{float:left;width:10px;height:130px;border-right:1px dashed #DCDCDC;}
@@ -68,7 +68,7 @@
 				<a href="#">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="#">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="#">我要借款</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="#">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;			
+				<a href="#">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			
 			</div>
 			<div id="top-login">										
 				<span>尊敬的<a href="#"></a>,您好！ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
@@ -85,20 +85,21 @@
 				<div id="content-left">
 					<div id="left1"><a href="personal.jsp">我的资产</a></div>
 					<div id="left2"><a href="#">我的项目</a></div>
-					<div id="left3">我的投资</div>
-					<div id="left4">我的还款</div>
-					<div id="left5">个人信息</div>
+					<div id="left3"><a href="mytouzi.jsp">我的投资</a></div>
+					<div id="left4"><a href="myhuankuan.jsp">我的还款</a></div>
+					<div id="left5"><a href="mypersonal.jsp">个人信息</a></div>
 				</div>
+			
 				<div id="content-right">
-					<div id="left-div">						
+					<div id="right-div">						
 						<table class="table">
 							<thead>
 								<tr>
-									<th>项目编号</th>
-									<th>项目名称</th>
-									<th>借款资金</th>
-									<th>借款时间</th>
-									<th>状态</th>
+									<th><h4>项目编号</h4></th>
+									<th><h4>项目名称</h4></th>
+									<th><h4>借款资金</h4></th>
+									<th><h4>借款时间</h4></th>
+									<th><h4>状态</h4></th>
 								</tr>
 							</thead>
 							<tbody>

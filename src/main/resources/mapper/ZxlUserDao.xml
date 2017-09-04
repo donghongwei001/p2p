@@ -7,6 +7,6 @@
 		select * from usertable
 	</select>
 	<insert id="addUser" parameterType="com.entity.ZxlUser">
-		insert into usertable values(usertableid.nextval,#{username},#{pwd},0)
+		insert into usertable values(usertableid.nextval,#{username},#{pwd},0,'否')
 	</insert>
 </mapper>
