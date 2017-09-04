@@ -25,15 +25,17 @@
 		#con{width:100%;height:801px;float:left;background-color:#F5F5F5;}
 		#content{width:76%;float:left;margin-left:12%;margin-top:30px;}
 		#content-left{width:20%;height:800px;float:left;}
-		#left1:hover{background-color:#FFFFFF;}
-		#left2:hover{background-color:#FFFFFF;}
-		#left4:hover{background-color:#FFFFFF;}
-		#left5:hover{background-color:#FFFFFF;}
+		#left1:hover{background-color:#F5F5F5;}
+		#left2:hover{background-color:#F5F5F5;}
+		#left4:hover{background-color:#F5F5F5;}
+		#left5:hover{background-color:#F5F5F5;}
+		#left6:hover{background-color:#F5F5F5;}
 		#left1{text-align:center;font-size:18px;width:100%;height:50px;line-height:50px;background-color:#DCDCDC;}
 		#left2{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
-		#left3{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#FFFFFF;}
+		#left3{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#F5F5F5;}
 		#left4{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
 		#left5{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
+		#left6{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
 		#content-right{width:76%;height:800px;float:left;margin-left:15px;background-color:#FFFFFF;}
 		#right-div{width:76%;height:auto;float:left;margin:50px 50px 50px 90px;}
 		#div-img{float:left;}
@@ -86,13 +88,14 @@
 					<div id="left1"><a href="personal.jsp">我的资产</a></div>
 					<div id="left2"><a href="myproject.do">我的项目</a></div>
 					<div id="left3"><a href="#">我的投资</a></div>
-					<div id="left4"><a href="myhuankuan.jsp">我的还款</a></div>
-					<div id="left5"><a href="mypersonal.jsp">个人信息</a></div>
+					<div id="left4"><a href="myhuankuan.do">我的还款</a></div>
+					<div id="left5"><a href="mypersonal.do">个人信息</a></div>
+					<div id="left6"><a href="updatepwd.do">修改密码</a></div>
 				</div>
 			
 				<div id="content-right">
 					<div id="right-div">						
-						<table class="table">
+						<table class="table table-hover">
 							<thead>
 								<tr>
 									<th><h4>项目编号</h4></th>

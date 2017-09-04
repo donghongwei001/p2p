@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
+import com.entity.ZxlMyPersonal;
 import com.entity.ZxlMyProject;
 import com.entity.ZxlMyTouzi;
 import com.entity.ZxlUser;
@@ -93,4 +94,23 @@ public class ZxlUserController {
 		request.setAttribute("touzi", list);
 		return "mytouzi";
 	}
+	/**
+	 * 查询该用户的基本信息
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping("/mypersonal")
+	public String listmypersonal(HttpServletRequest request){
+		List<ZxlMyPersonal> list=userservice.listmypersonal();
+		request.setAttribute("mypersonal", list);
+		return "mypersonal";		
+	}
+	/*@RequestMapping("/updatepwd")
+	public String updatepwd(@RequestBody String str,ZxlMyPersonal pwd,HttpServletRequest request){
+		//ZxlMyPersonal pwd=JSON.parseObject(str, ZxlMyPersonal.class);
+		if(userservice.updatepwd(pwd)){
+			
+		}
+		return "myupdatepwd";		
+	}*/
 }

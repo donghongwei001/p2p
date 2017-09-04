@@ -61,7 +61,7 @@
 		</div>		
 		<div id="content">
 			<div id="content-left">
-				<table class="table">
+				<table class="table table-hover">
 					<thead>
 						<tr>
 							<th>用户id</th>
@@ -248,7 +248,7 @@
 				data : JSON.stringify(data),
 				success : function(data1) {
 					if(data1=="Ok"){
-						window.location.href="http://localhost:9088/p2p/jsp/zhuye.jsp"
+						window.location.href="http://localhost:9088/p2p/jsp/personal.jsp"
 					}
 					else{
 						alert("用户名或密码错误！！！  ");

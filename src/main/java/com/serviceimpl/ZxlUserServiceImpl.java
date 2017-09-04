@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dao.ZxlUserDao;
+import com.entity.ZxlMyHuankuan;
+import com.entity.ZxlMyPersonal;
 import com.entity.ZxlMyProject;
 import com.entity.ZxlMyTouzi;
 import com.entity.ZxlUser;
@@ -19,6 +21,9 @@ import com.service.ZxlUserService;
 public class ZxlUserServiceImpl implements ZxlUserService{
 	@Autowired
 	private ZxlUserDao userdao;
+	/**
+	 * 查询用户表的所有信息
+	 */
 	@Override
 	public List<ZxlUser> list() {
 		List<ZxlUser> list=userdao.list();
@@ -80,5 +85,29 @@ public class ZxlUserServiceImpl implements ZxlUserService{
 		List<ZxlMyTouzi> list=userdao.listmytouzi();
 		return list;
 	}
+	/**
+	 * 查询该用户的还款信息
+	 */
+	@Override
+	public List<ZxlMyHuankuan> listhuankuan() {
+		List<ZxlMyHuankuan> list=userdao.listhuankuan();
+		return list;
+	}
+	/**
+	 * 查询该用户的基本信息
+	 */
+	@Override
+	public List<ZxlMyPersonal> listmypersonal() {
+		List<ZxlMyPersonal> list=userdao.listmypersonal();
+		return list;
+	}
+	/**
+	 * 根据用户id修改用户密码
+	 */
+	/*@Override
+	public boolean updatepwd(ZxlMyPersonal pwd) {
+		userdao.updatepwd(pwd);
+		return true;		
+	}*/
 
 }

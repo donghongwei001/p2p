@@ -25,17 +25,21 @@
 		#con{width:100%;height:801px;float:left;background-color:#F5F5F5;}
 		#content{width:76%;float:left;margin-left:12%;margin-top:30px;}
 		#content-left{width:20%;height:800px;float:left;}
-		#left1:hover{background-color:#FFFFFF;}
-		#left3:hover{background-color:#FFFFFF;}
-		#left4:hover{background-color:#FFFFFF;}
-		#left5:hover{background-color:#FFFFFF;}
+		#left1:hover{background-color:#F5F5F5;}
+		#left2:hover{background-color:#F5F5F5;}
+		#left3:hover{background-color:#F5F5F5;}
+		#left4:hover{background-color:#F5F5F5;}
+		#left6:hover{background-color:#F5F5F5;}
 		#left1{text-align:center;font-size:18px;width:100%;height:50px;line-height:50px;background-color:#DCDCDC;}
-		#left2{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#FFFFFF;}
+		#left2{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
 		#left3{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
 		#left4{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
-		#left5{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
+		#left5{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#F5F5F5;}
+		#left6{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
 		#content-right{width:76%;height:800px;float:left;margin-left:15px;background-color:#FFFFFF;}
 		#right-div{width:76%;height:auto;float:left;margin:50px 50px 50px 90px;}
+		#td-left{text-align:right;font-size:18px;}
+		#td-right{font-size:18px;}
 		#div-img{float:left;}
 		#div-name{float:left;margin-left:20px;margin-right:20px;}	
 		#th{float:left;width:10px;height:130px;border-right:1px dashed #DCDCDC;}
@@ -84,35 +88,72 @@
 			<div id="content">
 				<div id="content-left">
 					<div id="left1"><a href="personal.jsp">我的资产</a></div>
-					<div id="left2"><a href="myproject.jsp">我的项目</a></div>
-					<div id="left3"><a href="mytouzi.jsp">我的投资</a></div>
-					<div id="left4"><a href="#">我的还款</a></div>
-					<div id="left5"><a href="mypersonal.jsp">个人信息</a></div>
+					<div id="left2"><a href="myproject.do">我的项目</a></div>
+					<div id="left3"><a href="mytouzi.do">我的投资</a></div>
+					<div id="left4"><a href="myhuankuan.do">我的还款</a></div>
+					<div id="left5"><a href="#">个人信息</a></div>
+					<div id="left6"><a href="updatepwd.do">修改密码</a></div>
 				</div>
 			
 				<div id="content-right">
 					<div id="right-div">						
-						<table class="table">
-							<thead>
+						<table class="table table-hover" id="table">
+							<c:forEach items="${mypersonal}" var="user">						
 								<tr>
-									<th><h4>项目编号</h4></th>
-									<th><h4>项目名称</h4></th>
-									<th><h4>借款资金</h4></th>
-									<th><h4>借款时间</h4></th>
-									<th><h4>状态</h4></th>
+									<td id="td-left">昵称：</td>
+									<td id="td-right">
+										<input type="text" value="${user.username}" style="border:0px;"/>
+									</td>
 								</tr>
-							</thead>
-							<tbody>
-								<c:forEach items="${project}" var="user">
-									<tr>
-										<td>${user.id}</td>
-										<td>${user.projectname}</td>
-										<td>${user.money}</td>
-										<td>${user.time}</td>
-										<td>${user.codename}</td>
-									</tr>
-								</c:forEach>
-							</tbody>
+								<tr>
+									<td id="td-left">真实姓名：</td>
+									<td id="td-right">
+										<input type="text" value="${user.personalname}" style="border:0px;"/>									
+									</td>
+								</tr>
+								<tr>
+									<td id="td-left">性别：</td>
+									<td id="td-right">
+										<input type="text" value="${user.sex}" style="border:0px;"/>									
+									</td>
+								</tr>
+								<tr>
+									<td id="td-left">联系方式：</td>
+									<td id="td-right">
+										<input type="text" value="${user.iphone}" style="border:0px;"/>									
+									</td>
+								</tr>
+								<tr>
+									<td id="td-left">邮箱：</td>
+									<td id="td-right">
+										<input type="text" value="${user.mailbox}" style="border:0px;"/>									
+									</td>
+								</tr>
+								<tr>
+									<td id="td-left">学历：</td>
+									<td id="td-right">
+										<input type="text" value="${user.educational}" style="border:0px;"/>									
+									</td>
+								</tr>
+								<tr>
+									<td id="td-left">地址：</td>
+									<td id="td-right">
+										<input type="text" value="${user.address}" style="border:0px;"/>									
+									</td>
+								</tr>
+								<tr>
+									<td id="td-left">工作年限：</td>
+									<td id="td-right">
+										<input type="text" value="${user.worklife}" style="border:0px;"/>									
+									</td>
+								</tr>
+								<tr>
+									<td id="td-left">职业：</td>
+									<td id="td-right">
+										<input type="text" value="${user.occupation}" style="border:0px;"/>									
+									</td>
+								</tr>
+							</c:forEach>
 						</table>
 					</div>					
 				</div>

@@ -19,4 +19,8 @@
 	<select id="listmytouzi" resultType="com.entity.ZxlMyTouzi">
 		select p.id,p.projectname,n.money,n.time from projectapplication p,invest n where p.id=n.subjectid 
 	</select>
+	<!-- 查询该用户的基本信息 -->
+	<select id="listmypersonal" resultType="com.entity.ZxlMyPersonal">
+		select u.userID,u.username,u.pwd,p.personalname,p.iphone,p.mailbox,p.sex,p.educational,p.address,p.worklife,p.occupation from usertable u,psersonalform p where u.userID=2 and u.userID=p.userid
+	</select>
 </mapper>
