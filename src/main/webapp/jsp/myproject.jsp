@@ -85,7 +85,7 @@
 				<div id="content-left">
 					<div id="left1"><a href="personal.jsp">我的资产</a></div>
 					<div id="left2"><a href="#">我的项目</a></div>
-					<div id="left3"><a href="mytouzi.jsp">我的投资</a></div>
+					<div id="left3"><a href="mytouzi.do">我的投资</a></div>
 					<div id="left4"><a href="myhuankuan.jsp">我的还款</a></div>
 					<div id="left5"><a href="mypersonal.jsp">个人信息</a></div>
 				</div>

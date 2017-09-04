@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
+import com.entity.ZxlMyProject;
+import com.entity.ZxlMyTouzi;
 import com.entity.ZxlUser;
 import com.service.ZxlUserService;
 /**
@@ -69,4 +71,26 @@ public class ZxlUserController {
         	return null;
         }
     } 
+	/**
+	 * 该用户的项目
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping("/myproject")
+	public String listproject(HttpServletRequest request){
+		List<ZxlMyProject> list=userservice.listproject();
+		request.setAttribute("project", list);
+		return "myproject";
+	}
+	/**
+	 * 查询该用户所投资的项目
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping("/mytouzi")
+	public String listmytouzi(HttpServletRequest request){
+		List<ZxlMyTouzi> list=userservice.listmytouzi();
+		request.setAttribute("touzi", list);
+		return "mytouzi";
+	}
 }

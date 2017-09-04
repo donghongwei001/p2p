@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper
-    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.dao.ZxlMyProjectDao">	
-	<select id="listproject" resultType="com.entity.ZxlMyProject">
-		select p.id,p.projectname,p.money,p.time,c.codename from projectapplication p,code c where p.userid=2 and p.aduitstate=c.codeid
-	</select>	
-</mapper>

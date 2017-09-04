@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dao.ZxlUserDao;
+import com.entity.ZxlMyProject;
+import com.entity.ZxlMyTouzi;
 import com.entity.ZxlUser;
 import com.service.ZxlUserService;
 /**
@@ -61,6 +63,22 @@ public class ZxlUserServiceImpl implements ZxlUserService{
 		else{
 			return false;
 		}
+	}
+	/**
+	 * 查询该用户的申请的项目
+	 */
+	@Override
+	public List<ZxlMyProject> listproject() {
+		List<ZxlMyProject> list=userdao.listproject();
+		return list;
+	}
+	/**
+	 * 查询该用户投资的项目
+	 */
+	@Override
+	public List<ZxlMyTouzi> listmytouzi() {
+		List<ZxlMyTouzi> list=userdao.listmytouzi();
+		return list;
 	}
 
 }

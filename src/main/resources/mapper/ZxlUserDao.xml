@@ -3,10 +3,20 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dao.ZxlUserDao">	
+	<!-- 查询用户表所有信息 -->
 	<select id="list" resultType="com.entity.ZxlUser">
 		select * from usertable
 	</select>
+	<!-- 向用用户表插入信息 -->
 	<insert id="addUser" parameterType="com.entity.ZxlUser">
 		insert into usertable values(usertableid.nextval,#{username},#{pwd},0,'否')
 	</insert>
+	<!-- 查询该用户申请的项目 -->
+	<select id="listproject" resultType="com.entity.ZxlMyProject">
+		select p.id,p.projectname,p.money,p.time,c.codename from projectapplication p,code c where p.userid=2 and p.aduitstate=c.codeid
+	</select>
+	<!-- 查询该用户所投资的项目 -->
+	<select id="listmytouzi" resultType="com.entity.ZxlMyTouzi">
+		select p.id,p.projectname,n.money,n.time from projectapplication p,invest n where p.id=n.subjectid 
+	</select>
 </mapper>
