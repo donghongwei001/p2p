@@ -13,4 +13,10 @@
 	<select id="selectusers" resultType="java.util.HashMap">
 		select state,username,pwd from usertable
 	</select>
+	<update id="updateuser" parameterType="String">
+		update usertable set state='是' where username in(#{str})
+	</update>
+	<update id="updatestartuser" parameterType="String">
+		update usertable set state='否' where username in (#{str})
+	</update>
 </mapper>

@@ -9,4 +9,6 @@ public interface Zkjservicedao {
 	public void saveproject(Zkjproject pp);
 	public List<Map> selectproject();
 	public List<Map> selectusers();
+	public void updateuser(String str);
+	public void updatestartuser(String str);
 }
