@@ -11,6 +11,12 @@
 		select projectname,projecttype,location,time,money,lifeloan,ratemoney,appendix from projectapplication
 	</select>
 	<select id="selectusers" resultType="java.util.HashMap">
-		select userid,username,pwd from usertable
+		select state,username,pwd from usertable
 	</select>
+	<update id="updateuser" parameterType="String">
+		update usertable set state='是' where username in(#{str})
+	</update>
+	<update id="updatestartuser" parameterType="String">
+		update usertable set state='否' where username in (#{str})
+	</update>
 </mapper>
