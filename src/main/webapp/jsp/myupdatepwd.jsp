@@ -18,7 +18,8 @@
 		#top{width:76%;height:auto;align:center;margin-left:12%;float:left;}
 		#top-img{float:left;}
 		#top-menu{float:left;margin-top:3.5%;margin-left:40px;}
-		#top-menu a{text-decoration:none;color:#333;font-size:18px;}
+		#top-menu a{text-decoration:none;color:black;font-size:18px;}
+		#top-menu a:hover{color:#00BFFF;}
 		#top-login{float:right;margin-top:3%;margin-left:50px;font-size:18px;}		
 		#address{width:100%;height:30px;float:left;background-color:#87BCEE;}
 		#address-text{width:76%;font-size:17px;float:left;margin-left:12%;margin-top:0px;}		
@@ -37,7 +38,7 @@
 		#left5{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
 		#left6{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#F5F5F5;}
 		#content-right{width:76%;height:800px;float:left;margin-left:15px;background-color:#FFFFFF;}
-		#right-div{width:76%;height:auto;float:left;margin:50px 50px 50px 90px;}
+		#right-div{width:76%;height:auto;float:left;margin-left:30%;margin-top:10%;font-size:18px;}
 		#div-img{float:left;}
 		#div-name{float:left;margin-left:20px;margin-right:20px;}	
 		#th{float:left;width:10px;height:130px;border-right:1px dashed #DCDCDC;}
@@ -67,10 +68,10 @@
 				<img src="../image/title2.png" />
 			</div>			
 			<div id="top-menu">
-				<a href="#">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="http://localhost:9088/p2p/jsp/index.jsp">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="#">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="#">我要借款</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="#">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			
+				<a href="http://localhost:9088/p2p/jsp/personal.jsp">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;						
 			</div>
 			<div id="top-login">										
 				<span>尊敬的<a href="#"></a>,您好！ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
@@ -85,38 +86,49 @@
 		<div id="con">		
 			<div id="content">
 				<div id="content-left">
-					<div id="left1"><a href="personal.jsp">我的资产</a></div>
-					<div id="left2"><a href="myproject.do">我的项目</a></div>
-					<div id="left3"><a href="mytouzi.do">我的投资</a></div>
-					<div id="left4"><a href="#">我的还款</a></div>
-					<div id="left5"><a href="mypersonal.do">个人信息</a></div>
-					<div id="left6"><a href="updatepwd.do">修改密码</a></div>
+					<div id="left1"><a href="http://localhost:9088/p2p/jsp/personal.jsp">我的资产</a></div>
+					<div id="left2"><a href="http://localhost:9088/p2p/user/myproject.do">我的项目</a></div>
+					<div id="left3"><a href="http://localhost:9088/p2p/user/mytouzi.do">我的投资</a></div>
+					<div id="left4"><a href="http://localhost:9088/p2p/jsp/myhuankuan.jsp">我的还款</a></div>
+					<div id="left5"><a href="http://localhost:9088/p2p/user/mypersonal.do">个人信息</a></div>
+					<div id="left6"><a href="http://localhost:9088/p2p/jsp/myupdatepwd.jsp">修改密码</a></div>
 				</div>
 			
 				<div id="content-right">
 					<div id="right-div">						
-						<table class="table table-hover">
-							<thead>
-								<tr>
-									<th><h4>项目编号</h4></th>
-									<th><h4>项目名称</h4></th>
-									<th><h4>还款资金</h4></th>
-									<th><h4>平台费用</h4></th>
-									<th><h4>还款日期</h4></th>
-								</tr>
-							</thead>
-							<tbody>
-								<c:forEach items="${project}" var="user">
-									<tr>
-										<td>${user.id}</td>
-										<td>${user.projectname}</td>
-										<td>${user.money}</td>
-										<td>${user.time}</td>
-										<td>${user.codename}</td>
-									</tr>
-								</c:forEach>
-							</tbody>
+						<table>
+							<tr>
+								<td>输入密码：</td>
+								<td>
+									<input type="password" id="rpwd" class="form-control" />
+								</td>
+							</tr>
+							<tr>
+								<td>&nbsp;&nbsp;</td>
+								<td>&nbsp;&nbsp;</td>
+							</tr>
+							<tr>
+								<td>新密码：</td>
+								<td>
+									<input type="password" id="rpwd" class="form-control" />
+								</td>
+							</tr>
+							<tr>
+								<td>&nbsp;&nbsp;</td>
+								<td>&nbsp;&nbsp;</td>
+							</tr>
+							<tr>
+								<td>确认密码：</td>
+								<td>
+									<input type="password" id="rpwd" class="form-control" />
+								</td>
+							</tr>
+							<tr>
+								<td>&nbsp;&nbsp;</td>
+								<td>&nbsp;&nbsp;</td>
+							</tr>
 						</table>
+						<input type="button" style="font-size:18px;margin-left:20%;" class="btn btn-success" id="but" value="修改"/>
 					</div>					
 				</div>
 			</div>

@@ -47,7 +47,7 @@
 				<a href="#">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="#">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="#">我要借款</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="#">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;			
+				<a href="http://localhost:9088/p2p/jsp/zhuye.jsp">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;			
 			</div>
 			<div id="top-login">										
 				<button type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">注册</button>
@@ -56,7 +56,7 @@
 			</div>
 		</div>
 		<div id="img">
-			<img src="../image/img6.png" width="100%" />
+			<img src="../image/img3.png" width="100%" />
 			<div id="img-login"></div>
 		</div>		
 		<div id="content">
@@ -228,7 +228,7 @@
 				data : JSON.stringify(data),
 				success : function(data1) {
 					if(data1=="no"){						
-						window.location.href="http://localhost:9088/p2p/jsp/zhuye.jsp"
+						window.location.href="http://localhost:9088/p2p/jsp/Home.jsp"
 					}
 					else{						
 						alert("用户名已注册！！！  ");
@@ -248,7 +248,7 @@
 				data : JSON.stringify(data),
 				success : function(data1) {
 					if(data1=="Ok"){
-						window.location.href="http://localhost:9088/p2p/jsp/personal.jsp"
+						window.location.href="http://localhost:9088/p2p/jsp/index.jsp"
 					}
 					else{
 						alert("用户名或密码错误！！！  ");

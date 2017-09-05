@@ -18,7 +18,8 @@
 		#top{width:76%;height:auto;align:center;margin-left:12%;float:left;}
 		#top-img{float:left;}
 		#top-menu{float:left;margin-top:3.5%;margin-left:40px;}
-		#top-menu a{text-decoration:none;color:#333;font-size:18px;}
+		#top-menu a{text-decoration:none;color:black;font-size:18px;}
+		#top-menu a:hover{color:#00BFFF;}
 		#top-login{float:right;margin-top:3%;margin-left:50px;font-size:18px;}		
 		#address{width:100%;height:30px;float:left;background-color:#87BCEE;}
 		#address-text{width:76%;font-size:17px;float:left;margin-left:12%;margin-top:0px;}		
@@ -67,10 +68,10 @@
 				<img src="../image/title2.png" />
 			</div>			
 			<div id="top-menu">
-				<a href="#">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="http://localhost:9088/p2p/jsp/index.jsp">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="#">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="#">我要借款</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="#">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			
+				<a href="http://localhost:9088/p2p/jsp/personal.jsp">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;						
 			</div>
 			<div id="top-login">										
 				<span>尊敬的<a href="#"></a>,您好！ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
@@ -85,12 +86,12 @@
 		<div id="con">		
 			<div id="content">
 				<div id="content-left">
-					<div id="left1"><a href="personal.jsp">我的资产</a></div>
-					<div id="left2"><a href="myproject.do">我的项目</a></div>
-					<div id="left3"><a href="#">我的投资</a></div>
-					<div id="left4"><a href="myhuankuan.do">我的还款</a></div>
-					<div id="left5"><a href="mypersonal.do">个人信息</a></div>
-					<div id="left6"><a href="updatepwd.do">修改密码</a></div>
+					<div id="left1"><a href="http://localhost:9088/p2p/jsp/personal.jsp">我的资产</a></div>
+					<div id="left2"><a href="http://localhost:9088/p2p/user/myproject.do">我的项目</a></div>
+					<div id="left3"><a href="http://localhost:9088/p2p/user/mytouzi.do">我的投资</a></div>
+					<div id="left4"><a href="http://localhost:9088/p2p/jsp/myhuankuan.jsp">我的还款</a></div>
+					<div id="left5"><a href="http://localhost:9088/p2p/user/mypersonal.do">个人信息</a></div>
+					<div id="left6"><a href="http://localhost:9088/p2p/jsp/myupdatepwd.jsp">修改密码</a></div>
 				</div>
 			
 				<div id="content-right">
