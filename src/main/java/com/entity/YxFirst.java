@@ -3,10 +3,11 @@ package com.entity;
 public class YxFirst {
 	int projectid;  // 项目id
 	String projectname; //项目名称
-	int firststatus; // 审核状态
+	int firststatus; // 初次审核状态
 	String firstdate; //审核日期
 	String firstname; //审核人
 	String firstremarks;  //备注
+	int finalstatus;
 	public int getProjectid() {
 		return projectid;
 	}
@@ -43,5 +44,12 @@ public class YxFirst {
 	public void setFirstremarks(String firstremarks) {
 		this.firstremarks = firstremarks;
 	}
+	public int getFinalstatus() {
+		return finalstatus;
+	}
+	public void setFinalstatus(int finalstatus) {
+		this.finalstatus = finalstatus;
+	}
+	
 	
 }

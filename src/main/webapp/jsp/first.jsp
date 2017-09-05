@@ -15,6 +15,7 @@
 <script type="text/javascript" src="../easyui/js/easyui-lang-zh_CN.js"></script>
 </head>
 <body>
+
 	<table id="proDataGrid">
 	
 		<c:forEach items="${lm }" var="m">
@@ -31,9 +32,10 @@
 				<input type="radio" value="0" name="xmstates" />拒绝</td>
 				<td><input type="text" id="people"></td>
 				<td><textarea name="note" cols=15 rows=1 id="reason"></textarea></td>
-				<td><input type="radio" value="1" name="lstates" />可发布
-				<input type="radio" value="0" name="lstates" />待发布</td>
+		<!-- 		<td><input type="radio" value="1" name="lstates" />可发布
+				<input type="radio" value="0" name="lstates" />待发布</td> -->
 				<td><button type="button" value="submit" class="btn default btn-xs" id="addsecond">审核</button></td>
+				<td><input type="button" value="详情" class="btn default btn-xs" id="selxm"></td>
 			</tr>
 		</c:forEach>
 	</table>
@@ -47,7 +49,7 @@ $(function(){
 	// data:data,
 	fitColumns : true,//自动适应网格宽度
 	striped : true,//显示斑马线
-	idField : "projectid",//设置productid为主键
+	//idField : "projectid",//设置productid为主键
 	loadMsg : "努力加载中......",//加载慢的时候提示信息
 	fit : true,//
 	rownumbers : true,
@@ -97,12 +99,12 @@ $(function(){
 		title : '原因',
 		width : 100
 	},{
-		field : 'status',
-		title : '发布状态',
-		width : 100
-	},{
 		field : 'second',
 		title : '操作',
+		width : 100
+	},{
+		field : 'xmx',
+		title : '项目详情',
 		width : 100
 	}] ]
 });
@@ -114,7 +116,7 @@ $(function(){
 		data["finalstatus"]=$("input[name='xmstates']:checked").val();
 		data["finalname"]=$("#people").val();
 		data["finalremarks"]=$("#reason").val();
-		data["poststatus"]=$("input[name='lstates']:checked").val();
+		//data["poststatus"]=$("input[name='lstates']:checked").val();
 		alert(data.finalname);
 		alert(data.finalremarks);
 		$.ajax({
@@ -123,10 +125,43 @@ $(function(){
 			contentType :"application/json;charset=UTF-8",
 			data:JSON.stringify(data),
 			success : function(data1){
-				alert("success");
+				if(data1=="right"){
+					var data={};
+					data["projectid"]=$('input[name="xmid"]').val();
+					$.ajax({
+						type : "post",
+						url : "/p2p/first/updatefinal.do",
+						contentType :"application/json;charset=UTF-8",
+						data:JSON.stringify(data),
+						success : function(data2){
+							if(data2=="ok"){
+								 window.location.href="http://localhost:9088/p2p/yx/chushe.do"
+							}
+						}
+					})
+				}
 			}
 		});
 		
 	});
+	
+	 $("#selxm").click(function(){
+		var data={};
+		data["projectid"]=$('input[name="xmid"]').val();
+		alert(data.projectid);
+		
+		$.ajax({
+			type : "post",
+			url : "/p2p/yx/xiang.do",
+			contentType : "application/json;charset=utf-8",
+			data : $('input[name="xmid"]').val(),
+			success : function(data1){
+				alert(ok);
+			}
+		});
+	});
+	
+	
+	
 });
 </script>

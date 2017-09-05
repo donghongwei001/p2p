@@ -2,11 +2,21 @@
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.dao.YxFirsttableDao">	
+<mapper namespace="com.dao.YxFirsttableDao">
+	<!-- 第一次审核插入到数据库 -->
 	<insert id="addfirst" parameterType="com.entity.YxFirsttable">
-		insert into firsttable values(${projectid},${firststatus},to_date('${firstdate}','yyyy-MM-dd'),'${firstname}','${firstremarks}')
+		insert into firsttable (projectid,firststatus,firstdate,firstname,firstremarks)values(${projectid},${firststatus},to_date('${firstdate}','yyyy-MM-dd'),'${firstname}','${firstremarks}')
 	</insert>
+	<!-- 第二次审核插入到数据库 -->
 	<insert id="addsecond" parameterType="com.entity.YxFinaltable">
 		insert into finaltable values(${projectid},${finalstatus},to_date('${finaldate}','yyyy-MM-dd'),'${finalname}','${finalremarks}',${poststatus})
 	</insert>
+	<!-- 第一次审核成功后更新项目表状态 -->
+	<update id="update" parameterType="com.entity.YxExamine">
+		update projectapplication set aduitstate = '2' where id = #{id}
+	</update> 
+	<!-- 第二次审核成功后更新二次审核状态  -->
+	<update id="updatesecond" parameterType="com.entity.YxFirsttable">
+		update firsttable set finalstatus='2' where projectid = #{projectid}
+	</update> 
 </mapper>

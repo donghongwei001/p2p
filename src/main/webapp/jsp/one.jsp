@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+	pageEncoding="utf-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -31,10 +31,9 @@
 		</tr> -->
 		<c:forEach items="${ly}" var="l">
 			<tr>
-				
-				<td><input type="text" size="5" name="xm_id"
-										style="border:0px;background:rgba(0, 0, 0, 0);"
-										value="${l.userid }"></td>
+				<td><input type="text" size="5" name="id"
+					style="border: 0px; background: rgba(0, 0, 0, 0);" value="${l.id }"></td>
+				<td>${l.userid}</td>
 				<td>${l.username }</td>
 				<td>${l.projectname }</td>
 				<td>${l.projecttype }</td>
@@ -45,16 +44,17 @@
 				<td>${l.ratemoney }</td>
 				<td>${l.appendix }</td>
 				<td>${l.aduitstate }</td>
-				<td><input type="radio" value="1" name="xm_states" />同意
-				<input type="radio" value="0" name="xm_states" />拒绝</td>
-				<td><input type="text" id=person></td>
+				<td><input type="radio" value="1" name="xm_states" />同意 <input
+					type="radio" value="0" name="xm_states" />拒绝</td>
+				<td><input type="text" id="person"></td>
 				<td><textarea name="note" cols=15 rows=1 id="reason"></textarea></td>
-				
-				<td><button type="button" value="submit" class="btn default btn-xs" id="addfirst">审核</button></td>
+
+				<td><button type="button" value="submit"
+						class="btn default btn-xs" id="addfirst">审核</button></td>
 			</tr>
 		</c:forEach>
 	</table>
-	
+
 	<script type="text/javascript">
 		$(function(){
 	$('#proDataGrid').datagrid({
@@ -71,7 +71,11 @@
 	pageSize : 20,
 	pageList : [ 20, 40, 60 ],
 	toolbar : "#toolbar",
-	frozenColumns : [ [ {
+	columns : [ [{
+		field : 'id',
+		title : '项目序号',
+		width : 50
+	},{
 		field : 'userid',
 		title : '用户id',
 		width : 50
@@ -82,11 +86,8 @@
 	},{
 		field : 'projectname',
 		title : '项目名称',
-		width : 100
-	} ] ],
-	columns : [ [
-
-	{
+		width : 80
+	} ,{
 		field : 'projecttype',
 		title : '项目类型',
 		width : 60,
@@ -140,7 +141,7 @@
 	$("#addfirst").click(function(){
 		alert("111111");
 		var data={};
-		data["projectid"]=$('input[name="xm_id"]').val();
+		data["projectid"]=$('input[name="id"]').val();
 		data["firststatus"]=$("input[name='xm_states']:checked").val();
 		data["firstname"]=$("#person").val();
 		data["firstremarks"]=$("#reason").val();
@@ -152,7 +153,22 @@
 			contentType :"application/json;charset=UTF-8",
 			data:JSON.stringify(data),
 			success : function(data1){
-				alert("success");
+				alert("2222222222");
+				if(data1=="success"){
+					var data={};
+					data["id"]=$('input[name="id"]').val();
+					$.ajax({
+						type : "post",
+						url : "/p2p/first/updatestatus.do",
+						contentType :"application/json;charset=UTF-8",
+						data:JSON.stringify(data),
+						success : function(data2){
+							if(data2=="ture"){
+								 window.location.href="http://localhost:9088/p2p/yx/first.do"
+							}
+					}
+						})
+				}
 			}
 		});
 		
@@ -162,6 +178,3 @@
 	</script>
 </body>
 </html>
-<script type="text/javascript">
-
-</script>
