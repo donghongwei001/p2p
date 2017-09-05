@@ -98,4 +98,13 @@ public class Zkjcontroller {
 		}
 		return "success";
 	}
+	@RequestMapping("allproject")
+	public ModelAndView quertallproject(){
+		ModelAndView mm=new ModelAndView();
+		List<Map> listp=servicedao.selectallproject(2);
+		mm.addObject("listp",listp);
+		mm.setViewName("singleproject");
+		return mm;
+	}
+	
 }
