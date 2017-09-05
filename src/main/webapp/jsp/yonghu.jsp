@@ -13,7 +13,8 @@
 <link rel="stylesheet" type="text/css" href="../easyui/css/easyui.css" />
 </head>
 <body>
-	<a id="btn" href="#">easyui</a>   
+	<a id="btn" href="#">禁用</a>  <a id="btna" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'">启用</a>  
+	 
 	<table id="dg" >	</table>
 </body>
 </html>
@@ -68,7 +69,36 @@
 				 }
 			 });
 			
-			
+			 $('#dg').datagrid('reload',row);
 		    }); 
+		 
+		 $('#btna').bind('click', function(){   
+			 var row=$('#dg').datagrid('getChecked');
+			 var str="";
+			 $.each(row,function(i){
+				 
+				 str=str+row[i].USERNAME+",";
+			 });
+			 var i=0;
+			 var str1="";
+			for(i;i<str.length-1;i++){
+				str1=str1+str[i];
+			}
+			 alert(str1);
+			// 循环组装："tom,zhangsan"
+			 $.ajax({
+				 type:"post",
+				// dataType:"json",
+				 url:"/p2p/add/start.do",
+				// data:JSON.stringify(row),
+				data:str1,
+				 contentType:"application/json;charset=utf-8",
+				 success:function(dataa){
+					 alert(dataa);
+				 }
+			 });
+			
+			 $('#dg').datagrid('reload',row);
+		    });
 	});
 </script>
