@@ -43,6 +43,13 @@ public class Zkjserviceimpl implements Zkjservicedao {
 		// TODO Auto-generated method stub
 		return dao.selectallproject( id);
 	}
+	@Override
+	public String queryname(String name) {
+		// TODO Auto-generated method stub
+		int id=dao.quertuserid(name);
+		String nn=dao.queryname(id);
+		return nn;
+	}
 	
 
 }

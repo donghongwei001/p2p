@@ -12,4 +12,6 @@ public interface Zkjdao {
 	public void updateuser(String str);
 	public void updatestartuser(String str);
 	public List<Map> selectallproject(int id);
+	public int quertuserid(String name);
+	public String queryname(int id);
 }
