@@ -6,7 +6,4 @@
 	<select id="queryRole" resultType="java.util.HashMap">
 		select * from role
 	</select>
-	<select id="" resultType="java.util.HashMap">
-		select roleid from role where rolename=#{rolename}
-	</select>
 </mapper>

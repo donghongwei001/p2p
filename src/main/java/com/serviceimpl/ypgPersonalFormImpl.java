@@ -19,9 +19,9 @@ public class ypgPersonalFormImpl implements ypgPersonalFormService{
 	private ypgPersonalFormDao pfDao;
 	
 	@Override
-	public List<Map> getQueryPersonalForm() {
+	public List<Map> getQueryPersonalForm(int userID) {
 		// TODO Auto-generated method stub
-		return pfDao.queryPersonalForm();
+		return pfDao.queryPersonalForm(userID);
 	}
 	
 	@Override
@@ -29,7 +29,13 @@ public class ypgPersonalFormImpl implements ypgPersonalFormService{
 		// TODO Auto-generated method stub
 		return pfDao.insertPersonalForm(pf);
 	}
-
+	
+	@Override
+	public int UpdatePersonalForm(ypgPersonalForm pff) {
+		// TODO Auto-generated method stub
+		return pfDao.updatePersonalForm(pff);
+	}
+	
 	@Override
 	public List<Map> getQueryEmployee() {
 		// TODO Auto-generated method stub
@@ -42,5 +48,4 @@ public class ypgPersonalFormImpl implements ypgPersonalFormService{
 		return pfDao.insertEmployee(ee);
 	}
 
-	
 }
