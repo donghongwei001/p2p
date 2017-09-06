@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
 import com.entity.YxExamine;
+import com.entity.YxFabu;
 import com.entity.YxFinaltable;
 import com.entity.YxFirst;
 import com.entity.YxFirsttable;
@@ -24,7 +25,12 @@ import com.service.YxFirsttableService;
 public class YxFirsttableController {
 	@Autowired
 	private YxFirsttableService firservice;
-	//第一次项目审核结果插入到数据库
+	/**
+	 * 第一次项目审核结果插入到数据库
+	 * @param json
+	 * @param response
+	 * @throws ParseException
+	 */
 	@RequestMapping(value="/shenhe")
 	public void sert(@RequestBody String json,HttpServletResponse response) throws ParseException{
 		System.out.println("11111111111111111");
@@ -53,7 +59,11 @@ public class YxFirsttableController {
 		}
 	}
 	
-	//第二次审核结果插入到数据库
+	/**
+	 * 第二次审核结果插入到数据库
+	 * @param json
+	 * @param response
+	 */
 	@RequestMapping(value="/director")
 	public void add(@RequestBody String json,HttpServletResponse response){
 		YxFinaltable yt=JSON.parseObject(json,YxFinaltable.class);
@@ -74,7 +84,11 @@ public class YxFirsttableController {
 			
 		}
 	}
-	//更新项目申请表的状态
+	/**
+	 * 更新项目申请表的状态
+	 * @param json
+	 * @return
+	 */
 	@RequestMapping(value="/updatestatus")
 	@ResponseBody
 	public String update(@RequestBody String json){
@@ -88,7 +102,11 @@ public class YxFirsttableController {
 			}
 		
 	}
-	//二次审核成功后，更新二次审核状态
+	/**
+	 * 二次审核成功后，更新二次审核状态
+	 * @param json
+	 * @return
+	 */
 	@RequestMapping(value="/updatefinal")
 	@ResponseBody
 	public String updates(@RequestBody String json){
@@ -99,6 +117,48 @@ public class YxFirsttableController {
 		}else{
 			return "no";
 		}
+	}
+	
+	/**
+	 * 插入到发布表
+	 * @param json
+	 * @return
+	 */
+	@RequestMapping(value="/addfa")
+	@ResponseBody
+	public String addfafa(@RequestBody String json){
+		YxFabu yf=JSON.parseObject(json,YxFabu.class);
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		String date=simpleDateFormat.format(new Date());
+		System.out.println(date);
+		yf.setBegintime(date);
+		yf.setNowmoney(0);
+		yf.setContent("测试用的");
+		yf.setPicture("图");
+		yf.setStatus(5);
+		yf.setMinmoney(100);
+		int id=yf.getProjectid();
+		firservice.updatefina(id);
+		System.out.println(id+"id");
+		int flag=firservice.addfa(yf);
+		if(flag>0){
+			return "oo";
+		}else{
+			return "nn";
+		}
+	
+	}
+	/**
+	 * 发布项目成功后，更新项目状态
+	 * @param json
+	 * @return
+	 */
+	@RequestMapping(value="/updatefstatus")
+	@ResponseBody
+	public String updatefin(@RequestBody String json){
+		YxFinaltable yf=JSON.parseObject(json,YxFinaltable.class);
+		return null;
+		
 	}
  
 }

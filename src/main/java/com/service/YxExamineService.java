@@ -16,4 +16,6 @@ public interface YxExamineService {
 	List<YxFirst>queryftt();
 	//二次审核时查看项目详情
 	List<Map> queryss(int id);
+	//查询要发布的项目
+	List<Map> queryfa();
 } 

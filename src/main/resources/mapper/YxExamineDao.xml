@@ -17,4 +17,8 @@
 	<select id="querylm" resultType="java.util.HashMap">
 		select u.username,p.projectname,p.projecttype,p.location,p.time,p.money,p.lifeloan,p.appendix from projectapplication p,firsttable f,usertable u,subjectType s where p.userid=u.userid and p.projecttype=s.id and f.projectid=p.id and f.projectid=#{projectid}
 	</select>
+	
+	<select id="queryfabu" resultType="java.util.HashMap">
+		select f.projectid,u.username,p.projectname,s.name,p.location,p.money from finaltable f,projectapplication p,subjecttype s,usertable u where f.projectid=p.id and p.projecttype=s.id and p.userid=u.userid and f.finalstatus='1' and f.poststatus='1'
+	</select>
 </mapper>

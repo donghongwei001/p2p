@@ -109,7 +109,7 @@
 			"text":"发布管理",
 			"checked":true,
 			"attributes":{    
-            "url":"",    
+            "url":"http://localhost:9088/p2p/yx/fa.do",    
             "price":100    
        		 } 
 		}]

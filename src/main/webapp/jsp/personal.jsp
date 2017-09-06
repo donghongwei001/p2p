@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -67,14 +68,14 @@
 				<img src="../image/title2.png" />
 			</div>			
 			<div id="top-menu">
-				<a href="http://localhost:9088/p2p/jsp/index.jsp">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="http://localhost:9088/p2p/user/listpro.do">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="#">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="#">我要借款</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="http://localhost:9088/p2p/jsp/personal.jsp">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;			
+				<a href="http://localhost:9088/p2p/user/personal.do">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;			
 			</div>
 			<div id="top-login">										
-				<span>尊敬的<a href="#"></a>,您好！ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-				<a href="#"><span>帮助</span></a><span>|</span><a href="Home.jsp"><span>退出</span></a>
+				欢迎<a href="http://localhost:9088/p2p/user/personal.do">${abcd}</a>!加入宜人贷&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="#"><span>帮助</span></a><span>|</span><a href="http://localhost:9088/p2p/user/list.do"><span>退出</span></a>
 			</div>
 		</div>
 		<div id="address">
@@ -85,7 +86,7 @@
 		<div id="con">		
 			<div id="content">
 				<div id="content-left">
-					<div id="left1"><a href="http://localhost:9088/p2p/jsp/personal.jsp">我的资产</a></div>
+					<div id="left1"><a href="http://localhost:9088/p2p/user/personal.do">我的资产</a></div>
 					<div id="left2"><a href="http://localhost:9088/p2p/user/myproject.do">我的项目</a></div>
 					<div id="left3"><a href="http://localhost:9088/p2p/user/mytouzi.do">我的投资</a></div>
 					<div id="left4"><a href="http://localhost:9088/p2p/jsp/myhuankuan.jsp">我的还款</a></div>
@@ -104,9 +105,11 @@
 						<div id="div-yuer">
 							<span>账户余额：</span>
 						</div>
-						<div id="div-money">
-							<span id="span-money">0.0</span>&nbsp;&nbsp;&nbsp;<span>元</span>
+						<c:forEach items="${listmoney }" var="user">
+						<div id="div-money">							
+							<span id="span-money">${user.money}</span>&nbsp;&nbsp;&nbsp;<span>元</span>						
 						</div>
+						</c:forEach>
 					</div>	
 					<div id="right-but">
 						<div id="recharge">
