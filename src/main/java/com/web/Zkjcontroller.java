@@ -106,5 +106,8 @@ public class Zkjcontroller {
 		mm.setViewName("singleproject");
 		return mm;
 	}
-	
+	@RequestMapping("/money")
+	public void projectmoney(@RequestBody int id){
+		
+	}
 }
