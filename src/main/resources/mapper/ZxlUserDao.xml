@@ -3,10 +3,38 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dao.ZxlUserDao">	
+	<!-- 查询用户表所有信息 -->
 	<select id="list" resultType="com.entity.ZxlUser">
 		select * from usertable
 	</select>
+	<!-- 向用用户表插入信息 -->
 	<insert id="addUser" parameterType="com.entity.ZxlUser">
-		insert into usertable values(usertableid.nextval,#{username},#{pwd},0)
+		insert into usertable values(usertableid.nextval,#{username},#{pwd},0,'否')
 	</insert>
+	<!-- 查询该用户申请的项目 -->
+	<select id="listproject" resultType="com.entity.ZxlMyProject" parameterType="String">
+		select p.id,p.projectname,p.money,p.time,c.codename,u.username from projectapplication p,code c,usertable u where u.username=#{username} and p.userid=u.userid and p.aduitstate=c.codeid
+	</select>
+	<!-- 查询该用户所投资的项目 -->
+	<select id="listmytouzi" resultType="com.entity.ZxlMyTouzi" parameterType="String">
+		select p.id,p.projectname,n.money,n.time,u.username from projectapplication p,invest n,usertable u where u.username=#{username} and u.userid=p.userid and p.id=n.subjectid 
+	</select>
+	<!-- 查询该用户的基本信息 -->
+	<select id="listmypersonal" resultType="com.entity.ZxlMyPersonal" parameterType="String"> 
+		select u.userID,u.username,u.pwd,p.personalname,p.iphone,p.mailbox,p.sex,p.educational,p.address,p.worklife,p.occupation from usertable u,psersonalform p where u.username=#{username} and u.userID=p.userid
+	</select>
+	<!-- 修改密码 -->
+	<update id="updatepwd"  parameterType="com.entity.ZxlUser">
+		update usertable set pwd=${pwd} where username=${username}
+	</update>
+	<!-- 查询发布项目 -->
+	<select id="listpro" resultType="com.entity.ZxlMyProject">
+		select ps.projectid,p.projectname,p.money,p.lifeloan,p.ratemoney,p.location,pro.personalname,s.name from
+		subjectType s,psersonalform pro,projectapplication p,projectrelease ps,usertable us where 
+		ps.status=5 and ps.projectid=p.id and p.projecttype=s.id and p.userid=pro.userid and p.userid=us.userid 
+	</select>
+	<!-- 查询用户余额 -->
+	<select id="listmoney" resultType="com.entity.ZxlUser" parameterType="String">
+		select u.money,u.username from usertable u where u.username=#{username} 
+	</select> 
 </mapper>

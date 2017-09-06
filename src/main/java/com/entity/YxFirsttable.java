@@ -8,6 +8,7 @@ public class YxFirsttable {
 	String firstdate; //审核日期
 	String firstname; //审核人
 	String firstremarks;  //备注
+	
 	public int getProjectid() {
 		return projectid;
 	}

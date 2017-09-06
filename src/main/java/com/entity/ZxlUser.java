@@ -5,6 +5,16 @@ public class ZxlUser {
 	String username;
 	String pwd;
 	int money;
+	String state;
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
+	public void setUserID(int userID) {
+		this.userID = userID;
+	}
 	public int getUserID() {
 		return userID;
 	}

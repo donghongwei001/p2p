@@ -28,5 +28,21 @@ public class Zkjserviceimpl implements Zkjservicedao {
 		// TODO Auto-generated method stub
 		return dao.selectusers();
 	}
+	@Override
+	public void updateuser(String str) {
+		// TODO Auto-generated method stub
+		dao.updateuser(str);
+	}
+	@Override
+	public void updatestartuser(String str) {
+		// TODO Auto-generated method stub
+		dao.updatestartuser(str);
+	}
+	@Override
+	public List<Map> selectallproject(int id) {
+		// TODO Auto-generated method stub
+		return dao.selectallproject( id);
+	}
+	
 
 }

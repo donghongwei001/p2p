@@ -21,10 +21,10 @@
 		#top-menu{float:left;margin-top:3.5%;margin-left:40px;}
 		#top-menu a{text-decoration:none;color:#333;font-size:18px;}
 		#top-login{float:right;margin-top:3%;margin-left:50px;}
-		#img{width:100%;height:auto;}
+		#img{width:100%;height:auto;/* background-image:url(../image/img6.png) none; */}
 		#content{width:76%;float:left;margin-left:12%;margin-top:20px;}
-		#content-left{width:69%;height:800px;float:left;/* background-color:#FFA07A; */}
-		#content-right{width:29%;height:800px;float:left;margin-left:15px;background-color:#FF7F50;}
+		#content-left{width:69%;height:auto;float:left;/* background-color:#FFA07A; */}
+		#content-image{float:left;height:auto;/* background-color:#FF7F50; */}
 		#down{width:100%;border-top:1px solid #DCDCDC;float:left;margin-top:20px;}
 		#down-one{margin-left:35.5%;margin-top:20px;}
 		#down-two{margin-left:37.3%;}
@@ -47,26 +47,28 @@
 				<a href="#">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="#">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="#">我要借款</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="#">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;			
+				<a href="http://localhost:9088/p2p/jsp/zhuye.jsp">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;						
 			</div>
 			<div id="top-login">										
 				<button type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">注册</button>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<button type="button" class="btn btn-default">登录</button>
+				<button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-default">登录</button>
 			</div>
 		</div>
 		<div id="img">
-			<img src="../image/img6.png" width="100%" />
+			<img src="../image/img3.png" width="100%" />
+			<div id="img-login"></div>
 		</div>		
 		<div id="content">
 			<div id="content-left">
-				<table class="table">
+				<table class="table table-hover">
 					<thead>
 						<tr>
 							<th>用户id</th>
 							<th>用户名</th>
 							<th>密码</th>
 							<th>余额</th>
+							<th>状态</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -76,12 +78,15 @@
 								<td>${user.username}</td>
 								<td>${user.pwd}</td>
 								<td>${user.money}</td>
+								<td>${user.state}</td>
 							</tr>
 						</c:forEach>
 					</tbody>
 				</table>
 			</div>
-			<div id="content-right"></div>
+			<div id="content-image">
+				<img src="../image/bottom.png">	
+			</div>		
 		</div>
 		<div id="down">
 			<div id="down-one">
@@ -100,13 +105,11 @@
 	</div>
 	
 	<!-- 注册模态框 -->
-	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-		aria-labelledby="exampleModalLabel">
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 					<h4 class="modal-title" id="exampleModalLabel">用户注册</h4>
@@ -140,7 +143,7 @@
 								<tr>
 									<td width="220px;" align="right">确认密码：</td>
 									<td>
-										<input type="text" id="rpwd" class="form-control" placeholder="请确认密码">
+										<input type="password" id="rpwd" class="form-control" placeholder="请确认密码">
 									</td>
 									<td><div id="s3"></div></td>
 								</tr>
@@ -160,8 +163,56 @@
 		</div>
 	</div>
 	<!-- 注册模态框结束 -->
+	
+	<!-- 登录模态框 -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">用户登录</h4>
+	      </div>
+	      <div class="modal-body">
+			<form action="#">
+				<table>
+					<tr>
+						<td width="220px;" align="right">用户名：</td>
+						<td>
+							<input type="text" id="username" class="form-control"placeholder="用户名">
+						</td>
+						<td>
+							<div id="s1"></div>
+						</td>
+					</tr>
+					<tr>
+						<td>&nbsp;&nbsp;</td>
+						<td>&nbsp;&nbsp;</td>
+					</tr>
+					<tr>
+						<td width="220px;" align="right">密码：</td>
+						<td>
+							<input type="password" id="possword" class="form-control"placeholder="密码">
+						</td>
+						<td><div id="s2"></div></td>
+					</tr>
+					<tr>
+						<td>&nbsp;&nbsp;</td>
+						<td>&nbsp;&nbsp;</td>
+					</tr>
+				</table>
+			</form>
+			<div id="input-btu">
+				<input type="button" class="btn btn-success" id="button" value="登录"/>
+			</div>
+		</div>
+	    
+	    </div>
+	  </div>
+	</div>
+	
 </body>
 	<script type="text/javascript">
+		/* 注册按钮的点击事件 */
   		$("#but").click(function(){
   			var data={};
 			data["username"] = $("#user").val();
@@ -172,12 +223,40 @@
 				contentType : "application/json;charset=utf-8",
 				data : JSON.stringify(data),
 				success : function(data1) {
+					if(data1=="no"){						
+						window.location.href="http://localhost:9088/p2p/user/list.do"
+					}
+					else{						
+						alert("用户名已注册！！！  ");
+					}
+
 				alert(data1);
 					window.location.href="http://localhost:9088/p2p/user/list.do"
 				},
-				error : function() {
+				error : function(){
 					alert("error");
+
 				}
+			}); 
+  		})
+		/*登录按钮的点击事件*/
+  		$("#button").click(function(){
+  			var data={};
+			data["username"] = $("#username").val();
+			data["pwd"] = $("#possword").val();
+			$.ajax({
+				type : "post",
+				url : "/p2p/user/login.do", 
+				contentType : "application/json;charset=utf-8",
+				data : JSON.stringify(data),
+				success : function(data1) {
+					if(data1=="Ok"){
+						window.location.href="http://localhost:9088/p2p/user/listpro.do"
+					}
+					else{
+						alert("用户名或密码错误！！！  ");
+					}
+				},
 			});
   		})
   	</script>
