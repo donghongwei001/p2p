@@ -25,14 +25,14 @@ public class Zkjcontroller {
 	@Autowired
 	private Zkjservicedao servicedao;
 	/*
-	 * 往数据库插入申请项目的数据
+	 * �?��据库插入申请项目的数�?
 	 */
 	@RequestMapping("project")
 	public void saveproject(Zkjproject pp,HttpServletRequest request){
 		//	int userid=(int)session.getAttribute("userid");
 		int userid=3;
 		pp.setAppendix("附件");
-		pp.setAduitstate(1);//未审核
+		pp.setAduitstate(1);//未审�?
 		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd ");
 		String time=sdf.format(new Date());
 		String location=request.getParameter("location1")+request.getParameter("location2")+request.getParameter("location3");
@@ -44,7 +44,7 @@ public class Zkjcontroller {
 	}
 
 	/*
-	 * 二次审核查询的项目
+	 * 二次审核查询的项�?
 	 */
 	@RequestMapping("/selectproject")
 	public ModelAndView queryproject(){
