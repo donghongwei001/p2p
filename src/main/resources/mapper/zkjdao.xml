@@ -19,4 +19,7 @@
 	<update id="updatestartuser" parameterType="String">
 		update usertable set state='否' where username in (#{str})
 	</update>
+	<select id="selectallproject" resultType="java.util.HashMap" parameterType="int">
+		select pp.id,pp.projectname,pp.projecttype,pp.location,pp.money,pp.lifeloan from projectapplication pp where pp.id=#{id}
+	</select>
 </mapper>

@@ -73,6 +73,7 @@
 </body>
 </html>
 
+
 <script>
 $("#distpicker2").distpicker({
 	  province: "---- 所在省 ----",
@@ -80,3 +81,4 @@ $("#distpicker2").distpicker({
 	  district: "---- 所在区 ----"
 	});
 </script>
+
