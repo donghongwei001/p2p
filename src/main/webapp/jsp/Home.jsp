@@ -248,7 +248,7 @@
 				data : JSON.stringify(data),
 				success : function(data1) {
 					if(data1=="Ok"){
-						window.location.href="http://localhost:9088/p2p/jsp/index.jsp"
+						window.location.href="http://localhost:9088/p2p/user/listpro.do"
 					}
 					else{
 						alert("用户名或密码错误！！！  ");

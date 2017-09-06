@@ -39,6 +39,7 @@ public class ZxlUserController {
 	}
 	/**
 	 * 用户的添加
+	 * 注册
 	 * @ResponseBody 将处理结果返回到前台
 	 * @param str
 	 * @return
@@ -62,9 +63,11 @@ public class ZxlUserController {
 	 */
 	@RequestMapping("/login")
 	@ResponseBody
-	public String login(@RequestBody String str){ 
+	public String login(@RequestBody String str,HttpServletRequest request){ 
 		System.out.println(str);
 		ZxlUser zu=JSON.parseObject(str, ZxlUser.class);
+		request.getSession().setAttribute("abcd",zu.getUsername());
+		request.getSession().setAttribute("login", zu);
         if(userservice.find(zu)) {
         	 return "Ok";  
         } 
@@ -79,7 +82,8 @@ public class ZxlUserController {
 	 */
 	@RequestMapping("/myproject")
 	public String listproject(HttpServletRequest request){
-		List<ZxlMyProject> list=userservice.listproject();
+		String userna =(String)request.getSession().getAttribute("abcd");
+		List<ZxlMyProject> list=userservice.listproject(userna);
 		request.setAttribute("project", list);
 		return "myproject";
 	}
@@ -90,27 +94,62 @@ public class ZxlUserController {
 	 */
 	@RequestMapping("/mytouzi")
 	public String listmytouzi(HttpServletRequest request){
-		List<ZxlMyTouzi> list=userservice.listmytouzi();
+		String userna =(String)request.getSession().getAttribute("abcd");
+		List<ZxlMyTouzi> list=userservice.listmytouzi(userna);
 		request.setAttribute("touzi", list);
 		return "mytouzi";
 	}
 	/**
 	 * 查询该用户的基本信息
+	 * 根据用户名
 	 * @param request
 	 * @return
 	 */
 	@RequestMapping("/mypersonal")
 	public String listmypersonal(HttpServletRequest request){
-		List<ZxlMyPersonal> list=userservice.listmypersonal();
+		String userna =(String)request.getSession().getAttribute("abcd");
+		List<ZxlMyPersonal> list=userservice.listmypersonal(userna);
 		request.setAttribute("mypersonal", list);
 		return "mypersonal";		
 	}
-	/*@RequestMapping("/updatepwd")
-	public String updatepwd(@RequestBody String str,ZxlMyPersonal pwd,HttpServletRequest request){
-		//ZxlMyPersonal pwd=JSON.parseObject(str, ZxlMyPersonal.class);
-		if(userservice.updatepwd(pwd)){
-			
-		}
+	/**
+	 * 修改密码
+	 * 确认旧密码
+	 * 插入新密码
+	 * @param pwd
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping("/updatepwd")
+	public String updatepwd(@RequestBody String str,ZxlUser pwd,HttpServletRequest request){
+		String userna =(String)request.getSession().getAttribute("abcd");	
+		List<ZxlUser> listz= userservice.updatepwd(userna);		
+		request.setAttribute("updatepwd", listz);
 		return "myupdatepwd";		
-	}*/
+	}
+	/**
+	 * 查询发布项目
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping("/listpro")
+	public String listpro(HttpServletRequest request){	
+		List<ZxlMyProject> list=userservice.listpro();
+		request.setAttribute("listpro", list);
+		return "index";	
+	}
+	/**
+	 * 根据用户名查询用户余额
+	 * session接受用户名
+	 * @param user
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping("/personal")
+	public String listmoney(HttpServletRequest request){
+		String userna =(String)request.getSession().getAttribute("abcd");	
+		List<ZxlUser> listz= userservice.listmoney(userna);		
+		request.setAttribute("listmoney", listz);	
+		return "personal";	
+	}
 }

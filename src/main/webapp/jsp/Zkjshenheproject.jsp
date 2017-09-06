@@ -11,6 +11,7 @@
 
 </head>
 <body>
+	
 	<table> 
 		<c:forEach items="${list }" var="li">
 			<tr>

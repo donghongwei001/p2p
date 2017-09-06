@@ -73,16 +73,16 @@ public class ZxlUserServiceImpl implements ZxlUserService{
 	 * 查询该用户的申请的项目
 	 */
 	@Override
-	public List<ZxlMyProject> listproject() {
-		List<ZxlMyProject> list=userdao.listproject();
+	public List<ZxlMyProject> listproject(String str) {
+		List<ZxlMyProject> list=userdao.listproject(str);
 		return list;
 	}
 	/**
 	 * 查询该用户投资的项目
 	 */
 	@Override
-	public List<ZxlMyTouzi> listmytouzi() {
-		List<ZxlMyTouzi> list=userdao.listmytouzi();
+	public List<ZxlMyTouzi> listmytouzi(String str) {
+		List<ZxlMyTouzi> list=userdao.listmytouzi(str);
 		return list;
 	}
 	/**
@@ -97,17 +97,32 @@ public class ZxlUserServiceImpl implements ZxlUserService{
 	 * 查询该用户的基本信息
 	 */
 	@Override
-	public List<ZxlMyPersonal> listmypersonal() {
-		List<ZxlMyPersonal> list=userdao.listmypersonal();
+	public List<ZxlMyPersonal> listmypersonal(String str) {
+		List<ZxlMyPersonal> list=userdao.listmypersonal(str);
 		return list;
 	}
 	/**
-	 * 根据用户id修改用户密码
+	 * 根据用户名修改用户密码
 	 */
-	/*@Override
-	public boolean updatepwd(ZxlMyPersonal pwd) {
-		userdao.updatepwd(pwd);
-		return true;		
-	}*/
+	@Override
+	public List<ZxlUser> updatepwd(String pwd) {
+		return userdao.updatepwd(pwd);		
+	}
+	/**
+	 * 查询项目详情
+	 */
+	@Override
+	public List<ZxlMyProject> listpro() {
+		List<ZxlMyProject> list=userdao.listpro();
+		return list;
+	}
+	/**
+	 * 查询用户余额
+	 */
+	@Override
+	public List<ZxlUser> listmoney(String user) {
+		List<ZxlUser> zxluser= userdao.listmoney(user);
+		return zxluser;
+	} 
 
 }

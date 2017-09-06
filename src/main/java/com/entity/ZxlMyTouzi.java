@@ -2,9 +2,16 @@ package com.entity;
 
 public class ZxlMyTouzi {
 	int id;
+	String username;
 	String projectname;
 	String money;
 	String time;
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
 	public int getId() {
 		return id;
 	}
