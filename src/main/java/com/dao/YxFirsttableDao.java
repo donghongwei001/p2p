@@ -17,6 +17,6 @@ public interface YxFirsttableDao {
 	public int updatesecond(YxFirsttable yx);
 	//发布项目，插入到项目发布表
 	public int addfabu(YxFabu yb);
-	//发布项目成功后，更新项目状态
-
+	//发布项目成功后，更新项目状态 
+	public void updatefinal(int id);
 }

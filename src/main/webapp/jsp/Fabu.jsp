@@ -114,6 +114,7 @@ $(function(){
 			data:JSON.stringify(data),
 			success : function(data1){
 				alert("发布成功");
+				window.location.href="http://localhost:9088/p2p/first/addfa.do"
 			}
 		});
 		
