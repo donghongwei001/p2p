@@ -42,7 +42,7 @@ public class YxExamineController {
 		return "first";
 	}
 	//二次审核时查看项目详情
-	@RequestMapping(value="xiang")
+	@RequestMapping(value="/xiang")
 	public ModelAndView queryxiang(@RequestBody int id){
 		
 		List<Map> lsm=yxservice.queryss(id);
@@ -53,5 +53,14 @@ public class YxExamineController {
 		mm.setViewName("Yxright");
 		return mm;
 	}
+
+		@RequestMapping(value="/fa")
+		public ModelAndView queryfafa(){
+			List<Map> lm=yxservice.queryfa();
+			ModelAndView mm=new ModelAndView();
+			mm.addObject("lm", lm);
+			mm.setViewName("Fabu");
+			return mm;
+		}
 
 }

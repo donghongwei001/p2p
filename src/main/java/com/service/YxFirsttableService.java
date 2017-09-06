@@ -1,8 +1,8 @@
 package com.service;
 
 import com.entity.YxExamine;
+import com.entity.YxFabu;
 import com.entity.YxFinaltable;
-import com.entity.YxFirst;
 import com.entity.YxFirsttable;
 
 public interface YxFirsttableService {
@@ -14,4 +14,6 @@ public interface YxFirsttableService {
 	public int update(YxExamine ym);
 	//第二次审核成功后更新第二次审核状态
 	public int updates(YxFirsttable yx);
+	//发布项目，插入到项目发布表
+	public int addfa(YxFabu yb);
 }

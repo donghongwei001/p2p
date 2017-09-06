@@ -35,9 +35,11 @@
 		        {field:'STATE',title:'是否禁用',width:100}
 		    ]]  ,
 		    striped:true, //斑马线
-			
+		    
 			pagination:true, //分页
-			showFooter:true , //行脚
+			pageSize:5,
+			pageList:[5,10,15,20],
+			showFooter:true ,  //行脚
 			rownumbers:true   //行号
 
 		    

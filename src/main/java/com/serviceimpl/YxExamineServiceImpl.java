@@ -41,6 +41,11 @@ public class YxExamineServiceImpl implements YxExamineService{
 		// TODO Auto-generated method stub
 		return yxdao.querylm(id);
 	}
+	@Override
+	public List<Map> queryfa() {
+		// TODO Auto-generated method stub
+		return yxdao.queryfabu();
+	}
 
 
 }

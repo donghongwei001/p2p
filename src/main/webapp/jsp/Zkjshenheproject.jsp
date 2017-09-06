@@ -18,7 +18,12 @@
 
 </head>
 <body>
+
 	<table id="proDataGrid"> 
+
+	
+	<table> 
+
 		<c:forEach items="${list }" var="li">
 			<tr>
 				<td>${li.PROJECTNAME }</td><td>${li.PROJECTTYPE }</td><td>${li.LOCATION }</td><td>${li.TIME }</td><td>${li.MONEY }</td><td>${li.LIFELOAN }</td><td>${li.RATEMONEY }</td><td>${li.APPENDIX }</td>

@@ -19,4 +19,8 @@
 	<update id="updatesecond" parameterType="com.entity.YxFirsttable">
 		update firsttable set finalstatus='2' where projectid = #{projectid}
 	</update> 
+	<!-- 将项目发布到前台 -->
+	<insert id="addfabu" parameterType="com.entity.YxFabu">
+		insert into projectrelease values(${projectid},to_date('${begintime}','yyyy-MM-dd'),to_date('${lasttime}','yyyy-MM-dd'),${nowmoney},'${content}','${picture}',${status},${minmoney})
+	</insert>
 </mapper>

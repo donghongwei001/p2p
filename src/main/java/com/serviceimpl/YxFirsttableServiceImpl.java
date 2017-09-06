@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.dao.YxFirsttableDao;
 import com.entity.YxExamine;
+import com.entity.YxFabu;
 import com.entity.YxFinaltable;
 import com.entity.YxFirst;
 import com.entity.YxFirsttable;
@@ -38,6 +39,11 @@ public class YxFirsttableServiceImpl implements YxFirsttableService {
 		// TODO Auto-generated method stub
 		int flag=firdao.updatesecond(yx);
 		return flag;
+	}
+	@Override
+	public int addfa(YxFabu yb) {
+		// TODO Auto-generated method stub
+		return firdao.addfabu(yb);
 	}
 
 }

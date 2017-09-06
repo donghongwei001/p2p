@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
 import com.entity.YxExamine;
+import com.entity.YxFabu;
 import com.entity.YxFinaltable;
 import com.entity.YxFirst;
 import com.entity.YxFirsttable;
@@ -100,5 +101,28 @@ public class YxFirsttableController {
 			return "no";
 		}
 	}
+	
+	//插入到发布表
+	@RequestMapping(value="/addfa")
+	@ResponseBody
+	public String addfafa(@RequestBody String json){
+		YxFabu yf=JSON.parseObject(json,YxFabu.class);
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		String date=simpleDateFormat.format(new Date());
+		System.out.println(date);
+		yf.setBegintime(date);
+		yf.setNowmoney(0);
+		yf.setContent("测试用的");
+		yf.setPicture("图");
+		yf.setStatus(5);
+		yf.setMinmoney(100);
+		int flag=firservice.addfa(yf);
+		if(flag>0){
+			return "oo";
+		}else{
+			return "nn";
+		}
+	}
+	
  
 }

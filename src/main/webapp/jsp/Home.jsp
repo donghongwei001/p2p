@@ -47,7 +47,7 @@
 				<a href="#">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="#">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="#">我要借款</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="http://localhost:9088/p2p/jsp/zhuye.jsp">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;			
+				<a href="http://localhost:9088/p2p/jsp/zhuye.jsp">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;						
 			</div>
 			<div id="top-login">										
 				<button type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">注册</button>
@@ -105,8 +105,7 @@
 	</div>
 	
 	<!-- 注册模态框 -->
-	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-		aria-labelledby="exampleModalLabel">
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -206,10 +205,7 @@
 				<input type="button" class="btn btn-success" id="button" value="登录"/>
 			</div>
 		</div>
-	    <div class="modal-footer">
-	      	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	        <button type="button" class="btn btn-primary">Save changes</button>
-	    </div>
+	    
 	    </div>
 	  </div>
 	</div>
@@ -228,11 +224,18 @@
 				data : JSON.stringify(data),
 				success : function(data1) {
 					if(data1=="no"){						
-						window.location.href="http://localhost:9088/p2p/jsp/Home.jsp"
+						window.location.href="http://localhost:9088/p2p/user/list.do"
 					}
 					else{						
 						alert("用户名已注册！！！  ");
 					}
+
+				alert(data1);
+					window.location.href="http://localhost:9088/p2p/user/list.do"
+				},
+				error : function(){
+					alert("error");
+
 				}
 			}); 
   		})
@@ -248,7 +251,7 @@
 				data : JSON.stringify(data),
 				success : function(data1) {
 					if(data1=="Ok"){
-						window.location.href="http://localhost:9088/p2p/jsp/index.jsp"
+						window.location.href="http://localhost:9088/p2p/user/listpro.do"
 					}
 					else{
 						alert("用户名或密码错误！！！  ");

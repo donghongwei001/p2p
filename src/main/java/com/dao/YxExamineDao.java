@@ -18,5 +18,5 @@ public interface YxExamineDao {
 	List<YxFirst>queryft();
 	//二次审核时查看项目详情
 	List<Map> querylm(int id);
-
+	List<Map> queryfabu();
 }
