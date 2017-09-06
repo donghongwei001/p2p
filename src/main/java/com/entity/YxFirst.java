@@ -1,19 +1,24 @@
 package com.entity;
 
-import java.util.Date;
-
-public class YxFirsttable {
+public class YxFirst {
 	int projectid;  // 项目id
-	int firststatus; // 审核状态
+	String projectname; //项目名称
+	int firststatus; // 初次审核状态
 	String firstdate; //审核日期
 	String firstname; //审核人
 	String firstremarks;  //备注
-	
+	int finalstatus;
 	public int getProjectid() {
 		return projectid;
 	}
 	public void setProjectid(int projectid) {
 		this.projectid = projectid;
+	}
+	public String getProjectname() {
+		return projectname;
+	}
+	public void setProjectname(String projectname) {
+		this.projectname = projectname;
 	}
 	public int getFirststatus() {
 		return firststatus;
@@ -21,15 +26,14 @@ public class YxFirsttable {
 	public void setFirststatus(int firststatus) {
 		this.firststatus = firststatus;
 	}
-	
-	public String getFirstname() {
-		return firstname;
-	}
 	public String getFirstdate() {
 		return firstdate;
 	}
 	public void setFirstdate(String firstdate) {
 		this.firstdate = firstdate;
+	}
+	public String getFirstname() {
+		return firstname;
 	}
 	public void setFirstname(String firstname) {
 		this.firstname = firstname;
@@ -40,10 +44,12 @@ public class YxFirsttable {
 	public void setFirstremarks(String firstremarks) {
 		this.firstremarks = firstremarks;
 	}
-	@Override
-	public String toString() {
-		return "YxFirsttable [projectid=" + projectid + ", firststatus=" + firststatus + ", firstdate=" + firstdate
-				+ ", firstname=" + firstname + ", firstremarks=" + firstremarks + "]";
+	public int getFinalstatus() {
+		return finalstatus;
 	}
+	public void setFinalstatus(int finalstatus) {
+		this.finalstatus = finalstatus;
+	}
+	
 	
 }
