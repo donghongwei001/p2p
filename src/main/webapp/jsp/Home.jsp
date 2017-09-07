@@ -223,6 +223,7 @@
 				contentType : "application/json;charset=utf-8",
 				data : JSON.stringify(data),
 				success : function(data1) {
+
 					if(data1=="no"){						
 						window.location.href="http://localhost:9088/p2p/user/list.do"
 					}
@@ -235,6 +236,7 @@
 				},
 				error : function(){
 					alert("error");
+
 
 				}
 			}); 
