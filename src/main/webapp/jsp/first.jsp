@@ -58,9 +58,7 @@ $(function(){
 	pageSize : 20,
 	pageList : [ 20, 40, 60 ],
 	toolbar : "#toolbar",
-
 	columns : [ [
-
 	{
 		field : 'PROJECTID',
 		title : '项目ID',
@@ -105,6 +103,10 @@ $(function(){
 	},{
 		field : 'xmx',
 		title : '项目详情',
+		width : 100
+	},{
+		field : 'sa',
+		title : '详情',
 		width : 100
 	}] ]
 });

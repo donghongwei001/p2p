@@ -69,6 +69,7 @@ public class DhwloginController {
 		try {
 			DhwEmpTab user =(DhwEmpTab) subject.getPrincipal();//获得授权时放入的用户
 			request.getSession().setAttribute("user",user);//将用户放入Session
+
 			return "redirect:../admin/index.jsp";
 			/*response.getWriter().write(JSON.toJSONString("登录成功!"));
 			response.getWriter().flush();

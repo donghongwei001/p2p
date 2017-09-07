@@ -149,9 +149,9 @@
 				</dt>
 				<dd>
 					<ul>
-						<li><a data-href="http://h-ui.duoshuo.com/admin/"
-							data-title="评论列表" href="javascript:;">项目初审</a></li>
-						<li><a data-href="feedback-list.html" data-title="意见反馈"
+						<li><a data-href="http://localhost:9088/p2p/yx/first.do"
+							data-title="项目初审" href="javascript:;">项目初审</a></li>
+						<li><a data-href="http://localhost:9088/p2p/yx/chushe.do" data-title="项目终审"
 							href="javascript:void(0)">项目终审</a></li>
 					</ul>
 				</dd>
@@ -164,11 +164,11 @@
 				</dt>
 				<dd>
 					<ul>
-						<li><a data-href="product-brand.html" data-title="品牌管理"
+						<li><a data-href="http://localhost:9088/p2p/yx/notone.do" data-title="项目初审未通过"
 							href="javascript:void(0)">项目初审未通过</a></li>
-						<li><a data-href="product-category.html" data-title="分类管理"
+						<li><a data-href="http://localhost:9088/p2p/yx/nottwo.do" data-title="项目终审未通过"
 							href="javascript:void(0)">项目终审未通过</a></li>
-						<li><a data-href="product-list.html" data-title="产品管理"
+						<li><a data-href="http://localhost:9088/p2p/yx/fa.do" data-title="发布项目"
 							href="javascript:void(0)">发布项目</a></li>
 					</ul>
 				</dd>
