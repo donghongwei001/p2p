@@ -6,4 +6,7 @@
 	<select id="queryRole" resultType="java.util.HashMap">
 		select * from role
 	</select>
+	<select id="queryPersonals" resultType="java.util.HashMap">
+		select * from psersonalform
+	</select>
 </mapper>

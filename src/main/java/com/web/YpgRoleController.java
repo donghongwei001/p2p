@@ -22,4 +22,11 @@ public class YpgRoleController {
 		List<Map> roleList=roleservice.getQueryRole();
 		request.setAttribute("roleList", roleList);
 	}
+	
+	@RequestMapping("/pers")
+	public String queryPersonals(HttpServletRequest request){
+		List<Map> person=roleservice.queryPersonals();
+		request.setAttribute("pp", person);
+		return "YpgHTpersonal";
+	}
 }

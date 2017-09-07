@@ -23,6 +23,7 @@
 			"id":122,
 			"text":"用户信息管理",
 			"attributes":{
+				"url":"/p2p/role/pers.do",
 				"p1":"Custom Attribute1",
 				"p2":"Custom Attribute2"
 			}

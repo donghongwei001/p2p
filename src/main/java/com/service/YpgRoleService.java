@@ -5,4 +5,5 @@ import java.util.Map;
 
 public interface YpgRoleService {
 	public List<Map> getQueryRole();
+	public List<Map> queryPersonals();
 }
