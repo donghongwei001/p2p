@@ -22,4 +22,7 @@
 	<select id="selectallproject" resultType="java.util.HashMap" parameterType="int">
 		select pp.id,pp.projectname,pp.projecttype,pp.location,pp.money,pp.lifeloan from projectapplication pp where pp.id=#{id}
 	</select>
+	<insert id="saveinvest" parameterType="ZkjInvest">
+		insert into invest(investorid,subjectid,time,money)values(investorid,subjectid,time,money)
+	</insert>
 </mapper>

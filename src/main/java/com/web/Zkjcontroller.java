@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,8 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.alibaba.fastjson.JSON;
-import com.entity.Zkj;
+import com.entity.ZkjInvest;
 import com.entity.Zkjproject;
 import com.service.Zkjservicedao;
 
@@ -110,10 +110,11 @@ public class Zkjcontroller {
 		return mm;
 	}
 	/*
-	 * 插入到投资表
+	 * 插入到投资表(放款表)
 	 */
 	@RequestMapping("/money")
-	public void projectmoney(@RequestBody int id){
-		
+	public void projectmoney(@RequestBody ZkjInvest zz,HttpSession session){
+		String username=(String) session.getAttribute("abcd");
+		servicedao.addinvest(zz);
 	}
 }

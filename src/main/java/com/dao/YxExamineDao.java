@@ -18,5 +18,5 @@ public interface YxExamineDao {
 	List<YxFirst>queryft();
 	//�������ʱ�鿴��Ŀ����
 	List<Map> querylm(int id);
-
+	List<Map> queryfabu();
 }

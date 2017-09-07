@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dao.Zkjdao;
+import com.entity.ZkjInvest;
 import com.entity.Zkjproject;
 import com.service.Zkjservicedao;
 @Service
@@ -42,6 +43,11 @@ public class Zkjserviceimpl implements Zkjservicedao {
 	public List<Map> selectallproject(int id) {
 		// TODO Auto-generated method stub
 		return dao.selectallproject( id);
+	}
+	@Override
+	public void addinvest(ZkjInvest zz) {
+		// TODO Auto-generated method stub
+		dao.saveinvest(zz);
 	}
 	
 

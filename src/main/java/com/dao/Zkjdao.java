@@ -3,6 +3,7 @@ package com.dao;
 import java.util.List;
 import java.util.Map;
 
+import com.entity.ZkjInvest;
 import com.entity.Zkjproject;
 
 public interface Zkjdao {
@@ -12,4 +13,5 @@ public interface Zkjdao {
 	public void updateuser(String str);
 	public void updatestartuser(String str);
 	public List<Map> selectallproject(int id);
+	public void saveinvest(ZkjInvest zz);
 }
