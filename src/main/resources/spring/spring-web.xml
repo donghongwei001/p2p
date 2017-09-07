@@ -60,6 +60,7 @@
 				/image/** = anon
 				/img/** = anon
 				/js/** = anon
+				/jsp/index.jsp=anon
 				/media/** = anon
 				/** = authc
 
