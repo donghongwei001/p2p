@@ -117,7 +117,8 @@ public class Zkjcontroller {
 	@RequestMapping("/money")
 	public void projectmoney(@RequestBody ZkjInvest zz,HttpSession session){
 		String username=(String) session.getAttribute("abcd");
-		servicedao.addinvest(zz);
+		System.out.println(zz.getSubjectid());
+		servicedao.addinvest(zz,username);
 	}
 	@RequestMapping("/name")
 	@ResponseBody

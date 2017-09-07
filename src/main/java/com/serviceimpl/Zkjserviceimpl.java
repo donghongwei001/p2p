@@ -1,5 +1,7 @@
 package com.serviceimpl;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -46,8 +48,14 @@ public class Zkjserviceimpl implements Zkjservicedao {
 	}
 	@Override
 
-	public void addinvest(ZkjInvest zz) {
+	public void addinvest(ZkjInvest zz,String name) {
 		// TODO Auto-generated method stub
+		
+		int id=dao.quertuserid(name);
+		SimpleDateFormat sm=new SimpleDateFormat("yyyy-MM-dd");
+		String timm=sm.format(new Date());
+		zz.setInvestorid(id);
+		zz.setTime(timm);
 		dao.saveinvest(zz);
 	}
 	public String queryname(String name) {

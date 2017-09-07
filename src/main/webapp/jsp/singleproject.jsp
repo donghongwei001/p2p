@@ -12,7 +12,7 @@
 	<c:forEach items="${listp }" var="li">
 		${li.PROJECTNAME }${li.PROJECTTYPE }${li.LOCATION }${li.MONEY }${li.LIFELOAN}
 	
-	<form action="/p2p/add/money.do?${li.ID }">
+	<form action="/p2p/add/money.do?subjectid=${li.ID }">
 		请输入投资金额：<input type="text" name="money">
 		<input type="submit" value="完成"> 
 	</form>
