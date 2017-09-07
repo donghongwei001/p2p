@@ -5,6 +5,7 @@ public class SzhUser {
 	String username;
 	String pwd;
 	String money;
+	String state;
 	public int getUserID() {
 		return userID;
 	}
@@ -28,6 +29,12 @@ public class SzhUser {
 	}
 	public void setMoney(String money) {
 		this.money = money;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
 	}
 	
 }

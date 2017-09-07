@@ -26,14 +26,9 @@ public class SzhUserServiceImpl implements SzhUserService {
 		return flag;
 	}
 	@Override
-	public List queryRole() {
+	public int updateUser(SzhUser suu) {
 		// TODO Auto-generated method stub
-		return sud.queryRole();
-	}
-	@Override
-	public int addRole(SzhRole sr) {
-		// TODO Auto-generated method stub
-		int flag = sud.addRole(sr);
+		int flag =sud.updateUser(suu);
 		return flag;
 	}
 
