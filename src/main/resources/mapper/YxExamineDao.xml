@@ -21,4 +21,13 @@
 	<select id="queryfabu" resultType="java.util.HashMap">
 		select f.projectid,u.username,p.projectname,s.name,p.location,p.money from finaltable f,projectapplication p,subjecttype s,usertable u where f.projectid=p.id and p.projecttype=s.id and p.userid=u.userid and f.finalstatus='1' and f.poststatus='1'
 	</select>
+	<!-- 第一次审核没通过的 -->
+	<select id="querynot" resultType="java.util.HashMap">
+		select f.projectid,p.projectname,f.firstdate,f.firstname,f.firstremarks from firsttable f,projectapplication p where f.projectid=p.id and f.firststatus='0'
+	</select>
+	<!-- 第二次审核没通过的 -->
+	<select id="querynottwo" resultType="java.util.HashMap">
+		select f.projectid,p.projectname,f.finaldate,f.finalname,f.finalremarks from finaltable f,projectapplication p where f.projectid=p.id and f.finalstatus='0'
+	</select>
+	
 </mapper>

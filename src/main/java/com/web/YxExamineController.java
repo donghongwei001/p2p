@@ -81,5 +81,25 @@ public class YxExamineController {
 			mm.setViewName("Fabu");
 			return mm;
 		}
+		/**
+		 * 查询第一次审核没通过的项目
+		 * @return
+		 */
+		@RequestMapping(value="/notone")
+		public ModelAndView queryone(){
+			List<Map> lp=yxservice.querynotone();
+			ModelAndView mm=new ModelAndView();
+			mm.addObject("lp", lp);
+			mm.setViewName("notfirst");
+			return mm;
+		}
+		@RequestMapping(value="/nottwo")
+		public ModelAndView querytwo(){
+			List<Map> mp=yxservice.querytwo();
+			ModelAndView mm=new ModelAndView();
+			mm.addObject("mp", mp);
+			mm.setViewName("nottwo");
+			return mm;
+		}
 
 }

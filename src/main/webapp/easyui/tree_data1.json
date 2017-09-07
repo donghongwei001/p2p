@@ -128,8 +128,6 @@
 				"p1":"Custom Attribute1",
 				"p2":"Custom Attribute2"
 			}
-<<<<<<< HEAD
-=======
 		},{
 			"id":173,
 			"text":"逾期项目",
@@ -145,7 +143,6 @@
             "url":"",    
             "price":100    
        		 } 
->>>>>>> branch 'master' of https://github.com/donghongwei001/p2p.git
 		}]
 	}]
 }]

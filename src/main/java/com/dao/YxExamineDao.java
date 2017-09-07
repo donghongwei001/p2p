@@ -18,5 +18,10 @@ public interface YxExamineDao {
 	List<YxFirst>queryft();
 	//二次审核时查看项目详情
 	List<Map> querylm(int id);
+	//查询要发布的项目
 	List<Map> queryfabu();
+	//查询第一次审核没通过的项目
+	List<Map> querynot();
+	//查询第二次审核没通过的项目
+	List<Map> querynottwo();
 }
