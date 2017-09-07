@@ -6,9 +6,11 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.HttpMediaTypeNotSupportedException;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -28,7 +30,7 @@ public class Zkjcontroller {
 	 * �?��据库插入申请项目的数�?
 	 */
 	@RequestMapping("project")
-	public void saveproject(Zkjproject pp,HttpServletRequest request){
+	public String saveproject(Zkjproject pp,HttpServletRequest request){
 		//	int userid=(int)session.getAttribute("userid");
 		int userid=3;
 		pp.setAppendix("附件");
@@ -41,6 +43,7 @@ public class Zkjcontroller {
 		pp.setUserid(userid);
 		System.out.println(pp);
 		servicedao.saveproject(pp);
+		return  "redirect:/user/listpro.do"; 
 	}
 
 	/*
@@ -108,6 +111,13 @@ public class Zkjcontroller {
 	}
 	@RequestMapping("/money")
 	public void projectmoney(@RequestBody int id){
+		
+	}
+	@RequestMapping("/name")
+	@ResponseBody
+	public String queryname(HttpSession session){
+		String name=(String) session.getAttribute("abcd");
+		return servicedao.queryname(name);
 		
 	}
 }

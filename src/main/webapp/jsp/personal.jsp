@@ -40,7 +40,7 @@
 		#content-right{width:78%;height:800px;float:left;margin-left:15px;background-color:#FFFFFF;}
 		#left-div{width:76%;height:180px;border-bottom:1px dashed #DCDCDC;float:left;margin:50px 50px 50px 90px;}
 		#div-img{float:left;}
-		#div-name{float:left;margin-left:20px;margin-right:20px;}	
+		#div-name{float:left;margin-left:20px;margin-right:20px;font-size:18px;font-color:#1E90FF;}	
 		#th{float:left;width:10px;height:130px;border-right:1px dashed #DCDCDC;}
 		#div-yuer{float:left;margin-left:30px;}
 		#div-yuer span{font-size:18px;}
@@ -99,7 +99,7 @@
 							<img src="../image/tx.jpg" width="130px" height="130px">													
 						</div>
 						<div id="div-name">
-							<span>haha</span>
+							<span>${abcd}</span>
 						</div>
 						<div id="th"></div>						
 						<div id="div-yuer">

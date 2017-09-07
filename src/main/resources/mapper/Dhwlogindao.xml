@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.DhwloginDao">	
+	<select id="queryUser" resultType="com.entity.DhwEmpTab" parameterType="String">
+		select * from empty where empname=#{user}
+	</select>
+	<select id="queryrolepower" parameterType="com.entity.DhwEmpTab" resultType="java.util.HashMap">
+		select w.code from empty e,emprole r,rolepower p,power w where e.empid=r.empid and r.roleid =p.roleid and p.powerid=w.id and e.empname=#{empname}
+	</select>
+</mapper>

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dao.ypgPersonalFormDao;
+import com.entity.YpgEmployee;
 import com.entity.ypgPersonalForm;
 import com.service.ypgPersonalFormService;
 
@@ -18,9 +19,9 @@ public class ypgPersonalFormImpl implements ypgPersonalFormService{
 	private ypgPersonalFormDao pfDao;
 	
 	@Override
-	public List<Map> getQueryPersonalForm() {
+	public List<Map> getQueryPersonalForm(int userID) {
 		// TODO Auto-generated method stub
-		return pfDao.queryPersonalForm();
+		return pfDao.queryPersonalForm(userID);
 	}
 	
 	@Override
@@ -28,6 +29,23 @@ public class ypgPersonalFormImpl implements ypgPersonalFormService{
 		// TODO Auto-generated method stub
 		return pfDao.insertPersonalForm(pf);
 	}
-
 	
+	@Override
+	public int UpdatePersonalForm(ypgPersonalForm pff) {
+		// TODO Auto-generated method stub
+		return pfDao.updatePersonalForm(pff);
+	}
+	
+	@Override
+	public List<Map> getQueryEmployee() {
+		// TODO Auto-generated method stub
+		return pfDao.queryEmployee();
+	}
+
+	@Override
+	public int getInsertEmployee(YpgEmployee ee) {
+		// TODO Auto-generated method stub
+		return pfDao.insertEmployee(ee);
+	}
+
 }

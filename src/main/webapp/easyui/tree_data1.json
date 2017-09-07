@@ -23,15 +23,10 @@
 			"id":122,
 			"text":"用户信息管理",
 			"attributes":{
+				"url":"/p2p/role/pers.do",
 				"p1":"Custom Attribute1",
 				"p2":"Custom Attribute2"
 			}
-		},{
-			"id":123,
-			"text":"班级管理",
-			"attributes":{  
-            "price":100    
-       		 } 
 		}]
 	},{
 		"id":13,
@@ -48,14 +43,14 @@
 			"id":141,
 			"text":"角色管理",
 			"attributes":{
-				"p1":"Custom Attribute1",
-				"p2":"Custom Attribute2"
+				"url":"role.jsp",    
+            	"price":100 
 			}
 		},{
 			"id":142,
 			"text":"权限管理",
 			"attributes":{    
-            "url":"",    
+            "url":"power.jsp",    
             "price":100    
        		 } 
 		}]
@@ -74,6 +69,7 @@
 			"id":152,
 			"text":"员工信息管理",
 			"attributes":{
+				"url":"/p2p/person/ypgEmployee.do",
 				"p1":"Custom Attribute1",
 				"p2":"Custom Attribute2"
 			}
@@ -101,7 +97,7 @@
 			"id":163,
 			"text":"还款业务",
 			"attributes":{    
-            "url":"",    
+            "url":"/p2p/repay/repayment.do",    
             "price":100    
        		 } 
 		},{
@@ -132,6 +128,7 @@
 				"p1":"Custom Attribute1",
 				"p2":"Custom Attribute2"
 			}
+
 		},{
 			"id":173,
 			"text":"逾期项目",
@@ -147,6 +144,7 @@
             "url":"",    
             "price":100    
        		 } 
+
 		}]
 	}]
 }]

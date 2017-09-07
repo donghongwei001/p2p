@@ -1,6 +1,4 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
@@ -8,7 +6,7 @@
 
 		body {
 			margin: 0;
-			padding: 0;
+			padding:0;
 			
 		}
 		#zeroDiv {
@@ -51,11 +49,11 @@
 
 <body>
 		<div id="firstDiv" class="bg-success">
-			
+			<h1>凡是看过</h1>
 		</div>
 		<div id="zeroDiv">
 		<div id="secondDiv">
-			<form action="/p2p/person/nal.do" method="post">
+			<form action="/p2p/jsp/xiangmushenqing.jsp" method="post">
 			<table class="table table-hover">
 				
 				<tr class="warning">

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
+<script src="../easyui/js/jquery.min.js"></script>
 <title>index</title>
 	
 	<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -22,6 +22,7 @@
 		#top-menu{float:left;margin-top:3.5%;margin-left:40px;}
 		#top-menu a{text-decoration:none;color:black;font-size:18px;}
 		#top-menu a:hover{color:#00BFFF;}
+		#asd{font-size:18px;}
 		#top-login{float:right;margin-top:3.5%;margin-left:50px;font-size:18px;}
 		#img{width:100%;height:auto;/* background-image:url(../image/img6.png) none; */}
 		#content{width:76%;float:left;margin-left:12%;margin-top:20px;}
@@ -51,7 +52,7 @@
 			<div id="top-menu">
 				<a href="http://localhost:9088/p2p/user/listpro.do">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="#">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="#">我要借款</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<span id="asd">我要借款&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 				<a href="/p2p/user/personal.do">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;			
 			</div>
 			<div id="top-login">										
@@ -74,6 +75,7 @@
 						<tr>
 							<th>项目编号</th>
 							<th>项目名称</th>
+							<th>内容</th>
 							<th>借款人</th>
 							<th>所需金额</th>
 							<th>借款期限</th>
@@ -88,6 +90,7 @@
 							<tr>
 								<td>${user.projectid}</td>
 								<td>${user.projectname}</td>
+								<td>${user.content}</td>
 								<td>${user.personalname}</td>
 								<td>${user.money}</td>
 								<td>${user.lifeloan}</td>
@@ -129,3 +132,24 @@
 	</div>
 </body>
 </html>
+<script>
+	$("#asd").click(function(){
+		$.ajax({
+			 type:"post",
+			// dataType:"json",
+			 url:"/p2p/add/name.do",
+			// data:JSON.stringify(row),
+			//data:str1,
+			 contentType:"application/json;charset=utf-8",
+			 success:function(dataa){
+				 alert(dataa);
+				 if(dataa==null||dataa==""){
+					 window.location.href="../jsp/jiekuan.jsp";
+				 }else{
+					 alert("ssss");
+					 window.location.href="../jsp/xiangmushenqing.jsp";
+				 }
+			 }
+		 });
+	});
+</script>

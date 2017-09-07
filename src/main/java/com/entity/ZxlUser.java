@@ -1,7 +1,7 @@
 package com.entity;
 
 public class ZxlUser {
-	int userID;
+	int userID=1;
 	String username;
 	String pwd;
 	int money;
