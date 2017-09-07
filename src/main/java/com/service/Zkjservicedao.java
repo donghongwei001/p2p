@@ -13,5 +13,9 @@ public interface Zkjservicedao {
 	public void updateuser(String str);
 	public void updatestartuser(String str);
 	public List<Map> selectallproject(int id);
+
 	public void addinvest(ZkjInvest zz);
+
+	public String queryname(String name);
+
 }

@@ -39,8 +39,8 @@
 		#left6{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
 		#content-right{width:76%;height:800px;float:left;margin-left:15px;background-color:#FFFFFF;}
 		#right-div{width:76%;height:auto;float:left;margin:50px 50px 50px 90px;}
-		#td-left{text-align:right;font-size:18px;}
-		#td-right{font-size:18px;}
+		#td-left{text-align:right;font-size:18px;width:200px;height:50px;line-hieght:50px;}
+		#td-right{font-size:18px;height:50px;line-hieght:50px;}
 		#div-img{float:left;}
 		#div-name{float:left;margin-left:20px;margin-right:20px;}	
 		#th{float:left;width:10px;height:130px;border-right:1px dashed #DCDCDC;}
@@ -98,63 +98,73 @@
 			
 				<div id="content-right">
 					<div id="right-div">						
-						<table class="table table-hover" id="table">
-							<c:forEach items="${mypersonal}" var="user">						
-								<tr>
-									<td id="td-left">昵称：</td>
-									<td id="td-right">
-										<input type="text" value="${user.username}" style="border:0px;"/>
-									</td>
-								</tr>
-								<tr>
-									<td id="td-left">真实姓名：</td>
-									<td id="td-right">
-										<input type="text" value="${user.personalname}" style="border:0px;"/>									
-									</td>
-								</tr>
-								<tr>
-									<td id="td-left">性别：</td>
-									<td id="td-right">
-										<input type="text" value="${user.sex}" style="border:0px;"/>									
-									</td>
-								</tr>
-								<tr>
-									<td id="td-left">联系方式：</td>
-									<td id="td-right">
-										<input type="text" value="${user.iphone}" style="border:0px;"/>									
-									</td>
-								</tr>
-								<tr>
-									<td id="td-left">邮箱：</td>
-									<td id="td-right">
-										<input type="text" value="${user.mailbox}" style="border:0px;"/>									
-									</td>
-								</tr>
-								<tr>
-									<td id="td-left">学历：</td>
-									<td id="td-right">
-										<input type="text" value="${user.educational}" style="border:0px;"/>									
-									</td>
-								</tr>
-								<tr>
-									<td id="td-left">地址：</td>
-									<td id="td-right">
-										<input type="text" value="${user.address}" style="border:0px;"/>									
-									</td>
-								</tr>
-								<tr>
-									<td id="td-left">工作年限：</td>
-									<td id="td-right">
-										<input type="text" value="${user.worklife}" style="border:0px;"/>									
-									</td>
-								</tr>
-								<tr>
-									<td id="td-left">职业：</td>
-									<td id="td-right">
-										<input type="text" value="${user.occupation}" style="border:0px;"/>									
-									</td>
-								</tr>
-							</c:forEach>
+						<table id="table">
+							<tr>
+								<td>
+									<table>
+										<tr>
+											<td id="td-left">昵称：</td>
+										</tr>
+										<tr>
+											<td id="td-left">真实姓名：</td>
+										</tr>
+										<tr>
+											<td id="td-left">性别：</td>
+										</tr>
+										<tr>
+											<td id="td-left">联系方式：</td>
+										</tr>
+										<tr>
+											<td id="td-left">邮箱：</td>
+										</tr>
+										<tr>
+											<td id="td-left">学历：</td>
+										</tr>
+										<tr>
+											<td id="td-left">地址：</td>
+										</tr>
+										<tr>
+											<td id="td-left">工作年限：</td>
+										</tr>
+										<tr>
+											<td id="td-left">职业：</td>
+										</tr>
+									</table>
+								</td>
+								<td>
+									<c:forEach items="${mypersonal}" var="user">
+										<table>
+											<tr>
+												<td id="td-right">${user.username}</td>
+											</tr>
+											<tr>
+												<td id="td-right">${user.personalname}</td>
+											</tr>
+											<tr>
+												<td id="td-right">${user.sex}</td>
+											</tr>
+											<tr>
+												<td id="td-right">${user.iphone}</td>
+											</tr>
+											<tr>
+												<td id="td-right">${user.mailbox}</td>
+											</tr>
+											<tr>
+												<td id="td-right">${user.educational}</td>
+											</tr>
+											<tr>
+												<td id="td-right">${user.address}</td>
+											</tr>
+											<tr>
+												<td id="td-right">${user.worklife}</td>
+											</tr>
+											<tr>
+												<td id="td-right">${user.occupation}</td>
+											</tr>
+										</table>
+									</c:forEach>
+								</td>
+							</tr>
 						</table>
 					</div>					
 				</div>

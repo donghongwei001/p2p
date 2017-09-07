@@ -45,9 +45,17 @@ public class Zkjserviceimpl implements Zkjservicedao {
 		return dao.selectallproject( id);
 	}
 	@Override
+
 	public void addinvest(ZkjInvest zz) {
 		// TODO Auto-generated method stub
 		dao.saveinvest(zz);
+	}
+	public String queryname(String name) {
+		// TODO Auto-generated method stub
+		int id=dao.quertuserid(name);
+		String nn=dao.queryname(id);
+		return nn;
+
 	}
 	
 

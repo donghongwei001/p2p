@@ -22,7 +22,16 @@
 	<select id="selectallproject" resultType="java.util.HashMap" parameterType="int">
 		select pp.id,pp.projectname,pp.projecttype,pp.location,pp.money,pp.lifeloan from projectapplication pp where pp.id=#{id}
 	</select>
+
 	<insert id="saveinvest" parameterType="ZkjInvest">
 		insert into invest(investorid,subjectid,time,money)values(investorid,subjectid,time,money)
 	</insert>
+
+	<select id="quertuserid" parameterType="String" resultType="int">
+		select userid from usertable where username=#{name}
+	</select>
+	<select id="queryname" parameterType="int" resultType="String">
+		select personalname from psersonalform where userid=#{id}
+	</select>
+
 </mapper>
