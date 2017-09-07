@@ -5,10 +5,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-
-
 <title>My JSP 'MyJsp.jsp' starting page</title>
-
 <META NAME="Generator" CONTENT="EditPlus">
 <META NAME="Author" CONTENT="">
 <META NAME="Keywords" CONTENT="">
@@ -34,9 +31,9 @@
 
 <body class="easyui-layout">
 	<div data-options="region:'north',title:'',split:false"
-		style="height:150px;align=:center;background:url(../image/61958PICJDB_1024.jpg);line-height:150px" align="center"><a>P2P管理系统</a></div>
+		style="height:100px;align=:center;background:url(../image/61958PICJDB_1024.jpg);line-height:100px" align="center"><a>P2P管理系统</a></div>
 	<div data-options="region:'south',title:'',split:false"
-		style="height:100px; line-height:50px" align="center"><h1>本产品由Qy68第七小组独家冠名</h1></div>
+		style="height:50px; line-height:25px" align="center"><h1>本产品由Qy68第七小组独家冠名</h1></div>
 
 	<div data-options="region:'west',title:'West',split:true"
 		style="width:200px;">

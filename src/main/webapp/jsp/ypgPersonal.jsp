@@ -40,10 +40,18 @@
 </head>
 
 <body >
-		<c:forEach items="${personal}" var="pp">
+		
+		<form method="post">
 			<table id="tab" class="table table-hover">
+				<tr>
+					<td> 
+                		<a href="/p2p/person/ypgPP.do">编辑</a>
+                    </td>         
+				</tr>
+			<c:forEach items="${personal}" var="pp">
+				
 				<tr class="warning">
-					<td>姓名:</td><td>${pp.PERSONALNAME}</td>
+					<td>姓名:</td><td required="required">${pp.PERSONALNAME}</td>
 				</tr>
 				<tr class="warning">
 					<td>身份证号:</td><td>${pp.IDCARD}</td>
@@ -58,8 +66,7 @@
 					<td>联系邮箱:</td><td>${pp.MAILBOX}</td>
 				</tr>
 				<tr class="info">
-					<td>性别:</td>
-					<td >${pp.SEX}</td>
+					<td>性别:</td><td >${pp.SEX}</td>
 				</tr>
 				<tr class="danger">
 					<td>出生日期:</td><td>${pp.BIRTHDAY}</td>
@@ -68,8 +75,7 @@
 					<td>学历:</td><td>${pp.EDUCATIONAL}</td>
 				</tr>
 				<tr class="active">
-					<td>婚姻状况:</td>
-					<td>${pp.MARRIAGE}</td>
+					<td>婚姻状况:</td><td>${pp.MARRIAGE}</td>
 				</tr>
 				<tr class="active">
 					<td>是否有子女:</td>
@@ -125,7 +131,11 @@
 					<td>亲属电话:</td><td>${pp.CONTACTPHONE}</td>
 				</tr>
 				
-		</table>
-		</c:forEach>
+			</c:forEach>
+		  </table>
+	
+		</form>
+		
 </body>	
+ 
 </html>

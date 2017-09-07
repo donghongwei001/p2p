@@ -85,7 +85,7 @@
 		});
 		$("#selall").click(function(){
 			location.replace(location.href);
-
+			
 		
 		})
 		

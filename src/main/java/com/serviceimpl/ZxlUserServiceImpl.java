@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dao.ZxlUserDao;
+import com.entity.ZxlMyHuankuan;
+import com.entity.ZxlMyPersonal;
 import com.entity.ZxlMyProject;
 import com.entity.ZxlMyTouzi;
 import com.entity.ZxlUser;
@@ -19,6 +21,9 @@ import com.service.ZxlUserService;
 public class ZxlUserServiceImpl implements ZxlUserService{
 	@Autowired
 	private ZxlUserDao userdao;
+	/**
+	 * 查询用户表的所有信息
+	 */
 	@Override
 	public List<ZxlUser> list() {
 		List<ZxlUser> list=userdao.list();
@@ -68,17 +73,56 @@ public class ZxlUserServiceImpl implements ZxlUserService{
 	 * 查询该用户的申请的项目
 	 */
 	@Override
-	public List<ZxlMyProject> listproject() {
-		List<ZxlMyProject> list=userdao.listproject();
+	public List<ZxlMyProject> listproject(String str) {
+		List<ZxlMyProject> list=userdao.listproject(str);
 		return list;
 	}
 	/**
 	 * 查询该用户投资的项目
 	 */
 	@Override
-	public List<ZxlMyTouzi> listmytouzi() {
-		List<ZxlMyTouzi> list=userdao.listmytouzi();
+	public List<ZxlMyTouzi> listmytouzi(String str) {
+		List<ZxlMyTouzi> list=userdao.listmytouzi(str);
 		return list;
 	}
+	/**
+	 * 查询该用户的还款信息
+	 */
+	@Override
+	public List<ZxlMyHuankuan> listhuankuan() {
+		List<ZxlMyHuankuan> list=userdao.listhuankuan();
+		return list;
+	}
+	/**
+	 * 查询该用户的基本信息
+	 */
+	@Override
+	public List<ZxlMyPersonal> listmypersonal(String str) {
+		List<ZxlMyPersonal> list=userdao.listmypersonal(str);
+		return list;
+	}
+	/**
+	 * 根据用户名修改用户密码
+	 */
+	@Override
+	public List<ZxlUser> updatepwd(String pwd) {
+		return userdao.updatepwd(pwd);		
+	}
+	/**
+	 * 查询项目详情
+	 */
+	@Override
+	public List<ZxlMyProject> listpro() {
+		List<ZxlMyProject> list=userdao.listpro();
+		return list;
+	}
+	/**
+	 * 查询用户余额
+	 */
+	@Override
+	public List<ZxlUser> listmoney(String user) {
+		List<ZxlUser> zxluser= userdao.listmoney(user);
+		return zxluser;
+	} 
 
 }

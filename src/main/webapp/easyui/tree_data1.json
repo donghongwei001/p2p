@@ -23,6 +23,7 @@
 			"id":122,
 			"text":"用户信息管理",
 			"attributes":{
+				"url":"/p2p/role/pers.do",
 				"p1":"Custom Attribute1",
 				"p2":"Custom Attribute2"
 			}
@@ -68,6 +69,7 @@
 			"id":152,
 			"text":"员工信息管理",
 			"attributes":{
+				"url":"/p2p/person/ypgEmployee.do",
 				"p1":"Custom Attribute1",
 				"p2":"Custom Attribute2"
 			}
@@ -95,7 +97,7 @@
 			"id":163,
 			"text":"还款业务",
 			"attributes":{    
-            "url":"",    
+            "url":"/p2p/repay/repayment.do",    
             "price":100    
        		 } 
 		},{
@@ -103,7 +105,7 @@
 			"text":"发布管理",
 			"checked":true,
 			"attributes":{    
-            "url":"",    
+            "url":"http://localhost:9088/p2p/yx/fa.do",    
             "price":100    
        		 } 
 		}]
@@ -122,10 +124,28 @@
 			"id":172,
 			"text":"理事审核",
 			"attributes":{
-				"url":"/p2p/add/selectproject.do", 
+				"url":"http://localhost:9088/p2p/yx/chushe.do", 
 				"p1":"Custom Attribute1",
 				"p2":"Custom Attribute2"
 			}
+<<<<<<< HEAD
+=======
+		},{
+			"id":173,
+			"text":"逾期项目",
+			"attributes":{    
+            "url":"http://localhost:9088/p2p/yx/yuqi.do",    
+            "price":100    
+       		 } 
+		},{
+			"id":174,
+			"text":"Games",
+			"checked":true,
+			"attributes":{    
+            "url":"",    
+            "price":100    
+       		 } 
+>>>>>>> branch 'master' of https://github.com/donghongwei001/p2p.git
 		}]
 	}]
 }]

@@ -18,22 +18,25 @@
 		#top{width:76%;height:auto;align:center;margin-left:12%;float:left;}
 		#top-img{float:left;}
 		#top-menu{float:left;margin-top:3.5%;margin-left:40px;}
-		#top-menu a{text-decoration:none;color:#333;font-size:18px;}
+		#top-menu a{text-decoration:none;color:black;font-size:18px;}
+		#top-menu a:hover{color:#00BFFF;}
 		#top-login{float:right;margin-top:3%;margin-left:50px;font-size:18px;}		
 		#address{width:100%;height:30px;float:left;background-color:#87BCEE;}
 		#address-text{width:76%;font-size:17px;float:left;margin-left:12%;margin-top:0px;}		
 		#con{width:100%;height:801px;float:left;background-color:#F5F5F5;}
 		#content{width:76%;float:left;margin-left:12%;margin-top:30px;}
 		#content-left{width:20%;height:800px;float:left;}
-		#left1:hover{background-color:#FFFFFF;}
-		#left3:hover{background-color:#FFFFFF;}
-		#left4:hover{background-color:#FFFFFF;}
-		#left5:hover{background-color:#FFFFFF;}
+		#left1:hover{background-color:#F5F5F5;}
+		#left3:hover{background-color:#F5F5F5;}
+		#left4:hover{background-color:#F5F5F5;}
+		#left5:hover{background-color:#F5F5F5;}
+		#left6:hover{background-color:#F5F5F5;}
 		#left1{text-align:center;font-size:18px;width:100%;height:50px;line-height:50px;background-color:#DCDCDC;}
-		#left2{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#FFFFFF;}
+		#left2{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#F5F5F5;}
 		#left3{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
 		#left4{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
 		#left5{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
+		#left6{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
 		#content-right{width:76%;height:800px;float:left;margin-left:15px;background-color:#FFFFFF;}
 		#right-div{width:76%;height:auto;float:left;margin:50px 50px 50px 90px;}
 		#div-img{float:left;}
@@ -65,14 +68,14 @@
 				<img src="../image/title2.png" />
 			</div>			
 			<div id="top-menu">
-				<a href="#">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="http://localhost:9088/p2p/user/listpro.do">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="#">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="#">我要借款</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="#">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			
+				<a href="http://localhost:9088/p2p/jsp/personal.jsp">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;						
 			</div>
 			<div id="top-login">										
-				<span>尊敬的<a href="#"></a>,您好！ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-				<a href="#"><span>帮助</span></a><span>|</span><a href="Home.jsp"><span>退出</span></a>
+				<span>尊敬的<a href="http://localhost:9088/p2p/jsp/personal.jsp">${abcd}</a>,您好！ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<a href="#"><span>帮助</span></a><span>|</span><a href="http://localhost:9088/p2p/user/list.do"><span>退出</span></a>
 			</div>
 		</div>
 		<div id="address">
@@ -83,16 +86,17 @@
 		<div id="con">		
 			<div id="content">
 				<div id="content-left">
-					<div id="left1"><a href="personal.jsp">我的资产</a></div>
-					<div id="left2"><a href="#">我的项目</a></div>
-					<div id="left3"><a href="mytouzi.do">我的投资</a></div>
-					<div id="left4"><a href="myhuankuan.jsp">我的还款</a></div>
-					<div id="left5"><a href="mypersonal.jsp">个人信息</a></div>
+					<div id="left1"><a href="http://localhost:9088/p2p/jsp/user/personal.do">我的资产</a></div>
+					<div id="left2"><a href="http://localhost:9088/p2p/user/myproject.do">我的项目</a></div>
+					<div id="left3"><a href="http://localhost:9088/p2p/user/mytouzi.do">我的投资</a></div>
+					<div id="left4"><a href="http://localhost:9088/p2p/jsp/myhuankuan.jsp">我的还款</a></div>
+					<div id="left5"><a href="http://localhost:9088/p2p/user/mypersonal.do">个人信息</a></div>
+					<div id="left6"><a href="http://localhost:9088/p2p/jsp/myupdatepwd.jsp">修改密码</a></div>
 				</div>
 			
 				<div id="content-right">
 					<div id="right-div">						
-						<table class="table">
+						<table class="table table-hover">
 							<thead>
 								<tr>
 									<th><h4>项目编号</h4></th>

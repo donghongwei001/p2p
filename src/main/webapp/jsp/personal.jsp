@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -17,26 +18,29 @@
 		#top{width:76%;height:auto;align:center;margin-left:12%;float:left;}
 		#top-img{float:left;}
 		#top-menu{float:left;margin-top:3.5%;margin-left:40px;}
-		#top-menu a{text-decoration:none;color:#333;font-size:18px;}
+		#top-menu a{text-decoration:none;color:black;font-size:18px;}
+		#top-menu a:hover{color:#00BFFF;}
 		#top-login{float:right;margin-top:3%;margin-left:50px;font-size:18px;}		
 		#address{width:100%;height:30px;float:left;background-color:#87BCEE;}
 		#address-text{width:76%;font-size:17px;float:left;margin-left:12%;margin-top:0px;}		
 		#con{width:100%;height:801px;float:left;background-color:#F5F5F5;}
 		#content{width:76%;float:left;margin-left:12%;margin-top:30px;}
 		#content-left{width:20%;height:800px;float:left;}
-		#left2:hover{background-color:#FFFFFF;}
-		#left3:hover{background-color:#FFFFFF;}
-		#left4:hover{background-color:#FFFFFF;}
-		#left5:hover{background-color:#FFFFFF;}
-		#left1{text-align:center;font-size:18px;width:100%;height:50px;line-height:50px;background-color:#FFFFFF;}
+		#left2:hover{background-color:#F5F5F5;}
+		#left3:hover{background-color:#F5F5F5;}
+		#left4:hover{background-color:#F5F5F5;}
+		#left5:hover{background-color:#F5F5F5;}
+		#left6:hover{background-color:#F5F5F5;}
+		#left1{text-align:center;font-size:18px;width:100%;height:50px;line-height:50px;background-color:#F5F5F5;}
 		#left2{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
 		#left3{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
 		#left4{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
 		#left5{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
+		#left6{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
 		#content-right{width:78%;height:800px;float:left;margin-left:15px;background-color:#FFFFFF;}
 		#left-div{width:76%;height:180px;border-bottom:1px dashed #DCDCDC;float:left;margin:50px 50px 50px 90px;}
 		#div-img{float:left;}
-		#div-name{float:left;margin-left:20px;margin-right:20px;}	
+		#div-name{float:left;margin-left:20px;margin-right:20px;font-size:18px;font-color:#1E90FF;}	
 		#th{float:left;width:10px;height:130px;border-right:1px dashed #DCDCDC;}
 		#div-yuer{float:left;margin-left:30px;}
 		#div-yuer span{font-size:18px;}
@@ -64,14 +68,14 @@
 				<img src="../image/title2.png" />
 			</div>			
 			<div id="top-menu">
-				<a href="#">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="myproject.jsp">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="http://localhost:9088/p2p/user/listpro.do">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="#">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="#">我要借款</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="#">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;			
+				<a href="http://localhost:9088/p2p/user/personal.do">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;			
 			</div>
 			<div id="top-login">										
-				<span>尊敬的<a href="#"></a>,您好！ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-				<a href="#"><span>帮助</span></a><span>|</span><a href="Home.jsp"><span>退出</span></a>
+				欢迎<a href="http://localhost:9088/p2p/user/personal.do">${abcd}</a>!加入宜人贷&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="#"><span>帮助</span></a><span>|</span><a href="http://localhost:9088/p2p/user/list.do"><span>退出</span></a>
 			</div>
 		</div>
 		<div id="address">
@@ -82,11 +86,12 @@
 		<div id="con">		
 			<div id="content">
 				<div id="content-left">
-					<div id="left1"><a href="#">我的资产</a></div>
-					<div id="left2"><a href="myproject.jsp">我的项目</a></div>
-					<div id="left3"><a href="mytouzi.jsp">我的投资</a></div>
-					<div id="left4"><a href="myhuankuan.jsp">我的还款</a></div>
-					<div id="left5"><a href="mypersonal.jsp">个人信息</a></div>
+					<div id="left1"><a href="http://localhost:9088/p2p/user/personal.do">我的资产</a></div>
+					<div id="left2"><a href="http://localhost:9088/p2p/user/myproject.do">我的项目</a></div>
+					<div id="left3"><a href="http://localhost:9088/p2p/user/mytouzi.do">我的投资</a></div>
+					<div id="left4"><a href="http://localhost:9088/p2p/jsp/myhuankuan.jsp">我的还款</a></div>
+					<div id="left5"><a href="http://localhost:9088/p2p/user/mypersonal.do">个人信息</a></div>
+					<div id="left6"><a href="http://localhost:9088/p2p/jsp/myupdatepwd.jsp">修改密码</a></div>
 				</div>
 				<div id="content-right">
 					<div id="left-div">						
@@ -94,15 +99,17 @@
 							<img src="../image/tx.jpg" width="130px" height="130px">													
 						</div>
 						<div id="div-name">
-							<span>haha</span>
+							<span>${abcd}</span>
 						</div>
 						<div id="th"></div>						
 						<div id="div-yuer">
 							<span>账户余额：</span>
 						</div>
-						<div id="div-money">
-							<span id="span-money">0.0</span>&nbsp;&nbsp;&nbsp;<span>元</span>
+						<c:forEach items="${listmoney }" var="user">
+						<div id="div-money">							
+							<span id="span-money">${user.money}</span>&nbsp;&nbsp;&nbsp;<span>元</span>						
 						</div>
+						</c:forEach>
 					</div>	
 					<div id="right-but">
 						<div id="recharge">
