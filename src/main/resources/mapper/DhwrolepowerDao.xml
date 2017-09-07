@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.DhwrolepowerDao">	
+	<select id="queryPower" resultType="java.util.HashMap">
+		select * from power
+	</select>
+	<select id="querypid" resultType="java.util.HashMap">
+		select id from power
+	</select>
+	<select id="addpower" parameterType="com.entity.Power" resultType="Integer">
+		insert into power values(#{id},#{name},#{code},#{description},#{page},#{generatenemu},#{pid},#{zindex})
+	</select>
+	<delete id="deletepower" parameterType="String" >
+        delete from power where id=#{id}
+    </delete>
+    <select id="selonepower" resultType="java.util.HashMap" parameterType="String">
+    	select * from power where id=#{id}
+    </select>
+    <update id="updatepower" parameterType="com.entity.Power">
+    	update power set name=#{name},code=#{code},description=#{description},page=#{page},generatenemu=#{generatenemu},pid=#{pid},zindex=#{zindex} where id=#{id}
+    </update>
+    <select id="selpower" parameterType="String" resultType="java.util.HashMap">
+    	select * from power where id like #{id} or name like #{id}
+    </select>
+</mapper>
