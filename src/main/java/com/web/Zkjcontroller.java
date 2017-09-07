@@ -119,8 +119,12 @@ public class Zkjcontroller {
 	 * 插入到投资表(放款表)
 	 */
 	@RequestMapping("/money")
-	public void projectmoney(@RequestBody ZkjInvest zz,HttpSession session){
+	public void projectmoney(HttpServletRequest request,HttpSession session){
 		String username=(String) session.getAttribute("abcd");
+		ZkjInvest zz=new ZkjInvest();
+		String mm=request.getParameter("money");
+		double money=Double.parseDouble(mm);
+		zz.setMoney(money);
 		System.out.println(zz.getSubjectid());
 		servicedao.addinvest(zz,username);
 	}
