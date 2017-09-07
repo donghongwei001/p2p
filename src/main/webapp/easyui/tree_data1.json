@@ -26,12 +26,6 @@
 				"p1":"Custom Attribute1",
 				"p2":"Custom Attribute2"
 			}
-		},{
-			"id":123,
-			"text":"班级管理",
-			"attributes":{  
-            "price":100    
-       		 } 
 		}]
 	},{
 		"id":13,
@@ -48,14 +42,14 @@
 			"id":141,
 			"text":"角色管理",
 			"attributes":{
-				"p1":"Custom Attribute1",
-				"p2":"Custom Attribute2"
+				"url":"role.jsp",    
+            	"price":100 
 			}
 		},{
 			"id":142,
 			"text":"权限管理",
 			"attributes":{    
-            "url":"",    
+            "url":"power.jsp",    
             "price":100    
        		 } 
 		}]
@@ -132,21 +126,6 @@
 				"p1":"Custom Attribute1",
 				"p2":"Custom Attribute2"
 			}
-		},{
-			"id":173,
-			"text":"Microsoft Office",
-			"attributes":{    
-            "url":"",    
-            "price":100    
-       		 } 
-		},{
-			"id":174,
-			"text":"Games",
-			"checked":true,
-			"attributes":{    
-            "url":"",    
-            "price":100    
-       		 } 
 		}]
 	}]
 }]

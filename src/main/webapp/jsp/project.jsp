@@ -1,8 +1,6 @@
-
-
 <%@ page language="java" pageEncoding="UTF-8"
 	contentType="text/html;Charset=utf-8"%>
-
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -45,6 +43,7 @@
 </head>
 <div></div>
 <body>
+<shiro:hasPermission name="staff">
 	<div>项目名称:<input type="text" id="sel" class="easyui-textbox" data-options="prompt:'输入项目名称'"/>
 	开始时间：<input id="dd" type="text" class="easyui-datebox" required="required"data-options="editable:false">
 	结束时间：<input id="ddd" type="text" class="easyui-datebox" required="required"data-options="editable:false">
@@ -54,6 +53,8 @@
 			<a id="selall" href="javascript:void(0)" class="easyui-linkbutton"
 			data-options="iconCls:'icon-save'">查询所有 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
 	</div>
+	</shiro:hasPermission>
+	
 	<!-- <div id="toolbar">
 		<a id="addbtn" href="javascript:void(0)" class="easyui-linkbutton"
 			data-options="iconCls:'icon-save'">增加 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> <a id="deletebtn"
@@ -359,7 +360,7 @@
 							}, */
 							//fit : true,  
 							onLoadSuccess:function(list){
-								alert(list.list[0].TIME);
+								
 							},
 							columns : [ [
 									{
