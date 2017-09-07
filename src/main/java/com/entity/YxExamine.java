@@ -3,7 +3,9 @@ package com.entity;
 import java.sql.Date;
 
 public class YxExamine {
+	int id;
 	int userid;
+	String username;
 	String projectname;
 	String projecttype;
 	String location;
@@ -13,11 +15,24 @@ public class YxExamine {
 	float ratemoney;
 	String appendix;
 	int aduitstate;
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public int getUserid() {
 		return userid;
 	}
 	public void setUserid(int userid) {
 		this.userid = userid;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	public String getProjectname() {
 		return projectname;

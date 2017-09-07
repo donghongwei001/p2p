@@ -68,51 +68,13 @@
 
 
 	</table>
-	
-	<!-- <div id="dlg"></div>
 	<div id="handledialog">
-		<form id="myform" method="post">
-			<table with="100%" class="formtable">
-				<tr>
-					<th height="30">用户名</th>
-					<td><input name="username"class="easyui-validatebox" data-options="required:true" id="username"></td>
-				</tr>
-				<tr>
-					<th height="30">密码:</th>
-					<td><input type="password" class="easyui-validatebox" data-options="required:true" name="password" id="password"></td>
-				</tr>
-				<tr>
-					<th height="30">状态</th>
-					<td><input type="radio" name="statu" value="1">正常 <input
-						type="radio" name="statu" value="2">禁用</td>
-				</tr>
+		<table id="td">
 
 
-			</table>
-		</form>
+		</table>
 	</div>
 	
-	<div id="dialog">
-		<form id="myform1" method="post">
-			<table with="100%" class="formtable">
-				<tr>
-					<th height="30">用户名</th>
-					<td><input name="username1" id="username1"   value="readonly" readonly></td>
-				</tr>
-				<tr>
-					<th height="30">密码:</th>
-					<td><input type="password" class="easyui-validatebox" data-options="required:true" name="password1" id="password1"></td>
-				</tr>
-				<tr>
-					<th height="30">状态</th>
-					<td><input type="radio" name="statu1" value="1">正常 <input
-						type="radio" name="statu1" value="2">禁用</td>
-				</tr>
-
-
-			</table>
-		</form>
-	</div> -->
 </body>
 <script>
 	$(function() {
@@ -122,7 +84,7 @@
 		});
 		$("#selall").click(function(){
 			location.replace(location.href);
-
+			
 		
 		})
 		
@@ -251,7 +213,9 @@
 													title : 'Code',
 													width : 200,
 													align : 'center',
-													checkbox:true
+													formatter : function(value,row,index){
+														return '双击可查看详情'
+													}
 												},
 												{
 													field : 'USERNAME',
@@ -318,6 +282,13 @@
 			                    					if(value=='1'){return '未审核'}  
 			                   						 else if(value=='2'){return '已审核'}                        
 			                 						 } 
+												},
+												{
+													field : 'ID',
+													title : 'id',
+													width : 150,
+													align : 'center',
+													hidden:true
 												}/* ,
 												{
 													field : 'ciugai',
@@ -396,7 +367,9 @@
 										title : 'Code',
 										width : 200,
 										align : 'center',
-										checkbox:true
+										formatter : function(value,row,index){
+											return '双击可查看详情'
+										}
 									},
 									{
 										field : 'USERNAME',
@@ -462,6 +435,13 @@
                     					if(value=='1'){return '未审核'}  
                    						 else if(value=='2'){return '已审核'}                        
                  						 } 
+									},
+									{
+										field : 'ID',
+										title : 'id',
+										width : 150,
+										align : 'center',
+										hidden:true
 									}/* ,
 									{
 										field : 'ciugai',
@@ -490,82 +470,9 @@
 				url = '${ctx}updateStudent.do?id='+row.id;
 			}
 		} */
-		$('#handledialog')
-				.dialog(
-						{
-							title : '我的模态框', //模态框标题
-							width : 400, //宽度
-							height : 200, //高度		
-							close : true, //是否可以关闭
-							top : 100, //上移100
-							cache : false, //
-							modal : true,//模态框 
-							onOpen : function() {
-								//product.init();
-							},
-							buttons : [
-									{ //自带的按钮
-										text : '保存',
-										iconCls : 'icon-save',
-										handler : function() {
-											$('#myform')
-													.form(
-															'submit',
-															{
-																//表单提交
-																url : "/pingjiao/User/zeng.do", //提交地址
-																onsubmit : function() { //在提交之前执行  如果返回false  则阻止提交
-																	var isValid = $(this).form('validate');
-																	return isValid;
-																},
-																success : function(
-																		data) { //表单提交成功后执行
-																	if (data == "ok") { //回调函数
-																		var radios = document.getElementsByName("statu");
-																		var value = null;
-																		alert(radios.length);
-																		for ( var i = 0; i < radios.length; i++) {
-																			if (radios[i].checked) {
-																				value = radios[i].value;
-																				break;
-																			}
-
-																		}
-																		//更新grid
-																		//$('#proDataGrid').datagrid("reload");		
-																		$(
-																				'#tb')
-																				.datagrid(
-																						'insertRow',
-																						{ //插入一行
-																							index : 0, //索引从0开始
-																							row : {
-																								USERNAME : $(
-																										"#username")
-																										.val(),
-																								PASSWORD : $(
-																										"#password")
-																										.val(),
-																								STATUS : value
-
-																							}
-																						});
-																		$('#handledialog').dialog("close"); //模态框关闭
-																		location.reload();
-																	}
-																}
-															});
-										}
-									}, {
-										text : '关闭',
-										handler : function() {
-											alert("你确定取消吗？");
-											$('#handledialog').dialog("close")
-										}
-									} ]
-						})
 		
-		$('#handledialog').dialog("close");
+		
+		//$('#handledialog').dialog("close");
 		$('#dialog').dialog("close");
 		//-------------------------------------
 		$("#deletebtn").click(function() { //点击删除按钮
@@ -616,6 +523,280 @@
 		    alert('before refresh');
 		    $(this).pagination('loaded');
 		}*/
+		});
+		//双击显示详情
+		$('#tb').datagrid({
+			onDblClickCell: function(index,field,value){
+				
+				var row = $('#tb').datagrid('getData').rows[index];
+				$('#handledialog')
+				.dialog(
+						{
+							title : '我的模态框', //模态框标题
+							width : 1200, //宽度
+							height : 200, //高度	
+							left:200,
+							close : true, //是否可以关闭
+							top : 0, //上移100
+							cache : false, //
+							modal : true,//模态框 
+							onOpen:function(){    
+								 $('#td').datagrid(
+										{
+											url : '/p2p/zyx/xiang.do',
+											striped : true,
+											rownumbers : true,
+											fitColumns : false,
+											singleSelect : false, //是否只能选择一行
+											//pagination : true, //分页工具栏
+											//pagePosition : "top",
+											toolbar : "#toolbar",
+											queryParams:{
+												id:row.ID
+												
+											},
+											//fit : true,  
+											onLoadSuccess:function(list){
+												//alert(list.list[0].TIME);
+											},
+											columns : [ [
+													{
+														field : 'NAME',
+														title : '融资人',
+														width : 200,
+														align : 'center'
+														
+													},
+													{
+														field : 'IDCARD',
+														title : '身份证号',
+														width : 150,
+														align : 'center'
+													},
+													{
+														field : 'TELPHONE',
+														title : '联系电话',
+														width : 150,
+														align : 'center'
+													},
+													{
+														field : 'BANKNUMBER',
+														title : '银行卡号',
+														width : 150,
+														align : 'center'
+													},
+													{
+														field : 'PROJECTNAME',
+														title : '项目名称',
+														width : 250,
+														align : 'center'
+													},
+													{
+														field : 'LOCATION',
+														title : '项目地点',
+														width : 150,
+														align : 'center'
+													},
+													{
+														field : 'MONEY',
+														title : '所需金额',
+														width : 150,
+														align : 'center'
+													},
+													{
+														field : 'LIFELOAN',
+														title : '期限',
+														width : 150,
+														align : 'center'
+													}/* ,
+													{
+														field : 'RATEMONEY',
+														title : '附件',
+														width : 150,
+														align : 'center',
+														hidden:true
+													} */,
+													{
+														field : 'APPENDIX',
+														title : '附件',
+														width : 150,
+														align : 'center',
+													},
+													{
+														field : 'PERSONALNAME',
+														title : '申请人姓名',
+														width : 150,
+														align : 'center'
+													},
+													{
+														field : 'IDCARD',
+														title : '身份证号',
+														width : 150,
+														align : 'center'
+													},
+													{
+														field : 'IPHONE',
+														title : '手机号',
+														width : 150,
+														align : 'center'
+													},
+													{
+														field : 'ACCOUNTNUMBER',
+														title : '银行卡号',
+														width : 150,
+														align : 'center'
+													},
+													{
+														field : 'MAILBOX',
+														title : '邮箱',
+														width : 150,
+														align : 'center'
+													},
+													{
+														field : 'SEX',
+														title : '性别',
+														width : 150,
+														align : 'center'
+													},
+													{
+														field : 'BIRTHDAY',
+														title : '生日',
+														width : 150,
+														align : 'center'
+													},
+													{
+														field : 'EDUCATIONAL',
+														title : '学历',
+														width : 150,
+														align : 'center'
+													},
+													{
+														field : 'MARRIAGE',
+														title : '是否已婚',
+														width : 150,
+														align : 'center'
+													},
+													{
+														field : 'HAVACHIDREN',
+														title : '是否有子女',
+														width : 150,
+														align : 'center'
+													},
+													{
+														field : 'ADDRESS',
+														title : '地址',
+														width : 150,
+														align : 'center'
+													},
+													{
+														field : 'HOMEPHONE',
+														title : '家庭电话',
+														width : 150,
+														align : 'center'
+													},
+													{
+														field : 'WORKLIFE',
+														title : '工作年限',
+														width : 150,
+														align : 'center'
+													},
+													{
+														field : 'OCCUPATION',
+														title : '职业',
+														width : 150,
+														align : 'center'
+													},
+													{
+														field : 'WORKUNIT',
+														title : '工作单位',
+														width : 150,
+														align : 'center'
+													},
+													{
+														field : 'UNITPROPERTIES',
+														title : '单位性质',
+														width : 150,
+														align : 'center'
+													},
+													{
+														field : 'UNITPHONE',
+														title : '单位电话',
+														width : 150,
+														align : 'center'
+													},
+													{
+														field : 'MONTHLYINCOME',
+														title : '月收入',
+														width : 150,
+														align : 'center'
+													},
+													{
+														field : 'HAVEROOM',
+														title : '是否有房',
+														width : 150,
+														align : 'center'
+													},
+													{
+														field : 'HOUSELOAN',
+														title : '是否房贷',
+														width : 150,
+														align : 'center'
+													},
+													{
+														field : 'HAVECAR',
+														title : '是否有车',
+														width : 150,
+														align : 'center'
+													},
+													{
+														field : 'CARLOAN',
+														title : '是否车贷',
+														width : 150,
+														align : 'center'
+													},
+													{
+														field : 'CONTACTNAME',
+														title : '亲属姓名',
+														width : 150,
+														align : 'center'
+													},
+													{
+														field : 'CONTACTRELATION',
+														title : '亲属关系',
+														width : 150,
+														align : 'center'
+													},
+													{
+														field : 'CONTACTPHONE',
+														title : '亲属电话',
+														width : 150,
+														align : 'center'
+													},
+													{
+														field : 'time1',
+														title : '投资时间时间',
+														width : 150,
+														align : 'center'
+													},
+													{
+														field : 'MONEY',
+														title : '投资金额',
+														width : 150,
+														align : 'center'
+													}
+													] ]
+									});
+							} ,
+							buttons : [
+									 {
+										text : '关闭',
+										handler : function() {
+											alert("你确定取消吗？");
+											$('#handledialog').dialog("close")
+										}
+									} ]
+						})
+			}
 		});
 	})
 </script>
