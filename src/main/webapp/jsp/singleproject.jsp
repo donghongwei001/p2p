@@ -10,7 +10,7 @@
 </head>
 <body>
 	<c:forEach items="${listp }" var="li">
-		${li.PROJECTNAME }${li.PROJECTTYPE }${li.LOCATION }${li.MONEY }${li.LIFELOAN}
+	&nbsp;	${li.PROJECTNAME }&nbsp;&nbsp;&nbsp;${li.PROJECTTYPE }&nbsp;&nbsp;&nbsp;${li.LOCATION }&nbsp;&nbsp;&nbsp;&nbsp;${li.MONEY }&nbsp;&nbsp;&nbsp;${li.LIFELOAN}
 	
 	<form action="/p2p/add/money.do?subjectid=${li.ID }">
 		请输入投资金额：<input type="text" name="money">

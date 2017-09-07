@@ -98,7 +98,8 @@
 								<td>${user.name}</td>
 								<td>${user.location}</td>
 								<td>
-									<input type="button" style="font-size:16px;margin-left:20%;" class="btn btn-success" id="but" value="查看"/>
+									<a href="/p2p/add/allproject.do?id=${user.projectid}">
+									 <input type="button" style="font-size:16px;margin-left:20%;" class="btn btn-success" id="but" value="查看"/> </a>
 								</td>
 							</tr>
 						</c:forEach>
@@ -152,4 +153,5 @@
 			 }
 		 });
 	});
+	
 </script>

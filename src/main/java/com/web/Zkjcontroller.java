@@ -104,14 +104,18 @@ public class Zkjcontroller {
 	 * 投资界面
 	 */
 	@RequestMapping("allproject")
-	public ModelAndView quertallproject(){
+	public ModelAndView quertallproject(HttpServletRequest request){
+		
+	//System.out.println(id+"id");
+		int  id=Integer.parseInt(request.getParameter("id"));
 		ModelAndView mm=new ModelAndView();
-		List<Map> listp=servicedao.selectallproject(2);
+		
+		List<Map> listp=servicedao.selectallproject(id);
 		mm.addObject("listp",listp);
 		mm.setViewName("singleproject");
 		return mm;
 	}
-	/*
+	/*1.
 	 * 插入到投资表(放款表)
 	 */
 	@RequestMapping("/money")
@@ -120,6 +124,9 @@ public class Zkjcontroller {
 		System.out.println(zz.getSubjectid());
 		servicedao.addinvest(zz,username);
 	}
+	/*
+	 * 根据用户名查询用户id
+	 */
 	@RequestMapping("/name")
 	@ResponseBody
 	public String queryname(HttpSession session){
