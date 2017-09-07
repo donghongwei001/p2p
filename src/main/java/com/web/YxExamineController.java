@@ -93,6 +93,10 @@ public class YxExamineController {
 			mm.setViewName("notfirst");
 			return mm;
 		}
+		/**
+		 * 查询第二次审核没通过的项目
+		 * @return
+		 */
 		@RequestMapping(value="/nottwo")
 		public ModelAndView querytwo(){
 			List<Map> mp=yxservice.querytwo();
