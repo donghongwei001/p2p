@@ -10,13 +10,13 @@ import com.entity.YxExamine;
 import com.entity.YxFirst;
 
 public interface YxExamineDao {
-	//²éÑ¯µÚÒ»´ÎÒªÉóºËµÄÏîÄ¿
+	//ï¿½ï¿½Ñ¯ï¿½ï¿½Ò»ï¿½ï¿½Òªï¿½ï¿½Ëµï¿½ï¿½ï¿½Ä¿
 	List<YxExamine> queryAll();
-	//²éÑ¯ÓâÆÚµÄÏîÄ¿
+	//ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½Ä¿
 	List<Outtime> queryxm();
-	//²éÑ¯ÐèÒª¶þ´ÎÉóºËµÄÏîÄ¿
+	//ï¿½ï¿½Ñ¯ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½Ä¿
 	List<YxFirst>queryft();
-	//¶þ´ÎÉóºËÊ±²é¿´ÏîÄ¿ÏêÇé
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½é¿´ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½
 	List<Map> querylm(int id);
 	//²éÑ¯Òª·¢²¼µÄÏîÄ¿
 	List<Map> queryfabu();
