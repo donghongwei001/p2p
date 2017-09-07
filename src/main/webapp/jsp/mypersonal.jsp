@@ -40,7 +40,7 @@
 		#content-right{width:76%;height:800px;float:left;margin-left:15px;background-color:#FFFFFF;}
 		#right-div{width:76%;height:auto;float:left;margin:50px 50px 50px 90px;}
 		#td-left{text-align:right;font-size:18px;width:200px;height:50px;line-hieght:50px;}
-		#td-right{font-size:18px;height:50px;line-hieght:50px;}
+		#td-right{font-size:18px;height:50px;line-hieght:50px;margin-left:10px;}
 		#div-img{float:left;}
 		#div-name{float:left;margin-left:20px;margin-right:20px;}	
 		#th{float:left;width:10px;height:130px;border-right:1px dashed #DCDCDC;}
