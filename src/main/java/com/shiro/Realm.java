@@ -1,4 +1,4 @@
-sFcpackage com.shiro;
+spackage com.shiro;
 
 import java.util.HashMap;
 import java.util.List;
