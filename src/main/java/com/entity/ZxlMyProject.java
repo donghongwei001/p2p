@@ -4,6 +4,7 @@ public class ZxlMyProject {
 	int id;
 	String projectid;
 	String username;
+	String content;
 	String personalname;//姓名
 	String projectname;//项目表名称
 	String money;//所需金额
@@ -14,6 +15,12 @@ public class ZxlMyProject {
 	String location;//项目地点
 	String aduitstate;
 	String codename;
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
 	public String getProjectid() {
 		return projectid;
 	}
