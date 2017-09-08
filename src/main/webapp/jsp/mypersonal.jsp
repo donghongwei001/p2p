@@ -77,7 +77,7 @@
 			</div>
 			<div id="top-login">										
 				<span>尊敬的<a href="http://localhost:9088/p2p/jsp/personal.jsp">${abcd}</a>,您好！ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-				<a href="#"><span>帮助</span></a><span>|</span><a href="http://localhost:9088/p2p/user/list.do"><span>退出</span></a>
+				<a href="#"><span>帮助</span></a><span>|</span><a href="http://localhost:9088/p2p/Home.jsp"><span>退出</span></a>
 			</div>
 		</div>
 		<div id="address">
