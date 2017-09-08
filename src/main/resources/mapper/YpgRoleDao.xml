@@ -9,4 +9,10 @@
 	<select id="queryPersonals" resultType="java.util.HashMap">
 		select * from psersonalform
 	</select>
+	<select id="queryRepayMoney" resultType="java.util.HashMap">
+		select r.repayid,r.projrctid,r.hktime,r.hkmoney,ptmoney,c.codename from repaymoney r,code c where r.statu=c.codeid and r.statu=8
+	</select>
+	<select id="queryRepay" resultType="java.util.HashMap">
+		select r.repayid,r.projrctid,r.hktime,r.hkmoney,ptmoney,c.codename from repaymoney r,code c where r.statu=c.codeid and r.statu=7
+	</select>
 </mapper>

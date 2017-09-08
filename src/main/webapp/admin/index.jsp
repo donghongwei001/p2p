@@ -190,7 +190,7 @@
 					<ul>
 						<li><a data-href="../jsp/project.jsp" data-title="折线图"
 							href="javascript:void(0)">到期还款</a></li>
-						<li><a data-href="charts-2.html" data-title="时间轴折线图"
+						<li><a data-href="../role/Hmoney.do" data-title="时间轴折线图"
 							href="javascript:void(0)">逾期还款</a></li>
 					</ul>
 				</dd>

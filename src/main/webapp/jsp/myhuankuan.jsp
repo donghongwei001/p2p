@@ -104,16 +104,18 @@
 									<th><h4>还款资金</h4></th>
 									<th><h4>平台费用</h4></th>
 									<th><h4>还款日期</h4></th>
+									<th><h4>操作</h4></th>
 								</tr>
 							</thead>
 							<tbody>
 								<c:forEach items="${project}" var="user">
 									<tr>
-										<td>${user.id}</td>
+										<td>${user.ID}</td>
 										<td>${user.projectname}</td>
 										<td>${user.money}</td>
 										<td>${user.time}</td>
 										<td>${user.codename}</td>
+										<td><input id="HuanK" type="button" value="还款 "></td>
 									</tr>
 								</c:forEach>
 							</tbody>

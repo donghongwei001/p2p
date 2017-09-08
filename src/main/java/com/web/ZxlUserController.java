@@ -95,7 +95,12 @@ public class ZxlUserController {
 	@RequestMapping("/mytouzi")
 	public String listmytouzi(HttpServletRequest request){
 		String userna =(String)request.getSession().getAttribute("abcd");
+		
+		System.out.println(userna.length() +"  Ìì¶ÊÓ¢²Å");
 		List<ZxlMyTouzi> list=userservice.listmytouzi(userna);
+		
+		System.out.println(list.getClass().getName() +"  ¼µÏÍ¶ÊÄÜ");
+		
 		request.setAttribute("touzi", list);
 		return "mytouzi";
 	}

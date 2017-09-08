@@ -15,7 +15,7 @@
 	<select id="listproject" resultType="com.entity.ZxlMyProject" parameterType="String">
 		select p.id,p.projectname,p.money,p.time,c.codename,u.username from projectapplication p,code c,usertable u where u.username=#{username} and p.userid=u.userid and p.aduitstate=c.codeid
 	</select>
-	<!-- 查询该用户所投资的项目 -->
+	<!-- 查询该用户所投资的项目 (还款) -->
 	<select id="listmytouzi" resultType="com.entity.ZxlMyTouzi" parameterType="String">
 		select p.id,p.projectname,n.money,n.time,u.username from projectapplication p,invest n,usertable u where u.username=#{username} and u.userid=p.userid and p.id=n.subjectid 
 	</select>
