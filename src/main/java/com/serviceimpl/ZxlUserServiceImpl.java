@@ -24,6 +24,7 @@ public class ZxlUserServiceImpl implements ZxlUserService{
 	/**
 	 * 查询用户表的所有信息
 	 */
+	
 	@Override
 	public List<ZxlUser> list() {
 		List<ZxlUser> list=userdao.list();

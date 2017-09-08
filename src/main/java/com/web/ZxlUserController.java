@@ -21,9 +21,9 @@ import com.service.ZxlUserService;
  * @author ZXL
  *
  */
-@Controller
-@RequestMapping("/user")
-public class ZxlUserController {
+	@Controller
+	@RequestMapping("/user")
+	public class ZxlUserController {
 	@Autowired
 	private ZxlUserService userservice;
 	/**
@@ -32,10 +32,9 @@ public class ZxlUserController {
 	 * @return
 	 */
 	@RequestMapping("/list")
-	public String list(HttpServletRequest request){
+	public void list(HttpServletRequest request){
 		List<ZxlUser> list=userservice.list();
 		request.setAttribute("user", list);
-		return "Home";
 	}
 	/**
 	 * 用户的添加

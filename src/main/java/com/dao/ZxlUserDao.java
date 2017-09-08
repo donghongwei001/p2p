@@ -22,4 +22,5 @@ public interface ZxlUserDao {
 	public List<ZxlUser> updatepwd(String pwd);//修改密码
 	public List<ZxlMyProject> listpro();//查询项目信息
 	public List<ZxlUser> listmoney(String user);//查询用户余额
+	
 }
