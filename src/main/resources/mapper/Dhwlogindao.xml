@@ -9,4 +9,10 @@
 	<select id="queryrolepower" parameterType="com.entity.DhwEmpTab" resultType="java.util.HashMap">
 		select w.code from empty e,emprole r,rolepower p,power w where e.empid=r.empid and r.roleid =p.roleid and p.powerid=w.id and e.empname=#{empname}
 	</select>
+	<select id="queryrolename" parameterType="int" resultType="String">
+		select l.rolename from empty e,emprole r,role l  where e.empid=r.empid and r.roleid=l.roleid and e.empid=#{id}
+	</select>
+	<select id="querycount" resultType="int">
+		select count(*) from projectapplication where ADUITSTATE=1
+	</select>
 </mapper>

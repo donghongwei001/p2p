@@ -3,6 +3,8 @@ package com.shiro;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -57,6 +59,8 @@ public class Realm extends AuthorizingRealm{
 		System.out.println("111111111******************");
 		System.out.println(user);
 		List<HashMap<String,Object>> userMap = dhwloginDao.queryrolepower(user);
+		
+
 		for(int i=0;i<userMap.size();i++){
 			info.addStringPermission(userMap.get(i).get("CODE").toString());
 		}

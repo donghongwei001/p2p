@@ -9,8 +9,9 @@
     <!-- Bootstrap core CSS -->
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../easyui/js/jquery.min.js"></script> 
     <script src="../bootstrap/js/bootstrap.min.js"></script>
-    <script src="../easyui/js/jquery.min.js"></script>   
+      
  	<script src="../bootstrap/js/shengshijilian/distpicker.data.js"></script>
 	<script src="../bootstrap/js/shengshijilian/distpicker.js"></script>
 	<script src="../bootstrap/js/shengshijilian/main.js"></script>

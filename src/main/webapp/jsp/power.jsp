@@ -332,6 +332,7 @@
 					height : 400, //高度	
 					left:400,
 					close : true, //是否可以关闭
+					closable:false,
 					top : 0, //上移100
 					cache : false, //
 					modal : true,//模态框 
@@ -385,6 +386,7 @@
 					height : 400, //高度	
 					left:400,
 					close : true, //是否可以关闭
+					closable:false,
 					top : 0, //上移100
 					cache : false, //
 					modal : true,//模态框 
