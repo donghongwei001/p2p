@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.Zkjdao">	
+	<insert parameterType="com.entity.Zkjproject" id="saveproject">
+		insert into projectapplication(ID,userid,projectname,projecttype,location,time,money,lifeloan,ratemoney,appendix,aduitstate)
+		values( projectapplicationid.nextval,${userid},'${projectname}',${projecttype},'${location}',to_date('${time}','yyyy-MM-dd'),${money},${lifeloan},${ratemoney},'${appendix}',${aduitstate})
+	</insert>
+	<select id="qyeryproject" resultType="java.util.HashMap">
+		select projectname,projecttype,location,time,money,lifeloan,ratemoney,appendix from projectapplication
+	</select>
+	<select id="selectusers" resultType="java.util.HashMap">
+		select state,username,pwd from usertable
+	</select>
+	<update id="updateuser" parameterType="String">
+		update usertable set state='是' where username in(#{str})
+	</update>
+	<update id="updatestartuser" parameterType="String">
+		update usertable set state='否' where username in (#{str})
+	</update>
+	<select id="selectallproject" resultType="java.util.HashMap" parameterType="int">
+		select pp.id,pp.projectname,pp.projecttype,pp.location,pp.money,pp.lifeloan from projectapplication pp where pp.id=#{id}
+	</select>
+
+	<insert id="saveinvest" parameterType="ZkjInvest">
+		insert into invest(investorid,subjectid,time,money)values(investorid,subjectid,time,money)
+	</insert>
+
+	<select id="quertuserid" parameterType="String" resultType="int">
+		select userid from usertable where username=#{name}
+	</select>
+	<select id="queryname" parameterType="int" resultType="String">
+		select personalname from psersonalform where userid=#{id}
+	</select>
+
+</mapper>

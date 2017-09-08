@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.dhwprojectdao">	
+	<select id="selectproject" resultType="java.util.HashMap">
+		select u.USERNAME,p.id,p.projectname,j.name,p.location,p.time,p.money,p.lifeloan,p.ratemoney,p.appendix,p.aduitstate from projectapplication p,subjectType j,usertable u where p.projecttype=j.id and p.userid=u.USERID
+	</select>
+	<select id="queryprojectone" resultType="java.util.HashMap" parameterType="String">
+		select u.USERNAME,p.id,p.projectname,j.name,p.location,p.time,p.money,p.lifeloan,p.ratemoney,p.appendix,p.aduitstate from projectapplication p,subjectType j,usertable u where p.projecttype=j.id and p.userid=u.USERID	and p.projectname like #{name}
+	</select>
+	<select id="queryprojecttwo" resultType="java.util.HashMap">
+		select  u.USERNAME,p.id,p.projectname,j.name,p.location,p.time,p.money,p.lifeloan,p.ratemoney,p.appendix,p.aduitstate from projectapplication p,subjectType j,usertable u where p.projecttype=j.id and p.userid=u.USERID and p.time &gt;#{0} and p.time &lt; #{1}
+	</select>
+	<select id="queryall" resultType="java.util.HashMap">
+		select  u.USERNAME,p.id,p.projectname,j.name,p.location,p.time,p.money,p.lifeloan,p.ratemoney,p.appendix,p.aduitstate from projectapplication p,subjectType j,usertable u where p.projecttype=j.id and p.userid=u.USERID and p.time &gt;#{0} and p.time &lt; #{1} and p.projectname like #{2}
+	</select>
+	<select id="selxiangqing" resultType="java.util.HashMap" parameterType="int">
+		select i.NAME,i.IDCARD,i.TELPHONE,i.BANKNUMBER,p.PROJECTNAME,p.LOCATION,p.MONEY,p.LIFELOAN,p.RATEMONEY,p.APPENDIX,f.PERSONALNAME,f.IDCARD,f.IPHONE,f.ACCOUNTNUMBER,f.MAILBOX,f.SEX,f.BIRTHDAY,f.EDUCATIONAL,f.MARRIAGE,f.HAVACHIDREN,f.ADDRESS,f.HOMEPHONE,f.WORKLIFE,f.OCCUPATION,f.WORKUNIT,f.UNITPROPERTIES,f.UNITPHONE,f.MONTHLYINCOME,f.HAVEROOM,f.HOUSELOAN,f.HAVECAR,f.CARLOAN,f.CONTACTNAME,f.CONTACTRELATION,f.CONTACTPHONE,v.TIME,v.MONEY from INVEST v, PROJECTAPPLICATION p,INVESTOR i,psersonalform f where v.SUBJECTID =p.ID AND p.USERID = f.USERID and v.INVESTORID =i.ID and p.ID=#{id}
+		
+	</select>
+</mapper>

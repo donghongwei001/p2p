@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.YxFirsttableDao">
+	<!-- 第一次审核插入到数据库 -->
+	<insert id="addfirst" parameterType="com.entity.YxFirsttable">
+		insert into firsttable (projectid,firststatus,firstdate,firstname,firstremarks)values(${projectid},${firststatus},to_date('${firstdate}','yyyy-MM-dd'),'${firstname}','${firstremarks}')
+	</insert>
+	<!-- 第二次审核插入到数据库 -->
+	<insert id="addsecond" parameterType="com.entity.YxFinaltable">
+		insert into finaltable values(${projectid},${finalstatus},to_date('${finaldate}','yyyy-MM-dd'),'${finalname}','${finalremarks}',${poststatus})
+	</insert>
+	<!-- 第一次审核成功后更新项目表状态 -->
+	<update id="update" parameterType="com.entity.YxExamine">
+		update projectapplication set aduitstate = '2' where id = #{id}
+	</update> 
+	<!-- 第二次审核成功后更新二次审核状态  -->
+	<update id="updatesecond" parameterType="com.entity.YxFirsttable">
+		update firsttable set finalstatus='2' where projectid = #{projectid}
+	</update> 
+	<!-- 将项目发布到前台 -->
+	<insert id="addfabu" parameterType="com.entity.YxFabu">
+		insert into projectrelease values(${projectid},to_date('${begintime}','yyyy-MM-dd'),to_date('${lasttime}','yyyy-MM-dd'),${nowmoney},'${content}','${picture}',${status},${minmoney})
+	</insert>
+	<!-- 发布成功后改状态 -->
+	<update id="updatefinal" parameterType="int">
+		update finaltable set poststatus=5 where projectid=#{id}
+	</update>
+</mapper>
