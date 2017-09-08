@@ -60,7 +60,7 @@
 		
 		<div id="address">
 			<div id="address-text">
-				<span>首页<span>>></span>我要投资</span>
+				<span>首页<span></span>我要投资</span>
 			</div>
 		</div>
 			

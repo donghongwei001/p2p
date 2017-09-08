@@ -56,6 +56,7 @@
 				/image/** = anon
 				/img/** = anon
 				/js/** = anon
+				/jsp/Home.jsp=anon
 				/media/** = anon
 				/jsp/index.jsp = anon
 				/jsp/Home.jsp = anon

@@ -17,34 +17,61 @@ import com.service.YxExamineService;
 public class YxExamineServiceImpl implements YxExamineService{
 	@Autowired
 	private YxExamineDao yxdao;
-	//查询第一次要审核的项目
+	/**
+	 * 查询第一次要审核的项目
+	 */
 	@Override
 	public List<YxExamine> queryexam() {
 		// TODO Auto-generated method stub
 		return yxdao.queryAll();
 	}
-	//查询逾期的项目
+	/**
+	 * 查询逾期的项目
+	 */
 	@Override
 	public List<Outtime> queryx() {
 		// TODO Auto-generated method stub
 		return yxdao.queryxm();
 	}
-	//查询需要二次审核的项目
+	/**
+	 * 查询需要二次审核的项目
+	 */
 	@Override
 	public List<YxFirst> queryftt() {
 		// TODO Auto-generated method stub
 		return yxdao.queryft();
 	}
-	//二次审核时查看项目详情
+	/**
+	 * 二次审核时查看项目详情
+	 */
 	@Override
 	public List<Map> queryss(int id) {
 		// TODO Auto-generated method stub
 		return yxdao.querylm(id);
 	}
+	/**
+	 * 查询需要发布的项目
+	 */
 	@Override
 	public List<Map> queryfa() {
 		// TODO Auto-generated method stub
 		return yxdao.queryfabu();
+	}
+	/**
+	 * 查询第一次审核没通过的
+	 */
+	@Override
+	public List<Map> querynotone() {
+		// TODO Auto-generated method stub
+		return yxdao.querynot();
+	}
+	/**
+	 * 查询第二次审核没通过的
+	 */
+	@Override
+	public List<Map> querytwo() {
+		// TODO Auto-generated method stub
+		return yxdao.querynottwo();
 	}
 
 

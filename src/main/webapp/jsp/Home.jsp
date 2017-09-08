@@ -60,30 +60,7 @@
 			<div id="img-login"></div>
 		</div>		
 		<div id="content">
-			<div id="content-left">
-				<table class="table table-hover">
-					<thead>
-						<tr>
-							<th>用户id</th>
-							<th>用户名</th>
-							<th>密码</th>
-							<th>余额</th>
-							<th>状态</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach items="${user}" var="user">
-							<tr>
-								<td>${user.userID}</td>
-								<td>${user.username}</td>
-								<td>${user.pwd}</td>
-								<td>${user.money}</td>
-								<td>${user.state}</td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
-			</div>
+			
 			<div id="content-image">
 				<img src="../image/bottom.png">	
 			</div>		

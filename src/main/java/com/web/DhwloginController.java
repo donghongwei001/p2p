@@ -85,6 +85,7 @@ public class DhwloginController {
 			request.getSession().setAttribute("count", count);
 			request.getSession().setAttribute("rolename", rolename);
 			request.getSession().setAttribute("user",user);//将用户放入Session
+
 			return "redirect:../admin/index.jsp";
 			/*response.getWriter().write(JSON.toJSONString("登录成功!"));
 			response.getWriter().flush();
