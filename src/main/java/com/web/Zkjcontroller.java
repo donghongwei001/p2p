@@ -16,8 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.alibaba.fastjson.JSON;
-import com.entity.Zkj;
+import com.entity.ZkjInvest;
 import com.entity.Zkjproject;
 import com.service.Zkjservicedao;
 
@@ -27,14 +26,14 @@ public class Zkjcontroller {
 	@Autowired
 	private Zkjservicedao servicedao;
 	/*
-	 * �?��据库插入申请项目的数�?
+	 * �?��据库插入申请项目的数�?
 	 */
 	@RequestMapping("project")
 	public String saveproject(Zkjproject pp,HttpServletRequest request){
 		//	int userid=(int)session.getAttribute("userid");
 		int userid=3;
 		pp.setAppendix("附件");
-		pp.setAduitstate(1);//未审�?
+		pp.setAduitstate(1);//未审�?
 		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd ");
 		String time=sdf.format(new Date());
 		String location=request.getParameter("location1")+request.getParameter("location2")+request.getParameter("location3");
@@ -47,7 +46,7 @@ public class Zkjcontroller {
 	}
 
 	/*
-	 * 二次审核查询的项�?
+	 * 二次审核查询的项�?
 	 */
 	@RequestMapping("/selectproject")
 	public ModelAndView queryproject(){
@@ -101,18 +100,37 @@ public class Zkjcontroller {
 		}
 		return "success";
 	}
+	/*
+	 * 投资界面
+	 */
 	@RequestMapping("allproject")
-	public ModelAndView quertallproject(){
+	public ModelAndView quertallproject(HttpServletRequest request){
+		
+	//System.out.println(id+"id");
+		int  id=Integer.parseInt(request.getParameter("id"));
 		ModelAndView mm=new ModelAndView();
-		List<Map> listp=servicedao.selectallproject(2);
+		
+		List<Map> listp=servicedao.selectallproject(id);
 		mm.addObject("listp",listp);
 		mm.setViewName("singleproject");
 		return mm;
 	}
+	/*1.
+	 * 插入到投资表(放款表)
+	 */
 	@RequestMapping("/money")
-	public void projectmoney(@RequestBody int id){
-		
+	public void projectmoney(HttpServletRequest request,HttpSession session){
+		String username=(String) session.getAttribute("abcd");
+		ZkjInvest zz=new ZkjInvest();
+		String mm=request.getParameter("money");
+		double money=Double.parseDouble(mm);
+		zz.setMoney(money);
+		System.out.println(zz.getSubjectid());
+		servicedao.addinvest(zz,username);
 	}
+	/*
+	 * 根据用户名查询用户id
+	 */
 	@RequestMapping("/name")
 	@ResponseBody
 	public String queryname(HttpSession session){

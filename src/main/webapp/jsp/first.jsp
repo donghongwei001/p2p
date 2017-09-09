@@ -24,7 +24,7 @@
 				style="border:0px;background:rgba(0, 0, 0, 0);"
 				value="${m.projectid}"></td>
 				<td>${m.projectname}</td>
-				<td>${m.firststatus }</td>
+				<%-- <td>${m.firststatus }</td> --%>
 				<td>${m.firstdate }</td>
 				<td>${m.firstname }</td>
 				<td>${m.firstremarks }</td>
@@ -35,7 +35,8 @@
 		<!-- 		<td><input type="radio" value="1" name="lstates" />可发布
 				<input type="radio" value="0" name="lstates" />待发布</td> -->
 				<td><button type="button" value="submit" class="btn default btn-xs" id="addsecond">审核</button></td>
-				<td><input type="button" value="详情" class="btn default btn-xs" id="selxm"></td>
+				<!-- <td><input type="button" value="详情" class="btn default btn-xs" id="selxm"></td> -->
+				<td><a href="http://localhost:9088/p2p/yx/xiang.do?projectid=${m.projectid}"style="font-size:16px;color:red">查看项目详情</a></td>
 			</tr>
 		</c:forEach>
 	</table>
@@ -58,9 +59,7 @@ $(function(){
 	pageSize : 20,
 	pageList : [ 20, 40, 60 ],
 	toolbar : "#toolbar",
-
 	columns : [ [
-
 	{
 		field : 'PROJECTID',
 		title : '项目ID',
@@ -70,10 +69,6 @@ $(function(){
 		field : 'PROJECTNAME',
 		title : '项目名称',
 		width : 100
-	}, {
-		field : 'FIRSTSTATUS',
-		title : '初审状态',
-		width : 80
 	},{
 		field : 'FIRSTDATE',
 		title : '初审时间',
@@ -144,22 +139,9 @@ $(function(){
 		});
 		
 	});
-	
-	 $("#selxm").click(function(){
-		var data={};
-		data["projectid"]=$('input[name="xmid"]').val();
-		alert(data.projectid);
-		
-		$.ajax({
-			type : "post",
-			url : "/p2p/yx/xiang.do",
-			contentType : "application/json;charset=utf-8",
-			data : $('input[name="xmid"]').val(),
-			success : function(data1){
-				alert(ok);
-			}
-		});
-	});
+
+	 
+	 
 	
 	
 	

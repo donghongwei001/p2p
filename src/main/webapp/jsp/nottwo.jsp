@@ -10,28 +10,21 @@
 <script src="../easyui/js/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="../easyui/css/icon.css" />
 <link rel="stylesheet" type="text/css" href="../easyui/css/easyui.css" />
-
 <script src="../easyui/js/jquery.min.js"></script>
 <script src="../easyui/js/jquery.easyui.min.js"></script>
-
 <script type="text/javascript" src="../easyui/js/easyui-lang-zh_CN.js"></script>
 </head>
 <body>
 	<table id="proDataGrid"> 
-		<c:forEach items="${lsm }" var="li">
+		<c:forEach items="${mp}" var="p">
 			<tr>
-				<td>${li.USERNAME }</td>
-				<td>${li.PROJECTNAME }</td>
-				<td>${li.NAME }</td>
-				<td>${li.LOCATION }</td>
-				<td>${li.TIME }</td>
-				<td>${li.MONEY }</td>
-				<td>${li.LIFELOAN }</td>
-				<td>${li.APPENDIX }</td>
+				<td>${p.PROJECTID}</td>
+				<td>${p.PROJECTNAME}</td>
+				<td>${p.FINALDATE}</td>
+				<td>${p.FINALNAME}</td>
+				<td>${p.FINALREMARKS}</td>
 			</tr>
-			
 		</c:forEach>
-		<tr><td><a href="http://localhost:9088/p2p/yx/chushe.do" style="font-size:14px;color:red">返回上页面</a></td></tr>
 	</table>
 	<table id="dg">
 		<tr>
@@ -44,9 +37,11 @@
 <script type="text/javascript">
 $(function(){
 	$('#proDataGrid').datagrid({
-	url : 'http://localhost:9088/p2p/yx/xiang.do',
+	url : 'http://localhost:9088/p2p/yx/fabu.do',
+	// data:data,
 	fitColumns : true,//自动适应网格宽度
 	striped : true,//显示斑马线
+	//idField : "projectid",//设置productid为主键
 	loadMsg : "努力加载中......",//加载慢的时候提示信息
 	fit : true,//
 	rownumbers : true,
@@ -57,39 +52,27 @@ $(function(){
 	toolbar : "#toolbar",
 
 	columns : [ [{
-		field : 'USERNAME',
-		title : '用户名',
-		width : 50,
+		field : 'PROJECTID',
+		title : '项目ID',
+		width : 200,
 		
 	},
 	{
 		field : 'PROJECTNAME',
 		title : '项目名称',
-		width : 100
+		width : 200
 	}, {
-		field : 'PROJECTTYPE',
-		title : '项目类型',
-		width : 80
-	},{
-		field : 'LOCATION',
-		title : '项目地点',
-		width : 120
-	},{
-		field : 'TIME',
-		title : '申请时间',
-		width : 100
-	},{
-		field : 'MONEY',
-		title : '金额',
+		field : 'FIRSTDATE',
+		title : '终审时间',
 		width : 200
 	},{
-		field : 'LIFELOAN',
-		title : '期限',
-		width : 120
+		field : 'FIRSTNAME',
+		title : '审核人',
+		width : 200
 	},{
-		field : 'APPENDIX',
-		title : '附件',
-		width : 100
+		field : 'FIRSTREMARKS',
+		title : '审核意见',
+		width : 200
 	}] ]
 });
 });

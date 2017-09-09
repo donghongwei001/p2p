@@ -7,18 +7,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<script src="../easyui/js/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css" href="../easyui/css/icon.css" />
-<link rel="stylesheet" type="text/css" href="../easyui/css/easyui.css" />
-
-<script src="../easyui/js/jquery.min.js"></script>
-<script src="../easyui/js/jquery.easyui.min.js"></script>
-
-<script type="text/javascript" src="../easyui/js/easyui-lang-zh_CN.js"></script>
 </head>
 <body>
 	<table id="proDataGrid"> 
-		<c:forEach items="${lsm }" var="li">
+		<c:forEach items="${ld }" var="li">
 			<tr>
 				<td>${li.USERNAME }</td>
 				<td>${li.PROJECTNAME }</td>
@@ -31,7 +23,7 @@
 			</tr>
 			
 		</c:forEach>
-		<tr><td><a href="http://localhost:9088/p2p/yx/chushe.do" style="font-size:14px;color:red">返回上页面</a></td></tr>
+		<tr><td><a href="http://localhost:9088/p2p/yx/notone.do" style="font-size:14px;color:red">返回上页面</a></td></tr>
 	</table>
 	<table id="dg">
 		<tr>

@@ -18,4 +18,12 @@ public interface YxExamineService {
 	List<Map> queryss(int id);
 	//查询要发布的项目
 	List<Map> queryfa();
+	//查询第一次审核没通过的项目
+	List<Map> querynotone();
+	//查询第二次审核没通过的项目
+	List<Map> querytwo();
+	//一次审核根据用户id查询用户认证信息
+	List<Map> queryuserid(int id);
+	//id查询详情
+	List<Map> queryf(int id);
 } 

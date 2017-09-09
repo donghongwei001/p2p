@@ -75,7 +75,7 @@
 			</div>
 			<div id="top-login">										
 				欢迎<a href="http://localhost:9088/p2p/user/personal.do">${abcd}</a>!加入宜人贷&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="#"><span>帮助</span></a><span>|</span><a href="http://localhost:9088/p2p/user/list.do"><span>退出</span></a>
+				<a href="#"><span>帮助</span></a><span>|</span><a href="http://localhost:9088/p2p/Home.jsp"><span>退出</span></a>
 			</div>
 		</div>
 		<div id="address">
@@ -89,7 +89,7 @@
 					<div id="left1"><a href="http://localhost:9088/p2p/user/personal.do">我的资产</a></div>
 					<div id="left2"><a href="http://localhost:9088/p2p/user/myproject.do">我的项目</a></div>
 					<div id="left3"><a href="http://localhost:9088/p2p/user/mytouzi.do">我的投资</a></div>
-					<div id="left4"><a href="http://localhost:9088/p2p/jsp/myhuankuan.jsp">我的还款</a></div>
+					<div id="left4"><a href="http://localhost:9088/p2p/user/myhuankuan.do">我的还款</a></div>
 					<div id="left5"><a href="http://localhost:9088/p2p/user/mypersonal.do">个人信息</a></div>
 					<div id="left6"><a href="http://localhost:9088/p2p/jsp/myupdatepwd.jsp">修改密码</a></div>
 				</div>

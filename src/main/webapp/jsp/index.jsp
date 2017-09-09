@@ -57,7 +57,7 @@
 			</div>
 			<div id="top-login">										
 				欢迎<a href="http://localhost:9088/p2p/jsp/personal.jsp">${abcd}</a>!加入宜人贷&nbsp;&nbsp;&nbsp;&nbsp;
-				<a>帮助</a><span>|</span><a href="http://localhost:9088/p2p/user/list.do">退出</a>
+				<a>帮助</a><span>|</span><a href="http://localhost:9088/p2p/Home.jsp">退出</a>
 			</div>
 		</div>
 		<div id="img">
@@ -98,7 +98,8 @@
 								<td>${user.name}</td>
 								<td>${user.location}</td>
 								<td>
-									<input type="button" style="font-size:16px;margin-left:20%;" class="btn btn-success" id="but" value="查看"/>
+									<a href="/p2p/add/allproject.do?id=${user.projectid}">
+									 <input type="button" style="font-size:16px;margin-left:20%;" class="btn btn-success" id="but" value="查看"/> </a>
 								</td>
 							</tr>
 						</c:forEach>
@@ -152,4 +153,5 @@
 			 }
 		 });
 	});
+	
 </script>

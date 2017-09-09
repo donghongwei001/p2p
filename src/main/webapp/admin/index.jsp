@@ -1,13 +1,10 @@
-﻿
-<!DOCTYPE HTML>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="utf-8">
-<meta name="renderer" content="webkit|ie-comp|ie-stand">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport"
-	content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="Bookmark" href="../admin/favicon.ico">
 <link rel="Shortcut Icon" href="../admin/favicon.ico" />
 <!--[if lt IE 9]>
@@ -24,15 +21,6 @@
 	href="../admin/static/h-ui.admin/skin/default/skin.css" id="skin" />
 <link rel="stylesheet" type="text/css"
 	href="../admin/static/h-ui.admin/css/style.css" />
-<!--[if IE 6]>
-<script type="text/javascript" src="../admin/lib/DD_belatedPNG_0.0.8a-min.js" ></script>
-<script>DD_belatedPNG.fix('*');</script>
-<![endif]-->
-<title>H-ui.admin v3.1</title>
-<meta name="keywords"
-	content="H-ui.admin v3.1,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
-<meta name="description"
-	content="H-ui.admin v3.1，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
 </head>
 <body>
 	<!-- ------------------头部-------------------------头部-----------------------头部----------------------- -->
@@ -113,12 +101,12 @@
 					</dt>
 					
 					<dd>
-						<ul><shiro:hasPermission name="rolemarger">
+						<ul>
 							<li><a data-href="../jsp/role.jsp" data-title="角色管理"
-								href="javascript:void(0)">角色管理</a></li></shiro:hasPermission>
-							<shiro:hasPermission name="powermarger">
+								href="javascript:void(0)">角色管理</a></li>
+							
 							<li><a data-href="../jsp/power.jsp" data-title="权限管理"
-								href="javascript:void(0)">权限管理</a></li></shiro:hasPermission>
+								href="javascript:void(0)">权限管理</a></li>
 						</ul>
 					</dd>
 				</dl>
@@ -161,9 +149,9 @@
 				</dt>
 				<dd>
 					<ul>
-						<li><a data-href="http://h-ui.duoshuo.com/admin/"
-							data-title="评论列表" href="javascript:;">项目初审</a></li>
-						<li><a data-href="feedback-list.html" data-title="意见反馈"
+						<li><a data-href="http://localhost:9088/p2p/yx/first.do"
+							data-title="项目初审" href="javascript:;">项目初审</a></li>
+						<li><a data-href="http://localhost:9088/p2p/yx/chushe.do" data-title="项目终审"
 							href="javascript:void(0)">项目终审</a></li>
 					</ul>
 				</dd>
@@ -176,11 +164,11 @@
 				</dt>
 				<dd>
 					<ul>
-						<li><a data-href="product-brand.html" data-title="品牌管理"
+						<li><a data-href="http://localhost:9088/p2p/yx/notone.do" data-title="项目初审未通过"
 							href="javascript:void(0)">项目初审未通过</a></li>
-						<li><a data-href="product-category.html" data-title="分类管理"
+						<li><a data-href="http://localhost:9088/p2p/yx/nottwo.do" data-title="项目终审未通过"
 							href="javascript:void(0)">项目终审未通过</a></li>
-						<li><a data-href="product-list.html" data-title="产品管理"
+						<li><a data-href="http://localhost:9088/p2p/yx/fa.do" data-title="发布项目"
 							href="javascript:void(0)">发布项目</a></li>
 					</ul>
 				</dd>
@@ -202,7 +190,7 @@
 					<ul>
 						<li><a data-href="../jsp/project.jsp" data-title="折线图"
 							href="javascript:void(0)">到期还款</a></li>
-						<li><a data-href="../jsp/YpgRepayMoney.jsp" data-title="时间轴折线图"
+						<li><a data-href="../role/Hmoney.do" data-title="时间轴折线图"
 							href="javascript:void(0)">逾期还款</a></li>
 					</ul>
 				</dd>

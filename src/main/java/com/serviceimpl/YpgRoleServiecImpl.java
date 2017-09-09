@@ -23,5 +23,15 @@ public class YpgRoleServiecImpl implements YpgRoleService{
 		// TODO Auto-generated method stub
 		return role.queryPersonals();
 	}
+	@Override
+	public List<Map> queryRepayMoney() {
+		// TODO Auto-generated method stub
+		return role.queryRepayMoney();
+	}
+	@Override
+	public List<Map> queryRepay() {
+		// TODO Auto-generated method stub
+		return role.queryRepay();
+	}
 	
 }

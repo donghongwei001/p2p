@@ -26,6 +26,7 @@ public class Realm extends AuthorizingRealm{
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
 		// TODO Auto-generated method stub
 		UsernamePasswordToken upToken =(UsernamePasswordToken) token;
+		System.out.println("9999999999999999999999999999999999999999999999999999");
 		String userName = upToken.getUsername();//从令牌中获得用户名称
 		DhwEmpTab dhwEmpTab=dhwloginDao.queryUser(userName);
 		System.out.println("1111111111");
@@ -50,15 +51,15 @@ public class Realm extends AuthorizingRealm{
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection PC) {
 		// TODO Auto-generated method stub
+		System.out.println("111111111******************222222222222");
 		SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
 		DhwEmpTab user =(DhwEmpTab)PC.getPrimaryPrincipal();
-		/*System.out.println("111111111");
+		System.out.println("111111111******************");
 		System.out.println(user);
 		List<HashMap<String,Object>> userMap = dhwloginDao.queryrolepower(user);
 		for(int i=0;i<userMap.size();i++){
 			info.addStringPermission(userMap.get(i).get("CODE").toString());
-		}*/
-		info.addStringPermission("staff");
+		}
 		return info;
 	}
 
