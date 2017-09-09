@@ -119,9 +119,9 @@
 				</dt>
 				<dd>
 					<ul>
-						<li><a data-href="article-list.html" data-title="资讯管理"
+						<li><a data-href="article-list.html" data-title="员工账号管理"
 							href="javascript:void(0)">员工账号管理</a></li>
-						<li><a data-href="article-list.html" data-title="资讯管理"
+						<li><a data-href="article-list.html" data-title="员工信息管理"
 							href="javascript:void(0)">员工信息管理</a></li>
 					</ul>
 				</dd>
@@ -134,9 +134,9 @@
 				</dt>
 				<dd>
 					<ul>
-						<li><a data-href="picture-list.html" data-title="图片管理"
+						<li><a data-href="picture-list.html" data-title="用户账号管理"
 							href="javascript:void(0)">用户账号管理</a></li>
-						<li><a data-href="article-list.html" data-title="资讯管理"
+						<li><a data-href="article-list.html" data-title="用户账号管理"
 							href="javascript:void(0)">用户账号管理</a></li>
 					</ul>
 				</dd>
@@ -188,9 +188,9 @@
 				</dt>
 				<dd>
 					<ul>
-						<li><a data-href="../jsp/project.jsp" data-title="折线图"
+						<li><a data-href="../jsp/project.jsp" data-title="到期还款"
 							href="javascript:void(0)">到期还款</a></li>
-						<li><a data-href="../role/Hmoney.do" data-title="时间轴折线图"
+						<li><a data-href="../role/Hmoney.do" data-title="逾期还款"
 							href="javascript:void(0)">逾期还款</a></li>
 					</ul>
 				</dd>
@@ -203,9 +203,9 @@
 				</dt>
 				<dd>
 					<ul>
-						<li><a data-href="system-base.html" data-title="系统设置"
+						<li><a data-href="../jsp/SzhJsp/Xmtj.jsp" data-title="项目统计"
 							href="javascript:void(0)">项目统计</a></li>
-						<li><a data-href="system-category.html" data-title="栏目管理"
+						<li><a data-href="../jsp/SzhJsp/Zjtj.jsp" data-title="资金统计"
 							href="javascript:void(0)">资金统计</a></li>
 					</ul>
 				</dd>
