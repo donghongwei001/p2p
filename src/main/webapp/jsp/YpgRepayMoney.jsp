@@ -132,9 +132,9 @@
 	</div> -->
 	
 <script>
-	/* $(function(){
+	 $(function(){
 		
-		$("#ad").click(function(){
+		 /*	$("#ad").click(function(){
 			$('#hovertreewindow').dialog("open");
 		})
 		

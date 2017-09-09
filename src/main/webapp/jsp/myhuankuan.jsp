@@ -54,6 +54,11 @@
 		#down-two{margin-left:37.3%;}
 		#down-three{margin-left:41%;margin-bottom:20px;}
 		#input-btu{margin-left:250px;}
+		#btn {
+			
+			margin-left:200px;
+			
+		}
 	</style>
 	
 	<script type="text/javascript">
@@ -89,7 +94,7 @@
 					<div id="left1"><a href="http://localhost:9088/p2p/user/personal.do">我的资产</a></div>
 					<div id="left2"><a href="http://localhost:9088/p2p/user/myproject.do">我的项目</a></div>
 					<div id="left3"><a href="http://localhost:9088/p2p/user/mytouzi.do">我的投资</a></div>
-					<div id="left4"><a href="http://localhost:9088/p2p/jsp/myhuankuan.jsp">我的还款</a></div>
+					<div id="left4"><a href="http://localhost:9088/p2p/user/myhuankuan.do">我的还款</a></div>
 					<div id="left5"><a href="http://localhost:9088/p2p/user/mypersonal.do">个人信息</a></div>
 					<div id="left6"><a href="http://localhost:9088/p2p/jsp/myupdatepwd.jsp">修改密码</a></div>
 				</div>
@@ -97,7 +102,6 @@
 				<div id="content-right">
 					<div id="right-div">						
 						<table class="table table-hover">
-							<thead>
 								<tr>
 									<th><h4>项目编号</h4></th>
 									<th><h4>项目名称</h4></th>
@@ -106,21 +110,71 @@
 									<th><h4>还款日期</h4></th>
 									<th><h4>操作</h4></th>
 								</tr>
-							</thead>
-							<tbody>
-								<c:forEach items="${project}" var="user">
-									<tr>
-										<td>${user.ID}</td>
-										<td>${user.projectname}</td>
-										<td>${user.money}</td>
-										<td>${user.time}</td>
-										<td>${user.codename}</td>
-										<td><input id="HuanK" type="button" value="还款 "></td>
-									</tr>
-								</c:forEach>
-							</tbody>
+							<c:forEach items="${huankuan}" var="h">
+								<tr>
+									<td>${h.repayid}</td>
+									<td>${h.projrctid}</td>
+									<td>${h.hktime}</td>
+									<td>${h.hkmoney}</td>
+									<td>${h.ptmoney}</td>
+									<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">还款</button></td>
+								</tr>
+							</c:forEach>
 						</table>
-					</div>					
+					</div>
+					
+					   <!-- Button trigger modal -->
+
+
+						<!-- Modal -->
+						<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+						  <div class="modal-dialog" role="document">
+						    <div class="modal-content">
+						      <div class="modal-header">
+						        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+						      </div>
+						      <div class="modal-body">
+						        	<form id="myForm" method="post">
+										<table width="100%" class="formtable">
+											<tr>
+												<th height="40" >应还款：</th><td></td>
+											</tr>
+											<tr>
+												<th height="40">密码：</th><td></td>
+											</tr>
+											<tr>
+												<th height="40">密码：</th><td><input type="text"/></td>
+											</tr>
+											<tr>
+												<td id="btn" width="450px;"></td><td><button type="button" class="btn btn-default" data-dismiss="modal">关闭</button><button type="button" class="btn btn-primary">提交</button></td>
+											</tr>
+										</table>
+												
+								        		
+									</form>
+						      </div>
+						      
+						    </div>
+						  </div>
+						</div>
+					
+					<!-- <div id="handlerDialog">
+						<form id="myForm" method="post">
+							<table width="100%" class="formtable">
+								<tr>
+									<th height="40" >应还款：</th><td></td>
+								</tr>
+								<tr>
+									<th height="40">密码：</th><td><input id="emppwd" name="emppwd" class="easyui-validatebox" data-options="required:true"></td>
+								</tr>
+								
+								<tr>
+									<th height="40"></th><td><input type="button" id="rolename"></td>
+								</tr>
+							</table>
+						</form>
+					</div>		 -->			
 				</div>
 			</div>
 		</div>
@@ -140,4 +194,11 @@
 		</div>
 	</div>	
 </body>
+	<script>
+		$(function(){
+			
+			
+		})
+	</script>
+
 </html>

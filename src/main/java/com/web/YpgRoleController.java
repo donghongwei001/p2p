@@ -34,10 +34,9 @@ public class YpgRoleController {
 	public String queryRepayMoney(HttpServletRequest request){
 		List<Map> MoneyList=roleservice.queryRepayMoney();
 		request.setAttribute("money", MoneyList);
-		
 		List<Map> repayList=roleservice.queryRepay();
 		request.setAttribute("repay", repayList);
 		
 		return "YpgRepayMoney";
-	}
+	} 
 }

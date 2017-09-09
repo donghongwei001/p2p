@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
+import com.entity.ZxlMyHuankuan;
 import com.entity.ZxlMyPersonal;
 import com.entity.ZxlMyProject;
 import com.entity.ZxlMyTouzi;
@@ -83,6 +84,7 @@ import com.service.ZxlUserService;
 	public String listproject(HttpServletRequest request){
 		String userna =(String)request.getSession().getAttribute("abcd");
 		List<ZxlMyProject> list=userservice.listproject(userna);
+		
 		request.setAttribute("project", list);
 		return "myproject";
 	}
@@ -94,15 +96,24 @@ import com.service.ZxlUserService;
 	@RequestMapping("/mytouzi")
 	public String listmytouzi(HttpServletRequest request){
 		String userna =(String)request.getSession().getAttribute("abcd");
-		
-		System.out.println(userna.length() +"  天妒英才");
 		List<ZxlMyTouzi> list=userservice.listmytouzi(userna);
-		
-		System.out.println(list.getClass().getName() +"  嫉贤妒能");
-		
 		request.setAttribute("touzi", list);
 		return "mytouzi";
 	}
+	
+	/**
+	 * 查询该用户未还款的项目
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping("/myhuankuan")
+	public String listhuankuan(HttpServletRequest request){
+		String userna =(String)request.getSession().getAttribute("abcd");
+		List<ZxlMyHuankuan> list=userservice.listhuankuan(userna);
+		request.setAttribute("huankuan", list);
+		return "myhuankuan";
+	}
+	
 	/**
 	 * 查询该用户的基本信息
 	 * 根据用户名

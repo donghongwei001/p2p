@@ -15,7 +15,7 @@
 	<select id="listproject" resultType="com.entity.ZxlMyProject" parameterType="String">
 		select p.id,p.projectname,p.money,p.time,c.codename,u.username from projectapplication p,code c,usertable u where u.username=#{username} and p.userid=u.userid and p.aduitstate=c.codeid
 	</select>
-	<!-- 查询该用户所投资的项目 (还款) -->
+	<!-- 查询该用户所投资的项目 -->
 	<select id="listmytouzi" resultType="com.entity.ZxlMyTouzi" parameterType="String">
 		select p.id,p.projectname,n.money,n.time,u.username from projectapplication p,invest n,usertable u where u.username=#{username} and u.userid=p.userid and p.id=n.subjectid 
 	</select>
@@ -36,5 +36,9 @@
 	<!-- 查询用户余额 -->
 	<select id="listmoney" resultType="com.entity.ZxlUser" parameterType="String">
 		select u.money,u.username from usertable u where u.username=#{username} 
+	</select> 
+	<!-- 查询用户未还款项目 -->
+	<select id="listhuankuan" resultType="com.entity.ZxlMyHuankuan" parameterType="String">
+		select r.repayid,r.projrctid,r.hktime,r.hkmoney,ptmoney,c.codename from repaymoney r,usertable u,code c where u.username=#{username} and r.projrctid=u.userid and r.statu=c.codeid and r.statu=8 
 	</select> 
 </mapper>
