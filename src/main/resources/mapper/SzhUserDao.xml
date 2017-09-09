@@ -7,12 +7,9 @@
 		select * from usertable
 	</select>
 	<insert id="addUser" parameterType="com.entity.SzhUser">
-		insert into usertable values(#{userID,jdbcType=VARCHAR},#{username,jdbcType=VARCHAR},#{pwd,jdbcType=VARCHAR},#{money,jdbcType=VARCHAR})
+		insert into usertable values(#{userID,jdbcType=VARCHAR},#{username,jdbcType=VARCHAR},#{pwd,jdbcType=VARCHAR},#{money,jdbcType=VARCHAR},#{state,jdbcType=VARCHAR})
 	</insert>
-	<select id="queryRole" resultType="com.entity.SzhRole">
-		select * from role
-	</select>
-	<insert id="addRole" parameterType="com.entity.SzhRole">
-		insert into role values(#{roleid,jdbcType=VARCHAR},#{rolename,jdbcType=VARCHAR},#{rolestatus,jdbcType=VARCHAR})
-	</insert>
+	<update id="updateUser" parameterType="com.entity.SzhUser">
+		update usertable set username=#{username,jdbcType=VARCHAR},state=#{state,jdbcType=VARCHAR} where userID = #{userID,jdbcType=VARCHAR}
+	</update>	
 </mapper>
