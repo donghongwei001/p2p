@@ -3,21 +3,23 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dao.YxExamineDao">	
+	<!-- 查询第一次要审核的项目 -->
 	<select id="queryAll" resultType="com.entity.YxExamine">
-		select p.id,p.userid,u.username,p.projectname,p.projecttype,p.location,p.time,p.money,p.lifeloan,p.ratemoney,p.appendix,p.aduitstate from projectapplication p,usertable u where u.userid=p.userid and p.aduitstate='1'
+		select p.id,p.userid,p.projectname,s.name,p.location,p.time,p.money,p.lifeloan,p.ratemoney,p.appendix from projectapplication p,subjectType s where p.projecttype=s.id and p.aduitstate='1'
 	</select>
-   
+   <!-- 查询逾期的项目 -->
    <select id="queryxm" resultType="com.entity.Outtime">
 		select p.projectname,o.outday,o.outmoney from outtime o,projectapplication p where o.projrctid=p.id
 	</select>
-	
+	<!-- 查询第二次要审核的项目 -->
 	<select id="queryft" resultType="com.entity.YxFirst">
-		select f.projectid,p.projectname,f.firststatus,f.firstdate,f.firstname,f.firstremarks from firsttable f,projectapplication p where f.projectid=p.id and f.firststatus='1' and f.finalstatus='1'
+		select f.projectid,p.projectname,f.firstdate,f.firstname,f.firstremarks from firsttable f,projectapplication p where f.projectid=p.id and f.firststatus='1' and f.finalstatus='1'
 	</select>
-	<select id="querylm" resultType="java.util.HashMap">
-		select u.username,p.projectname,p.projecttype,p.location,p.time,p.money,p.lifeloan,p.appendix from projectapplication p,firsttable f,usertable u,subjectType s where p.userid=u.userid and p.projecttype=s.id and f.projectid=p.id and f.projectid=#{projectid}
+	<!-- 根据id查看项目详情 -->
+	<select id="querylm" resultType="java.util.HashMap" parameterType="int">
+		select u.username,p.projectname,s.name,p.location,p.time,p.money,p.lifeloan,p.appendix from projectapplication p,firsttable f,usertable u,subjectType s where p.userid=u.userid and p.projecttype=s.id and f.projectid=p.id and f.projectid=#{projectid}
 	</select>
-	
+	<!-- 查询要发布的项目 -->
 	<select id="queryfabu" resultType="java.util.HashMap">
 		select f.projectid,u.username,p.projectname,s.name,p.location,p.money from finaltable f,projectapplication p,subjecttype s,usertable u where f.projectid=p.id and p.projecttype=s.id and p.userid=u.userid and f.finalstatus='1' and f.poststatus='1'
 	</select>
@@ -29,5 +31,12 @@
 	<select id="querynottwo" resultType="java.util.HashMap">
 		select f.projectid,p.projectname,f.finaldate,f.finalname,f.finalremarks from finaltable f,projectapplication p where f.projectid=p.id and f.finalstatus='0'
 	</select>
-	
+	<!-- 初审根据id查用户信息 -->
+	<select id="queryuser" resultType="java.util.HashMap" parameterType="int">
+		select pp.personalname,pp.idcard,pp.iphone,pp.mailbox,pp.marriage,pp.havachidren,pp.address,pp.worklife,pp.occupation,pp.workunit,pp.unitphone,pp.monthlyincome,pp.haveroom,pp.houseloan,pp.havecar,pp.carloan,pp.contactname,pp.contactrelation,pp.contactphone from projectapplication p,psersonalform pp where pp.userid=#{userid}
+	</select>
+	<!--初审没通过查详情  -->
+	<select id="queryfirst" resultType="java.util.HashMap" parameterType="int">
+		select u.username,p.projectname,s.name,p.location,p.time,p.money,p.lifeloan,p.appendix from projectapplication p,firsttable f,usertable u,subjectType s where p.userid=u.userid and p.projecttype=s.id and f.projectid=p.id and f.projectid=#{projectid}
+	</select>
 </mapper>
