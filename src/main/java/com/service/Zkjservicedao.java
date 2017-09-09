@@ -17,5 +17,6 @@ public interface Zkjservicedao {
 	public void addinvest(ZkjInvest zz,String name);
 
 	public String queryname(String name);
-
+	public List<Map> queryuserinfo();
+	public List<Map> queryoneuserinfo(String name);
 }

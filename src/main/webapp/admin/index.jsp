@@ -143,8 +143,8 @@
 						<li><a data-href="../jsp/yonghu.jsp" data-title="用户账号管理"
 							href="javascript:void(0)">用户账号管理</a></li></shiro:hasPermission>
 						<shiro:hasPermission name="userinfor">
-						<li><a data-href="article-list.html" data-title="资讯管理"
-							href="javascript:void(0)">用户账号管理</a></li></shiro:hasPermission>
+						<li><a data-href="../jsp/yonghuxinxi.jsp" data-title="用户信息管理"
+							href="javascript:void(0)">用户信息管理</a></li></shiro:hasPermission>
 					</ul>
 				</dd>
 			</dl>
@@ -225,10 +225,10 @@
 				</dt>
 				<dd>
 					<ul><shiro:hasPermission name="peojecttongji">
-						<li><a data-href="system-base.html" data-title="系统设置"
+						<li><a data-href="../jsp/SzhJsp/Xmtj.jsp" data-title="系统设置"
 							href="javascript:void(0)">项目统计</a></li></shiro:hasPermission>
 						<shiro:hasPermission name="zijintongji">
-						<li><a data-href="system-category.html" data-title="栏目管理"
+						<li><a data-href="../jsp/SzhJsp/Zjtj.jsp" data-title="栏目管理"
 							href="javascript:void(0)">资金统计</a></li></shiro:hasPermission>
 					</ul>
 				</dd>

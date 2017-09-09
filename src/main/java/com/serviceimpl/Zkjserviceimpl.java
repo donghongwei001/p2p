@@ -65,6 +65,16 @@ public class Zkjserviceimpl implements Zkjservicedao {
 		return nn;
 
 	}
+	@Override
+	public List<Map> queryuserinfo() {
+		// TODO Auto-generated method stub
+		return dao.queryuserinfo();
+	}
+	@Override
+	public List<Map> queryoneuserinfo(String name) {
+		// TODO Auto-generated method stub
+		return dao.queryoneuserinfo(name);
+	}
 	
 
 }

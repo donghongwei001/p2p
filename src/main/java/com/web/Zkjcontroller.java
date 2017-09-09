@@ -148,4 +148,37 @@ public class Zkjcontroller {
 		return servicedao.queryname(name);
 		
 	}
+	@RequestMapping("/queryuserinfo")
+	@ResponseBody
+	public Pageresult queryuserinfo(Integer page,Integer rows){
+		int page1=page;
+		int rows1=rows;
+		List<Map> list=servicedao.queryuserinfo();
+		Page<Map> paging=new Page<Map>();
+		List<Map> list1=paging.paging(list,rows1,page1);
+		System.out.println(list1.size());
+		Pageresult<Map> pResult=new Pageresult<Map>();
+		
+		pResult.setTotal(list.size());
+		pResult.setRows(list1);
+		return pResult;
+		
+	}
+	@RequestMapping("/queryoneuserinfo")
+	@ResponseBody
+	public Pageresult queryuserinfo(Integer page,Integer rows,String name){
+		int page1=page;
+		int rows1=rows;
+		String rname="%"+name+"%";
+		List<Map> list=servicedao.queryoneuserinfo(rname);
+		Page<Map> paging=new Page<Map>();
+		List<Map> list1=paging.paging(list,rows1,page1);
+		System.out.println(list1.size());
+		Pageresult<Map> pResult=new Pageresult<Map>();
+		
+		pResult.setTotal(list.size());
+		pResult.setRows(list1);
+		return pResult;
+		
+	} 
 }
