@@ -120,11 +120,18 @@ import com.service.ZxlUserService;
 	 * @return
 	 */
 	@RequestMapping("/updatepwd")
+	@ResponseBody
 	public String updatepwd(@RequestBody String str,ZxlUser pwd,HttpServletRequest request){
-		String userna =(String)request.getSession().getAttribute("abcd");	
-		List<ZxlUser> listz= userservice.updatepwd(userna);		
-		request.setAttribute("updatepwd", listz);
-		return "myupdatepwd";		
+		ZxlUser userna =(ZxlUser)request.getSession().getAttribute("abcd");	
+		int listz= userservice.updatepwd(userna);
+		if( listz==0){
+			return null;
+		}else{
+			return "myupdatepwd";
+		}
+		/*request.setAttribute("updatepwd", listz);
+		ZxlUser zu=JSON.parseObject(str, ZxlUser.class);
+		return "myupdatepwd";	*/	
 	}
 	/**
 	 * 查询发布项目

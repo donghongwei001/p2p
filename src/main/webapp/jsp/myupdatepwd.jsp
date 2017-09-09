@@ -95,12 +95,13 @@
 				</div>
 			
 				<div id="content-right">
+				
 					<div id="right-div">						
 						<table>
 							<tr>
 								<td>输入密码：</td>
 								<td>
-									<input type="password" id="rpwd" class="form-control" />
+									<input type="password"  id="lpwd" class="form-control" />
 								</td>
 							</tr>
 							<tr>
@@ -110,7 +111,7 @@
 							<tr>
 								<td>新密码：</td>
 								<td>
-									<input type="password" id="rpwd" class="form-control" />
+									<input type="password" id="npwd" class="form-control" />
 								</td>
 							</tr>
 							<tr>
@@ -120,7 +121,7 @@
 							<tr>
 								<td>确认密码：</td>
 								<td>
-									<input type="password" id="rpwd" class="form-control" />
+									<input type="password" id="pwd" class="form-control" />
 								</td>
 							</tr>
 							<tr>
@@ -149,4 +150,28 @@
 		</div>
 	</div>	
 </body>
+<script type="text/javascript">
+$("#but").click(function(){
+		var data={};
+	data["pwd"] = $("#lpwd").val();
+	data["npwd"] = $("#npwd").val();
+	alert("111");
+	$.ajax({
+		type : "post",
+		url : "/p2pweb/user/updatepwd.do", 
+		contentType : "application/json;charset=utf-8",
+		data : JSON.stringify(data),
+		success : function(data1) {
+			if(data1=="myupdatepwd"){
+				alert("修改成功！！！");
+			}
+			else{
+				alert("密码错误！！！  ");
+			}
+		},
+	});
+	})
+</script>
+
+
 </html>

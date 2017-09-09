@@ -106,8 +106,20 @@ public class ZxlUserServiceImpl implements ZxlUserService{
 	 * 根据用户名修改用户密码
 	 */
 	@Override
-	public List<ZxlUser> updatepwd(String pwd) {
-		return userdao.updatepwd(pwd);		
+	public int updatepwd(ZxlUser user) {
+		List<ZxlUser> list=userdao.list();
+		int flag=0;
+		for(int i=0; i<list.size(); i++){
+			if(list.get(i).getPwd().equals(user.getPwd())){
+				flag=-3;
+			}
+		}
+		if(flag==-3){
+			return 0;
+		}else{
+			return userdao.updatepwd(user);
+		}
+				
 	}
 	/**
 	 * 查询项目详情
