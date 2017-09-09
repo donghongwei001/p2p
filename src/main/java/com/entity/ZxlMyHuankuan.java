@@ -1,6 +1,7 @@
 package com.entity;
 
 public class ZxlMyHuankuan {
+<<<<<<< HEAD
 	int repayid;
 	int projrctid;
 	String projectname;
@@ -20,6 +21,18 @@ public class ZxlMyHuankuan {
 	}
 	public void setProjrctid(int projrctid) {
 		this.projrctid = projrctid;
+=======
+	int projectid;
+	String projectname;
+	String hkmoney;
+	String ptmoney;
+	String hktime;
+	public int getProjectid() {
+		return projectid;
+	}
+	public void setProjectid(int projectid) {
+		this.projectid = projectid;
+>>>>>>> branch 'master' of https://github.com/donghongwei001/p2p.git
 	}
 	public String getProjectname() {
 		return projectname;

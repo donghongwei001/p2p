@@ -90,6 +90,7 @@ public class ZxlUserServiceImpl implements ZxlUserService{
 	 * 查询该用户的还款信息
 	 */
 	@Override
+<<<<<<< HEAD
 	public List<ZxlMyHuankuan> listhuankuan(String str) {
 		List<ZxlMyHuankuan> list=userdao.listhuankuan(str);
 		return list;
@@ -108,6 +109,38 @@ public class ZxlUserServiceImpl implements ZxlUserService{
 	@Override
 	public List<ZxlUser> updatepwd(String pwd) {
 		return userdao.updatepwd(pwd);		
+=======
+	public List<ZxlMyHuankuan> listhuankuan() {
+		List<ZxlMyHuankuan> list=userdao.listhuankuan();
+		return list;
+	}
+	/**
+	 * 查询该用户的基本信息
+	 */
+	@Override
+	public List<ZxlMyPersonal> listmypersonal(String str) {
+		List<ZxlMyPersonal> list=userdao.listmypersonal(str);
+		return list;
+	}
+	/**
+	 * 根据用户名修改用户密码
+	 */
+	@Override
+	public int updatepwd(ZxlUser user) {
+		List<ZxlUser> list=userdao.list();
+		int flag=0;
+		for(int i=0; i<list.size(); i++){
+			if(list.get(i).getPwd().equals(user.getPwd())){
+				flag=-3;
+			}
+		}
+		if(flag==-3){
+			return 0;
+		}else{
+			return userdao.updatepwd(user);
+		}
+				
+>>>>>>> branch 'master' of https://github.com/donghongwei001/p2p.git
 	}
 	/**
 	 * 查询项目详情

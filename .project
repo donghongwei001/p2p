@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
+<<<<<<< HEAD
 	<name>p2p</name>
+=======
+	<name>p2pweb</name>
+>>>>>>> branch 'master' of https://github.com/donghongwei001/p2p.git
 	<comment></comment>
 	<projects>
 	</projects>

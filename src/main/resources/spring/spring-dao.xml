@@ -7,7 +7,11 @@
 	http://www.springframework.org/schema/context/spring-context.xsd">
 	<!-- 配置整合mybatis过程 -->
 	<!-- 1.配置数据库相关参数properties的属性：${url} -->
+<<<<<<< HEAD
     <context:property-placeholder location="classpath:jdbc.properties" />
+=======
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+>>>>>>> branch 'master' of https://github.com/donghongwei001/p2p.git
 
 	<!-- 2.数据库连接池 -->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
