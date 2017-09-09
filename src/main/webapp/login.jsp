@@ -92,7 +92,7 @@
 		</svg>
 	  </div>
 	</div>
-	<div class="modal__header">登录</div>
+	<div class="modal__header">P2P后台登录系统</div>
 	<div class="modal__description">请填写用户名密码</div>
 	<div class="modal__section">
 		<div class="input-with-label">
