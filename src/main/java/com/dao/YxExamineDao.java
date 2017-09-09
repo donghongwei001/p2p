@@ -10,18 +10,22 @@ import com.entity.YxExamine;
 import com.entity.YxFirst;
 
 public interface YxExamineDao {
-	//��ѯ��һ��Ҫ��˵���Ŀ
+	//查询第一次审核的项目
 	List<YxExamine> queryAll();
-	//��ѯ���ڵ���Ŀ
+	//查询逾期的项目
 	List<Outtime> queryxm();
-	//��ѯ��Ҫ������˵���Ŀ
+	//查询第二次要审核的项目
 	List<YxFirst>queryft();
-	//�������ʱ�鿴��Ŀ����
+	//根据id查询项目详情
 	List<Map> querylm(int id);
-	//��ѯҪ��������Ŀ
+	//查询要发布的项目
 	List<Map> queryfabu();
-	//��ѯ��һ�����ûͨ������Ŀ
+	//查询第一次审核没通过的项目
 	List<Map> querynot();
-	//��ѯ�ڶ������ûͨ������Ŀ
+	//查询第二次审核没通过的项目
 	List<Map> querynottwo();
+	//根据用户id查询用户信息
+	List<Map>queryuser(int id);
+	//id查询详情
+	List<Map>queryfirst(int id);
 }

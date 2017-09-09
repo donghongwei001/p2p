@@ -34,7 +34,7 @@
 				<td><input type="text" size="5" name="id"
 					style="border: 0px; background: rgba(0, 0, 0, 0);" value="${l.id }"></td>
 				<td>${l.userid}</td>
-				<td>${l.username }</td>
+				<%-- <td>${l.username }</td> --%>
 				<td>${l.projectname }</td>
 				<td>${l.projecttype }</td>
 				<td>${l.location }</td>
@@ -42,7 +42,7 @@
 				<td>${l.money }</td>
 				<td>${l.lifeloan }</td>
 				<td>${l.ratemoney }</td>
-				<td>${l.appendix }</td>
+			<%-- 	<td>${l.appendix }</td> --%>
 				<td>${l.aduitstate }</td>
 				<td><input type="radio" value="1" name="xm_states" />同意 <input
 					type="radio" value="0" name="xm_states" />拒绝</td>
@@ -51,6 +51,7 @@
 
 				<td><button type="button" value="submit"
 						class="btn default btn-xs" id="addfirst">审核</button></td>
+				<td><a href="http://localhost:9088/p2p/yx/onex.do?userid=${l.userid}"style="font-size:16px;color:red">查看用户信息</a></td>
 			</tr>
 		</c:forEach>
 	</table>
@@ -62,7 +63,6 @@
 	// data:data,
 	fitColumns : true,//自动适应网格宽度
 	striped : true,//显示斑马线
-	idField : "projectid",//设置productid为主键
 	loadMsg : "努力加载中......",//加载慢的时候提示信息
 	fit : true,//
 	rownumbers : true,
@@ -74,16 +74,12 @@
 	columns : [ [{
 		field : 'id',
 		title : '项目序号',
-		width : 50
+		width : 60
 	},{
 		field : 'userid',
 		title : '用户id',
 		width : 50
 	}, {
-		field : 'username',
-		title : '用户姓名',
-		width : 100
-	},{
 		field : 'projectname',
 		title : '项目名称',
 		width : 80
@@ -117,10 +113,6 @@
 		title : '附件',
 		width : 200
 	},{
-		field : 'aduitstate',
-		title : '审核状态',
-		width : 70
-	},{
 		field : 'xm_states',
 		title : '是否通过',
 		width : 120
@@ -136,6 +128,10 @@
 		field : 'first',
 		title : '操作',
 		width : 60
+	},{
+		field : 'user',
+		title : '申请人详情',
+		width : 100
 	}] ]
 });
 	$("#addfirst").click(function(){
