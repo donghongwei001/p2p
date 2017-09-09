@@ -90,8 +90,8 @@ public class ZxlUserServiceImpl implements ZxlUserService{
 	 * 查询该用户的还款信息
 	 */
 	@Override
-	public List<ZxlMyHuankuan> listhuankuan() {
-		List<ZxlMyHuankuan> list=userdao.listhuankuan();
+	public List<ZxlMyHuankuan> listhuankuan(String str) {
+		List<ZxlMyHuankuan> list=userdao.listhuankuan(str);
 		return list;
 	}
 	/**

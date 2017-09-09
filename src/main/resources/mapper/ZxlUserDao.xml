@@ -37,4 +37,8 @@
 	<select id="listmoney" resultType="com.entity.ZxlUser" parameterType="String">
 		select u.money,u.username from usertable u where u.username=#{username} 
 	</select> 
+	<!-- 查询用户未还款项目 -->
+	<select id="listhuankuan" resultType="com.entity.ZxlMyHuankuan" parameterType="String">
+		select r.repayid,r.projrctid,r.hktime,r.hkmoney,ptmoney,c.codename from repaymoney r,usertable u,code c where u.username=#{username} and r.projrctid=u.userid and r.statu=c.codeid and r.statu=8 
+	</select> 
 </mapper>
