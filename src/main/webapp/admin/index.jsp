@@ -29,7 +29,7 @@
 		<div class="navbar navbar-fixed-top">
 			<div class="container-fluid cl">
 				<a class="logo navbar-logo f-l mr-10 hidden-xs"
-					href="/aboutHui.shtml">H-ui.admin</a> <a
+					href="#"><h4>第七小组p2p后台管理</h4></h1></a> <a
 					class="logo navbar-logo-m f-l mr-10 visible-xs"
 					href="/aboutHui.shtml">H-ui</a> <span
 					class="logo navbar-slogan f-l mr-10 hidden-xs">v3.1</span> <a
@@ -122,11 +122,11 @@
 				</dt>
 				<dd>
 					<ul><shiro:hasPermission name="empuser">
-						<li><a data-href="../jsp/empuser.jsp" data-title="资讯管理"
+						<li><a data-href="../jsp/empuser.jsp" data-title="员工账号管理"
 							href="javascript:void(0)">员工账号管理</a></li></shiro:hasPermission>
 							<shiro:hasPermission name="empinfor">
-						<li><a data-href="../jsp/empinfo.jsp" data-title="资讯管理"
-							href="javascript:void(0)">员工信息管理</a></li></shiro:hasPermission>
+						<li><a data-href="../jsp/empinfo.jsp" data-title="员工角色管理"
+							href="javascript:void(0)">员工角色管理</a></li></shiro:hasPermission>
 					</ul>
 				</dd>
 			</dl>
@@ -140,7 +140,7 @@
 				</dt>
 				<dd>
 					<ul><shiro:hasPermission name="usernamemarger">
-						<li><a data-href="picture-list.html" data-title="图片管理"
+						<li><a data-href="../jsp/yonghu.jsp" data-title="用户账号管理"
 							href="javascript:void(0)">用户账号管理</a></li></shiro:hasPermission>
 						<shiro:hasPermission name="userinfor">
 						<li><a data-href="article-list.html" data-title="资讯管理"
@@ -157,20 +157,11 @@
 						class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
 				</dt>
 				<dd>
-<<<<<<< HEAD
 					<ul><shiro:hasPermission name="begincheck">
-						<li><a data-href="http://h-ui.duoshuo.com/admin/"
-							data-title="评论列表" href="javascript:;">项目初审</a></li></shiro:hasPermission>
-						<shiro:hasPermission name="lastcheck">
-						<li><a data-href="feedback-list.html" data-title="意见反馈"
-							href="javascript:void(0)">项目终审</a></li></shiro:hasPermission>
-=======
-					<ul>
 						<li><a data-href="http://localhost:9088/p2p/yx/first.do"
-							data-title="项目初审" href="javascript:;">项目初审</a></li>
-						<li><a data-href="http://localhost:9088/p2p/yx/chushe.do" data-title="项目终审"
-							href="javascript:void(0)">项目终审</a></li>
->>>>>>> branch 'master' of https://github.com/donghongwei001/p2p.git
+							data-title="项目初审" href="javascript:;">项目初审</a></li></shiro:hasPermission>
+						<shiro:hasPermission name="lastcheck"><li><a data-href="http://localhost:9088/p2p/yx/chushe.do" data-title="项目终审"
+							href="javascript:void(0)">项目终审</a></li></shiro:hasPermission>
 					</ul>
 				</dd>
 			</dl>
@@ -183,25 +174,14 @@
 						class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
 				</dt>
 				<dd>
-<<<<<<< HEAD
 					<ul><shiro:hasPermission name="nofirstcheck">
-						<li><a data-href="product-brand.html" data-title="品牌管理"
-							href="javascript:void(0)">项目初审未通过</a></li></shiro:hasPermission>
-						<shiro:hasPermission name="nolastcheck">
-						<li><a data-href="product-category.html" data-title="分类管理"
-							href="javascript:void(0)">项目终审未通过</a></li></shiro:hasPermission>
-						<shiro:hasPermission name="openproject">
-						<li><a data-href="product-list.html" data-title="产品管理"
-							href="javascript:void(0)">发布项目</a></li></shiro:hasPermission>
-=======
-					<ul>
 						<li><a data-href="http://localhost:9088/p2p/yx/notone.do" data-title="项目初审未通过"
-							href="javascript:void(0)">项目初审未通过</a></li>
-						<li><a data-href="http://localhost:9088/p2p/yx/nottwo.do" data-title="项目终审未通过"
-							href="javascript:void(0)">项目终审未通过</a></li>
-						<li><a data-href="http://localhost:9088/p2p/yx/fa.do" data-title="发布项目"
-							href="javascript:void(0)">发布项目</a></li>
->>>>>>> branch 'master' of https://github.com/donghongwei001/p2p.git
+							href="javascript:void(0)">项目初审未通过</a></li></shiro:hasPermission>
+						<shiro:hasPermission name="nolastcheck"><li><a data-href="http://localhost:9088/p2p/yx/nottwo.do" data-title="项目终审未通过"
+							href="javascript:void(0)">项目终审未通过</a></li></shiro:hasPermission>
+						<shiro:hasPermission name="openproject"><li><a data-href="http://localhost:9088/p2p/yx/fa.do" data-title="发布项目"
+							href="javascript:void(0)">发布项目</a></li></shiro:hasPermission>
+
 					</ul>
 				</dd>
 			</dl>
