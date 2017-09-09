@@ -23,6 +23,7 @@
 				<td>${p.FIRSTDATE}</td>
 				<td>${p.FIRSTNAME}</td>
 				<td>${p.FIRSTREMARKS}</td>
+				<%-- <td><a href="http://localhost:9088/p2p/yx/onequery.do?projectid=${p.projectid}"style="font-size:16px;color:red">查看项目详情</a></td> --%>
 			</tr>
 		</c:forEach>
 	</table>
@@ -70,6 +71,10 @@ $(function(){
 	},{
 		field : 'FIRSTREMARKS',
 		title : '审核意见',
+		width : 200
+	},{
+		field : 'XIANG',
+		title : '项目详情',
 		width : 200
 	}] ]
 });

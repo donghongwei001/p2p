@@ -22,4 +22,8 @@ public interface YxExamineService {
 	List<Map> querynotone();
 	//查询第二次审核没通过的项目
 	List<Map> querytwo();
+	//一次审核根据用户id查询用户认证信息
+	List<Map> queryuserid(int id);
+	//id查询详情
+	List<Map> queryf(int id);
 } 

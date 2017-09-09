@@ -5,30 +5,31 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.dao.SzhUserDao;
+import com.dao.SzhRoleDao;
 import com.entity.SzhRole;
-import com.entity.SzhUser;
-import com.service.SzhUserService;
+import com.service.SzhRoleService;
 
 @Service
-public class SzhUserServiceImpl implements SzhUserService {
+public class SzhRoleServiceImpl implements SzhRoleService {
 	@Autowired
-	SzhUserDao sud;
+	SzhRoleDao srd;
 	@Override
-	public List queryUser() {
+	public List queryRole() {
 		// TODO Auto-generated method stub
-		return sud.queryUser();
+		return srd.queryRole();
 	}
+
 	@Override
-	public int addUser(SzhUser su) {
+	public int addRole(SzhRole sr) {
 		// TODO Auto-generated method stub
-		int flag = sud.addUser(su);
+		int flag = srd.addRole(sr);
 		return flag;
 	}
+
 	@Override
-	public int updateUser(SzhUser suu) {
+	public int updateRole(SzhRole srr) {
 		// TODO Auto-generated method stub
-		int flag =sud.updateUser(suu);
+		int flag = srd.updateRole(srr);
 		return flag;
 	}
 

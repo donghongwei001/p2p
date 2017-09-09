@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.SzhRoleDao">
+	<select id="queryRole" resultType="com.entity.SzhRole">
+		select * from role
+	</select>
+	<insert id="addRole" parameterType="com.entity.SzhRole">
+		insert into role values(#{roleid,jdbcType=VARCHAR},#{rolename,jdbcType=VARCHAR},#{rolestatus,jdbcType=VARCHAR},#{rolecode,jdbcType=VARCHAR},#{description,jdbcType=VARCHAR})
+	</insert>
+	<update id="updateRole" parameterType="com.entity.SzhRole">
+		update role set rolename = #{rolename},rolestatus = #{rolestatus} where Roleid = #{roleid}
+	</update>
+</mapper>

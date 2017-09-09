@@ -59,7 +59,11 @@
 				/jsp/Home.jsp=anon
 				/media/** = anon
 				/jsp/index.jsp = anon
+<<<<<<< HEAD
 				/jsp/Home.jsp = anon
+=======
+				/user/listpro.do=anon
+>>>>>>> branch 'master' of https://github.com/donghongwei001/p2p.git
 				/** = authc
 
 			</value>
