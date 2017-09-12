@@ -1,14 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="ss"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<script src="../easyui/js/jquery.min.js"></script>
-<title>index</title>
-	
-	<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<title>Insert title here</title>
+<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="../easyui/js/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')</script>
     <script src="../bootstrap/js/bootstrap.min.js"></script>
@@ -36,11 +35,37 @@
 		#down-two{margin-left:37.3%;}
 		#down-three{margin-left:41%;margin-bottom:20px;}
 		#input-btu{margin-left:250px;}
+		
+		#dd{
+			border:1px solid orange;
+			width:800px;
+			heihgt:auto;
+			clear:both;
+		}
+		#dd div{
+			width:100px;
+			float:left;
+			display:block-inline;
+			height:150px;
+			
+		}
+		#op div{
+			width:100px;
+			height:50px;
+			float:left;
+			border:1px solid red;
+			margin:12px;
+			text-align:center;
+			
+		}
+		#op span{
+			line-height:48px;
+			font-weight:bold;
+			font-size:22px;
+		}
 	</style>
 	
-	<script type="text/javascript">
-		
-	</script>
+	
 	
 </head>
 <body>
@@ -60,60 +85,49 @@
 				<a>帮助</a><span>|</span><a href="/p2p/jsp/Home.jsp">退出</a>
 			</div>
 		</div>
-		<div id="img">
-			<img src="../image/img6.png" width="100%" />
-			<div id="img-login">
-		</div>
-			
+		
+		
 		<div id="content">
-			<div id="content-left">
-				<div id="left-img">
-					<img src="../image/chu1.png">
-				</div>
-				<table class="table table-hover">
-					<thead>
-						<tr>
-							<th>项目编号</th>
-							<th>项目名称</th>
-							<th>内容</th>
-							<th>借款人</th>
-							<th>所需金额</th>
-							<th>借款期限</th>
-							<th>利率</th>
-							<th>借款类型</th>
-							<th>项目地点</th>
-							<th></th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach items="${listpro}" var="user">
-							<tr>
-								<td>${user.projectid}</td>
-								<td>${user.projectname}</td>
-								<td>${user.content}</td>
-								<td>${user.personalname}</td>
-								<td>${user.money}</td>
-								<td>${user.lifeloan}</td>
-								<td>${user.ratemoney}</td>
-								<td>${user.name}</td>
-								<td>${user.location}</td>
-								<td>
-									<a href="/p2p/add/allproject.do?id=${user.projectid}">
-									 <input type="button" style="font-size:16px;margin-left:20%;" class="btn btn-success" id="but" value="查看"/> </a>
-								</td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
+			<div id="op">
+				<div><span>项目类别</span></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				
 			</div>
-			<div id="content-right">
-				<div id="r1-img">
-					<img src="../image/r1.png">
+			<c:forEach items="${allpeoject }" var="li">
+				<div id="dd">
+					<div>
+					<span>${li.PROJECTNMAE }</span>	
+					</div>
+					<div>
+						<c:if test="${li.PROJECTTYPE ==1}">建筑类</c:if> 
+		<c:if test="${li.PROJECTTYPE==2 }">科学类</c:if>
+		<c:if test="${li.PROJECTTYPE ==3}">医药类</c:if>
+		<c:if test="${li.PROJECTTYPE ==4}">金融类</c:if>
+		<c:if test="${li.PROJECTTYPE==5 }">食品类</c:if>
+		<c:if test="${li.PROJECTTYPE==6 }">军火类</c:if>
+					</div>
+					<div>
+						${li.LOCATION }
+					</div>
+					<div><ss:formatDate value="${li.TIME }" pattern="yyyy年MM月dd日"/>
+						
+					</div>
+					<div>
+						${li.MONEY }
+					</div>
+					<div>
+						${li.LIFELOAN }
+					</div>
+					<div>
+						${li.RATEMONEY }
+					</div>
 				</div>
-				<div id="r2-img">
-					<img src="../image/r2.png">
-				</div>	
-			</div>		
+				</c:forEach>	
 		</div>
 		<div id="down">
 			<div id="down-one">
@@ -133,26 +147,3 @@
 	</div>
 </body>
 </html>
-<script>
-	$("#asd").click(function(){
-		$.ajax({
-			 type:"post",
-			// dataType:"json",
-			 url:"/p2p/add/name.do",
-
-			// data:JSON.stringify(row),
-			//data:str1,
-			 contentType:"application/json;charset=utf-8",
-			 success:function(dataa){
-				 alert(dataa);
-				 if(dataa==null||dataa==""){
-					 window.location.href="../jsp/jiekuan.jsp";
-				 }else{
-					 alert("ssss");
-					 window.location.href="../jsp/xiangmushenqing.jsp";
-				 }
-			 }
-		 });
-	});
-	
-</script>

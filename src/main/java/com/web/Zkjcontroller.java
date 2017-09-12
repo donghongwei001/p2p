@@ -146,9 +146,7 @@ public class Zkjcontroller {
 		return servicedao.queryname(name);
 		
 	}
-<<<<<<< HEAD
-	
-=======
+
 	@RequestMapping("/queryuserinfo")
 	@ResponseBody
 	public Pageresult queryuserinfo(Integer page,Integer rows){
@@ -182,5 +180,5 @@ public class Zkjcontroller {
 		return pResult;
 		
 	} 
->>>>>>> branch 'master' of https://github.com/donghongwei001/p2p.git
+
 }
