@@ -5,6 +5,7 @@ public class ZkjInvest {
 	int subjectid;
 	String time;
 	double money;
+	String username;
 	public int getInvestorid() {
 		return investorid;
 	}
@@ -28,6 +29,12 @@ public class ZkjInvest {
 	}
 	public void setMoney(double money) {
 		this.money = money;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	
 }

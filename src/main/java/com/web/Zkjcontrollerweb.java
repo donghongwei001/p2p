@@ -13,41 +13,45 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.entity.ZkjInvest;
 import com.entity.Zkjproject;
-import com.service.Zkjservicedao;
+import com.service.Zkjservicedaointerface;
 
 @Controller
-@RequestMapping("/add")
-public class Zkjcontroller {
+@RequestMapping("/zkj")
+public class Zkjcontrollerweb {
 	@Autowired
-	private Zkjservicedao servicedao;
+	private Zkjservicedaointerface servicedao;
 	/*
-	 * �?��据库插入申请项目的数�?
+	 * 锟�锟斤拷鎹簱鎻掑叆鐢宠椤圭洰鐨勬暟锟�
 	 */
 	@RequestMapping("project")
-	public String saveproject(Zkjproject pp,HttpServletRequest request){
-		//	int userid=(int)session.getAttribute("userid");
-		int userid=3;
-		pp.setAppendix("附件");
-		pp.setAduitstate(1);//未审�?
+	public String saveproject(@RequestParam("file") MultipartFile file,Zkjproject pp,HttpSession session,HttpServletRequest request){
+		System.out.println(file);
+		fileUpload fileupload=new fileUpload();	
+		String  username=(String)session.getAttribute("abcd");
+		String photo = fileupload.saveFiles(file, request);	
+		
+		pp.setAppendix(photo);
+		pp.setAduitstate(1);//鏈锟�
 		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd ");
 		String time=sdf.format(new Date());
 		String location=request.getParameter("location1")+request.getParameter("location2")+request.getParameter("location3");
 		pp.setLocation(location);
 		pp.setTime(time);
-		pp.setUserid(userid);
+	//	pp.setUserid(userid);
 		System.out.println(pp);
-		servicedao.saveproject(pp);
+		servicedao.saveproject(pp,username);
 		return  "redirect:/user/listpro.do"; 
 	}
-
+	
 	/*
-	 * 二次审核查询的项�?
+	 * 浜屾瀹℃牳鏌ヨ鐨勯」锟�
 	 */
 	@RequestMapping("/selectproject")
 	public ModelAndView queryproject(){
@@ -59,7 +63,7 @@ public class Zkjcontroller {
 	}
 
 	/*
-	 * 查询用户
+	 * 鏌ヨ鐢ㄦ埛
 	 */
 	@RequestMapping("/user")
 	@ResponseBody
@@ -69,7 +73,7 @@ public class Zkjcontroller {
 		return listu;
 	}
 	/*
-	 * 禁用用户
+	 * 绂佺敤鐢ㄦ埛
 	 */
 	@RequestMapping("/disable")
 	@ResponseBody
@@ -99,7 +103,7 @@ public class Zkjcontroller {
 		return "success";
 	}
 	/*
-	 * 投资界面
+	 * 鎶曡祫鐣岄潰
 	 */
 	@RequestMapping("allproject")
 	public ModelAndView quertallproject(HttpServletRequest request){
@@ -107,14 +111,32 @@ public class Zkjcontroller {
 	//System.out.println(id+"id");
 		int  id=Integer.parseInt(request.getParameter("id"));
 		ModelAndView mm=new ModelAndView();
-		
+	int surplusinvest=	servicedao.surplusinvest(id);
+		mm.addObject("surplusmoney",surplusinvest);
 		List<Map> listp=servicedao.selectallproject(id);
+		double money=(double)listp.get(0).get("RATEMONEY")*100;
+		String ratemoney=Double.toString(money);
+		mm.addObject("ratemoney",ratemoney);
+		List<Map> listpersonal=servicedao.personalinformation(id);
+		System.out.println(listpersonal.size()+"listpersonal");
+		String username=servicedao.queryusername(id);
+		mm.addObject("username", username);
+		mm.addObject("listpersonal",listpersonal);
+		List<Map> listi=servicedao.investinformation(id);
+		mm.addObject("investinformation", listi);
 		mm.addObject("listp",listp);
+		List<Map> lists=servicedao.selectinvestinformation(id);
+		mm.addObject("selectinvestinformation", lists);
 		mm.setViewName("singleproject");
 		return mm;
 	}
+
 	/*1.
+	 * 鎻掑叆鍒版姇璧勮〃(鏀炬琛�
+=======
+	/*
 	 * 插入到投资表(放款表)
+
 	 */
 	@RequestMapping("/money")
 	public void projectmoney(HttpServletRequest request,HttpSession session){
@@ -123,11 +145,17 @@ public class Zkjcontroller {
 		String mm=request.getParameter("money");
 		double money=Double.parseDouble(mm);
 		zz.setMoney(money);
-		System.out.println(zz.getSubjectid());
+		String ss=request.getParameter("subjectid");
+		System.out.println(ss);
+		int subjectid=Integer.parseInt(ss);
+		System.out.println(subjectid+"subjectid");
+		zz.setUsername(username);
+		zz.setSubjectid(subjectid);
+	
 		servicedao.addinvest(zz,username);
 	}
 	/*
-	 * 根据用户名查询用户id
+	 * 鏍规嵁鐢ㄦ埛鍚嶆煡璇㈢敤鎴穒d
 	 */
 	@RequestMapping("/name")
 	@ResponseBody
@@ -136,5 +164,19 @@ public class Zkjcontroller {
 		return servicedao.queryname(name);
 		
 	}
-	
+	public void savepicture(MultipartFile filename,HttpSession session){
+	String ffilename=filename.getOriginalFilename();
+	ffilename.endsWith("jpg");
+	String path=session.getServletContext().getRealPath("/pictures");
+	File file=new File(path);
+	}
+	@RequestMapping("/totalproject")
+	public ModelAndView queryallproject(){
+		List<Map> listp=servicedao.queryallproject();
+		ModelAndView mm=new ModelAndView();
+		mm.addObject("allpeoject",listp);
+		mm.setViewName("invest");
+		return mm;
+	}
+
 }

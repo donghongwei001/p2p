@@ -246,12 +246,14 @@
   			var data={};
 			data["username"] = $("#username").val();
 			data["pwd"] = $("#possword").val();
+			alert(data.username);
 			$.ajax({
 				type : "post",
 				url : "/p2p/user/login.do", 
 				contentType : "application/json;charset=utf-8",
 				data : JSON.stringify(data),
 				success : function(data1) {
+					alert(data1);
 					if(data1=="Ok"){
 						window.location.href="http://localhost:9088/p2p/user/listpro.do"
 					}

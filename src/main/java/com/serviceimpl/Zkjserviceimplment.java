@@ -8,17 +8,19 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.dao.Zkjdao;
+import com.dao.Zkjdaointerface;
 import com.entity.ZkjInvest;
 import com.entity.Zkjproject;
-import com.service.Zkjservicedao;
+import com.service.Zkjservicedaointerface;
 @Service
-public class Zkjserviceimpl implements Zkjservicedao {
+public class Zkjserviceimplment implements Zkjservicedaointerface {
 	@Autowired
-	private Zkjdao dao;
+	private Zkjdaointerface dao;
 	@Override
-	public void saveproject(Zkjproject pp) {
+	public void saveproject(Zkjproject pp,String name) {
 		// TODO Auto-generated method stub
+		int userid=dao.quertuserid(name);
+		pp.setUserid(userid);
 		dao.saveproject(pp);
 	}
 	@Override
@@ -52,7 +54,7 @@ public class Zkjserviceimpl implements Zkjservicedao {
 	@Override
 	public List<Map> selectallproject(int id) {
 		// TODO Auto-generated method stub
-	
+		
 		return dao.selectallproject( id);
 		
 	}
@@ -62,7 +64,7 @@ public class Zkjserviceimpl implements Zkjservicedao {
 		// TODO Auto-generated method stub
 		
 		int id=dao.quertuserid(name);
-		SimpleDateFormat sm=new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat sm=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String timm=sm.format(new Date());
 		zz.setInvestorid(id);
 		zz.setTime(timm);
@@ -76,6 +78,46 @@ public class Zkjserviceimpl implements Zkjservicedao {
 		return nn;
 
 	}
+	/*剩余可投资金额
+	 * (non-Javadoc)
+	 * @see com.service.Zkjservicedao#surplusinvest(int)
+	 */
+	@Override
+	public int surplusinvest(int projectid) {
+		// TODO Auto-generated method stub
+	int investmoney=dao.totalmoneyinvest(projectid);
 	
+	int loanmoney=dao.loanmoney(projectid);
+	
+		return loanmoney-investmoney;
+	}
+	@Override
+	public List<Map> queryallproject() {
+		// TODO Auto-generated method stub
+		
+		return dao.queryallproject();
+	}
+	@Override
+	public List<Map> personalinformation(int id) {
+		// TODO Auto-generated method stub
+	int  userid=dao.selectuserid(id);//用户ID
+	List<Map> listp=dao.personalinformation(userid);
+		return listp;
+	}
+	@Override
+	public String queryusername(int id) {
+		// TODO Auto-generated method stub
+		return	dao.selectusername(id);
+		
+	}
+	@Override
+	public List<Map> investinformation(int id) {
+		// TODO Auto-generated method stub
+		
+		return dao.investinformation(id);
+	}
+	public List<Map> selectinvestinformation(int id){
+		return dao.selectinvestinformation(id);
+	}
 
 }
