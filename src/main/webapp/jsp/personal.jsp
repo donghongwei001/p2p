@@ -38,7 +38,7 @@
 		#left5{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
 		#left6{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
 		#content-right{width:78%;height:800px;float:left;margin-left:15px;background-color:#FFFFFF;}
-		#left-div{width:76%;height:180px;border-bottom:1px dashed #DCDCDC;float:left;margin:50px 50px 50px 90px;}
+		#left-div{width:76%;height:180px;border-bottom:1px dashed #DCDCDC;float:left;margin:150px 50px 50px 90px;}
 		#div-img{float:left;}
 		#div-name{float:left;margin-left:20px;margin-right:20px;font-size:18px;font-color:#1E90FF;}	
 		#th{float:left;width:10px;height:130px;border-right:1px dashed #DCDCDC;}
@@ -54,6 +54,28 @@
 		#down-two{margin-left:37.3%;}
 		#down-three{margin-left:41%;margin-bottom:20px;}
 		#input-btu{margin-left:250px;}
+		
+		#HuanK_button {
+			width:76%;
+			height:40px;
+			
+			line-height:40px;
+			border:1px solid gray;
+		}
+		#HuanK_information{
+			width:76%;
+			height:100px;
+			text-align:center;
+			border:1px solid gray;
+			
+		}
+		#HuanK{
+			width:76%;
+			height:20px;
+			margin-left:95px;
+			margin-top:10px;
+			display:;
+		}
 	</style>
 	
 	<script type="text/javascript">
@@ -94,6 +116,20 @@
 					<div id="left6"><a href="http://localhost:9088/p2p/jsp/myupdatepwd.jsp">修改密码</a></div>
 				</div>
 				<div id="content-right">
+					
+					<div id="HuanK">
+						<form action="myhuankuan.do" method="post">
+						<div id="HuanK_button" class="bg-info">
+							  <span class="glyphicon glyphicon-yen" aria-hidden="true"></span>我的借款 
+						</div>
+						<div id="HuanK_information">
+							<p><h4>还款提醒</h4></p>
+							<span>日期:前</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>应还款:元</span>
+							&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-info"> 立即还款 </button>
+						</div>
+						</form>
+					</div>
+					
 					<div id="left-div">						
 						<div id="div-img">						
 							<img src="../image/tx.jpg" width="130px" height="130px">													
@@ -106,9 +142,9 @@
 							<span>账户余额：</span>
 						</div>
 						<c:forEach items="${listmoney }" var="user">
-						<div id="div-money">							
-							<span id="span-money">${user.money}</span>&nbsp;&nbsp;&nbsp;<span>元</span>						
-						</div>
+							<div id="div-money">							
+								<span id="span-money">${user.money}</span>&nbsp;&nbsp;&nbsp;<span>元</span>						
+							</div>
 						</c:forEach>
 					</div>	
 					<div id="right-but">
@@ -119,6 +155,7 @@
 							<button type="button" style="font-size:18px" class="btn btn-info">我要提现</button>
 						</div>
 					</div>
+					
 				</div>
 			</div>
 		</div>

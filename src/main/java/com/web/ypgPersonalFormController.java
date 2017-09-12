@@ -19,7 +19,7 @@ import com.entity.ypgPersonalForm;
 import com.service.ypgPersonalFormService;
 
 @Controller
-@RequestMapping("/person")
+@RequestMapping("/ypgPerson")
 public class ypgPersonalFormController {
 	@Autowired
 	private ypgPersonalFormService pfService;
