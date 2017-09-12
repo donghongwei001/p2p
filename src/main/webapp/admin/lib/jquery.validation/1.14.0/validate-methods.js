@@ -209,12 +209,12 @@ function isIdCardNo(num){
 　　 { 
 　　 var D = new Date(a[3]+"/"+a[4]+"/"+a[5]); 
 　　 var B = D.getFullYear()==a[3]&&(D.getMonth()+1)==a[4]&&D.getDate()==a[5]; 
-　　 } 
+　　 }  
 　　 if (!B) {
 		//alert("输入的身份证号 "+ a[0] +" 里出生日期不对。"); 
 		return false;
 	} 
-　　 } 
+　　 }  
 　　 if(!re.test(num)){
 		//alert("身份证最后一位只能是数字和字母。");
 		return false;

@@ -22,9 +22,9 @@ import com.service.ZxlUserService;
  * @author ZXL
  *
  */
-	@Controller
-	@RequestMapping("/user")
-	public class ZxlUserController {
+@Controller
+@RequestMapping("/user")
+public class ZxlUserController {
 	@Autowired
 	private ZxlUserService userservice;
 	/**
@@ -48,11 +48,12 @@ import com.service.ZxlUserService;
 	@ResponseBody
 	public String addUser(@RequestBody String str){
 		ZxlUser student=JSON.parseObject(str, ZxlUser.class);
-		if(userservice.addUser(student)==0){
-			return "kk";
+		/*用户名重复*/
+		if(userservice.addUser(student)==0){  
+			return "error";
 		}
 		else{
-			return "no";
+			return "success";  /*可以添加*/
 		}
 	}
 	/**
