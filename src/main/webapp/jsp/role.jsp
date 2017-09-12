@@ -330,6 +330,7 @@
 							height : 400, //高度	
 							left : 400,
 							close : true, //是否可以关闭
+							closable:false,
 							top : 0, //上移100
 							cache : false, //
 							modal : true,//模态框 
@@ -341,7 +342,7 @@
 										iconCls : 'icon-save',
 										handler : function() {
 											var nodes = $('#tt1').tree(
-													'getChecked');
+													'getChecked',['checked','indeterminate']);
 											var s = '';
 											for (var i = 0; i < nodes.length; i++) {
 												if (s != '')
@@ -403,7 +404,15 @@
 										text : '关闭',
 										handler : function() {
 											alert("你确定取消吗？");
-											$('#dialog').dialog("close")
+											$("#rolename1")
+											.val("");
+									$("#description1")
+											.val("");
+									$("#rolecode1")
+											.val("");
+									
+											$('#dialog').dialog("close");
+											window.location.reload();
 										}
 									} ]
 						})
@@ -416,6 +425,7 @@
 							height : 400, //高度	
 							left : 400,
 							close : true, //是否可以关闭
+							closable:false,
 							top : 0, //上移100
 							cache : false, //
 							modal : true,//模态框 
@@ -428,7 +438,7 @@
 										handler : function() {
 
 											var nodes = $('#tt').tree(
-													'getChecked');
+													'getChecked',['checked','indeterminate']);
 											var s = '';
 											for (var i = 0; i < nodes.length; i++) {
 												if (s != '')

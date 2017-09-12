@@ -16,163 +16,293 @@
 <script type="text/javascript" src="../easyui/js/easyui-lang-zh_CN.js"></script>
 </head>
 <body>
-	<table id="proDataGrid">
-		<!-- <tr>
-			<td>用户</td>
-			<td>项目名称</td>
-			<td>项目类型</td>
-			<td>项目地点</td>
-			<td>申请时间</td>
-			<td>金额</td>
-			<td>借款期限</td>
-			<td>利率</td>
-			<td>附件</td>
-			<td>审核状态</td>
-		</tr> -->
-		<c:forEach items="${ly}" var="l">
-			<tr>
-				<td><input type="text" size="5" name="id"
-					style="border: 0px; background: rgba(0, 0, 0, 0);" value="${l.id }"></td>
-				<td>${l.userid}</td>
-				<td>${l.username }</td>
-				<td>${l.projectname }</td>
-				<td>${l.projecttype }</td>
-				<td>${l.location }</td>
-				<td>${l.time }</td>
-				<td>${l.money }</td>
-				<td>${l.lifeloan }</td>
-				<td>${l.ratemoney }</td>
-				<td>${l.appendix }</td>
-				<td>${l.aduitstate }</td>
-				<td><input type="radio" value="1" name="xm_states" />同意 <input
-					type="radio" value="0" name="xm_states" />拒绝</td>
-				<td><input type="text" id="person"></td>
-				<td><textarea name="note" cols=15 rows=1 id="reason"></textarea></td>
+<div id="toolbar">
+		<a id="updbtn"
+			href="javascript:void(0)" class="easyui-linkbutton"
+			data-options="iconCls:'icon-add'">查看详情并审核</a>
+	</div>
+	<table id="proDataGrid" >
 
-				<td><button type="button" value="submit"
-						class="btn default btn-xs" id="addfirst">审核</button></td>
-			</tr>
-		</c:forEach>
 	</table>
 
+  	<div id="dialog">
+  	<form id="myform" method="post">
+			<table with="100%" class="formtable">
+				<tr>
+					<th height="28">个人姓名:</th>
+					<td><input id="personalname1" name="personalname"
+						class="easyui-validatebox"></td>
+				</tr>
+				<tr>
+					<th height="28">身份证号:</th>
+					<td><input id="idcard1" name="idcard"
+						class="easyui-validatebox" ></td>
+				</tr>
+				<tr>
+					<th height="28">手机号码:</th>
+					<td><input id="iphone1" name="iphone"
+						class="easyui-validatebox" ></td>
+				</tr>
+				<tr>
+					<th height="28">联系邮箱:</th>
+					<td><input id="mailbox1" name="mailbox"
+						class="easyui-validatebox" ></td>
+				</tr>
+				<tr>
+					<th height="28">是否已婚:</th>
+					<td><input id="marriage1" name="marriage"
+						class="easyui-validatebox" ></td>
+				</tr>
+				<tr>
+					<th height="28">是否有子女:</th>
+					<td><input id="havachidren1" name="havachidren"
+						class="easyui-validatebox" ></td>
+				</tr>
+				<tr>
+					<th height="28">家庭地址:</th>
+					<td><input id="address1" name="address"
+						class="easyui-validatebox" ></td>
+				</tr>
+				<tr>
+					<th height="28">工作年限:</th>
+					<td><input id="worklife1" name="worklife"
+						class="easyui-validatebox" ></td>
+				</tr>
+				<tr>
+					<th height="28">职业:</th>
+					<td><input id="occupation1" name="occupation"
+						class="easyui-validatebox" ></td>
+				</tr>
+				<tr>
+					<th height="28">工作单位:</th>
+					<td><input id="workunit1" name="workunit"
+						class="easyui-validatebox" ></td>
+				</tr>
+				<tr>
+					<th height="28">单位电话:</th>
+					<td><input id="unitphone1" name="unitphone"
+						class="easyui-validatebox" ></td>
+				</tr>
+				<tr>
+					<th height="28">月收入:</th>
+					<td><input id="monthlyincome1" name="monthlyincome"
+						class="easyui-validatebox" ></td>
+				</tr>
+				<tr>
+					<th height="28">是否有房:</th>
+					<td><input id="haveroom1" name="haveroom"
+						class="easyui-validatebox" ></td>
+				</tr>
+				<tr>
+					<th height="28">有无房贷:</th>
+					<td><input id="houseloan1" name="houseloan"
+						class="easyui-validatebox" ></td>
+				</tr>
+				<tr>
+					<th height="28">是否有车:</th>
+					<td><input id="havecar1" name="havecar"
+						class="easyui-validatebox" ></td>
+				</tr>
+				<tr>
+					<th height="28">有无车贷:</th>
+					<td><input id="carloan1" name="carloan"
+						class="easyui-validatebox" ></td>
+				</tr>
+				<tr>
+					<th height="28">亲属姓名:</th>
+					<td><input id="contactname1" name="contactname"
+						class="easyui-validatebox" ></td>
+				</tr>
+				<tr>
+					<th height="28">亲属关系:</th>
+					<td><input id="contactrelation1" name="contactrelation"
+						class="easyui-validatebox" ></td>
+				</tr>
+				<tr>
+					<th height="28">亲属电话:</th>
+					<td><input id="contactphone1" name="contactphone1"
+						class="easyui-validatebox" ></td>
+				</tr>
+				<tr>
+				<th height="28">是否通过:</th>
+				<td><input type="radio" value="1" name="xmstates" />同意
+				<input type="radio" value="0" name="xmstates" />拒绝</td>
+				</tr>
+				<tr>
+				<th height="28">意见:</th>
+				<td><textarea name="reason" cols=25 rows=5 id="reason"></textarea></td>
+				</tr>
+			</table>
+			</form>
+	</div>
 	<script type="text/javascript">
 		$(function(){
+			
 	$('#proDataGrid').datagrid({
 	url : 'http://localhost:9088/p2p/yx/first.do',
 	// data:data,
 	fitColumns : true,//自动适应网格宽度
 	striped : true,//显示斑马线
-	idField : "projectid",//设置productid为主键
 	loadMsg : "努力加载中......",//加载慢的时候提示信息
 	fit : true,//
 	rownumbers : true,
 	singleSelect : false,
 	pagination : true,
-	pageSize : 20,
-	pageList : [ 20, 40, 60 ],
+	pageSize : 10,
+	pageList : [ 10, 20, 30 ],
 	toolbar : "#toolbar",
 	columns : [ [{
-		field : 'id',
+		field : 'ID',
 		title : '项目序号',
-		width : 50
-	},{
-		field : 'userid',
-		title : '用户id',
-		width : 50
-	}, {
-		field : 'username',
-		title : '用户姓名',
-		width : 100
-	},{
-		field : 'projectname',
-		title : '项目名称',
-		width : 80
-	} ,{
-		field : 'projecttype',
-		title : '项目类型',
 		width : 60,
-		align : 'right'
+		align : 'center'
 	}, {
-		field : 'location',
+		field : 'PROJECTNAME',
+		title : '项目名称',
+		width : 80,
+		align : 'center'
+	} ,{
+		field : 'NAME',
+		title : '项目类型',
+		width : 90,
+		align : 'center'
+	}, {
+		field : 'LOCATION',
 		title : '项目地点',
-		width : 200
+		width : 200,
+		align : 'center'
 	}, {
-		field : 'time',
+		field : 'time1',
 		title : '申请时间',
-		width : 100
+		width : 100,
+		align : 'center'
 	}, {
-		field : 'money',
+		field : 'MONEY',
 		title : '金额',
-		width : 100
+		width : 100,
+		align : 'center'
 	}, {
-		field : 'lifeloan',
+		field : 'LIFELOAN',
 		title : '借款期限',
-		width : 100
+		width : 100,
+		align : 'center'
 	},{
-		field : 'ratemoney',
-		title : '利率',
-		width : 50
-	},{
-		field : 'appendix',
+		field : 'APPENDIX',
 		title : '附件',
-		width : 200
-	},{
-		field : 'aduitstate',
-		title : '审核状态',
-		width : 70
-	},{
-		field : 'xm_states',
-		title : '是否通过',
-		width : 120
-	},{
-		field : 'person',
-		title : '审核人',
-		width : 100
-	},{
-		field : 'reason',
-		title : '意见',
-		width : 100
-	},{
-		field : 'first',
-		title : '操作',
-		width : 60
+		width : 100,
+		
 	}] ]
 });
-	$("#addfirst").click(function(){
-		alert("111111");
-		var data={};
-		data["projectid"]=$('input[name="id"]').val();
-		data["firststatus"]=$("input[name='xm_states']:checked").val();
-		data["firstname"]=$("#person").val();
-		data["firstremarks"]=$("#reason").val();
-		alert(data.firstname);
-		alert(data.firstremarks);
-		$.ajax({
-			type : "post",
-			url : "/p2p/first/shenhe.do",
-			contentType :"application/json;charset=UTF-8",
-			data:JSON.stringify(data),
-			success : function(data1){
-				alert("2222222222");
-				if(data1=="success"){
-					var data={};
-					data["id"]=$('input[name="id"]').val();
-					$.ajax({
-						type : "post",
-						url : "/p2p/first/updatestatus.do",
-						contentType :"application/json;charset=UTF-8",
-						data:JSON.stringify(data),
-						success : function(data2){
-							if(data2=="ture"){
-								 window.location.href="http://localhost:9088/p2p/yx/first.do"
-							}
-					}
-						})
-				}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	$("#updbtn").click(function() {
+			var row = $('#proDataGrid').datagrid("getSelections");
+			if (row.length==1) {
+				var index=row[0].ID;
+			$('#dialog')
+			.dialog(
+					{
+						title : '我的模态框', //模态框标题
+						width : 600, //宽度
+						height : 680, //高度	
+						left : 400,
+						close : true, //是否可以关闭
+						closable:false,
+						top : 0, //上移100
+						cache : false, //
+						modal : true,//模态框 
+						onOpen : function() {
+							
+							$.ajax({ //发送了一个新的请求，与按钮这个请求完全不是一马事
+								type : "post", //请求方式
+								url : "/p2p/yx/onex.do", //请求地址
+								data : {
+									id : index
+								},//{nameha:$("#username").val(),passha:$("#password").val()},
+								dataType : "json",
+								success : function(data) { //请求成功后调用的回调函数，参数1【data】 请求返回的数据，这个数据类型是dataType制定
+									
+									var jsonObj = eval(data);
+									$.each(jsonObj, function(i, a) {
+										$("#personalname1").val(a.PERSONALNAME);
+										$("#idcard1").val(a.IDCARD);
+										$("#iphone1").val(a.IPHONE);
+										$("#mailbox1").val(a.MAILBOX);
+										$("#marriage1").val(a.MARRIAGE);
+										$("#havachidren1").val(a.HAVACHIDREN);
+										$("#address1").val(a.ADDRESS);
+										$("#worklife1").val(a.WORKLIFE);
+										$("#occupation1").val(a.OCCUPATION);
+										$("#workunit1").val(a.WORKUNIT);
+										$("#unitphone1").val(a.UNITPHONE);
+										$("#monthlyincome1").val(a.MONTHLYINCOME);
+										$("#haveroom1").val(a.HAVEROOM);
+										$("#houseloan1").val(a.HOUSELOAN);
+										$("#havecar1").val(a.HAVECAR);
+										$("#carloan1").val(a.CARLOAN);
+										$("#contactname1").val(a.CONTACTNAME);
+										$("#contactrelation1").val(a.CONTACTRELATION);
+										$("#contactphone1").val(a.CONTACTPHONE);
+								
+										$("input").attr("readonly", "readonly"); //对所有的input标签禁用
+									})
+								}
+							})
+						},
+						buttons : [
+								{ //自带的按钮 
+									text : '审核',
+									iconCls : 'icon-save',
+									handler : function() {
+										var row = $('#proDataGrid').datagrid("getSelections");
+										var data={};
+										data["projectid"]=row[0].ID;
+										data["firststatus"]=$("input[name='xmstates']:checked").val();
+										data["firstremarks"]=$("#reason").val();
+										
+										$.ajax({
+											type : "post",
+											url : "/p2p/first/shenhe.do",
+											contentType :"application/json;charset=UTF-8",
+											data:JSON.stringify(data),
+											success : function(data1){
+												if(data1=="success"){
+													alert("审核完成");
+													var row = $('#proDataGrid').datagrid("getSelections");
+													var data={};
+													data["id"]=row[0].ID;
+													$.ajax({
+														type : "post",
+														url : "/p2p/first/updatestatus.do",
+														contentType :"application/json;charset=UTF-8",
+														data:JSON.stringify(data),
+														success : function(data2){
+															if(data2=="ture"){
+																window.location.href="http://localhost:9088/p2p/jsp/one.jsp"
+															}
+													}
+														})
+												}
+											}
+										});
+									}
+								},{text : '关闭',
+									handler : function() {
+										alert("你确定取消吗？");
+										/* $("#personalname1")
+										.val("") */
+										$('#dialog').dialog("close");
+										window.location.reload();
+									}
+								} ]
+					})
+			
+			}else{
+				alert("请选择一条数据");
 			}
 		});
-		
-	});
+	$('#dialog').dialog("close");
+
 		});
 		
 	</script>

@@ -38,7 +38,9 @@
 		    
 			pagination:true, //分页
 			pageSize:5,
+			fitColumns : true,
 			pageList:[5,10,15,20],
+			pagePosition : "top",
 			showFooter:true ,  //行脚
 			rownumbers:true   //行号
 

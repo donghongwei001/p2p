@@ -4,6 +4,8 @@ public class SzhRole {
 	int roleid;
 	String rolename;
 	int rolestatus;
+	String rolecode;
+	String description;
 	public int getRoleid() {
 		return roleid;
 	}
@@ -21,6 +23,18 @@ public class SzhRole {
 	}
 	public void setRolestatus(int rolestatus) {
 		this.rolestatus = rolestatus;
+	}
+	public String getRolecode() {
+		return rolecode;
+	}
+	public void setRolecode(String rolecode) {
+		this.rolecode = rolecode;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	
 }

@@ -11,4 +11,6 @@ import com.entity.DhwEmpTab;
 public interface DhwloginDao {
 	public DhwEmpTab queryUser(String user);
 	public List<HashMap<String,Object>> queryrolepower(DhwEmpTab dd);
+	public String queryrolename(int id);
+	public int querycount();
 }

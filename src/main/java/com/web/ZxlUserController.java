@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
+import com.entity.ZxlMyHuankuan;
 import com.entity.ZxlMyPersonal;
 import com.entity.ZxlMyProject;
 import com.entity.ZxlMyTouzi;
@@ -21,9 +22,9 @@ import com.service.ZxlUserService;
  * @author ZXL
  *
  */
-@Controller
-@RequestMapping("/user")
-public class ZxlUserController {
+	@Controller
+	@RequestMapping("/user")
+	public class ZxlUserController {
 	@Autowired
 	private ZxlUserService userservice;
 	/**
@@ -32,10 +33,9 @@ public class ZxlUserController {
 	 * @return
 	 */
 	@RequestMapping("/list")
-	public String list(HttpServletRequest request){
+	public void list(HttpServletRequest request){
 		List<ZxlUser> list=userservice.list();
 		request.setAttribute("user", list);
-		return "Home";
 	}
 	/**
 	 * ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
@@ -85,6 +85,7 @@ public class ZxlUserController {
 	public String listproject(HttpServletRequest request){
 		String userna =(String)request.getSession().getAttribute("abcd");
 		List<ZxlMyProject> list=userservice.listproject(userna);
+		
 		request.setAttribute("project", list);
 		return "myproject";
 	}
@@ -100,6 +101,20 @@ public class ZxlUserController {
 		request.setAttribute("touzi", list);
 		return "mytouzi";
 	}
+	
+	/**
+	 * ²éÑ¯¸ÃÓÃ»§Î´»¹¿îµÄÏîÄ¿
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping("/myhuankuan")
+	public String listhuankuan(HttpServletRequest request){
+		String userna =(String)request.getSession().getAttribute("abcd");
+		List<ZxlMyHuankuan> list=userservice.listhuankuan(userna);
+		request.setAttribute("huankuan", list);
+		return "myhuankuan";
+	}
+	
 	/**
 	 * ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½Ã»ï¿½ï¿½Ä»ï¿½ï¿½ï¿½Ï¢
 	 * ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½
@@ -127,6 +142,8 @@ public class ZxlUserController {
 		List<ZxlUser> listz= userservice.updatepwd(userna);		
 		request.setAttribute("updatepwd", listz);
 		return "myupdatepwd";		
+
+
 	}
 	/**
 	 * ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿

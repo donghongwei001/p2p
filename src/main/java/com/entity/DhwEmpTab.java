@@ -1,6 +1,5 @@
 package com.entity;
 
-import java.util.Date;
 
 public class DhwEmpTab {
 	int empid;
@@ -10,8 +9,8 @@ public class DhwEmpTab {
 	String sex;
 	String  iphone;
 	String  address;
-	String  emial;
-	Date addtime;
+	String  Email;
+	String addtime;
 	public int getEmpid() {
 		return empid;
 	}
@@ -54,17 +53,27 @@ public class DhwEmpTab {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public String getEmial() {
-		return emial;
+	
+	
+	
+	public String getEmail() {
+		return Email;
 	}
-	public void setEmial(String emial) {
-		this.emial = emial;
+	public void setEmail(String email) {
+		Email = email;
 	}
-	public Date getAddtime() {
+	public String getAddtime() {
 		return addtime;
 	}
-	public void setAddtime(Date addtime) {
+	public void setAddtime(String addtime) {
 		this.addtime = addtime;
 	}
+	@Override
+	public String toString() {
+		return "DhwEmpTab [empid=" + empid + ", empname=" + empname + ", emppwd=" + emppwd + ", name=" + name + ", sex="
+				+ sex + ", iphone=" + iphone + ", address=" + address + ", Email=" + Email + ", addtime=" + addtime
+				+ "]";
+	}
+
 	
 }

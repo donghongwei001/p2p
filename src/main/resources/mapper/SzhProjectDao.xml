@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.SzhProjectDao">
+	<select id="queryProject" resultType="com.entity.SzhProject">
+		select a.username,b.projectname,d.name,b.time,b.money,b.lifeloan,b.ratemoney,c.codename from usertable a,projectapplication b,
+		code c,subjectType d where a.userid = b.userid and c.codeid = b.aduitstate and d.id = b.projecttype and b.aduitstate = 2
+	</select>
+	<select id="queryPart" resultType="com.entity.SzhProject">
+		select a.username,b.projectname,d.name,b.time,b.money,b.lifeloan,b.ratemoney,c.codename from usertable a,projectapplication b,
+		code c,subjectType d where a.userid = b.userid and c.codeid = b.aduitstate and d.id = b.projecttype and b.aduitstate = 2
+	</select>
+</mapper>

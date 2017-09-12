@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.entity.Page;
+import com.entity.Pageresult;
 import com.entity.ZkjInvest;
 import com.entity.Zkjproject;
 import com.service.Zkjservicedao;
@@ -27,14 +29,14 @@ public class Zkjcontroller {
 	@Autowired
 	private Zkjservicedao servicedao;
 	/*
-	 * �?��据库插入申请项目的数�?
+	 * 锟�锟斤拷鎹簱鎻掑叆鐢宠椤圭洰鐨勬暟锟�
 	 */
 	@RequestMapping("project")
 	public String saveproject(Zkjproject pp,HttpServletRequest request){
 		//	int userid=(int)session.getAttribute("userid");
 		int userid=3;
-		pp.setAppendix("附件");
-		pp.setAduitstate(1);//未审�?
+		pp.setAppendix("闄勪欢");
+		pp.setAduitstate(1);//鏈锟�
 		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd ");
 		String time=sdf.format(new Date());
 		String location=request.getParameter("location1")+request.getParameter("location2")+request.getParameter("location3");
@@ -47,7 +49,7 @@ public class Zkjcontroller {
 	}
 
 	/*
-	 * 二次审核查询的项�?
+	 * 浜屾瀹℃牳鏌ヨ鐨勯」锟�
 	 */
 	@RequestMapping("/selectproject")
 	public ModelAndView queryproject(){
@@ -59,17 +61,25 @@ public class Zkjcontroller {
 	}
 
 	/*
-	 * 查询用户
+	 * 鏌ヨ鐢ㄦ埛
 	 */
 	@RequestMapping("/user")
 	@ResponseBody
-	public List<Map> selectusers(){
-		List<Map> listu=servicedao.selectusers();
+	public Pageresult selectusers(Integer page,Integer rows){
+		int page1=page;
+		int rows1=rows;
+		List<Map> list=servicedao.selectusers();
+		Page<Map> paging=new Page<Map>();
+		List<Map> list1=paging.paging(list,rows1,page1);
+		System.out.println(list1.size());
+		Pageresult<Map> pResult=new Pageresult<Map>();
 		
-		return listu;
+		pResult.setTotal(list.size());
+		pResult.setRows(list1);
+		return pResult;
 	}
 	/*
-	 * 禁用用户
+	 * 绂佺敤鐢ㄦ埛
 	 */
 	@RequestMapping("/disable")
 	@ResponseBody
@@ -99,7 +109,7 @@ public class Zkjcontroller {
 		return "success";
 	}
 	/*
-	 * 投资界面
+	 * 鎶曡祫鐣岄潰
 	 */
 	@RequestMapping("allproject")
 	public ModelAndView quertallproject(HttpServletRequest request){
@@ -114,7 +124,7 @@ public class Zkjcontroller {
 		return mm;
 	}
 	/*1.
-	 * 插入到投资表(放款表)
+	 * 鎻掑叆鍒版姇璧勮〃(鏀炬琛�
 	 */
 	@RequestMapping("/money")
 	public void projectmoney(HttpServletRequest request,HttpSession session){
@@ -127,7 +137,7 @@ public class Zkjcontroller {
 		servicedao.addinvest(zz,username);
 	}
 	/*
-	 * 根据用户名查询用户id
+	 * 鏍规嵁鐢ㄦ埛鍚嶆煡璇㈢敤鎴穒d
 	 */
 	@RequestMapping("/name")
 	@ResponseBody
@@ -136,5 +146,41 @@ public class Zkjcontroller {
 		return servicedao.queryname(name);
 		
 	}
+<<<<<<< HEAD
 	
+=======
+	@RequestMapping("/queryuserinfo")
+	@ResponseBody
+	public Pageresult queryuserinfo(Integer page,Integer rows){
+		int page1=page;
+		int rows1=rows;
+		List<Map> list=servicedao.queryuserinfo();
+		Page<Map> paging=new Page<Map>();
+		List<Map> list1=paging.paging(list,rows1,page1);
+		System.out.println(list1.size());
+		Pageresult<Map> pResult=new Pageresult<Map>();
+		
+		pResult.setTotal(list.size());
+		pResult.setRows(list1);
+		return pResult;
+		
+	}
+	@RequestMapping("/queryoneuserinfo")
+	@ResponseBody
+	public Pageresult queryuserinfo(Integer page,Integer rows,String name){
+		int page1=page;
+		int rows1=rows;
+		String rname="%"+name+"%";
+		List<Map> list=servicedao.queryoneuserinfo(rname);
+		Page<Map> paging=new Page<Map>();
+		List<Map> list1=paging.paging(list,rows1,page1);
+		System.out.println(list1.size());
+		Pageresult<Map> pResult=new Pageresult<Map>();
+		
+		pResult.setTotal(list.size());
+		pResult.setRows(list1);
+		return pResult;
+		
+	} 
+>>>>>>> branch 'master' of https://github.com/donghongwei001/p2p.git
 }

@@ -47,6 +47,7 @@
 				<a href="#">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="#">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="#">我要借款</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<<<<<<< HEAD
 				<a href="http://localhost:9088/p2p/jsp/zhuye.jsp">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;						
 			</div>
 			<div id="top-login">										
@@ -60,30 +61,7 @@
 			<div id="img-login"></div>
 		</div>		
 		<div id="content">
-			<div id="content-left">
-				<table class="table table-hover">
-					<thead>
-						<tr>
-							<th>用户id</th>
-							<th>用户名</th>
-							<th>密码</th>
-							<th>余额</th>
-							<th>状态</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach items="${user}" var="user">
-							<tr>
-								<td>${user.userID}</td>
-								<td>${user.username}</td>
-								<td>${user.pwd}</td>
-								<td>${user.money}</td>
-								<td>${user.state}</td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
-			</div>
+			
 			<div id="content-image">
 				<img src="../image/bottom.png">	
 			</div>		
@@ -256,6 +234,192 @@
 					alert(data1);
 					if(data1=="Ok"){
 						window.location.href="http://localhost:9088/p2p/user/listpro.do"
+=======
+				<a href="/p2pweb/user/personal.do">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;						
+			</div>
+			<div id="top-login">										
+				<button type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">注册</button>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-default">登录</button>
+			</div>
+		</div>
+		<div id="img">
+			<img src="../image/img3.png" width="100%" />
+			<div id="img-login"></div>
+		</div>		
+		<div id="content">
+			
+			<div id="content-image">
+				<img src="../image/bottom.png">	
+			</div>		
+		</div>
+		<div id="down">
+			<div id="down-one">
+				<span>联系我们</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;				
+				<span>关于我们</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<span>入驻我们</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<span>联系电话：1234567</span>
+			</div>
+			<div id="down-two">
+				<span>网贷有风险，出借需谨慎；期待回报不等于实际收益</span>
+			</div>
+			<div id="down-three">
+				<span>版权所有@2017-08-31第七组成员</span>
+			</div>
+		</div>
+	</div>
+	
+	<!-- 注册模态框 -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="exampleModalLabel">用户注册</h4>
+				</div>
+				<div class="modal-body">
+					<div id="modal-div">
+						<form action="#">					
+							<table >
+								<tr>
+									<td width="220px;" align="right">用户名：</td>
+									<td>
+										<input type="text" id="user" class="form-control" placeholder="必须是5-10位数字或字母组成，开头不能是数字">
+									</td>
+									<td><div id="s1"></div></td>
+								</tr>
+								<tr>
+									<td>&nbsp;&nbsp;</td>
+									<td>&nbsp;&nbsp;</td>
+								</tr>
+								<tr>
+									<td width="220px;" align="right">密码：</td>
+									<td>
+										<input type="password" id="pwd" class="form-control" placeholder="请输入密码">
+									</td>
+									<td><div id="s2"></div></td>
+								</tr>
+								<tr>
+									<td>&nbsp;&nbsp;</td>
+									<td>&nbsp;&nbsp;</td>
+								</tr>
+								<tr>
+									<td width="220px;" align="right">确认密码：</td>
+									<td>
+										<input type="password" id="rpwd" class="form-control" placeholder="请确认密码">
+									</td>
+									<td><div id="s3"></div></td>
+								</tr>
+								<tr>
+									<td>&nbsp;&nbsp;</td>
+									<td>&nbsp;&nbsp;</td>
+								</tr>
+								
+							</table>
+						</form>
+					</div>
+					<div id="input-btu">
+						<input type="button" class="btn btn-success" id="but" value="注册"/>
+					</div>								
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 注册模态框结束 -->
+	
+	<!-- 登录模态框 -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">用户登录</h4>
+	      </div>
+	      <div class="modal-body">
+			<form action="#">
+				<table>
+					<tr>
+						<td width="220px;" align="right">用户名：</td>
+						<td>
+							<input type="text" id="username" class="form-control"placeholder="用户名">
+						</td>
+						<td>
+							<div id="s1"></div>
+						</td>
+					</tr>
+					<tr>
+						<td>&nbsp;&nbsp;</td>
+						<td>&nbsp;&nbsp;</td>
+					</tr>
+					<tr>
+						<td width="220px;" align="right">密码：</td>
+						<td>
+							<input type="password" id="possword" class="form-control"placeholder="密码">
+						</td>
+						<td><div id="s2"></div></td>
+					</tr>
+					<tr>
+						<td>&nbsp;&nbsp;</td>
+						<td>&nbsp;&nbsp;</td>
+					</tr>
+				</table>
+			</form>
+			<div id="input-btu">
+				<input type="button" class="btn btn-success" id="button" value="登录"/>
+			</div>
+		</div>
+	    
+	    </div>
+	  </div>
+	</div>
+	
+</body>
+	<script type="text/javascript">
+		/* 注册按钮的点击事件 */
+  		$("#but").click(function(){
+  			var data={};
+			data["username"] = $("#user").val();
+			data["pwd"] = $("#pwd").val();
+			$.ajax({
+				type : "post",
+				url : "/p2pweb/user/add.do", 
+				contentType : "application/json;charset=utf-8",
+				data : JSON.stringify(data),
+				success : function(data1) {
+
+					if(data1=="no"){						
+						window.location.href="/p2pweb/jsp/Home.jsp"
+					}
+					else{						
+						alert("用户名已注册！！！  ");
+					}
+
+				alert(data1);
+					window.location.href="/p2pweb/jsp/personal.do"
+				},
+				error : function(){
+					alert("error");
+
+
+				}
+			}); 
+  		})
+		/*登录按钮的点击事件*/
+  		$("#button").click(function(){
+  			var data={};
+			data["username"] = $("#username").val();
+			data["pwd"] = $("#possword").val();
+			$.ajax({
+				type : "post",
+				url : "/p2pweb/user/login.do", 
+				contentType : "application/json;charset=utf-8",
+				data : JSON.stringify(data),
+				success : function(data1) {
+					if(data1=="Ok"){
+						window.location.href="/p2pweb/user/listpro.do"
+>>>>>>> branch 'master' of https://github.com/donghongwei001/p2p.git
 					}
 					else{
 						alert("用户名或密码错误！！！  ");

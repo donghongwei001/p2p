@@ -1,16 +1,27 @@
 package com.entity;
 
 public class ZxlMyHuankuan {
-	int projectid;
+
+	int repayid;
+	int projrctid;
 	String projectname;
 	String hkmoney;
 	String ptmoney;
 	String hktime;
-	public int getProjectid() {
-		return projectid;
+	
+	public int getRepayid() {
+		return repayid;
 	}
-	public void setProjectid(int projectid) {
-		this.projectid = projectid;
+	public void setRepayid(int repayid) {
+		this.repayid = repayid;
+	}
+	
+	public int getProjrctid() {
+		return projrctid;
+	}
+	public void setProjrctid(int projrctid) {
+		this.projrctid = projrctid;
+
 	}
 	public String getProjectname() {
 		return projectname;
