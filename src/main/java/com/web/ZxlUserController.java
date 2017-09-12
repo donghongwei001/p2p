@@ -18,7 +18,7 @@ import com.entity.ZxlMyTouzi;
 import com.entity.ZxlUser;
 import com.service.ZxlUserService;
 /**
- * ���Ʋ�
+ * 控制层
  * @author ZXL
  *
  */
@@ -28,7 +28,7 @@ public class ZxlUserController {
 	@Autowired
 	private ZxlUserService userservice;
 	/**
-	 * ��ѯ�ñ���������
+	 * 查询用表的所有数据
 	 * @param request
 	 * @return
 	 */
@@ -38,9 +38,9 @@ public class ZxlUserController {
 		request.setAttribute("user", list);
 	}
 	/**
-	 * �û������
-	 * ע��
-	 * @ResponseBody ��������ص�ǰ̨
+	 * 用户的添加
+	 * 注册
+	 * @ResponseBody 将处理结果返回到前台
 	 * @param str
 	 * @return
 	 */
@@ -48,17 +48,17 @@ public class ZxlUserController {
 	@ResponseBody
 	public String addUser(@RequestBody String str){
 		ZxlUser student=JSON.parseObject(str, ZxlUser.class);
-		/*�û����ظ�*/
+		/*用户名重复*/
 		if(userservice.addUser(student)==0){  
 			return "error";
 		}
 		else{
-			return "success";  /*��������*/
+			return "success";  /*可以添加*/
 		}
 	}
 	/**
-	 * �û��ĵ�¼
-	 * @ResponseBody ��������ص�ǰ̨
+	 * 用户的登录
+	 * @ResponseBody 将处理结果返回到前台
 	 * @param str
 	 * @return
 	 */
@@ -78,7 +78,7 @@ public class ZxlUserController {
         }
     } 
 	/**
-	 * ���û�����Ŀ
+	 * 该用户的项目
 	 * @param request
 	 * @return
 	 */
@@ -91,7 +91,7 @@ public class ZxlUserController {
 		return "myproject";
 	}
 	/**
-	 * ��ѯ���û���Ͷ�ʵ���Ŀ
+	 *查询该用户所投资的项目
 	 * @param request
 	 * @return
 	 */
@@ -104,7 +104,7 @@ public class ZxlUserController {
 	}
 	
 	/**
-	 * ��ѯ���û�δ�������Ŀ
+	 * 查询该用户未还款的项目
 	 * @param request
 	 * @return
 	 */
@@ -117,8 +117,8 @@ public class ZxlUserController {
 	}
 	
 	/**
-	 * ��ѯ���û��Ļ���Ϣ
-	 * ����û���
+	 * 查询该用户的基本信息
+	 * 根据用户名
 	 * @param request
 	 * @return
 	 */
@@ -130,9 +130,9 @@ public class ZxlUserController {
 		return "mypersonal";		
 	}
 	/**
-	 * �޸�����
-	 * ȷ�Ͼ�����
-	 * ����������
+	 * 修改密码
+	 * 确认旧密码
+	 * 插入新密码
 	 * @param pwd
 	 * @param request
 	 * @return
@@ -147,7 +147,7 @@ public class ZxlUserController {
 
 	}
 	/**
-	 * ��ѯ������Ŀ
+	 * 查询发布项目
 	 * @param request
 	 * @return
 	 */
@@ -158,13 +158,13 @@ public class ZxlUserController {
 		return "index";	
 	}
 	/**
-	 * ����û����ѯ�û����
-	 * session�����û���
+	 * 根据用户名查询用户余额
+	 * session接受用户名
 	 * @param user
 	 * @param request
 	 * @return
 	 */
-	@RequestMapping("/personal")
+	@RequestMapping("/zxlpersonal")
 	public String listmoney(HttpServletRequest request){
 		String userna =(String)request.getSession().getAttribute("abcd");	
 		List<ZxlUser> listz= userservice.listmoney(userna);		
