@@ -11,11 +11,11 @@ import com.entity.YxFirst;
 
 public interface YxExamineDao {
 	//查询第一次审核的项目
-	List<YxExamine> queryAll();
+	List<Map> queryAll();
 	//查询逾期的项目
 	List<Outtime> queryxm();
 	//查询第二次要审核的项目
-	List<YxFirst>queryft();
+	List<Map>queryft();
 	//根据id查询项目详情
 	List<Map> querylm(int id);
 	//查询要发布的项目
