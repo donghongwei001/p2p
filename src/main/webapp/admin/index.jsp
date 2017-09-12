@@ -35,7 +35,7 @@
 					class="logo navbar-slogan f-l mr-10 hidden-xs">v3.1</span> <a
 					aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs"
 					href="javascript:;">&#xe667;</a>
-				<nav class="nav navbar-nav">
+				<!-- <nav class="nav navbar-nav">
 					<ul class="cl">
 						<li class="dropDown dropDown_hover"><a href="javascript:;"
 							class="dropDown_A"><i class="Hui-iconfont">&#xe600;</i> 新增 <i
@@ -55,7 +55,9 @@
 										class="Hui-iconfont">&#xe60d;</i> 用户</a></li>
 							</ul></li>
 					</ul>
-				</nav>
+				</nav> -->
+				
+				
 				
 				<nav id="Hui-userbar"
 					class="nav navbar-nav navbar-userbar hidden-xs">
@@ -68,6 +70,7 @@
 								<li><a href="/p2p/login.jsp">切换账户</a></li>
 								<li><a href="/p2p/login.jsp">退出</a></li>
 							</ul></li>
+						<li><a id="show" style="color:white;margin-top;15px;"></a></li>
 						<li id="Hui-msg"><a href="#" title="消息"><span
 								class="badge badge-danger">${count}</span><i class="Hui-iconfont"
 								style="font-size: 18px">&#xe68a;</i></a></li>
@@ -83,6 +86,7 @@
 								<li><a href="javascript:;" data-val="yellow" title="黄色">黄色</a></li>
 								<li><a href="javascript:;" data-val="orange" title="橙色">橙色</a></li>
 							</ul></li>
+						
 					</ul>
 				</nav>
 			</div>
@@ -193,6 +197,12 @@
 					<i class="Hui-iconfont">&#xe60d;</i> 投资管理<i
 						class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
 				</dt>
+				<dd>
+					<ul>
+						<li><a data-href="http://localhost:9088/p2p/yx/notone.do" data-title="项目初审未通过"
+							href="javascript:void(0)">投资管理</a></li>
+					</ul>
+				</dd>
 			</dl>
 			</shiro:hasPermission>
 			<!-- -------------还款管理------------- -->
@@ -339,9 +349,38 @@
 			layer.full(index);
 		}
 		/*用户-添加*/
-		function member_add(title, url, w, h) {
-			layer_show(title, url, w, h);
+		function getLangDate(){
+			var dateObj = new Date(); //表示当前系统时间的Date对象 
+			var year = dateObj.getFullYear(); //当前系统时间的完整年份值
+			var month = dateObj.getMonth()+1; //当前系统时间的月份值 
+			var date = dateObj.getDate(); //当前系统时间的月份中的日
+			var day = dateObj.getDay(); //当前系统时间中的星期值
+			var weeks = ["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+			var week = weeks[day]; //根据星期值，从数组中获取对应的星期字符串 
+			var hour = dateObj.getHours(); //当前系统时间的小时值 
+			var minute = dateObj.getMinutes(); //当前系统时间的分钟值
+			var second = dateObj.getSeconds(); //当前系统时间的秒钟值
+			//如果月、日、小时、分、秒的值小于10，在前面补0
+			if(month<10){
+			month = "0"+month;
+			}
+			if(date<10){
+			date = "0"+date;
+			}
+			if(hour<10){
+			hour = "0"+hour;
+			}
+			if(minute<10){
+			minute = "0"+minute;
+			}
+			if(second<10){
+			second = "0"+second;
+			}
+			var newDate = year+"年"+month+"月"+date+"日 "+week+" "+hour+":"+minute+":"+second;
+			document.getElementById("show").innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;系统公告：[ "+newDate+" ]";
+			setTimeout("getLangDate()",1000);//每隔1秒重新调用一次该函数 
 		}
+		getLangDate();
 	</script>
 
 
