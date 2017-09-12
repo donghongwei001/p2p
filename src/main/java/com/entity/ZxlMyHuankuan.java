@@ -1,6 +1,7 @@
 package com.entity;
 
 public class ZxlMyHuankuan {
+
 	int repayid;
 	int projrctid;
 	String projectname;
@@ -20,6 +21,7 @@ public class ZxlMyHuankuan {
 	}
 	public void setProjrctid(int projrctid) {
 		this.projrctid = projrctid;
+
 	}
 	public String getProjectname() {
 		return projectname;

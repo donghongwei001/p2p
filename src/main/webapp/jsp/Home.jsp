@@ -47,7 +47,8 @@
 				<a href="#">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="#">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="#">我要借款</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="http://localhost:9088/p2p/jsp/zhuye.jsp">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;						
+
+				<a href="/p2p/user/personal.do">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;						
 			</div>
 			<div id="top-login">										
 				<button type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">注册</button>
@@ -202,14 +203,14 @@
 				success : function(data1) {
 
 					if(data1=="no"){						
-						window.location.href="http://localhost:9088/p2p/user/list.do"
+						window.location.href="/p2p/jsp/Home.jsp"
 					}
 					else{						
 						alert("用户名已注册！！！  ");
 					}
 
 				alert(data1);
-					window.location.href="http://localhost:9088/p2p/user/list.do"
+					window.location.href="/p2p/jsp/personal.do"
 				},
 				error : function(){
 					alert("error");
@@ -230,7 +231,7 @@
 				data : JSON.stringify(data),
 				success : function(data1) {
 					if(data1=="Ok"){
-						window.location.href="http://localhost:9088/p2p/user/listpro.do"
+						window.location.href="/p2p/user/listpro.do"
 					}
 					else{
 						alert("用户名或密码错误！！！  ");

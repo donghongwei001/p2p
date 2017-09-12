@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.service.YpgRoleService;
 
 @Controller
-@RequestMapping(value="/role")
+@RequestMapping(value="/aaaaaa")
 public class YpgRoleController {
 	@Autowired
 	private YpgRoleService roleservice;

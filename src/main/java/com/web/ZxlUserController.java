@@ -18,7 +18,7 @@ import com.entity.ZxlMyTouzi;
 import com.entity.ZxlUser;
 import com.service.ZxlUserService;
 /**
- * ¿ØÖÆ²ã
+ * ï¿½ï¿½ï¿½Æ²ï¿½
  * @author ZXL
  *
  */
@@ -28,7 +28,7 @@ public class ZxlUserController {
 	@Autowired
 	private ZxlUserService userservice;
 	/**
-	 * ²éÑ¯ÓÃ±íµÄËùÓÐÊý¾Ý
+	 * ï¿½ï¿½Ñ¯ï¿½Ã±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @param request
 	 * @return
 	 */
@@ -38,9 +38,9 @@ public class ZxlUserController {
 		request.setAttribute("user", list);
 	}
 	/**
-	 * ÓÃ»§µÄÌí¼Ó
-	 * ×¢²á
-	 * @ResponseBody ½«´¦Àí½á¹û·µ»Øµ½Ç°Ì¨
+	 * ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	 * ×¢ï¿½ï¿½
+	 * @ResponseBody ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½Ç°Ì¨
 	 * @param str
 	 * @return
 	 */
@@ -57,14 +57,15 @@ public class ZxlUserController {
 		}
 	}
 	/**
-	 * ÓÃ»§µÄµÇÂ¼
-	 * @ResponseBody ½«´¦Àí½á¹û·µ»Øµ½Ç°Ì¨
+	 * ï¿½Ã»ï¿½ï¿½Äµï¿½Â¼
+	 * @ResponseBody ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½Ç°Ì¨
 	 * @param str
 	 * @return
 	 */
 	@RequestMapping("/login")
 	@ResponseBody
 	public String login(@RequestBody String str,HttpServletRequest request){ 
+	
 		System.out.println(str);
 		ZxlUser zu=JSON.parseObject(str, ZxlUser.class);
 		request.getSession().setAttribute("abcd",zu.getUsername());
@@ -77,7 +78,7 @@ public class ZxlUserController {
         }
     } 
 	/**
-	 * ¸ÃÓÃ»§µÄÏîÄ¿
+	 * ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿
 	 * @param request
 	 * @return
 	 */
@@ -90,7 +91,7 @@ public class ZxlUserController {
 		return "myproject";
 	}
 	/**
-	 * ²éÑ¯¸ÃÓÃ»§ËùÍ¶×ÊµÄÏîÄ¿
+	 * ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Í¶ï¿½Êµï¿½ï¿½ï¿½Ä¿
 	 * @param request
 	 * @return
 	 */
@@ -116,8 +117,8 @@ public class ZxlUserController {
 	}
 	
 	/**
-	 * ²éÑ¯¸ÃÓÃ»§µÄ»ù±¾ÐÅÏ¢
-	 * ¸ù¾ÝÓÃ»§Ãû
+	 * ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½Ã»ï¿½ï¿½Ä»ï¿½ï¿½ï¿½Ï¢
+	 * ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½
 	 * @param request
 	 * @return
 	 */
@@ -129,9 +130,9 @@ public class ZxlUserController {
 		return "mypersonal";		
 	}
 	/**
-	 * ÐÞ¸ÄÃÜÂë
-	 * È·ÈÏ¾ÉÃÜÂë
-	 * ²åÈëÐÂÃÜÂë
+	 * ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½
+	 * È·ï¿½Ï¾ï¿½ï¿½ï¿½ï¿½ï¿½
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @param pwd
 	 * @param request
 	 * @return
@@ -142,9 +143,11 @@ public class ZxlUserController {
 		List<ZxlUser> listz= userservice.updatepwd(userna);		
 		request.setAttribute("updatepwd", listz);
 		return "myupdatepwd";		
+
+
 	}
 	/**
-	 * ²éÑ¯·¢²¼ÏîÄ¿
+	 * ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿
 	 * @param request
 	 * @return
 	 */
@@ -155,8 +158,8 @@ public class ZxlUserController {
 		return "index";	
 	}
 	/**
-	 * ¸ù¾ÝÓÃ»§Ãû²éÑ¯ÓÃ»§Óà¶î
-	 * session½ÓÊÜÓÃ»§Ãû
+	 * ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½Ã»ï¿½ï¿½ï¿½ï¿½
+	 * sessionï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½
 	 * @param user
 	 * @param request
 	 * @return

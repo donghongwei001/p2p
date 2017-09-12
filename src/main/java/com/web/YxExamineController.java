@@ -1,5 +1,6 @@
 package com.web;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Map;
 
@@ -10,9 +11,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.entity.Outtime;
+import com.entity.Page;
+import com.entity.Pageresult;
 import com.entity.YxExamine;
 import com.entity.YxFirst;
 import com.service.YxExamineService;
@@ -28,10 +32,17 @@ public class YxExamineController {
 	 * @return
 	 */
 	@RequestMapping(value="/first")
-	public String query(Model m){
-		List<YxExamine> ly=yxservice.queryexam();
-		m.addAttribute("ly", ly);
-		return "one";
+	@ResponseBody
+	public List<Map> query(){
+		List<Map> ly=yxservice.queryexam();
+		/*m.addAttribute("ly", ly);*/
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		for (int i = 0; i < ly.size(); i++) {
+			String time=simpleDateFormat.format(ly.get(i).get("TIME"));
+			ly.get(i).put("time1", time);
+			
+		}
+		return ly;
 	}
 	/**
 	 * 查询逾期的项目
@@ -50,22 +61,27 @@ public class YxExamineController {
 	 * @return
 	 */
 	@RequestMapping(value="/chushe")
-	public String queryyy(Model m){
-		List<YxFirst> lm=yxservice.queryftt();
-		m.addAttribute("lm",lm);
-		return "first";
+	@ResponseBody
+	public List<Map> queryyy(){
+		List<Map> lm=yxservice.queryftt();
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		for (int i = 0; i < lm.size(); i++) {
+			String time=simpleDateFormat.format(lm.get(i).get("FIRSTDATE"));
+			lm.get(i).put("time1", time);
+			
+		}
+		return lm;
 	}
 	/**
 	 * 一次审核时查看用户信息详情
 	 */
 @RequestMapping(value="/onex")
-	public ModelAndView queryonex(HttpServletRequest request){
-		int id=Integer.parseInt(request.getParameter("userid"));
+@ResponseBody
+	public List<Map> queryonex(HttpServletRequest request){
+		int id=Integer.parseInt(request.getParameter("id"));
 		List<Map> llm=yxservice.queryuserid(id);
-		ModelAndView mm=new ModelAndView();
-		mm.addObject("llm", llm);
-		mm.setViewName("Yxuser");
-		return mm;
+		
+		return llm;
 	}
 	/**
 	 * 二次审核时查看项目详情
@@ -73,13 +89,12 @@ public class YxExamineController {
 	 * @return
 	 */
 	@RequestMapping(value="/xiang")
-	public ModelAndView queryxiang(HttpServletRequest request){
-		int id=Integer.parseInt(request.getParameter("projectid"));
+	@ResponseBody
+	public List<Map> queryxiang(HttpServletRequest request){
+		int id=Integer.parseInt(request.getParameter("id"));
 		List<Map> lsm=yxservice.queryss(id);
-		ModelAndView mm=new ModelAndView(); 
-		mm.addObject("lsm", lsm);
-		mm.setViewName("Yxright");
-		return mm;
+	
+		return lsm;
 	}
 	
 		/**
@@ -88,13 +103,15 @@ public class YxExamineController {
 		 * @return
 		 */
 		@RequestMapping(value="/onequery")
-		public ModelAndView queryxi(HttpServletRequest request){
-			int id=Integer.parseInt(request.getParameter("projectid"));
+		@ResponseBody
+		public List<Map> queryxi(HttpServletRequest request){
+			int id=Integer.parseInt(request.getParameter("id"));
 			List<Map> lsm=yxservice.queryf(id);
-			ModelAndView mm=new ModelAndView(); 
+			
+			/*ModelAndView mm=new ModelAndView(); 
 			mm.addObject("ld", lsm);
-			mm.setViewName("oneselect");
-			return mm;
+			mm.setViewName("oneselect");*/
+			return lsm;
 		}
 	/**
 	 * 查询要发布的项目
@@ -113,24 +130,34 @@ public class YxExamineController {
 		 * @return
 		 */
 		@RequestMapping(value="/notone")
-		public ModelAndView queryone(){
+		@ResponseBody
+		public List<Map> queryone(){
+			
 			List<Map> lp=yxservice.querynotone();
-			ModelAndView mm=new ModelAndView();
-			mm.addObject("lp", lp);
-			mm.setViewName("notfirst");
-			return mm;
+			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+			for (int i = 0; i < lp.size(); i++) {
+				String time=simpleDateFormat.format(lp.get(i).get("FIRSTDATE"));
+				lp.get(i).put("time1", time);
+				
+			}
+			return lp;
 		}
+		
 		/**
 		 * 查询第二次审核没通过的项目
 		 * @return
 		 */
 		@RequestMapping(value="/nottwo")
-		public ModelAndView querytwo(){
+		@ResponseBody
+		public List<Map> querytwo(){
 			List<Map> mp=yxservice.querytwo();
-			ModelAndView mm=new ModelAndView();
-			mm.addObject("mp", mp);
-			mm.setViewName("nottwo");
-			return mm;
+			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+			for (int i = 0; i < mp.size(); i++) {
+				String time=simpleDateFormat.format(mp.get(i).get("FINALDATE"));
+				mp.get(i).put("time1", time);
+				
+			}
+			return mp;
 		}
 		
 
