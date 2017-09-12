@@ -14,64 +14,66 @@
 
 </head>
 <body>
-
-    <h2>Basic CRUD Application</h2>
-    <p>Click the buttons on datagrid toolbar to do crud actions.</p>
-    
-    <table id="dg" title="My Users" class="easyui-datagrid" style="width:700px;height:250px"
-            url="get_users.php"
+    <table id="dg" title="用户界面" class="easyui-datagrid" style="width:1000px;height:500px"
+            url="/p2p/queryUser.do"
             toolbar="#toolbar" pagination="true"
-            rownumbers="true" fitColumns="true" singleSelect="true">
+            rownumbers="true" fitColumns="true" singleSelect="true" striped="true">
         <thead>
             <tr>
-                <th field="firstname" width="50">First Name</th>
-                <th field="lastname" width="50">Last Name</th>
-                <th field="phone" width="50">Phone</th>
-                <th field="email" width="50">Email</th>
+                <th field="money" width="50">账户余额</th>
+                <th field="pwd" width="50">用户密码</th>
+                <th field="state" width="50">用户状态</th>
+                <th field="userID" width="50">用户编号</th>
+                <th field="username" width="50">用户名称</th>
             </tr>
         </thead>
     </table>
     <div id="toolbar">
-        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newUser()">New User</a>
-        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editUser()">Edit User</a>
-        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyUser()">Remove User</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newUser()">增加</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editUser()">更新</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyUser()">删除</a>
     </div>
     
     <div id="dlg" class="easyui-dialog" style="width:400px"
             closed="true" buttons="#dlg-buttons">
         <form id="fm" method="post" novalidate style="margin:0;padding:20px 50px">
-            <div style="margin-bottom:20px;font-size:14px;border-bottom:1px solid #ccc">User Information</div>
+            <div style="margin-bottom:20px;font-size:14px;border-bottom:1px solid #ccc">增加用户</div>
             <div style="margin-bottom:10px">
-                <input name="firstname" class="easyui-textbox" required="true" label="First Name:" style="width:100%">
+                <input name="money" class="easyui-textbox" required="true" label="账户余额:" style="width:100%">
             </div>
             <div style="margin-bottom:10px">
-                <input name="lastname" class="easyui-textbox" required="true" label="Last Name:" style="width:100%">
+                <input name="pwd" class="easyui-textbox" required="true" label="用户密码:" style="width:100%">
             </div>
             <div style="margin-bottom:10px">
-                <input name="phone" class="easyui-textbox" required="true" label="Phone:" style="width:100%">
+                <input name="state" class="easyui-textbox" required="true" label="用户状态:" style="width:100%">
             </div>
             <div style="margin-bottom:10px">
-                <input name="email" class="easyui-textbox" required="true" validType="email" label="Email:" style="width:100%">
+                <input name="userID" class="easyui-textbox" required="true" label="用户编号:" style="width:100%">
+            </div>
+            <div style="margin-bottom:10px">
+                <input name="username" class="easyui-textbox" required="true" label="用户名称:" style="width:100%">
             </div>
         </form>
     </div>
     <div id="dlg-buttons">
-        <a href="javascript:void(0)" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="saveUser()" style="width:90px">Save</a>
-        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')" style="width:90px">Cancel</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="saveUser()" style="width:90px">确定</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')" style="width:90px">取消</a>
     </div>
     <script type="text/javascript">
         var url;
         function newUser(){
-            $('#dlg').dialog('open').dialog('center').dialog('setTitle','New User');
+            $('#dlg').dialog('open').dialog('center').dialog('setTitle','增加用户');
             $('#fm').form('clear');
-            url = 'save_user.php';
+            url = '/p2p/addUser.do';
         }
         function editUser(){
             var row = $('#dg').datagrid('getSelected');
             if (row){
-                $('#dlg').dialog('open').dialog('center').dialog('setTitle','Edit User');
+                $('#dlg').dialog('open').dialog('center').dialog('setTitle','更新用户');
                 $('#fm').form('load',row);
-                url = 'update_user.php?id='+row.id;
+                url = '/p2p/updateUser.do?userID='+row.userID;
+            }else{
+            	alert("请选中一条数据进行更新！");
             }
         }
         function saveUser(){
@@ -84,7 +86,7 @@
                     var result = eval('('+result+')');
                     if (result.errorMsg){
                         $.messager.show({
-                            title: 'Error',
+                            title: '错误提示！',
                             msg: result.errorMsg
                         });
                     } else {
@@ -94,12 +96,13 @@
                 }
             });
         }
-        function destroyUser(){
+        
+       function destroyUser(){
             var row = $('#dg').datagrid('getSelected');
             if (row){
-                $.messager.confirm('Confirm','Are you sure you want to destroy this user?',function(r){
+                $.messager.confirm('危险提示！！！','你真的确定非要删除这条数据不可么？',function(r){
                     if (r){
-                        $.post('destroy_user.php',{id:row.id},function(result){
+                        $.post('/p2p/queryUser.do',{userID:row.userID},function(result){
                             if (result.success){
                                 $('#dg').datagrid('reload');    // reload the user data
                             } else {
@@ -111,8 +114,10 @@
                         },'json');
                     }
                 });
+            }else{
+            	alert("请选中一条数据进行删除！");
             }
-        }
+        } 
     </script>
 
 </body>

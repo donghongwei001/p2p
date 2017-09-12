@@ -46,6 +46,7 @@ public class ypgPersonalFormController {
 		int userID =1;
 		pff.setUserID(userID);
 		pfService.getPersonalForm(pff);
+		
 	}
 	
 	@RequestMapping("/update")

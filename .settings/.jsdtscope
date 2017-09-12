@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+<<<<<<< HEAD
 	<classpathentry kind="src" path="src/main/webapp"/>
 	<classpathentry excluding="**/*.min.js|**/node_modules/*|**/bower_components/*" kind="src" path="target/m2e-wtp/web-resources"/>
+=======
+	<classpathentry excluding="**/*.min.js|**/node_modules/*|**/bower_components/*" kind="src" path="src/main/webapp"/>
+	<classpathentry kind="src" path="target/m2e-wtp/web-resources"/>
+>>>>>>> branch 'master' of https://github.com/donghongwei001/p2p.git
 	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.WebProject">
 		<attributes>

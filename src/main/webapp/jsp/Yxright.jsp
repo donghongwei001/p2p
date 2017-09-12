@@ -7,6 +7,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<script src="../easyui/js/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../easyui/css/icon.css" />
+<link rel="stylesheet" type="text/css" href="../easyui/css/easyui.css" />
+
+<script src="../easyui/js/jquery.min.js"></script>
+<script src="../easyui/js/jquery.easyui.min.js"></script>
+
+<script type="text/javascript" src="../easyui/js/easyui-lang-zh_CN.js"></script>
 </head>
 <body>
 	<table id="proDataGrid"> 
@@ -14,14 +22,16 @@
 			<tr>
 				<td>${li.USERNAME }</td>
 				<td>${li.PROJECTNAME }</td>
-				<td>${li.PROJECTTYPE }</td>
+				<td>${li.NAME }</td>
 				<td>${li.LOCATION }</td>
 				<td>${li.TIME }</td>
 				<td>${li.MONEY }</td>
 				<td>${li.LIFELOAN }</td>
 				<td>${li.APPENDIX }</td>
 			</tr>
+			
 		</c:forEach>
+		<tr><td><a href="http://localhost:9088/p2p/yx/chushe.do" style="font-size:14px;color:red">返回上页面</a></td></tr>
 	</table>
 	<table id="dg">
 		<tr>
@@ -31,14 +41,12 @@
 	</table>
 </body>
 </html>
-<!-- <script type="text/javascript">
+<script type="text/javascript">
 $(function(){
 	$('#proDataGrid').datagrid({
 	url : 'http://localhost:9088/p2p/yx/xiang.do',
-	// data:data,
 	fitColumns : true,//自动适应网格宽度
 	striped : true,//显示斑马线
-	//idField : "projectid",//设置productid为主键
 	loadMsg : "努力加载中......",//加载慢的时候提示信息
 	fit : true,//
 	rownumbers : true,
@@ -85,4 +93,4 @@ $(function(){
 	}] ]
 });
 });
-</script> -->
+</script>

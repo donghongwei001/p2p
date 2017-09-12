@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.SzhMoneyDao">
+	<select id="queryMoney" resultType="com.entity.SzhMoney">
+		select a.name,b.projectname,c.time,c.money,d.hktime,d.hkmoney,d.ptmoney,e.codename,f.outday
+		,f.outmoney from investor a,projectapplication b,invest c,repaymoney d,code e,outtime f where
+		c.investorid = a.id and b.id = c.subjectid and d.projrctid = c.subjectid and d.statu = e.codeid and f.projrctid = c.subjectid
+	</select>
+</mapper>

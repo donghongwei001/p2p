@@ -90,6 +90,7 @@ public class ZxlUserServiceImpl implements ZxlUserService{
 	 * 查询该用户的还款信息
 	 */
 	@Override
+
 	public List<ZxlMyHuankuan> listhuankuan(String str) {
 		List<ZxlMyHuankuan> list=userdao.listhuankuan(str);
 		return list;
@@ -108,6 +109,7 @@ public class ZxlUserServiceImpl implements ZxlUserService{
 	@Override
 	public List<ZxlUser> updatepwd(String pwd) {
 		return userdao.updatepwd(pwd);		
+
 	}
 	/**
 	 * 查询项目详情

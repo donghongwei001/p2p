@@ -9,11 +9,11 @@ import com.entity.YxFirst;
 
 public interface YxExamineService {
 	//查询第一次要审核的项目
-	List<YxExamine>queryexam();
+	List<Map>queryexam();
 	//查询逾期的项目
 	List<Outtime> queryx();
 	//查询需要二次审核的项目
-	List<YxFirst>queryftt();
+	List<Map>queryftt();
 	//二次审核时查看项目详情
 	List<Map> queryss(int id);
 	//查询要发布的项目
@@ -22,4 +22,8 @@ public interface YxExamineService {
 	List<Map> querynotone();
 	//查询第二次审核没通过的项目
 	List<Map> querytwo();
+	//一次审核根据用户id查询用户认证信息
+	List<Map> queryuserid(int id);
+	//id查询详情
+	List<Map> queryf(int id);
 } 

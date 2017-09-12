@@ -23,8 +23,8 @@ public class SzhUserController {
 	@Autowired
 	SzhUserService sus;
 	@RequestMapping(value="/queryUser")
-	public void queryUser(HttpServletResponse response){
-		List<SzhUser> su = sus.queryUser();
+	public void query(HttpServletResponse response){
+		List su = sus.queryUser();
 		try {
 			response.setContentType("text/json");
 			response.setCharacterEncoding("UTF-8");
@@ -55,23 +55,10 @@ public class SzhUserController {
 		return flag;
 	}
 	
-	@RequestMapping(value="/queryRole")
-	public void queryRole(HttpServletResponse response){
-		List<SzhRole> sr = sus.queryRole();
-		try {
-			response.setContentType("text/json");
-			response.setCharacterEncoding("UTF-8");
-			response.getWriter().write(JSON.toJSONString(sr));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} 
-	}
-	
-	@RequestMapping(value="/addRole")
-	@ResponseBody  
-	public int addRole(SzhRole sr){
-		int flag=sus.addRole(sr);
+	@RequestMapping(value="/updateUser")
+	@ResponseBody
+	public int update(SzhUser suu){
+		int flag=sus.updateUser(suu);
 		return flag;
 	}
 }

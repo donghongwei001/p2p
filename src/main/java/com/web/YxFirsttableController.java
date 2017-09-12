@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
+import com.entity.DhwEmpTab;
 import com.entity.YxExamine;
 import com.entity.YxFabu;
 import com.entity.YxFinaltable;
-import com.entity.YxFirst;
 import com.entity.YxFirsttable;
 import com.service.YxFirsttableService;
 
@@ -32,10 +33,10 @@ public class YxFirsttableController {
 	 * @throws ParseException
 	 */
 	@RequestMapping(value="/shenhe")
-	public void sert(@RequestBody String json,HttpServletResponse response) throws ParseException{
+	public void sert(@RequestBody String json,HttpServletResponse response,HttpServletRequest request) throws ParseException{
 		System.out.println("11111111111111111");
 		YxFirsttable yft=JSON.parseObject(json,YxFirsttable.class);
-		
+		System.out.println(yft.getProjectid());
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		String date=simpleDateFormat.format(new Date());
 		System.out.println(date);
@@ -43,7 +44,10 @@ public class YxFirsttableController {
 	//	System.out.println(dd);
 		
 		yft.setFirstdate(date);
-		System.out.println(yft);
+		DhwEmpTab usera=(DhwEmpTab)request.getSession().getAttribute("user");
+		System.out.println(usera.getEmpname());
+		yft.setFirstname(usera.getEmpname());
+		
 		int flag=firservice.addfirsts(yft);
 		try{
 			if(flag==1){
@@ -65,11 +69,13 @@ public class YxFirsttableController {
 	 * @param response
 	 */
 	@RequestMapping(value="/director")
-	public void add(@RequestBody String json,HttpServletResponse response){
+	public void add(@RequestBody String json,HttpServletResponse response,HttpServletRequest request){
 		YxFinaltable yt=JSON.parseObject(json,YxFinaltable.class);
 		SimpleDateFormat simp=new SimpleDateFormat("yyyy-MM-dd");
 		String date=simp.format(new Date());
 		yt.setFinaldate(date);
+		DhwEmpTab use=(DhwEmpTab) request.getSession().getAttribute("user");
+		yt.setFinalname(use.getEmpname());
 		yt.setPoststatus(1);
 		int flag=firservice.addseconds(yt);
 		try{

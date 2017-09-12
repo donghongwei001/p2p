@@ -33,5 +33,11 @@
 	<select id="queryname" parameterType="int" resultType="String">
 		select personalname from psersonalform where userid=#{id}
 	</select>
-
+	<select id="queryuserinfo" resultType="java.util.HashMap">
+		select * from PSERSONALFORM
+	</select>
+	<select id="queryoneuserinfo" resultType="java.util.HashMap" parameterType="String">
+		select * from PSERSONALFORM where PERSONALNAME like #{name}
+	</select>
+	
 </mapper>

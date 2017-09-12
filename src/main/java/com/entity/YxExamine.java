@@ -8,6 +8,7 @@ public class YxExamine {
 	String username;
 	String projectname;
 	String projecttype;
+	String name;
 	String location;
 	Date time;
 	float money;
@@ -45,6 +46,13 @@ public class YxExamine {
 	}
 	public void setProjecttype(String projecttype) {
 		this.projecttype = projecttype;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	public String getLocation() {
 		return location;

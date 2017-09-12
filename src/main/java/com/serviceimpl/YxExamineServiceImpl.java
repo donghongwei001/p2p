@@ -21,7 +21,7 @@ public class YxExamineServiceImpl implements YxExamineService{
 	 * 查询第一次要审核的项目
 	 */
 	@Override
-	public List<YxExamine> queryexam() {
+	public List<Map> queryexam() {
 		// TODO Auto-generated method stub
 		return yxdao.queryAll();
 	}
@@ -37,7 +37,7 @@ public class YxExamineServiceImpl implements YxExamineService{
 	 * 查询需要二次审核的项目
 	 */
 	@Override
-	public List<YxFirst> queryftt() {
+	public List<Map> queryftt() {
 		// TODO Auto-generated method stub
 		return yxdao.queryft();
 	}
@@ -72,6 +72,22 @@ public class YxExamineServiceImpl implements YxExamineService{
 	public List<Map> querytwo() {
 		// TODO Auto-generated method stub
 		return yxdao.querynottwo();
+	}
+	/**
+	 * id查用户信息
+	 */
+	@Override
+	public List<Map> queryuserid(int id) {
+		// TODO Auto-generated method stub
+		return yxdao.queryuser(id);
+	}
+	/**
+	 * id查详情
+	 */
+	@Override
+	public List<Map> queryf(int id) {
+		// TODO Auto-generated method stub
+		return yxdao.queryfirst(id);
 	}
 
 

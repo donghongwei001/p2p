@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.DhwempDao">	
+	<select id="queryemp" resultType="java.util.HashMap" >
+		select * from empty 
+	</select>
+	<select id="selemp" resultType="java.util.HashMap" parameterType="String">
+		select * from empty where empname like #{name} or name like #{name}
+	</select>
+	<insert id="addemp" parameterType="com.entity.DhwEmpTab">
+		insert into empty values(empid.nextval,#{empname},#{emppwd},#{name},#{sex},#{iphone},#{address},#{email},to_date(#{addtime},'yyyy-MM-dd'))
+	</insert>
+	<delete id="deleteemp" parameterType="int">
+		delete from empty where empid=#{id}
+	</delete>
+	<delete id="deleteemprole" parameterType="int">
+		delete from emprole where empid=#{id}
+	</delete>
+	<select id="seloneemp" parameterType="int" resultType="java.util.HashMap">
+		select * from empty where empid=#{id}
+	</select>
+	<update id="updateemp" parameterType="com.entity.DhwEmpTab">
+		update empty set EMPNAME=#{empname},EMPPWD=#{emppwd},NAME=#{name},SEX=#{sex},IPHONE=#{iphone},ADDRESS=#{address},EMAIL=#{Email} where EMPID=#{empid}
+	</update>
+	<select id="selemprole" resultType="java.util.HashMap" parameterType="int">
+		SELECT r.roleid,r.rolename from emprole e,role r where e.roleid=r.roleid and e.empid=#{id}
+	</select>
+	<insert id="addemprole">
+		insert into emprole values(#{0},#{1})
+	</insert>
+</mapper>
