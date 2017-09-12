@@ -158,9 +158,9 @@
 				</dt>
 				<dd>
 					<ul><shiro:hasPermission name="begincheck">
-						<li><a data-href="http://localhost:9088/p2p/yx/first.do"
+						<li><a data-href="http://localhost:9088/p2p/jsp/one.jsp"
 							data-title="项目初审" href="javascript:;">项目初审</a></li></shiro:hasPermission>
-						<shiro:hasPermission name="lastcheck"><li><a data-href="http://localhost:9088/p2p/yx/chushe.do" data-title="项目终审"
+						<shiro:hasPermission name="lastcheck"><li><a data-href="http://localhost:9088/p2p/jsp/first.jsp" data-title="项目终审"
 							href="javascript:void(0)">项目终审</a></li></shiro:hasPermission>
 					</ul>
 				</dd>
@@ -175,9 +175,9 @@
 				</dt>
 				<dd>
 					<ul><shiro:hasPermission name="nofirstcheck">
-						<li><a data-href="http://localhost:9088/p2p/yx/notone.do" data-title="项目初审未通过"
+						<li><a data-href="http://localhost:9088/p2p/jsp/notfirst.jsp" data-title="项目初审未通过"
 							href="javascript:void(0)">项目初审未通过</a></li></shiro:hasPermission>
-						<shiro:hasPermission name="nolastcheck"><li><a data-href="http://localhost:9088/p2p/yx/nottwo.do" data-title="项目终审未通过"
+						<shiro:hasPermission name="nolastcheck"><li><a data-href="http://localhost:9088/p2p/jsp/nottwo.jsp" data-title="项目终审未通过"
 							href="javascript:void(0)">项目终审未通过</a></li></shiro:hasPermission>
 						<shiro:hasPermission name="openproject"><li><a data-href="http://localhost:9088/p2p/yx/fa.do" data-title="发布项目"
 							href="javascript:void(0)">发布项目</a></li></shiro:hasPermission>
