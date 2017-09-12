@@ -1,5 +1,6 @@
 package com.web;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -64,5 +65,44 @@ public class DhwzhuyeController {
 		pResult.setRows(list1);*/
 		return list;
 		
+	}
+	@RequestMapping("/seltouzi")
+	@ResponseBody
+	public Pageresult seltouzi(Integer page,Integer rows){
+		List<Map> list=dhwzhuyeService.seltouzi();
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		for (int i = 0; i < list.size(); i++) {
+			String time=simpleDateFormat.format(list.get(i).get("TIME"));
+			list.get(i).put("time1", time);
+			
+		}
+		Page<Map> paging=new Page<Map>();
+		List<Map> list1=paging.paging(list,rows,page);
+		System.out.println(list1.size());
+		Pageresult<Map> pResult=new Pageresult<Map>();
+		
+		pResult.setTotal(list.size());
+		pResult.setRows(list1);
+		return pResult;
+	}
+	@RequestMapping("/selonetouzi")
+	@ResponseBody
+	public Pageresult selonetouzi(String name,Integer page,Integer rows){
+		String rname="%"+name+"%";
+		List<Map> list=dhwzhuyeService.selonetouzi(rname);
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		for (int i = 0; i < list.size(); i++) {
+			String time=simpleDateFormat.format(list.get(i).get("TIME"));
+			list.get(i).put("time1", time);
+			
+		}
+		Page<Map> paging=new Page<Map>();
+		List<Map> list1=paging.paging(list,rows,page);
+		System.out.println(list1.size());
+		Pageresult<Map> pResult=new Pageresult<Map>();
+		
+		pResult.setTotal(list.size());
+		pResult.setRows(list1);
+		return pResult;
 	}
 } 

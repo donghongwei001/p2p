@@ -199,7 +199,7 @@
 				</dt>
 				<dd>
 					<ul>
-						<li><a data-href="http://localhost:9088/p2p/yx/notone.do" data-title="项目初审未通过"
+						<li><a data-href="http://localhost:9088/p2p/jsp/touzi.jsp" data-title="项目初审未通过"
 							href="javascript:void(0)">投资管理</a></li>
 					</ul>
 				</dd>

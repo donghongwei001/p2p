@@ -9,4 +9,6 @@ public interface DhwzhuyeService {
 	public List<Map> selstatu();
 	public int selday();
 	public int selbody();
+	public List<Map> seltouzi();
+	public List<Map> selonetouzi(String name);
 }
