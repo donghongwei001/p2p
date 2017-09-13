@@ -1,6 +1,5 @@
 package com.web;
 
-import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -13,10 +12,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.dao.Zkjdaointerface;
 import com.entity.Page;
 import com.entity.Pageresult;
 import com.entity.ZkjInvest;
@@ -28,23 +29,28 @@ import com.service.Zkjservicedao;
 public class Zkjcontroller {
 	@Autowired
 	private Zkjservicedao servicedao;
+	@Autowired
+	private Zkjdaointerface zkjdaointerface;
 	/*
 	 * 锟�锟斤拷鎹簱鎻掑叆鐢宠椤圭洰鐨勬暟锟�
 	 */
 	@RequestMapping("project")
-	public String saveproject(Zkjproject pp,HttpServletRequest request){
-		//	int userid=(int)session.getAttribute("userid");
-		int userid=3;
-		pp.setAppendix("闄勪欢");
+	public String saveproject(@RequestParam("file") MultipartFile file,Zkjproject pp,HttpSession session,HttpServletRequest request){
+		System.out.println(file);
+		fileUpload fileupload=new fileUpload();	
+		String  username=(String)session.getAttribute("abcd");
+		String photo = fileupload.saveFiles(file, request);	
+		
+		pp.setAppendix(photo);
 		pp.setAduitstate(1);//鏈锟�
 		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd ");
 		String time=sdf.format(new Date());
 		String location=request.getParameter("location1")+request.getParameter("location2")+request.getParameter("location3");
 		pp.setLocation(location);
 		pp.setTime(time);
-		pp.setUserid(userid);
+	//	pp.setUserid(userid);
 		System.out.println(pp);
-		servicedao.saveproject(pp);
+		servicedao.saveproject(pp,username);
 		return  "redirect:/user/listpro.do"; 
 	}
 

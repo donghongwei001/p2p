@@ -18,4 +18,10 @@
 	<select id="selbody" resultType="int">
 		select count(*) from repaymoney where hktime between SYSDATE-7 and SYSDATE and statu=8
 	</select>
+	<select id="seltouzi" resultType="java.util.HashMap">
+		select i.name,p.projectname,v.time,v.money,p.LIFELOAN,p.RATEMONEY from invest v,investor i,projectapplication p where v.investorid=i.id and v.subjectid=p.id
+	</select>
+	<select id="selonetouzi" resultType="java.util.HashMap" parameterType="String">
+		select i.name,p.projectname,v.time,v.money,p.LIFELOAN,p.RATEMONEY from invest v,investor i,projectapplication p where v.investorid=i.id and v.subjectid=p.id and (i.name like #{name} or p.projectname like #{name})
+	</select>
 </mapper>

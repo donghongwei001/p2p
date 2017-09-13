@@ -17,8 +17,10 @@ public class Zkjserviceimpl implements Zkjservicedao {
 	@Autowired
 	private Zkjdao dao;
 	@Override
-	public void saveproject(Zkjproject pp) {
+	public void saveproject(Zkjproject pp,String name) {
 		// TODO Auto-generated method stub
+		int userid=dao.quertuserid(name);
+		pp.setUserid(userid);
 		dao.saveproject(pp);
 	}
 	@Override
