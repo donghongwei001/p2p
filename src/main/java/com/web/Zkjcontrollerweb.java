@@ -38,9 +38,12 @@ public class Zkjcontrollerweb {
 	int surplusinvest=	servicedao.surplusinvest(id);
 		mm.addObject("surplusmoney",surplusinvest);
 		List<Map> listp=ssdao.selectallproject(id);
+		
+		/*System.out.println(listp.size()+"asdasda");
 		double money=(double)listp.get(0).get("RATEMONEY")*100;
 		String ratemoney=Double.toString(money);
-		mm.addObject("ratemoney",ratemoney);
+		mm.addObject("ratemoney",ratemoney);*/
+		
 		List<Map> listpersonal=servicedao.personalinformation(id);
 		System.out.println(listpersonal.size()+"listpersonal");
 		String username=servicedao.queryusername(id);
@@ -48,7 +51,13 @@ public class Zkjcontrollerweb {
 		mm.addObject("listpersonal",listpersonal);
 		List<Map> listi=servicedao.investinformation(id);
 		mm.addObject("investinformation", listi);
+		
+		
+		
 		mm.addObject("listp",listp);
+		
+		
+		
 		List<Map> lists=servicedao.selectinvestinformation(id);
 		mm.addObject("selectinvestinformation", lists);
 		mm.setViewName("singleproject");
@@ -63,10 +72,11 @@ public class Zkjcontrollerweb {
 
 	 */
 	@RequestMapping("/money")
-	public void projectmoney(HttpServletRequest request,HttpSession session){
+	public String projectmoney(HttpServletRequest request,HttpSession session){
 		String username=(String) session.getAttribute("abcd");
 		ZkjInvest zz=new ZkjInvest();
 		String mm=request.getParameter("money");
+		System.out.println(mm);
 		double money=Double.parseDouble(mm);
 		zz.setMoney(money);
 		String ss=request.getParameter("subjectid");
@@ -77,6 +87,7 @@ public class Zkjcontrollerweb {
 		zz.setSubjectid(subjectid);
 	
 		ssdao.addinvest(zz,username);
+		return "zkjsuccess";
 	}
 	/*
 	 * 閺嶈宓侀悽銊﹀煕閸氬秵鐓＄拠銏㈡暏閹寸d

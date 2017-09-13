@@ -62,7 +62,7 @@ public class Zkjserviceimpl implements Zkjservicedao {
 		// TODO Auto-generated method stub
 		
 		int id=dao.quertuserid(name);
-		SimpleDateFormat sm=new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat sm=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String timm=sm.format(new Date());
 		zz.setInvestorid(id);
 		zz.setTime(timm);
