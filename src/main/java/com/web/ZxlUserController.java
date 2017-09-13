@@ -18,17 +18,17 @@ import com.entity.ZxlMyTouzi;
 import com.entity.ZxlUser;
 import com.service.ZxlUserService;
 /**
- * ¿ØÖÆ²ã
+ * æ§åˆ¶å±‚
  * @author ZXL
  *
  */
-	@Controller
-	@RequestMapping("/user")
-	public class ZxlUserController {
+@Controller
+@RequestMapping("/user")
+public class ZxlUserController {
 	@Autowired
 	private ZxlUserService userservice;
 	/**
-	 * ²éÑ¯ÓÃ±íµÄËùÓĞÊı¾İ
+	 * æŸ¥è¯¢ç”¨è¡¨çš„æ‰€æœ‰æ•°æ®
 	 * @param request
 	 * @return
 	 */
@@ -38,9 +38,9 @@ import com.service.ZxlUserService;
 		request.setAttribute("user", list);
 	}
 	/**
-	 * ÓÃ»§µÄÌí¼Ó
-	 * ×¢²á
-	 * @ResponseBody ½«´¦Àí½á¹û·µ»Øµ½Ç°Ì¨
+	 * ç”¨æˆ·çš„æ·»åŠ 
+	 * æ³¨å†Œ
+	 * @ResponseBody å°†å¤„ç†ç»“æœè¿”å›åˆ°å‰å°
 	 * @param str
 	 * @return
 	 */
@@ -48,22 +48,24 @@ import com.service.ZxlUserService;
 	@ResponseBody
 	public String addUser(@RequestBody String str){
 		ZxlUser student=JSON.parseObject(str, ZxlUser.class);
-		if(userservice.addUser(student)==0){
-			return "kk";
+		/*ç”¨æˆ·åé‡å¤*/
+		if(userservice.addUser(student)==0){  
+			return "error";
 		}
 		else{
-			return "no";
+			return "success";  /*å¯ä»¥æ·»åŠ */
 		}
 	}
 	/**
-	 * ÓÃ»§µÄµÇÂ¼
-	 * @ResponseBody ½«´¦Àí½á¹û·µ»Øµ½Ç°Ì¨
+	 * ç”¨æˆ·çš„ç™»å½•
+	 * @ResponseBody å°†å¤„ç†ç»“æœè¿”å›åˆ°å‰å°
 	 * @param str
 	 * @return
 	 */
 	@RequestMapping("/login")
 	@ResponseBody
 	public String login(@RequestBody String str,HttpServletRequest request){ 
+	
 		System.out.println(str);
 		ZxlUser zu=JSON.parseObject(str, ZxlUser.class);
 		request.getSession().setAttribute("abcd",zu.getUsername());
@@ -76,7 +78,7 @@ import com.service.ZxlUserService;
         }
     } 
 	/**
-	 * ¸ÃÓÃ»§µÄÏîÄ¿
+	 * è¯¥ç”¨æˆ·çš„é¡¹ç›®
 	 * @param request
 	 * @return
 	 */
@@ -89,7 +91,7 @@ import com.service.ZxlUserService;
 		return "myproject";
 	}
 	/**
-	 * ²éÑ¯¸ÃÓÃ»§ËùÍ¶×ÊµÄÏîÄ¿
+	 *æŸ¥è¯¢è¯¥ç”¨æˆ·æ‰€æŠ•èµ„çš„é¡¹ç›®
 	 * @param request
 	 * @return
 	 */
@@ -102,7 +104,7 @@ import com.service.ZxlUserService;
 	}
 	
 	/**
-	 * ²éÑ¯¸ÃÓÃ»§Î´»¹¿îµÄÏîÄ¿
+	 * æŸ¥è¯¢è¯¥ç”¨æˆ·æœªè¿˜æ¬¾çš„é¡¹ç›®
 	 * @param request
 	 * @return
 	 */
@@ -115,8 +117,8 @@ import com.service.ZxlUserService;
 	}
 	
 	/**
-	 * ²éÑ¯¸ÃÓÃ»§µÄ»ù±¾ĞÅÏ¢
-	 * ¸ù¾İÓÃ»§Ãû
+	 * æŸ¥è¯¢è¯¥ç”¨æˆ·çš„åŸºæœ¬ä¿¡æ¯
+	 * æ ¹æ®ç”¨æˆ·å
 	 * @param request
 	 * @return
 	 */
@@ -128,9 +130,9 @@ import com.service.ZxlUserService;
 		return "mypersonal";		
 	}
 	/**
-	 * ĞŞ¸ÄÃÜÂë
-	 * È·ÈÏ¾ÉÃÜÂë
-	 * ²åÈëĞÂÃÜÂë
+	 * ä¿®æ”¹å¯†ç 
+	 * ç¡®è®¤æ—§å¯†ç 
+	 * æ’å…¥æ–°å¯†ç 
 	 * @param pwd
 	 * @param request
 	 * @return
@@ -145,7 +147,7 @@ import com.service.ZxlUserService;
 
 	}
 	/**
-	 * ²éÑ¯·¢²¼ÏîÄ¿
+	 * æŸ¥è¯¢å‘å¸ƒé¡¹ç›®
 	 * @param request
 	 * @return
 	 */
@@ -156,13 +158,13 @@ import com.service.ZxlUserService;
 		return "index";	
 	}
 	/**
-	 * ¸ù¾İÓÃ»§Ãû²éÑ¯ÓÃ»§Óà¶î
-	 * session½ÓÊÜÓÃ»§Ãû
+	 * æ ¹æ®ç”¨æˆ·åæŸ¥è¯¢ç”¨æˆ·ä½™é¢
+	 * sessionæ¥å—ç”¨æˆ·å
 	 * @param user
 	 * @param request
 	 * @return
 	 */
-	@RequestMapping("/personal")
+	@RequestMapping("/zxlpersonal")
 	public String listmoney(HttpServletRequest request){
 		String userna =(String)request.getSession().getAttribute("abcd");	
 		List<ZxlUser> listz= userservice.listmoney(userna);		

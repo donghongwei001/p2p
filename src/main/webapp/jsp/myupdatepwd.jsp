@@ -20,6 +20,8 @@
 		#top-menu{float:left;margin-top:3.5%;margin-left:40px;}
 		#top-menu a{text-decoration:none;color:black;font-size:18px;}
 		#top-menu a:hover{color:#00BFFF;}
+		#asd{font-size:18px;}
+		#asd:hover{color:#00BFFF;}
 		#top-login{float:right;margin-top:3%;margin-left:50px;font-size:18px;}		
 		#address{width:100%;height:30px;float:left;background-color:#87BCEE;}
 		#address-text{width:76%;font-size:17px;float:left;margin-left:12%;margin-top:0px;}		
@@ -68,15 +70,14 @@
 				<img src="../image/title2.png" />
 			</div>			
 			<div id="top-menu">
-				<a href="http://localhost:9088/p2p/user/listpro.do">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="/p2p/user/listpro.do">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="#">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="#">我要借款</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="http://localhost:9088/p2p/jsp/personal.jsp">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;						
+				<span id="asd">我要借款&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<a href="/p2p/user/zxlpersonal.do">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;						
 			</div>
 			<div id="top-login">										
-<<<<<<< HEAD
-				<span>尊敬的<a href="http://localhost:9088/p2p/jsp/personal.jsp">${abcd}</a>,您好！ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-				<a href="#"><span>帮助</span></a><span>|</span><a href="http://localhost:9088/p2p/Home.jsp"><span>退出</span></a>
+				<span>尊敬的<a href="/p2p/user/zxlpersonal.do">${abcd}</a>,您好！ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<a href="#"><span>帮助</span></a><span>|</span><a href="/p2p/jsp/Home.jsp"><span>退出</span></a>
 			</div>
 		</div>
 		<div id="address">
@@ -87,88 +88,12 @@
 		<div id="con">		
 			<div id="content">
 				<div id="content-left">
-					<div id="left1"><a href="http://localhost:9088/p2p/user/personal.do">我的资产</a></div>
-					<div id="left2"><a href="http://localhost:9088/p2p/user/myproject.do">我的项目</a></div>
-					<div id="left3"><a href="http://localhost:9088/p2p/user/mytouzi.do">我的投资</a></div>
-					<div id="left4"><a href="http://localhost:9088/p2p/jsp/myhuankuan.jsp">我的还款</a></div>
-					<div id="left5"><a href="http://localhost:9088/p2p/user/mypersonal.do">个人信息</a></div>
-					<div id="left6"><a href="http://localhost:9088/p2p/jsp/myupdatepwd.jsp">修改密码</a></div>
-				</div>
-			
-				<div id="content-right">
-					<div id="right-div">						
-						<table>
-							<tr>
-								<td>输入密码：</td>
-								<td>
-									<input type="password" id="rpwd" class="form-control" />
-								</td>
-							</tr>
-							<tr>
-								<td>&nbsp;&nbsp;</td>
-								<td>&nbsp;&nbsp;</td>
-							</tr>
-							<tr>
-								<td>新密码：</td>
-								<td>
-									<input type="password" id="rpwd" class="form-control" />
-								</td>
-							</tr>
-							<tr>
-								<td>&nbsp;&nbsp;</td>
-								<td>&nbsp;&nbsp;</td>
-							</tr>
-							<tr>
-								<td>确认密码：</td>
-								<td>
-									<input type="password" id="rpwd" class="form-control" />
-								</td>
-							</tr>
-							<tr>
-								<td>&nbsp;&nbsp;</td>
-								<td>&nbsp;&nbsp;</td>
-							</tr>
-						</table>
-						<input type="button" style="font-size:18px;margin-left:20%;" class="btn btn-success" id="but" value="修改"/>
-					</div>					
-				</div>
-			</div>
-		</div>
-		<div id="down">
-			<div id="down-one">
-				<span>联系我们</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;				
-				<span>关于我们</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<span>入驻我们</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<span>联系电话：1234567</span>
-			</div>
-			<div id="down-two">
-				<span>网贷有风险，出借需谨慎；期待回报不等于实际收益</span>
-			</div>
-			<div id="down-three">
-				<span>版权所有@2017-08-31第七组成员</span>
-			</div>
-		</div>
-	</div>	
-</body>
-=======
-				<span>尊敬的<a href="/p2p/user/personal.do">${abcd}</a>,您好！ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-				<a href="#"><span>帮助</span></a><span>|</span><a href="/p2pweb/jsp/Home.jsp"><span>退出</span></a>
-			</div>
-		</div>
-		<div id="address">
-			<div id="address-text">
-				<span>账户首页<span>>></span>我的资产</span>
-			</div>
-		</div>
-		<div id="con">		
-			<div id="content">
-				<div id="content-left">
-					<div id="left1"><a href="/p2pweb/user/personal.do">我的资产</a></div>
-					<div id="left2"><a href="/p2pweb/user/myproject.do">我的项目</a></div>
-					<div id="left3"><a href="/p2pweb/user/mytouzi.do">我的投资</a></div>
-					<div id="left4"><a href="/p2pweb/jsp/myhuankuan.jsp">我的还款</a></div>
-					<div id="left5"><a href="/p2pweb/user/mypersonal.do">个人信息</a></div>
-					<div id="left6"><a href="/p2pweb/jsp/myupdatepwd.jsp">修改密码</a></div>
+					<div id="left1"><a href="/p2p/user/zxlpersonal.do">我的资产</a></div>
+					<div id="left2"><a href="/p2p/user/myproject.do">我的项目</a></div>
+					<div id="left3"><a href="/p2p/user/mytouzi.do">我的投资</a></div>
+					<div id="left4"><a href="/p2p/user/myhuankuan.do">我的还款</a></div>
+					<div id="left5"><a href="/p2p/user/mypersonal.do">个人信息</a></div>
+					<div id="left6"><a href="/p2p/user/updatepwd.do">修改密码</a></div>
 				</div>
 			
 				<div id="content-right">
@@ -235,7 +160,7 @@ $("#but").click(function(){
 	alert("111");
 	$.ajax({
 		type : "post",
-		url : "/p2pweb/user/updatepwd.do", 
+		url : "/p2p/user/updatepwd.do", 
 		contentType : "application/json;charset=utf-8",
 		data : JSON.stringify(data),
 		success : function(data1) {
@@ -251,5 +176,26 @@ $("#but").click(function(){
 </script>
 
 
->>>>>>> branch 'master' of https://github.com/donghongwei001/p2p.git
 </html>
+<script>
+	$("#asd").click(function(){
+		$.ajax({
+			 type:"post",
+			// dataType:"json",
+			 url:"/p2p/add/name.do",
+			// data:JSON.stringify(row),
+			//data:str1,
+			 contentType:"application/json;charset=utf-8",
+			 success:function(dataa){
+				 alert(dataa);
+				 if(dataa==null||dataa==""){
+					 window.location.href="../jsp/jiekuan.jsp";
+				 }else{
+					 alert("ssss");
+					 window.location.href="../jsp/xiangmushenqing.jsp";
+				 }
+			 }
+		 });
+	});
+	
+</script>

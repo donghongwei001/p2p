@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.Zkjdaointerface">	
+	
+	<select id="totalmoneyinvest" parameterType="int" resultType="Integer">
+		select sum(money) from invest where subjectid=#{id}
+	</select>
+	<select id="loanmoney" resultType="int" parameterType="int">
+		select money from projectapplication where id=#{projectid}
+	</select>
+	
+	<select id="queryallproject" resultType="java.util.HashMap">
+		select id,projectname,projecttype,location,time,money,lifeloan,ratemoney from projectapplication
+	</select>
+	<select id="selectuserid" parameterType="int" resultType="int">
+		select userid from projectapplication where id=#{id}
+	</select>
+	<select id="selectusername" resultType="String" parameterType="int">
+		select username from usertable where userid=#{id}
+	</select>
+	<select id="personalinformation" resultType="java.util.HashMap" parameterType="int">
+		select sex,educational,marriage,havachidren,worklife,occupation,haveroom,houseloan,address from psersonalform where userid =#{id}
+	</select>
+	<select id="investinformation" parameterType="int" resultType="java.util.HashMap">
+		select projectname,location,money,lifeloan,ratemoney from projectapplication where id=#{id}
+	</select>
+	<select id="selectinvestinformation" parameterType="int" resultType="java.util.HashMap">
+		select i.username,i.time,i.money from invest i where subjectid=#{id}
+	</select>
+</mapper>

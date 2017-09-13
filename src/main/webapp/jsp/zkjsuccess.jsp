@@ -78,55 +78,7 @@
 		</div>
 			
 		<div id="content">
-			<div id="content-left">	
-				<c:forEach items="${listpro}" var="user">		
-					<div id="left-con">				
-						<div id="left-conleft">
-							<div id="left-contop">
-								<span>${user.projectname}</span>${user.projectid}
-								<span style="font-size:18px;color:#1E90FF;">(${user.personalname}，${user.name}，${user.location})</span>
-							</div>
-							<div id="left-conbut">
-								<div id="left-conmoney">
-									<span id="left-span">借款金额</span>&nbsp;<span id="left-conspan">${user.money}</span>&nbsp;<span id="left-span">元</span>
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								</div>
-								<div id="left-conqx">
-									<span id="left-span">借款期限</span>&nbsp;<span id="left-conspan">${user.lifeloan}</span>&nbsp;<span id="left-span">年</span>
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								</div>
-								<div id="left-conll">
-									<span id="left-span">利率</span>&nbsp;<span id="left-conspan">${user.ratemoney}</span>&nbsp;<span id="left-span">%</span>
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								</div>
-							</div>
-						</div>
-						<div id="left-right">
-							<div id="left-button">
-							<a href="/p2p/zkj/allproject.do?id=${user.projectid}">	<button class="btn btn-primary" style="font-size:18px;">投标</button></a>
-							</div>
-						</div>										
-					</div>	
-						
-				</c:forEach>
-				<div id="left-conbutton">
-					<button class="btn btn-default">查看更多</button>
-				</div>	
-			</div>
-			<div id="content-right">
-				<div id="right-but">
-					<div id="right-tzbut">
-						<button class="btn btn-warning" style="font-size:18px;width:135px;height:50px;">我要投资</button>
-					</div>
-					<div id="right-jkbut">
-						<button class="btn btn-success" style="font-size:18px;width:135px;height:50px;">我要借款</button>
-					</div>
-				</div>
-				<div id="right-span">
-					
-				</div>
-					
-			</div>	
+			<h2>恭喜你投标成功！！！</h2>
 		</div>
 		<div id="down">
 			<div id="down-one">

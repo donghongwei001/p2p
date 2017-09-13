@@ -54,7 +54,6 @@
 			data-options="iconCls:'icon-save'">查询所有 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
 	</div>
 	</shiro:hasPermission>
-	
 	<!-- <div id="toolbar">
 		<a id="addbtn" href="javascript:void(0)" class="easyui-linkbutton"
 			data-options="iconCls:'icon-save'">增加 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> <a id="deletebtn"
