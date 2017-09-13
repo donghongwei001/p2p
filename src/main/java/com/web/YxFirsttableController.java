@@ -138,11 +138,6 @@ public class YxFirsttableController {
 		String date=simpleDateFormat.format(new Date());
 		System.out.println(date);
 		yf.setBegintime(date);
-		yf.setNowmoney(0);
-		yf.setContent("≤‚ ‘”√µƒ");
-		yf.setPicture("Õº");
-		yf.setStatus(5);
-		yf.setMinmoney(100);
 		int id=yf.getProjectid();
 		firservice.updatefina(id);
 		System.out.println(id+"id");
