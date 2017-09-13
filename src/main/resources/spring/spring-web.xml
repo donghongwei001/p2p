@@ -58,14 +58,12 @@
 				/js/** = anon
 				/jsp/Home.jsp=anon
 				/media/** = anon
-
-				
 				/user/login.do=anon
-
 				/jsp/index.jsp = anon
 				/user/listpro.do=anon
-
+				/zkj/** =anon
 				/** = authc
+
 
 			</value>
 		</property>
