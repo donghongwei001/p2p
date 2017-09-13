@@ -181,6 +181,7 @@ public class ZxlUserController {
 	 */
 	@RequestMapping("/listpro")
 	public String listpro(HttpServletRequest request){	
+		
 		List<ZxlMyProject> list=userservice.listpro();
 		request.setAttribute("listpro", list);
 		return "index";	

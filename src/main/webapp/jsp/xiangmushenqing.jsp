@@ -43,7 +43,17 @@
 			width:auto;
 			border:1px solid red;
 		}
-		
+		#content{
+			float:left;
+			border:1px solid red;
+			width:600px;
+		}
+		#disc{
+			border:1px solid blue;
+			width:400px;
+			height:500px;
+			float:left;
+		}
 	</style>
 	
 	
@@ -77,14 +87,14 @@
 			<form class="form-horizontal" name="myform" action="/p2p/add/project.do" method="post" enctype="multipart/form-data">
 				<div class="form-group">
 					<label for="inputEmail3" style="font-size:16px;" class="col-sm-2 control-label">项目名称</label>
-					<div class="col-sm-5">
+					<div class="col-sm-9">
 						<input type="text" class="form-control" id="ptojectname" name="projectname"><span id="absf"></span>
 					</div>
 					
 				 </div>
 				 <div class="form-group">
 					<label for="input3" style="font-size:16px;" class="col-sm-2 control-label">项目类型</label>
-					<div class="col-sm-5">
+					<div class="col-sm-9">
 						<select class="form-control" name="projecttype" >
 							<option   value=1>建筑</option>
 							<option   value=2>科学</option>
@@ -95,7 +105,7 @@
 				 </div>
 				 <div class="form-group">
 					<label for="inputE" style="font-size:16px;" class="col-sm-2 control-label">项目地点</label>
-					<div class="col-sm-5 " >
+					<div class="col-sm-9" >
 						 <div id="distpicker2">
 							  <select name="location1" class="form-control "  id="s1"></select>
 							  <select name="location2" class="form-control" id="s2"></select>
@@ -107,7 +117,7 @@
 				
 				 <div class="form-group">
 				 	<label for="inputEm" style="font-size:16px;" class="col-sm-2 control-label">申请金额</label>
-				 <div class="col-lg-5">
+				 <div class="col-lg-9">
 					    <div class="input-group">
 					      <input type="text" class="form-control" name="money"  id="mmoney" placeholder="例如：10000" onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');">
 					      <span class="input-group-btn">
@@ -123,7 +133,7 @@
 				 
 				 <div class="form-group">
 					<label for="input2" style="font-size:16px;" class="col-sm-2 control-label">借款期限</label>
-					<div class="col-sm-5">
+					<div class="col-sm-9">
 						
 						<select class="form-control" name="lifeloan" >
 							<option   value=6>6个月</option>
@@ -135,10 +145,24 @@
 				 </div>
 				 <div class="form-group">
 					<label for="input2" style="font-size:16px;" class="col-sm-2 control-label">利率</label>
-					<div class="col-sm-5">
+					<div class="col-sm-9">
 						<input type="text" class="form-control" id="input2" name="ratemoney" placeholder="例如：0.001" >
 					</div>
 				 </div>
+				 
+				 <div class="form-group">
+					<label for="input2" style="font-size:16px;" class="col-sm-2 control-label">借款期限</label>
+					<div class="col-sm-9">
+						
+						<select class="form-control" name="lifeloan" >
+							<option   va>一次性还清</option>
+							<option   value=12>12个月</option>
+							<option   value=12>18个月</option>
+							<option   value=24>24个月</option>
+						</select>
+					</div>
+				 </div>
+				 
 				 <div class="form-group">
 					<label for="inputEmail3" style="font-size:16px;" class="col-sm-2 control-label">附件</label>
 					<div class="input-group " >
@@ -153,6 +177,36 @@
 				 </div>	
 				 <input type="submit"/>
 			</form>			
+		</div>
+		<div id="disc">
+			<table>
+				<tr>
+					<td>
+					<h3>到期一次性还清</h3>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						本金为：
+					</td>
+				</tr>
+				<tr>
+					<td>
+					总利息为：
+					</td>
+				</tr>
+				<tr>
+					<td>
+						手续费为：
+					</td>
+				</tr>
+				<tr>
+					<td>
+						总共应还：
+					</td>
+				</tr>
+			
+			</table>
 		</div>
 		
 		<div id="down">
