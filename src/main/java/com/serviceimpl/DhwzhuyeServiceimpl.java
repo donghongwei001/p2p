@@ -38,6 +38,16 @@ public class DhwzhuyeServiceimpl implements DhwzhuyeService {
 		// TODO Auto-generated method stub
 		return dhwzhudao.selbody();
 	}
+	@Override
+	public List<Map> seltouzi() {
+		// TODO Auto-generated method stub
+		return dhwzhudao.seltouzi();
+	}
+	@Override
+	public List<Map> selonetouzi(String name) {
+		// TODO Auto-generated method stub
+		return dhwzhudao.selonetouzi(name);
+	}
 	
 
 }

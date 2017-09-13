@@ -187,6 +187,7 @@ $(function(){
 	},"请输入正确车牌号");
 });
 
+
 function isIdCardNo(num){ 
 　　 var len = num.length, re; 
 　　 if (len == 15) 
