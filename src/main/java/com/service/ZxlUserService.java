@@ -1,12 +1,15 @@
 package com.service;
 
+import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 import com.entity.ZxlMyHuankuan;
 import com.entity.ZxlMyPersonal;
 import com.entity.ZxlMyProject;
 import com.entity.ZxlMyTouzi;
 import com.entity.ZxlUser;
+import com.entity.ypgHuanK;
 /**
  * 
  * @author ZXL
@@ -24,4 +27,6 @@ public interface ZxlUserService {
 	public List<ZxlUser> updatepwd(String pwd);//修改密码
 	public List<ZxlMyProject> listpro();//查询项目信息
 	public List<ZxlUser> listmoney(String user);//查询用户余额
+	//查询前台还款信息
+	 public List<ypgHuanK> queryHuanK(ypgHuanK hk);
 }

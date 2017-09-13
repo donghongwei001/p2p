@@ -50,7 +50,6 @@
 				<img src="../image/title2.png" />
 			</div>			
 			<div id="top-menu">
-<<<<<<< HEAD
 				<a href="http://localhost:9088/p2p/user/listpro.do">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="#">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<span id="asd">我要借款&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
@@ -140,97 +139,6 @@
 			 type:"post",
 			// dataType:"json",
 			 url:"/p2p/add/name.do",
-=======
-				<a href="/p2pweb/user/listpro.do">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="#">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<span id="asd">我要借款&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-				<a href="/p2pweb/user/personal.do">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;			
-			</div>
-			<div id="top-login">										
-				欢迎<a href="/p2pweb/user/personal.do">${abcd}</a>!加入宜人贷&nbsp;&nbsp;&nbsp;&nbsp;
-				<a>帮助</a><span>|</span><a href="/p2pweb/jsp/Home.jsp">退出</a>
-			</div>
-		</div>
-		<div id="img">
-			<img src="../image/img6.png" width="100%" />
-			<div id="img-login">
-		</div>
-			
-		<div id="content">
-			<div id="content-left">
-				<div id="left-img">
-					<img src="../image/chu1.png">
-				</div>
-				<table class="table table-hover">
-					<thead>
-						<tr>
-							<th>项目编号</th>
-							<th>项目名称</th>
-							<th>内容</th>
-							<th>借款人</th>
-							<th>所需金额</th>
-							<th>借款期限</th>
-							<th>利率</th>
-							<th>借款类型</th>
-							<th>项目地点</th>
-							<th></th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach items="${listpro}" var="user">
-							<tr>
-								<td>${user.projectid}</td>
-								<td>${user.projectname}</td>
-								<td>${user.content}</td>
-								<td>${user.personalname}</td>
-								<td>${user.money}</td>
-								<td>${user.lifeloan}</td>
-								<td>${user.ratemoney}</td>
-								<td>${user.name}</td>
-								<td>${user.location}</td>
-								<td>
-									<a href="/p2p/add/allproject.do?id=${user.projectid}">
-									 <input type="button" style="font-size:16px;margin-left:20%;" class="btn btn-success" id="but" value="查看"/> </a>
-								</td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
-			</div>
-			<div id="content-right">
-				<div id="r1-img">
-					<img src="../image/r1.png">
-				</div>
-				<div id="r2-img">
-					<img src="../image/r2.png">
-				</div>	
-			</div>		
-		</div>
-		<div id="down">
-			<div id="down-one">
-				<span>联系我们</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;				
-				<span>关于我们</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<span>入驻我们</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<span>联系电话：1234567</span>
-			</div>
-			<div id="down-two">
-				<span>网贷有风险，出借需谨慎；期待回报不等于实际收益</span>
-			</div>
-			<div id="down-three">
-				<span>版权所有@2017-08-31第七组成员</span>
-			</div>
-		</div>
-	</div>	
-	</div>
-</body>
-</html>
-<script>
-	$("#asd").click(function(){
-		$.ajax({
-			 type:"post",
-			// dataType:"json",
-			 url:"/p2pweb/add/name.do",
->>>>>>> branch 'master' of https://github.com/donghongwei001/p2p.git
 			// data:JSON.stringify(row),
 			//data:str1,
 			 contentType:"application/json;charset=utf-8",

@@ -1,12 +1,15 @@
 package com.dao;
 
+import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 import com.entity.ZxlMyHuankuan;
 import com.entity.ZxlMyPersonal;
 import com.entity.ZxlMyProject;
 import com.entity.ZxlMyTouzi;
 import com.entity.ZxlUser;
+import com.entity.ypgHuanK;
 /**
  * 持久层映射接口
  * @author ZXL
@@ -24,5 +27,7 @@ public interface ZxlUserDao {
 
 	public List<ZxlMyProject> listpro();//查询项目信息
 	public List<ZxlUser> listmoney(String user);//查询用户余额
+	//前台还款信息
+	public List<ypgHuanK> queryHuanK(ypgHuanK hk);
 	
 }
