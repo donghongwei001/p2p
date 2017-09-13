@@ -1,14 +1,17 @@
 =\=\=\=\=\=\=
-<<<<<<<=HEAD
->>>>>>>=branch 'master' of https\://github.com/donghongwei001/p2p.git
 eclipse.preferences.version=1
 encoding//src/main/java/com/dao/YxExamineDao.java=UTF-8
 encoding//src/main/java/com/dao/Zkjdao.java=UTF-8
+encoding//src/main/java/com/service/Zkjservicedaointerface.java=UTF-8
+encoding//src/main/java/com/serviceimpl/Zkjserviceimplment.java=UTF-8
 encoding//src/main/java/com/web/Zkjcontroller.java=UTF-8
+encoding//src/main/java/com/web/Zkjcontrollerweb.java=UTF-8
+encoding//src/main/java/com/web/ZxlUserController.java=UTF-8
 encoding//src/main/webapp/index.jsp=UTF-8
 encoding//src/main/webapp/jsp/empinfo.jsp=UTF-8
 encoding//src/main/webapp/jsp/empuser.jsp=UTF-8
 encoding//src/main/webapp/jsp/error.jsp=UTF-8
 encoding//src/main/webapp/jsp/personal.jsp=UTF-8
 encoding//src/main/webapp/jsp/renzhengjiemian.jsp=UTF-8
+encoding//src/main/webapp/jsp/touzi.jsp=UTF-8
 encoding//src/main/webapp/jsp/xiangmushenqing.jsp=UTF-8

@@ -10,5 +10,4 @@ public interface SzhRoleDao {
 	public List queryRole();
 	public int addRole(SzhRole sr);
 	public int updateRole(SzhRole srr);
-	
 }

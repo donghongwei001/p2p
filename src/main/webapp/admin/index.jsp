@@ -125,6 +125,7 @@
 						class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
 				</dt>
 				<dd>
+
 					<ul><shiro:hasPermission name="empuser">
 						<li><a data-href="../jsp/empuser.jsp" data-title="员工账号管理"
 							href="javascript:void(0)">员工账号管理</a></li></shiro:hasPermission>
@@ -143,12 +144,15 @@
 						class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
 				</dt>
 				<dd>
+
 					<ul><shiro:hasPermission name="usernamemarger">
 						<li><a data-href="../jsp/yonghu.jsp" data-title="用户账号管理"
 							href="javascript:void(0)">用户账号管理</a></li></shiro:hasPermission>
 						<shiro:hasPermission name="userinfor">
+
 						<li><a data-href="../jsp/yonghuxinxi.jsp" data-title="用户信息管理"
 							href="javascript:void(0)">用户信息管理</a></li></shiro:hasPermission>
+
 					</ul>
 				</dd>
 			</dl>
@@ -199,7 +203,7 @@
 				</dt>
 				<dd>
 					<ul>
-						<li><a data-href="http://localhost:9088/p2p/yx/notone.do" data-title="项目初审未通过"
+						<li><a data-href="http://localhost:9088/p2p/jsp/touzi.jsp" data-title="项目初审未通过"
 							href="javascript:void(0)">投资管理</a></li>
 					</ul>
 				</dd>
@@ -213,6 +217,7 @@
 						class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
 				</dt>
 				<dd>
+
 					<ul><shiro:hasPermission name="intime">
 						<li><a data-href="../jsp/project.jsp" data-title="折线图"
 
@@ -220,6 +225,7 @@
 						<shiro:hasPermission name="outtime">
 						<li><a data-href="../role/Hmoney.do" data-title="时间轴折线图"
 							href="javascript:void(0)">逾期还款</a></li></shiro:hasPermission>
+
 
 
 					</ul>
@@ -234,12 +240,14 @@
 						class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
 				</dt>
 				<dd>
+
 					<ul><shiro:hasPermission name="peojecttongji">
 						<li><a data-href="../jsp/SzhJsp/Xmtj.jsp" data-title="系统设置"
 							href="javascript:void(0)">项目统计</a></li></shiro:hasPermission>
 						<shiro:hasPermission name="zijintongji">
 						<li><a data-href="../jsp/SzhJsp/Zjtj.jsp" data-title="栏目管理"
 							href="javascript:void(0)">资金统计</a></li></shiro:hasPermission>
+
 					</ul>
 				</dd>
 			</dl>

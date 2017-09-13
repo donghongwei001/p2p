@@ -1,8 +1,4 @@
-/*****************************************************************
- * jQuery Validate扩展验证方法  (linjq)    
- * Modified by guojunhui
- * Date modified:01/01/2017  
-*****************************************************************/
+
 $(function(){
     // 判断整数value是否等于0 
     jQuery.validator.addMethod("isIntEqZero", function(value, element) { 
@@ -190,7 +186,7 @@ $(function(){
 		return this.optional(element) || (tel.test(value)); 
 	},"请输入正确车牌号");
 });
-//身份证号码的验证规则
+
 function isIdCardNo(num){ 
    var len = num.length, re; 
    if (len == 15) 
@@ -215,11 +211,13 @@ function isIdCardNo(num){
    var B = D.getFullYear()==a[3]&&(D.getMonth()+1)==a[4]&&D.getDate()==a[5]; 
    } 
    if (!B) {
+
 		//alert("输入的身份证号 "+ a[0] +" 里出生日期不对。"); 
 		return false;
 	} 
    } 
    if(!re.test(num)){
+
 		//alert("身份证最后一位只能是数字和字母。");
 		return false;
 	}

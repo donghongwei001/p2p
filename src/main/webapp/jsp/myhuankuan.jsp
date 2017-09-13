@@ -114,14 +114,14 @@
 				<img src="../image/title2.png" />
 			</div>			
 			<div id="top-menu">
-				<a href="http://localhost:9088/p2p/user/listpro.do">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="/p2p/user/listpro.do">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="#">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="#">我要借款</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="http://localhost:9088/p2p/jsp/personal.jsp">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;						
+				<a href="/p2p/jsp/zxlpersonal.jsp">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;						
 			</div>
 			<div id="top-login">										
-				<span>尊敬的<a href="http://localhost:9088/p2p/jsp/personal.jsp">${abcd}</a>,您好！ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-				<a href="#"><span>帮助</span></a><span>|</span><a href="http://localhost:9088/p2p/jsp/Home.jsp"><span>退出</span></a>
+				<span>尊敬的<a href="/p2p/jsp/zxlpersonal.jsp">${abcd}</a>,您好！ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<a href="#"><span>帮助</span></a><span>|</span><a href="/p2p/jsp/Home.jsp"><span>退出</span></a>
 			</div>
 		</div>
 		<div id="address">
@@ -132,12 +132,12 @@
 		<div id="con">		
 			<div id="content">
 				<div id="content-left">
-					<div id="left1"><a href="http://localhost:9088/p2p/user/personal.do">我的资产</a></div>
-					<div id="left2"><a href="http://localhost:9088/p2p/user/myproject.do">我的项目</a></div>
-					<div id="left3"><a href="http://localhost:9088/p2p/user/mytouzi.do">我的投资</a></div>
-					<div id="left4"><a href="http://localhost:9088/p2p/user/myhuankuan.do">我的还款</a></div>
-					<div id="left5"><a href="http://localhost:9088/p2p/user/mypersonal.do">个人信息</a></div>
-					<div id="left6"><a href="http://localhost:9088/p2p/jsp/myupdatepwd.jsp">修改密码</a></div>
+					<div id="left1"><a href="/p2p/user/zxlpersonal.do">我的资产</a></div>
+					<div id="left2"><a href="/p2p/user/myproject.do">我的项目</a></div>
+					<div id="left3"><a href="/p2p/user/mytouzi.do">我的投资</a></div>
+					<div id="left4"><a href="/p2p/user/myhuankuan.do">我的还款</a></div>
+					<div id="left5"><a href="/p2p/user/mypersonal.do">个人信息</a></div>
+					<div id="left6"><a href="/p2p/jsp/myupdatepwd.jsp">修改密码</a></div>
 				</div>
 			
 				<div id="content-right">
@@ -317,5 +317,4 @@
 		</div>
 	</div>	
 </body>
-	
 </html>

@@ -1,14 +1,4 @@
-/*
- Highcharts JS v5.0.6 (2016-12-07)
-
- Accessibility module
-
- (c) 2010-2016 Highsoft AS
- Author: Oystein Moseng
-
- License: www.highcharts.com/license
-*/
-function(h){"object"===typeof module&&module.exports?module.exports=h:h(Highcharts)})(function(h){(function(e){function h(a){for(var b=a.childNodes.length;b--;)a.appendChild(a.childNodes[b])}function q(a){var b;a&&a.onclick&&(b=l.createEvent("Events"),b.initEvent("click",!0,!1),a.onclick(b))}var y=e.win,l=y.document,g=e.each,A=e.erase,v=e.addEvent,B=e.removeEvent,w=e.fireEvent,C=e.dateFormat,u=e.merge,r={"default":["series","data point","data points"],line:["line","data point","data points"],spline:["line",
+(function(h){"object"===typeof module&&module.exports?module.exports=h:h(Highcharts)})(function(h){(function(e){function h(a){for(var b=a.childNodes.length;b--;)a.appendChild(a.childNodes[b])}function q(a){var b;a&&a.onclick&&(b=l.createEvent("Events"),b.initEvent("click",!0,!1),a.onclick(b))}var y=e.win,l=y.document,g=e.each,A=e.erase,v=e.addEvent,B=e.removeEvent,w=e.fireEvent,C=e.dateFormat,u=e.merge,r={"default":["series","data point","data points"],line:["line","data point","data points"],spline:["line",
 "data point","data points"],area:["line","data point","data points"],areaspline:["line","data point","data points"],pie:["pie","slice","slices"],column:["column series","column","columns"],bar:["bar series","bar","bars"],scatter:["scatter series","data point","data points"],boxplot:["boxplot series","box","boxes"],arearange:["arearange series","data point","data points"],areasplinerange:["areasplinerange series","data point","data points"],bubble:["bubble series","bubble","bubbles"],columnrange:["columnrange series",
 "column","columns"],errorbar:["errorbar series","errorbar","errorbars"],funnel:["funnel","data point","data points"],pyramid:["pyramid","data point","data points"],waterfall:["waterfall series","column","columns"],map:["map","area","areas"],mapline:["line","data point","data points"],mappoint:["point series","data point","data points"],mapbubble:["bubble series","bubble","bubbles"]},D={boxplot:" Box plot charts are typically used to display groups of statistical data. Each data point in the chart can have up to 5 values: minimum, lower quartile, median, upper quartile and maximum. ",
 arearange:" Arearange charts are line charts displaying a range between a lower and higher value for each point. ",areasplinerange:" These charts are line charts displaying a range between a lower and higher value for each point. ",bubble:" Bubble charts are scatter charts where each data point also has a size value. ",columnrange:" Columnrange charts are column charts displaying a range between a lower and higher value for each point. ",errorbar:" Errorbar series are used to display the variability of the data. ",

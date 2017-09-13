@@ -17,8 +17,10 @@ public class Zkjserviceimpl implements Zkjservicedao {
 	@Autowired
 	private Zkjdao dao;
 	@Override
-	public void saveproject(Zkjproject pp) {
+	public void saveproject(Zkjproject pp,String name) {
 		// TODO Auto-generated method stub
+		int userid=dao.quertuserid(name);
+		pp.setUserid(userid);
 		dao.saveproject(pp);
 	}
 	@Override
@@ -32,19 +34,29 @@ public class Zkjserviceimpl implements Zkjservicedao {
 		return dao.selectusers();
 	}
 	@Override
-	public void updateuser(String str) {
+	public void updateuser(String name) {
 		// TODO Auto-generated method stub
-		dao.updateuser(str);
+		String[] users=name.split(",");
+		for(int i=0;i<users.length;i++){
+			dao.updateuser(users[i]);
+		}
+		
 	}
 	@Override
-	public void updatestartuser(String str) {
+	public void updatestartuser(String name) {
 		// TODO Auto-generated method stub
-		dao.updatestartuser(str);
+		String[] arr=name.split(",");
+		for(int i=0;i<arr.length;i++){
+			dao.updatestartuser(arr[i]);
+		}
+		
 	}
 	@Override
 	public List<Map> selectallproject(int id) {
 		// TODO Auto-generated method stub
+	
 		return dao.selectallproject( id);
+		
 	}
 	@Override
 
@@ -52,12 +64,13 @@ public class Zkjserviceimpl implements Zkjservicedao {
 		// TODO Auto-generated method stub
 		
 		int id=dao.quertuserid(name);
-		SimpleDateFormat sm=new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat sm=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String timm=sm.format(new Date());
 		zz.setInvestorid(id);
 		zz.setTime(timm);
 		dao.saveinvest(zz);
 	}
+	@Override
 	public String queryname(String name) {
 		// TODO Auto-generated method stub
 		int id=dao.quertuserid(name);

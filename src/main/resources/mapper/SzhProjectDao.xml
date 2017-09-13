@@ -7,8 +7,40 @@
 		select a.username,b.projectname,d.name,b.time,b.money,b.lifeloan,b.ratemoney,c.codename from usertable a,projectapplication b,
 		code c,subjectType d where a.userid = b.userid and c.codeid = b.aduitstate and d.id = b.projecttype and b.aduitstate = 2
 	</select>
-	<select id="queryPart" resultType="com.entity.SzhProject">
+	<select id="queryPart" resultType="com.entity.SzhProject" parameterType="String">
 		select a.username,b.projectname,d.name,b.time,b.money,b.lifeloan,b.ratemoney,c.codename from usertable a,projectapplication b,
-		code c,subjectType d where a.userid = b.userid and c.codeid = b.aduitstate and d.id = b.projecttype and b.aduitstate = 2
+		code c,subjectType d 
+		<where>
+			a.userid = b.userid and c.codeid = b.aduitstate and d.id = b.projecttype and b.aduitstate = 2
+			<if test="_parameter != null">
+				and b.projectname like '%' || #{_parameter} || '%'
+			</if>
+			<!-- <if test="_parameter != null">
+				or a.username like '%' || #{_parameter} || '%'
+			</if> -->
+		</where>
+	</select>
+	<select id="queryUser" resultType="com.entity.SzhProject" parameterType="String">
+		select a.username,b.projectname,d.name,b.time,b.money,b.lifeloan,b.ratemoney,c.codename from usertable a,projectapplication b,
+		code c,subjectType d 
+		<where>
+			a.userid = b.userid and c.codeid = b.aduitstate and d.id = b.projecttype and b.aduitstate = 2
+			<if test="_parameter != null">
+				and a.username like '%' || #{_parameter} || '%'
+			</if>
+		</where> 
+	</select> 
+	<select id="queryTime" resultType="com.entity.SzhProject" parameterType="String">
+		select a.username,b.projectname,d.name,b.time,b.money,b.lifeloan,b.ratemoney,c.codename from usertable a,projectapplication b,
+		code c,subjectType d
+		<where>
+			a.userid = b.userid and c.codeid = b.aduitstate and d.id = b.projecttype and b.aduitstate = 2 
+			<if test="_parameter != null">
+				and b.time between to_date('${param1}','yyyy-mm-dd')
+			</if>
+			<if test="_parameter != null">
+				and to_date('${param2}','yyyy-mm-dd')
+			</if>
+		</where>
 	</select>
 </mapper>

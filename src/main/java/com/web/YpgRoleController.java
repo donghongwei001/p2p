@@ -14,7 +14,7 @@ import com.entity.ypgHuanK;
 import com.service.YpgRoleService;
 
 @Controller
-@RequestMapping(value="/role")
+@RequestMapping(value="/aaaaaa")
 public class YpgRoleController {
 	@Autowired
 	private YpgRoleService roleservice;
