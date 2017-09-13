@@ -1,13 +1,5 @@
-/**
- * @license Highcharts JS v5.0.6 (2016-12-07)
- * Accessibility module
- * 
- *
- * (c) 2010-2016 Highsoft AS
- * Author: Oystein Moseng
- *
- * License: www.highcharts.com/license
- */
+
+
 (function(factory) {
     if (typeof module === 'object' && module.exports) {
         module.exports = factory;

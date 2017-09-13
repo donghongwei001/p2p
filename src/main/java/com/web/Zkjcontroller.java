@@ -1,5 +1,6 @@
 package com.web;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -10,10 +11,10 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.HttpMediaTypeNotSupportedException;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.entity.Page;
@@ -83,15 +84,15 @@ public class Zkjcontroller {
 	@RequestMapping("/disable")
 	@ResponseBody
 	public String disableuser(@RequestBody String name){
-		
-		System.out.println(name);
-	String[] aa=name.split(",");
-	//String str="";
-	for(int i=0;i<aa.length;i++){
+		servicedao.updateuser(name);
+		//System.out.println(name);
+	/*String[] aa=name.split(",");
+	String str="";
+	for(int i=0;i<aa.le ngth;i++){
 		servicedao.updateuser(aa[i]);
-		//str=str+"'"+aa[i]+"'"+",";
+		str=str+"'"+aa[i]+"'"+",";
 	}
-	/*String str1="";
+	String str1="";
 	for(int i=0;i<str.length()-1;i++){
 		str1=str1+str.charAt(i);
 	}
@@ -103,11 +104,8 @@ public class Zkjcontroller {
 	@RequestMapping("/start")
 	@ResponseBody
 	public String startuser(@RequestBody String str){
-		String[] aa=str.split(",");
-		for(int i=0;i<aa.length;i++){
-			servicedao.updatestartuser(aa[i]);
-			System.out.println(aa[i]);
-		}
+		servicedao.updatestartuser(str);
+		
 		return "success";
 	}
 	/*
@@ -148,6 +146,7 @@ public class Zkjcontroller {
 		return servicedao.queryname(name);
 		
 	}
+
 	@RequestMapping("/queryuserinfo")
 	@ResponseBody
 	public Pageresult queryuserinfo(Integer page,Integer rows){
@@ -181,4 +180,5 @@ public class Zkjcontroller {
 		return pResult;
 		
 	} 
+
 }
