@@ -103,7 +103,7 @@
 						</div>
 						<div id="left-right">
 							<div id="left-button">
-								<button class="btn btn-primary" style="font-size:18px;">投标</button>
+							<a href="/p2p/zkj/allproject.do?id=${user.projectid}">	<button class="btn btn-primary" style="font-size:18px;">投标</button></a>
 							</div>
 						</div>										
 					</div>	
