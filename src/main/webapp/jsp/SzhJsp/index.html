@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<title>饼形数据统计图</title>
+<script src="1-6-10.esl.js"></script>
+</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="height:400px; width:1000px;margin:100px auto;"></div>
+    <script type="text/javascript">
+        // 路径配置
+        require.config({
+            paths:{ 
+                'echarts' : 'echarts',
+                'echarts/chart/pie' : 'echarts'
+            }
+        });
+        
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/pie' // 使用柱状图就加载bar模块，按需加载
+            ],
+            function (ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('main')); 
+                var option = {
+    title : {
+        text: '项目资金统计',
+        subtext: '纯属虚构',
+        x:'center'
+    },
+    tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+    legend: {
+        orient : 'vertical',
+        x : 'left',
+        data:['光热项目','阿萨德','空中花园','组织者组织','杀不出的','xajbchsv','haha','测试','内存数据','sss']
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    calculable : true,
+    series : [
+        {
+            name:'项目名称',
+            type:'pie',
+            radius : '55%',
+            center: ['50%', '60%'],
+            data:[
+                {value:5000, name:'光热项目'},
+                {value:100, name:'阿萨德'},
+                {value:600000, name:'空中花园'},
+                {value:44444, name:'组织者组织'},
+                {value:200000, name:'杀不出的'},
+                {value:30000, name:'xajbchsv'},
+                {value:30000, name:'haha'},
+                {value:666666, name:'测试'},
+                {value:30000, name:'内存数据'},
+                {value:500, name:'sss'}
+            ]
+        }
+    ]
+};	
+myChart.setOption(option); 
+	}
+);
+</script>      
+<!-- <div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
+<p>来源：<a href="http://www.php.cn/" target="_blank">php中文网</a></p>
+</div> -->
+</body>
+
+ 

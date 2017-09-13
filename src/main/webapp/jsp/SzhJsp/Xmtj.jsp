@@ -24,6 +24,8 @@
             <input id="enddate" type="text" class="easyui-datebox" currentText="今天" closeText="关闭" />  
             <input style="width:10px;visibility:hidden" />  
             <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'" onclick="searchOrder()">查询</a>
+            <a href="index.html" class="easyui-linkbutton c1" data-options="iconCls:'icon-large-chart'" style="width:80px">统计图</a>
+            <!-- <input type="button" value="统计图" onclick="window.location='index.html?name=row1&参数2=值2'"> -->
 	</div>
     <table id="dg"></table>
 	<script>
@@ -42,11 +44,7 @@
                 title: '项目统计',
                 toolbar : "#toolbar",
                 columns: [[
-                {
-                    field:'ck',
-                    checkbox:true,
-                    width : 200
-                },{
+             	{
 					field : 'username',
 					title : '申请人',
 					width : 200

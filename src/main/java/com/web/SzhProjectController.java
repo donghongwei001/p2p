@@ -1,11 +1,6 @@
 package com.web;
 
-import java.io.IOException;
 import java.util.List;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -41,7 +36,6 @@ public class SzhProjectController {
 	@RequestMapping(value="/queryTime")
 	@ResponseBody
 	public List<SzhProject> queryTime(String zzz,String hhh){
-		@SuppressWarnings("unchecked")
 		List<SzhProject> spppp = sps.queryTime(zzz, hhh);
 		return spppp;
 	}
