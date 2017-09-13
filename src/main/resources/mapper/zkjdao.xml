@@ -39,5 +39,7 @@
 	<select id="queryoneuserinfo" resultType="java.util.HashMap" parameterType="String">
 		select * from PSERSONALFORM where PERSONALNAME like #{name}
 	</select>
-	
+	<update id="updateprojectrelease" parameterType="Zkjtom">
+		update projectrelease set nowmoney=#{nowmoney} where projectid=#{projectid}
+	</update>
 </mapper>

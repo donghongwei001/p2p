@@ -85,7 +85,7 @@ public class Zkjcontrollerweb {
 		System.out.println(subjectid+"subjectid");
 		zz.setUsername(username);
 		zz.setSubjectid(subjectid);
-	
+		
 		ssdao.addinvest(zz,username);
 		return "zkjsuccess";
 	}

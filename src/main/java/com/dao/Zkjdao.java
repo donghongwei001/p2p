@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.entity.ZkjInvest;
 import com.entity.Zkjproject;
+import com.entity.Zkjtom;
 
 public interface Zkjdao {
 	public void saveproject(Zkjproject pp);//申请的项目插入到数据库
@@ -20,5 +21,5 @@ public interface Zkjdao {
 	public String queryname(int id);//鏍规嵁鐢ㄦ埛ID鏌ヨ鐢ㄦ埛鐨勭湡瀹炲鍚�
 	public List<Map> queryuserinfo();
 	public List<Map> queryoneuserinfo(String name);
-
+	public void updateprojectrelease(Zkjtom zt);
 }
