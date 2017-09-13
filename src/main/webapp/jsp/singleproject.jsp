@@ -322,7 +322,7 @@
 								    	</tr>
 							    	<c:forEach items="${selectinvestinformation}" var="li">
 								    	<tr>
-								    		<td class="yyyy" >${li.USERNAME }</td><td class="yyyy" >${li.MONEY }元</td><td class="yyyy"><fmt:formatDate value="${li.TIME }" pattern="yyyy年MM月mm日  "/> </td>
+								    		<td class="yyyy" >${li.USERNAME }</td><td class="yyyy" >${li.MONEY }元</td><td class="yyyy"><fmt:formatDate value="${li.TIME }" pattern="yyyy年MM月dd日  "/> </td>
 								    	</tr>
 							  
 					    			</c:forEach>

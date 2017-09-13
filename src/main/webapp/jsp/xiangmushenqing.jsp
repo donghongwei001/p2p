@@ -74,7 +74,7 @@
 		</div>
 			
 		<div id="content">
-			<form class="form-horizontal" name="myform" action="/p2p/zkj/project.do" method="post" enctype="multipart/form-data">
+			<form class="form-horizontal" name="myform" action="/p2p/add/project.do" method="post" enctype="multipart/form-data">
 				<div class="form-group">
 					<label for="inputEmail3" style="font-size:16px;" class="col-sm-2 control-label">项目名称</label>
 					<div class="col-sm-5">
@@ -177,7 +177,7 @@
 
 <script>
 $("#ptojectname").blur(function(){
-	alert("asd");
+	
 	var pp=$("#ptojectname").val();
 	var asd=$("#absf");
 	var qwe= /[\u4e00-\u9fa5]/;

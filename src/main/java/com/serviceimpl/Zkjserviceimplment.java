@@ -23,7 +23,11 @@ public class Zkjserviceimplment implements Zkjservicedaointerface {
 		Integer investmoney=dao.totalmoneyinvest(projectid);
 	
 		Integer loanmoney=dao.loanmoney(projectid);
-	
+		System.out.println(investmoney+"investmoney");
+		System.out.println(loanmoney+"loanmoney");
+		if(investmoney==null){
+			investmoney=0;
+		}
 		return loanmoney-investmoney;
 	}
 	@Override
