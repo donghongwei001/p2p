@@ -31,32 +31,7 @@
                   </div>
 				  <input id="itemPhoto" type="file" name="file" class="form-control"/>
 			    </div>
-			</div>
-    <ul class="nav nav-tabs" role="tablist">
-			<li id="tubiao">
-				<div id="top-img">
-					<img src="../image/title2.png" />
-				</div>
-			</li>
-			<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<li id="daow" role="presentation" class="active"><a id="shouye" href="#home"
-				aria-controls="home" role="tab" data-toggle="tab"><span
-					id="daohang">首页</span></a></li>
-			<li id="daow" role="presentation"><a href="#profile"
-				aria-controls="profile" role="tab" data-toggle="tab"><span
-					id="daohang">我要投资</span></a></li>
-			<li id="daow" role="presentation"><a href="#messages"
-				aria-controls="messages" role="tab" data-toggle="tab"><span
-					id="daohang">我要借款</span></a></li>
-			<li id="daow" role="presentation"><a href="#settings"
-				aria-controls="settings" role="tab" data-toggle="tab"><span
-					id="daohang">个人中心</span></a></li>
-			<li id="daow" role="presentation"><a href="#protect"
-				aria-controls="protect" role="tab" data-toggle="tab"><span
-					id="daohang">安全保障</span></a></li>
-			
-		</ul>
-   
+			</div>  
   </body>
   <script type="text/javascript">
   	$(function(){
