@@ -86,14 +86,14 @@
 				<img src="../image/title2.png" />
 			</div>			
 			<div id="top-menu">
-				<a href="http://localhost:9088/p2p/user/listpro.do">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="/p2p/user/listpro.do">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="#">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<span id="asd">我要借款&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-				<a href="/p2p/user/personal.do">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;			
+				<a href="/p2p/user/zxlpersonal.do">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;			
 			</div>
 			<div id="top-login">										
-				欢迎<a href="http://localhost:9088/p2p/jsp/personal.jsp">${abcd}</a>!加入宜人贷&nbsp;&nbsp;&nbsp;&nbsp;
-				<a>帮助</a><span>|</span><a href="http://localhost:9088/p2p/user/list.do">退出</a>
+				欢迎<a href="/p2p/jsp/zxlpersonal.jsp">${abcd}</a>!加入宜人贷&nbsp;&nbsp;&nbsp;&nbsp;
+				<a>帮助</a><span>|</span><a href="/p2p/jsp/Home.jsp">退出</a>
 			</div>
 		</div>
 		

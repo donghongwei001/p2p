@@ -143,8 +143,6 @@ public class ZxlUserController {
 		List<ZxlUser> listz= userservice.updatepwd(userna);		
 		request.setAttribute("updatepwd", listz);
 		return "myupdatepwd";		
-
-
 	}
 	/**
 	 * 查询发布项目

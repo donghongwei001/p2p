@@ -197,7 +197,7 @@ function isIdCardNo(num){
 		//alert("输入的数字位数不对。"); 
 		return false;
 	} 
-　　 var a = num.match(re); 
+　  var a = num.match(re); 
 　　 if (a != null) 
 　　 { 
 　　 if (len==15) 

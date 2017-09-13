@@ -1,6 +1,6 @@
 
 
-(function(factory) {
+(function(factory) { 
     if (typeof module === 'object' && module.exports) {
         module.exports = factory;
     } else {

@@ -18,7 +18,6 @@ public interface ZxlUserService {
 	public Boolean find(ZxlUser zu);//根据用户名和密码查询用户
 	public List<ZxlMyProject> listproject(String str);//查询申请项目表信息
 	public List<ZxlMyTouzi> listmytouzi(String str);//查询每个用户的投资
-
 	public List<ZxlMyHuankuan> listhuankuan(String str);//查询该用户的还款信息
 	public List<ZxlMyPersonal> listmypersonal(String str);//查询该用户的个人信息
 	public List<ZxlUser> updatepwd(String pwd);//修改密码

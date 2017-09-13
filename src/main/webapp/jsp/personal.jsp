@@ -56,6 +56,8 @@
 		#down-two{margin-left:37.3%;}
 		#down-three{margin-left:41%;margin-bottom:20px;}
 		#input-btu{margin-left:250px;}
+		
+		#modalcz{margin-top:10%;}
 	</style>
 	
 	<script type="text/javascript">
@@ -115,10 +117,10 @@
 					</div>	
 					<div id="right-but">
 						<div id="recharge">
-							<button type="button" style="font-size:18px" class="btn btn-success"><a href="#">我要充值</a></button>
+							<button type="button" style="font-size:20px; width:130px;heightL:80px;"  class="btn btn-success" data-toggle="modal" data-target=".bs-example-modal-sm">我要充值</button>
 						</div>
 						<div id="cash">
-							<button type="button" style="font-size:18px" class="btn btn-info">我要提现</button>
+							<button type="button" style="font-size:20px; width:130px;heightL:80px;" class="btn btn-info">我要提现</button>
 						</div>
 					</div>
 				</div>
@@ -139,8 +141,19 @@
 			</div>
 		</div>
 	</div>	
+	
+	<!-- 我要充值模态框 -->	
+	<div id="modalcz"class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+	  <div class="modal-dialog modal-sm" role="document">
+	    <div class="modal-content">
+	      ...
+	    </div>
+	  </div>
+	</div>
+	
 </body>
 </html>
+
 <script>
 	$("#asd").click(function(){
 		$.ajax({

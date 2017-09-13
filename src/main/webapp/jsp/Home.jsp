@@ -201,19 +201,16 @@
 				data : JSON.stringify(data),
 				success : function(data1) {
 
-					if(data1=="no"){						
+					if(data1=="success"){						
 						window.location.href="/p2p/jsp/Home.jsp"
 					}
 					else{						
 						alert("用户名已注册！！！  ");
-					}
-
-				
+						window.location.href="/p2p/jsp/Home.jsp"
+					}			
 				},
 				error : function(){
 					alert("error");
-
-
 				}
 			}); 
   		})

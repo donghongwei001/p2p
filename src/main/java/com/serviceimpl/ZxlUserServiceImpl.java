@@ -109,7 +109,6 @@ public class ZxlUserServiceImpl implements ZxlUserService{
 	@Override
 	public List<ZxlUser> updatepwd(String pwd) {
 		return userdao.updatepwd(pwd);		
-
 	}
 	/**
 	 * 查询项目详情
