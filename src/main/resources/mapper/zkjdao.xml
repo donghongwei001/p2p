@@ -19,12 +19,12 @@
 	<update id="updatestartuser" parameterType="String">
 		update usertable set state='否' where username in (#{str})
 	</update>
-	<select id="selectallproject" resultType="java.util.HashMap" parameterType="int">
-		select pp.id,pp.projectname,pp.projecttype,pp.location,pp.money,pp.lifeloan from projectapplication pp where pp.id=#{id}
+	<select id="selectallproject" resultType="com.entity.Zkjprojectment" parameterType="int">
+		select pp.id,pp.projectname,pp.projecttype,pp.location,pp.money,pp.lifeloan,pp.ratemoney from projectapplication pp where pp.id=#{id}
 	</select>
 
 	<insert id="saveinvest" parameterType="ZkjInvest">
-		insert into invest(investorid,subjectid,time,money)values(investorid,subjectid,time,money)
+		insert into invest(investorid,subjectid,time,money,username)values(#{investorid},#{subjectid},to_date(#{time},'yyyy-MM-dd hh24:mi:ss'),#{money},#{username})
 	</insert>
 
 	<select id="quertuserid" parameterType="String" resultType="int">
@@ -39,5 +39,7 @@
 	<select id="queryoneuserinfo" resultType="java.util.HashMap" parameterType="String">
 		select * from PSERSONALFORM where PERSONALNAME like #{name}
 	</select>
-	
+	<update id="updateprojectrelease" parameterType="Zkjtom">
+		update projectrelease set nowmoney=#{nowmoney} where projectid=#{projectid}
+	</update>
 </mapper>

@@ -1,7 +1,5 @@
 package com.serviceimpl;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -9,8 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dao.Zkjdaointerface;
-import com.entity.ZkjInvest;
-import com.entity.Zkjproject;
 import com.service.Zkjservicedaointerface;
 @Service
 public class Zkjserviceimplment implements Zkjservicedaointerface {
@@ -24,10 +20,14 @@ public class Zkjserviceimplment implements Zkjservicedaointerface {
 	@Override
 	public int surplusinvest(int projectid) {
 		// TODO Auto-generated method stub
-	int investmoney=dao.totalmoneyinvest(projectid);
+		Integer investmoney=dao.totalmoneyinvest(projectid);
 	
-	int loanmoney=dao.loanmoney(projectid);
-	
+		Integer loanmoney=dao.loanmoney(projectid);
+		System.out.println(investmoney+"investmoney");
+		System.out.println(loanmoney+"loanmoney");
+		if(investmoney==null){
+			investmoney=0;
+		}
 		return loanmoney-investmoney;
 	}
 	@Override
