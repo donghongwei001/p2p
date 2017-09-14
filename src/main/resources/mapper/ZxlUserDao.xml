@@ -13,6 +13,7 @@
 	</insert>
 	<!-- 查询该用户申请未审核的项目 -->
 	<select id="listproject" resultType="com.entity.ZxlMyProject" parameterType="String">
+
 		select p.id,p.projectname,p.money,p.time,c.codename from projectapplication p,code c,usertable u where u.username=#{str} and p.userid=u.userid and p.aduitstate=c.codeid and p.ADUITSTATE =1
 	</select>
 	<!-- 查询该用户申请已审核项目 -->
@@ -21,6 +22,7 @@
 
 	</select>
 	<!-- 查询该用户所投资的项目 -->
+
 	<select id="listmytouzi" resultType="java.util.HashMap" parameterType="String">
 		select r.projectid,p.projectname,i.money,i.time,r.lasttime,c.codename from projectrelease r,projectapplication p,invest i,usertable u,code c where u. userid=i.investorid and i.subjectid=p.id and p.id=r.projectid and r.status=c.codeid and u.username=#{name}
 	</select>
@@ -32,11 +34,19 @@
 	<update id="updatepwd"  parameterType="com.entity.ZxlUser">
 		update usertable set pwd=${pwd} where username=${username}
 	</update>
+	<!-- 查询所有要投资的项目 -->
+	<select id="listtouzi" resultType="com.entity.ZxlTouzi">
+		select ps.projectid,p.projectname,p.money,p.lifeloan,p.ratemoney,p.location,pro.personalname,s.name,ps.content from subjectType s,psersonalform pro,projectapplication p,projectrelease ps,usertable us where
+		ps.status=5 and ps.projectid=p.id and p.projecttype=s.id and p.userid=pro.userid 
+		and p.userid=us.userid order by ps.projectid desc
+		
+	</select>
 	<!-- 查询发布项目 -->
 	<select id="listpro" resultType="com.entity.ZxlMyProject">
-		select ps.projectid,p.projectname,p.money,p.lifeloan,p.ratemoney,p.location,pro.personalname,s.name,ps.content from
-		subjectType s,psersonalform pro,projectapplication p,projectrelease ps,usertable us where 
-		ps.status=5 and ps.projectid=p.id and p.projecttype=s.id and p.userid=pro.userid and p.userid=us.userid 
+		select * from (select ps.projectid,p.projectname,p.money,p.lifeloan,p.ratemoney,p.location,pro.personalname,s.name,ps.content from subjectType s,psersonalform pro,projectapplication p,projectrelease ps,usertable us where
+		ps.status=5 and ps.projectid=p.id and p.projecttype=s.id and p.userid=pro.userid 
+		and p.userid=us.userid order by ps.projectid desc)
+		where rownum &lt;=4
 	</select>
 	<!-- 查询用户余额 -->
 	<select id="listmoney" resultType="com.entity.ZxlUser" parameterType="String">
@@ -54,6 +64,7 @@
 	<!-- 查询用户未还款项目 -->
 	<select id="listhuankuan" resultType="com.entity.ZxlMyHuankuan" parameterType="String">
 		select r.repayid,r.projrctid,r.hktime,r.hkmoney,ptmoney,c.codename from repaymoney r,usertable u,code c where u.username=#{username} and r.projrctid=u.userid and r.statu=c.codeid and r.statu=8 
+
 	</select> 
 	<select id="seljiekuanren" resultType="java.util.HashMap" parameterType="int">
 		select * from projectapplication p,psersonalform f where p.userid=f.userid and p.id=#{id}	

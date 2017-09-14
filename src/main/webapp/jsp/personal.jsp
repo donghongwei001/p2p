@@ -6,6 +6,59 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>personal</title>
+	<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../easyui/js/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+    
+	<style type="text/css">
+		body{/* background-color:#F5F5F5; */}
+		a{text-decoration:none;}
+		#body{width:100%;height:auto;}
+		#top{width:76%;height:auto;align:center;margin-left:11%;float:left;}
+		#top-img{float:left;}
+		#top-menu{float:left;margin-top:3.5%;margin-left:40px;}
+		#top-menu a{text-decoration:none;color:black;font-size:18px;}
+		#top-menu a:hover{color:#00BFFF;}
+		#top-login{float:right;margin-top:3%;margin-left:50px;font-size:18px;}		
+		#address{width:100%;height:30px;float:left;background-color:#87BCEE;}
+		#address-text{width:76%;font-size:17px;float:left;margin-left:12%;margin-top:0px;}		
+		#asd{font-size:18px;}
+		#asd:hover{color:#00BFFF;}
+		#con{width:100%;height:801px;float:left;background-color:#F5F5F5;}
+		#content{width:76%;float:left;margin-left:12%;margin-top:30px;}
+		#content-left{width:20%;height:800px;float:left;}
+		#left2:hover{background-color:#F5F5F5;}
+		#left3:hover{background-color:#F5F5F5;}
+		#left4:hover{background-color:#F5F5F5;}
+		#left5:hover{background-color:#F5F5F5;}
+		#left6:hover{background-color:#F5F5F5;}
+		#left1{text-align:center;font-size:18px;width:100%;height:50px;line-height:50px;background-color:#F5F5F5;}
+		#left2{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
+		#left3{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
+		#left4{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
+		#left5{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
+		#left6{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
+		#content-right{width:78%;height:800px;float:left;margin-left:15px;background-color:#FFFFFF;}
+		#left-div{width:76%;height:180px;border-bottom:1px dashed #DCDCDC;float:left;margin:50px 50px 50px 90px;}
+		#div-img{float:left;}
+		#div-name{float:left;margin-left:20px;margin-right:20px;font-size:18px;font-color:#1E90FF;}	
+		#th{float:left;width:10px;height:130px;border-right:1px dashed #DCDCDC;}
+		#div-yuer{float:left;margin-left:30px;}
+		#div-yuer span{font-size:18px;}
+		#div-money{float:left;margin-top:60px;}
+		#span-money{font-size:20px;color:red;}
+		#right-but{width:76%;height:60px;float:left;margin-left:90px;}
+		#recharge{float:left;margin-left:20%;}
+		#cash{float:left;margin-left:20%;}
+		#down{width:100%;border-top:1px solid #DCDCDC;float:left;}
+		#down-one{margin-left:35.5%;margin-top:20px;}
+		#down-two{margin-left:37.3%;}
+		#down-three{margin-left:41%;margin-bottom:20px;}
+		#input-btu{margin-left:250px;}
+		
+		#modalcz{margin-top:10%;}
+	</style>
 <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <script src="../easyui/js/jquery.min.js"></script>
 <script>
@@ -15,272 +68,6 @@
 </script>
 <script src="../bootstrap/js/bootstrap.min.js"></script>
 
-<style type="text/css">
-body { /* background-color:#F5F5F5; */
-	
-}
-
-a {
-	text-decoration: none;
-}
-
-#body {
-	width: 100%;
-	height: auto;
-}
-
-#top {
-	width: 76%;
-	height: auto;
-	align: center;
-	margin-left: 12%;
-	float: left;
-}
-
-#top-img {
-	float: left;
-}
-
-#top-menu {
-	float: left;
-	margin-top: 3.5%;
-	margin-left: 40px;
-}
-
-#top-menu a {
-	text-decoration: none;
-	color: black;
-	font-size: 18px;
-}
-
-#top-menu a:hover {
-	color: #00BFFF;
-}
-
-#top-login {
-	float: right;
-	margin-top: 3%;
-	margin-left: 50px;
-	font-size: 18px;
-}
-
-#address {
-	width: 100%;
-	height: 30px;
-	float: left;
-	background-color: #87BCEE;
-}
-
-#address-text {
-	width: 76%;
-	font-size: 17px;
-	float: left;
-	margin-left: 12%;
-	margin-top: 0px;
-}
-
-#asd {
-	font-size: 18px;
-}
-
-#asd:hover {
-	color: #00BFFF;
-}
-
-#con {
-	width: 100%;
-	height: 801px;
-	float: left;
-	background-color: #F5F5F5;
-}
-
-#content {
-	width: 76%;
-	float: left;
-	margin-left: 12%;
-	margin-top: 30px;
-}
-
-#content-left {
-	width: 20%;
-	height: 800px;
-	float: left;
-}
-
-#left2:hover {
-	background-color: #F5F5F5;
-}
-
-#left3:hover {
-	background-color: #F5F5F5;
-}
-
-#left4:hover {
-	background-color: #F5F5F5;
-}
-
-#left5:hover {
-	background-color: #F5F5F5;
-}
-
-#left6:hover {
-	background-color: #F5F5F5;
-}
-
-#left1 {
-	text-align: center;
-	font-size: 18px;
-	width: 100%;
-	height: 50px;
-	line-height: 50px;
-	background-color: #F5F5F5;
-}
-
-#left2 {
-	text-align: center;
-	font-size: 18px;
-	width: 100%;
-	height: 50px;
-	margin-top: 5px;
-	line-height: 50px;
-	background-color: #DCDCDC;
-}
-
-#left3 {
-	text-align: center;
-	font-size: 18px;
-	width: 100%;
-	height: 50px;
-	margin-top: 5px;
-	line-height: 50px;
-	background-color: #DCDCDC;
-}
-
-#left4 {
-	text-align: center;
-	font-size: 18px;
-	width: 100%;
-	height: 50px;
-	margin-top: 5px;
-	line-height: 50px;
-	background-color: #DCDCDC;
-}
-
-#left5 {
-	text-align: center;
-	font-size: 18px;
-	width: 100%;
-	height: 50px;
-	margin-top: 5px;
-	line-height: 50px;
-	background-color: #DCDCDC;
-}
-
-#left6 {
-	text-align: center;
-	font-size: 18px;
-	width: 100%;
-	height: 50px;
-	margin-top: 5px;
-	line-height: 50px;
-	background-color: #DCDCDC;
-}
-
-#content-right {
-	width: 78%;
-	height: 800px;
-	float: left;
-	margin-left: 15px;
-	background-color: #FFFFFF;
-}
-
-#left-div {
-	width: 76%;
-	height: 180px;
-	border-bottom: 1px dashed #DCDCDC;
-	float: left;
-	margin: 50px 50px 50px 90px;
-}
-
-#div-img {
-	float: left;
-}
-
-#div-name {
-	float: left;
-	margin-left: 20px;
-	margin-right: 20px;
-	font-size: 18px;
-	font-color: #1E90FF;
-}
-
-#th {
-	float: left;
-	width: 10px;
-	height: 130px;
-	border-right: 1px dashed #DCDCDC;
-}
-
-#div-yuer {
-	float: left;
-	margin-left: 30px;
-}
-
-#div-yuer span {
-	font-size: 18px;
-}
-
-#div-money {
-	float: left;
-	margin-top: 60px;
-}
-
-#span-money {
-	font-size: 20px;
-	color: red;
-}
-
-#right-but {
-	width: 76%;
-	height: 60px;
-	float: left;
-	margin-left: 90px;
-}
-
-#recharge {
-	float: left;
-	margin-left: 20%;
-}
-
-#cash {
-	float: left;
-	margin-left: 20%;
-}
-
-#down {
-	width: 100%;
-	border-top: 1px solid #DCDCDC;
-	float: left;
-}
-
-#down-one {
-	margin-left: 35.5%;
-	margin-top: 20px;
-}
-
-#down-two {
-	margin-left: 37.3%;
-}
-
-#down-three {
-	margin-left: 41%;
-	margin-bottom: 20px;
-}
-
-#input-btu {
-	margin-left: 250px;
-}
-</style>
 
 <script type="text/javascript">
 	
@@ -291,11 +78,11 @@ a {
 	<div id="body">
 		<div id="top">
 			<div id="top-img">
-				<img src="../image/title2.png" />
-			</div>
+				<img src="../image/top.PNG" />
+			</div>			
 			<div id="top-menu">
 				<a href="/p2p/user/listpro.do">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="#">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="/p2p/user/listtouzi.do">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<span id="asd">我要借款&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 				<a href="/p2p/user/zxlpersonal.do">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				&nbsp;&nbsp;&nbsp;
@@ -409,6 +196,7 @@ a {
 	</div>
 </body>
 </html>
+
 <script>
 	$(function() {
 		$("#chongzhi").click(function(){

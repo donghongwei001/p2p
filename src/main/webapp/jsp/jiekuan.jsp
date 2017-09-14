@@ -18,7 +18,7 @@
 	<style type="text/css">
 		body{/* background-color:#F5F5F5; */}
 		#body{width:100%;height:auto;}
-		#top{width:76%;height:auto;align:center;margin-left:12%;float:left;}
+		#top{width:76%;height:auto;align:center;margin-left:11%;float:left;}
 		#top-img{float:left;}
 		#top-menu{float:left;margin-top:3.5%;margin-left:40px;}
 		#top-menu a{text-decoration:none;color:black;font-size:18px;}
@@ -83,17 +83,17 @@
 	<div id="body">
 		<div id="top">
 			<div id="top-img">
-				<img src="../image/title2.png" />
+				<img src="../image/top.PNG" />
 			</div>			
 			<div id="top-menu">
-				<a href="http://localhost:9088/p2p/user/listpro.do">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="#">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="/p2p/user/listpro.do">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="/p2p/user/listtouzi.do">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<span id="asd">我要借款&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-				<a href="/p2p/user/personal.do">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;			
+				<a href="/p2p/user/zxlpersonal.do">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;			
 			</div>
 			<div id="top-login">										
-				欢迎<a href="http://localhost:9088/p2p/jsp/personal.jsp">${abcd}</a>!加入宜人贷&nbsp;&nbsp;&nbsp;&nbsp;
-				<a>帮助</a><span>|</span><a href="http://localhost:9088/p2p/user/list.do">退出</a>
+				欢迎<a href="/p2p/jsp/zxlpersonal.jsp">${abcd}</a>!加入宜人贷&nbsp;&nbsp;&nbsp;&nbsp;
+				<a>帮助</a><span>|</span><a href="/p2p/jsp/Home.jsp">退出</a>
 			</div>
 		</div>
 		
@@ -141,7 +141,7 @@
 							<tr class="active">
 								<td><span style="float:right;font-size:18px;margin-top:4px;">婚姻状况:</span></td>
 								<td>
-									<select name="marriage"  style="width:250px;" class="selectpicker show-tick form-control" >
+									<select name="marriage"  style="width:80px;" class="selectpicker show-tick form-control" >
 										<option>未婚</option>
 										<option>已婚</option>
 								    </select>
@@ -226,12 +226,13 @@
 								<td><span style="float:right;font-size:18px;margin-top:4px;">亲属电话:</span></td><td><input name="contactphone" class="form-control" style="width:250px;" type="text"/></td>
 							</tr>
 						</table>
-					</form>
+						<div id="but">
+							<button id="btn" class="btn btn-danger" >提交</button>
+						</div>
+					</form>		
 				</div>
 			</div>
-			<div id="but">
-				<button id="btn" class="btn btn-danger" >提交</button>
-			</div>	
+				
 		</div>
 		
 		<div id="down">
