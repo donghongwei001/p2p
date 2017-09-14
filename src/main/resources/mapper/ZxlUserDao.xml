@@ -13,11 +13,11 @@
 	</insert>
 	<!-- 查询该用户申请的项目 -->
 	<select id="listproject" resultType="com.entity.ZxlMyProject" parameterType="String">
-		select p.id,p.projectname,p.money,p.time,c.codename,u.username from projectapplication p,code c,usertable u where u.username=#{username} and p.userid=u.userid and p.aduitstate=c.codeid
+		select p.id,p.projectname,p.money,p.time,c.codename,u.username from projectapplication p,code c,usertable u where u.username=#{username} and p.userid=u.userid and p.aduitstate=c.codeid order by p.id desc
 	</select>
 	<!-- 查询该用户所投资的项目 -->
 	<select id="listmytouzi" resultType="com.entity.ZxlMyTouzi" parameterType="String">
-		select p.id,p.projectname,n.money,n.time,u.username from projectapplication p,invest n,usertable u where u.username=#{username} and u.userid=p.userid and p.id=n.subjectid 
+		select p.id,p.projectname,n.money,n.time,u.username from projectapplication p,invest n,usertable u where u.username=#{username} and u.userid=p.userid and p.id=n.subjectid order by n.time desc
 	</select>
 	<!-- 查询该用户的基本信息 -->
 	<select id="listmypersonal" resultType="com.entity.ZxlMyPersonal" parameterType="String"> 
@@ -29,9 +29,10 @@
 	</update>
 	<!-- 查询发布项目 -->
 	<select id="listpro" resultType="com.entity.ZxlMyProject">
-		select ps.projectid,p.projectname,p.money,p.lifeloan,p.ratemoney,p.location,pro.personalname,s.name,ps.content from
-		subjectType s,psersonalform pro,projectapplication p,projectrelease ps,usertable us where 
-		ps.status=5 and ps.projectid=p.id and p.projecttype=s.id and p.userid=pro.userid and p.userid=us.userid 
+		select * from (select ps.projectid,p.projectname,p.money,p.lifeloan,p.ratemoney,p.location,pro.personalname,s.name,ps.content from subjectType s,psersonalform pro,projectapplication p,projectrelease ps,usertable us where
+		ps.status=5 and ps.projectid=p.id and p.projecttype=s.id and p.userid=pro.userid 
+		and p.userid=us.userid order by ps.projectid desc)
+		where rownum &lt;=4
 	</select>
 	<!-- 查询用户余额 -->
 	<select id="listmoney" resultType="com.entity.ZxlUser" parameterType="String">
@@ -41,6 +42,12 @@
 	<!-- 查询用户未还款项目 -->
 	<select id="listhuankuan" resultType="com.entity.ZxlMyHuankuan" parameterType="String">
 		select r.repayid,r.projrctid,r.hktime,r.hkmoney,ptmoney,c.codename from repaymoney r,usertable u,code c where u.username=#{username} and r.projrctid=u.userid and r.statu=c.codeid and r.statu=8 
-	</select> 
+	</select>
+	<!-- 查询所有投资项目  -->
+	<select id="listtouzi" resultType="com.entity.ZxlTouzi">
+		select ps.projectid,p.projectname,p.money,p.lifeloan,p.ratemoney,p.location,pro.personalname,s.name,ps.content from
+		subjectType s,psersonalform pro,projectapplication p,projectrelease ps,usertable us where 
+		ps.status=5 and ps.projectid=p.id and p.projecttype=s.id and p.userid=pro.userid and p.userid=us.userid order by ps.projectid desc
+	</select>
 
 </mapper>

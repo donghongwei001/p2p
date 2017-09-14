@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -15,6 +16,7 @@ import com.entity.ZxlMyHuankuan;
 import com.entity.ZxlMyPersonal;
 import com.entity.ZxlMyProject;
 import com.entity.ZxlMyTouzi;
+import com.entity.ZxlTouzi;
 import com.entity.ZxlUser;
 import com.service.ZxlUserService;
 /**
@@ -64,7 +66,7 @@ public class ZxlUserController {
 	 */
 	@RequestMapping("/login")
 	@ResponseBody
-	public String login(@RequestBody String str,HttpServletRequest request){ 
+	public String login(@RequestBody String str,HttpServletRequest request,Model model){ 
 	
 		System.out.println(str);
 		ZxlUser zu=JSON.parseObject(str, ZxlUser.class);
@@ -85,8 +87,7 @@ public class ZxlUserController {
 	@RequestMapping("/myproject")
 	public String listproject(HttpServletRequest request){
 		String userna =(String)request.getSession().getAttribute("abcd");
-		List<ZxlMyProject> list=userservice.listproject(userna);
-		
+		List<ZxlMyProject> list=userservice.listproject(userna);		
 		request.setAttribute("project", list);
 		return "myproject";
 	}
@@ -168,5 +169,11 @@ public class ZxlUserController {
 		List<ZxlUser> listz= userservice.listmoney(userna);		
 		request.setAttribute("listmoney", listz);	
 		return "personal";	
+	}
+	@RequestMapping("/listtouzi")
+	public String listtouzi(HttpServletRequest request){
+		List<ZxlTouzi> list=userservice.listtouzi();
+		request.setAttribute("listtouzi", list);
+		return "zxltouzi";	
 	}
 }

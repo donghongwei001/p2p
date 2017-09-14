@@ -6,6 +6,7 @@ import com.entity.ZxlMyHuankuan;
 import com.entity.ZxlMyPersonal;
 import com.entity.ZxlMyProject;
 import com.entity.ZxlMyTouzi;
+import com.entity.ZxlTouzi;
 import com.entity.ZxlUser;
 /**
  * 持久层映射接口
@@ -22,5 +23,6 @@ public interface ZxlUserDao {
 	public List<ZxlUser> updatepwd(String pwd);//修改密码
 	public List<ZxlMyProject> listpro();//查询项目信息
 	public List<ZxlUser> listmoney(String user);//查询用户余额
+	public List<ZxlTouzi> listtouzi();//查询所有投资项目
 	
 }

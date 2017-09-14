@@ -10,6 +10,7 @@ import com.entity.ZxlMyHuankuan;
 import com.entity.ZxlMyPersonal;
 import com.entity.ZxlMyProject;
 import com.entity.ZxlMyTouzi;
+import com.entity.ZxlTouzi;
 import com.entity.ZxlUser;
 import com.service.ZxlUserService;
 /**
@@ -125,6 +126,14 @@ public class ZxlUserServiceImpl implements ZxlUserService{
 	public List<ZxlUser> listmoney(String user) {
 		List<ZxlUser> zxluser= userdao.listmoney(user);
 		return zxluser;
+	}
+	/**
+	 * 查询所有投资项目
+	 */
+	@Override
+	public List<ZxlTouzi> listtouzi() {
+		List<ZxlTouzi> list=userdao.listtouzi();
+		return list;
 	} 
 
 }
