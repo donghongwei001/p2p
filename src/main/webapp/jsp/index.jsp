@@ -149,7 +149,7 @@
 </html>
 <script>
 	$("#asd").click(function(){
-		alert("123");
+		
 		$.ajax({
 			 type:"post",
 			// dataType:"json",
@@ -158,11 +158,11 @@
 			//data:str1,
 			 contentType:"application/json;charset=utf-8",
 			 success:function(dataa){
-				 alert(dataa);
+				
 				 if(dataa==null||dataa==""){
 					 window.location.href="../jsp/jiekuan.jsp";
 				 }else{
-					 alert("ssss");
+					
 					 window.location.href="../jsp/xiangmushenqing.jsp";
 				 }
 			 }
