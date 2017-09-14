@@ -1,6 +1,7 @@
 package com.serviceimpl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -82,8 +83,8 @@ public class ZxlUserServiceImpl implements ZxlUserService{
 	 * 查询该用户投资的项目
 	 */
 	@Override
-	public List<ZxlMyTouzi> listmytouzi(String str) {
-		List<ZxlMyTouzi> list=userdao.listmytouzi(str);
+	public List<Map> listmytouzi(String str) {
+		List<Map> list=userdao.listmytouzi(str);
 		return list;
 	}
 	/**
@@ -141,8 +142,33 @@ public class ZxlUserServiceImpl implements ZxlUserService{
 	public void updatezero(String username) {
 		// TODO Auto-generated method stub
 		userdao.updatezero(username);
+	}
+	@Override
+	public List<Map> listprojecttwo(String name) {
+		// TODO Auto-generated method stub
+		return userdao.listprojecttwo(name);
+	}
+	@Override
+	public List<Map> seljiekuanren(int id) {
+		// TODO Auto-generated method stub
+		return userdao.seljiekuanren(id);
+	}
+	@Override
+	public List<Map> selhuankuan(String name, int id) {
+		// TODO Auto-generated method stub
+		
+		return userdao.selhuankuan(name, id);
+	}
+	@Override
+	public List<Map> selchushen(String name) {
+		// TODO Auto-generated method stub
+		return userdao.selchushen(name);
 	} 
-	
+	@Override
+	public List<Map> selzhongshen(String name) {
+		// TODO Auto-generated method stub
+		return userdao.selzhongshen(name);
+	}	
 	
 
 }

@@ -39,7 +39,7 @@
 		#left4{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
 		#left5{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
 		#left6{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
-		#content-right{width:76%;height:800px;float:left;margin-left:15px;background-color:#FFFFFF;}
+		#content-right{width:77%;height:800px;float:left;margin-left:15px;background-color:#FFFFFF;}
 		#right-div{width:76%;height:auto;float:left;margin:50px 50px 50px 90px;}
 		#div-img{float:left;}
 		#div-name{float:left;margin-left:20px;margin-right:20px;}	
@@ -85,6 +85,7 @@
 				<span>账户首页<span>>></span>我的资产</span>
 			</div>
 		</div>
+		
 		<div id="con">		
 			<div id="content">
 				<div id="content-left">
@@ -97,8 +98,22 @@
 				</div>
 			
 				<div id="content-right">
-					<div id="right-div">						
-						<table class="table table-hover">
+					<div id="right-div">
+					<div role="tabpanel" class="tab-pane" id="settings">
+				<div class="panel-group" id="accordion" role="tablist"
+					aria-multiselectable="true">
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="headingOne">
+							<h4 class="panel-title">
+								<a role="button" data-toggle="collapse" data-parent="#accordion"
+									href="#collapseOne" aria-expanded="true"
+									aria-controls="collapseOne"><span class="label label-default">未审核项目</span></a>
+							</h4>
+						</div>
+						<div id="collapseOne" class="panel-collapse collapse in"
+							role="tabpanel" aria-labelledby="headingOne">
+							<div class="panel-body">
+								<table class="table table-hover">
 							<thead>
 								<tr>
 									<th><h4>项目编号</h4></th>
@@ -120,10 +135,144 @@
 								</c:forEach>
 							</tbody>
 						</table>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="headingTwo">
+							<h4 class="panel-title">
+								<a class="collapsed" role="button" data-toggle="collapse"
+									data-parent="#accordion" href="#collapseTwo"
+									aria-expanded="false" aria-controls="collapseTwo">
+									<span class="label label-default">已发布项目</span> </a>
+							</h4>
+						</div>
+						<div id="collapseTwo" class="panel-collapse collapse"
+							role="tabpanel" aria-labelledby="headingTwo">
+							<div class="panel-body">
+								<table class="table table-hover">
+							<thead>
+								<tr>
+									<th><h5>项目编号</h4></th>
+									<th><h5>项目名称</h4></th>
+									<th><h5>借款资金</h4></th>
+									<th><h5>当前已筹到金额</h4></th>
+									<th><h5>发布时间</h4></th>
+									<th><h5>截止时间</h4></th>
+									<th><h5>当前状态</h4></th>
+									<th><h5>原因</h4></th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach items="${list1}" var="user">
+									<tr>
+										<td>${user.ID}</td>
+										<td>${user.PROJECTNAME}</td>
+										<td>${user.MONEY}</td>
+										<td>${user.NOWMONEY}</td>
+										<td>${user.BEGINTIME}</td>
+										<td>${user.LASTTIME}</td>
+										<td>${user.CODENAME}</td>
+										<td>${user.ONEREASON}</td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="headingThree">
+							<h4 class="panel-title">
+								<a class="collapsed" role="button" data-toggle="collapse"
+									data-parent="#accordion" href="#collapseThree"
+									aria-expanded="false" aria-controls="collapseThree">
+									<span class="label label-default">正审核项目</span></a>
+							</h4>
+						</div>
+						<div id="collapseThree" class="panel-collapse collapse"
+							role="tabpanel" aria-labelledby="headingThree">
+							<div class="panel-body">
+								<table class="table table-hover">
+							<thead>
+								<tr>
+									<th><h5>项目编号</h4></th>
+									<th><h5>项目名称</h4></th>
+									<th><h5>借款资金</h4></th>
+									<th><h5>当前已筹到金额</h4></th>
+									<th><h5>发布时间</h4></th>
+									
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach items="${list2}" var="user">
+									<tr>
+										<td>${user.ID}</td>
+										<td>${user.PROJECTNAME}</td>
+										<td>${user.MONEY}</td>
+										<td>${user.TIME}</td>
+										<td>${user.CODENAME}</td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="headingfour">
+							<h4 class="panel-title">
+								<a class="collapsed" role="button" data-toggle="collapse"
+									data-parent="#accordion" href="#collapsefour"
+									aria-expanded="false" aria-controls="collapsefour">
+									<span class="label label-default">未发布项目</span></a>
+							</h4>
+						</div>
+						<div id="collapsefour" class="panel-collapse collapse"
+							role="tabpanel" aria-labelledby="headingfour">
+							<div class="panel-body">
+								<table class="table table-hover">
+							<thead>
+								<tr>
+									<th><h5>项目编号</h4></th>
+									<th><h5>项目名称</h4></th>
+									<th><h5>借款资金</h4></th>
+									<th><h5>当前已筹到金额</h4></th>
+									<th><h5>发布时间</h4></th>
+									
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach items="${list3}" var="user">
+									<tr>
+										<td>${user.ID}</td>
+										<td>${user.PROJECTNAME}</td>
+										<td>${user.MONEY}</td>
+										<td>${user.TIME}</td>
+										<td>${user.CODENAME}</td>
+										
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				
+			</div>		
+								
+						
+								
+						
+						
+						
 					</div>					
 				</div>
 			</div>
 		</div>
+		
 		<div id="down">
 			<div id="down-one">
 				<span>联系我们</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;				
@@ -139,6 +288,7 @@
 			</div>
 		</div>
 	</div>	
+
 </body>
 </html>
 <script>

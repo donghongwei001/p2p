@@ -1,10 +1,9 @@
 package com.web;
 
-import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSON;
 import com.entity.ZxlMyHuankuan;
@@ -86,12 +86,20 @@ public class ZxlUserController {
 	 * @return
 	 */
 	@RequestMapping("/myproject")
-	public String listproject(HttpServletRequest request){
+	public ModelAndView listproject(HttpServletRequest request){
 		String userna =(String)request.getSession().getAttribute("abcd");
 		List<ZxlMyProject> list=userservice.listproject(userna);
-		
+		List<Map> list1=userservice.listprojecttwo(userna);
+		List<Map> list2=userservice.selchushen(userna);
+		List<Map> list3=userservice.selzhongshen(userna);
 		request.setAttribute("project", list);
-		return "myproject";
+		ModelAndView model=new ModelAndView();
+		model.addObject("project", list);
+		model.addObject("list1", list1);
+		model.addObject("list2", list2);
+		model.addObject("list3", list3);
+		model.setViewName("myproject");
+		return model;
 	}
 	/**
 	 *查询该用户所投资的项目
@@ -99,11 +107,13 @@ public class ZxlUserController {
 	 * @return
 	 */
 	@RequestMapping("/mytouzi")
-	public String listmytouzi(HttpServletRequest request){
+	public ModelAndView listmytouzi(HttpServletRequest request){
 		String userna =(String)request.getSession().getAttribute("abcd");
-		List<ZxlMyTouzi> list=userservice.listmytouzi(userna);
-		request.setAttribute("touzi", list);
-		return "mytouzi";
+		List<Map> list=userservice.listmytouzi(userna);
+		ModelAndView model=new ModelAndView();
+		model.addObject("touzi", list);
+		model.setViewName("mytouzi");
+		return model;
 	}
 	
 	/**
@@ -188,5 +198,19 @@ public class ZxlUserController {
 	public void tixian(HttpSession session){
 		String username=(String) session.getAttribute("abcd");
 		userservice.updatezero(username);
+	}
+	@RequestMapping("/xiangqing")
+	public ModelAndView xiangqing(HttpServletRequest request){
+		Integer id=Integer.parseInt(request.getParameter("pid"));
+		String name=(String) request.getSession().getAttribute("abcd");
+		System.out.println(id);
+		List<Map> list=userservice.seljiekuanren(id);
+		List<Map> list1=userservice.selhuankuan(name, id);
+		ModelAndView model=new ModelAndView();
+		model.addObject("jiekuan", list);
+		model.addObject("jiekuanxiangqing", list1);
+		model.setViewName("xiangmuxiangqing");
+		return model;
+		
 	}
 }

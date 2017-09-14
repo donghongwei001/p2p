@@ -105,16 +105,23 @@
 									<th><h4>项目名称</h4></th>
 									<th><h4>放款资金</h4></th>
 									<th><h4>放款时间</h4></th>
+									<th><h4>项目截止日期</h4></th>
+									<th><h4>项目状态</h4></th>
+									<th><h4>操作</h4></th>
 									
 								</tr>
 							</thead>
 							<tbody>
 								<c:forEach items="${touzi}" var="user">
 									<tr>
-										<td>${user.id}</td>
-										<td>${user.projectname}</td>
-										<td>${user.money}</td>
-										<td>${user.time}</td>										
+										<td>${user.PROJECTID}</td>
+										<td>${user.PROJECTNAME}</td>
+										<td>${user.MONEY}</td>
+										<td>${user.TIME}</td>
+										<td>${user.LASTTIME}</td>
+										<td>${user.CODENAME}</td>
+										<input type="hidden" id="zhi" value="${user.PROJECTID}"/>
+										<td><a href="/p2p/user/xiangqing.do?pid=${user.PROJECTID}"><span class="label label-info" id="xiangqing">查看详情</span></a></td>										
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -123,6 +130,7 @@
 				</div>
 			</div>
 		</div>
+		
 		<div id="down">
 			<div id="down-one">
 				<span>联系我们</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;				
@@ -160,5 +168,7 @@
 			 }
 		 });
 	});
-	
-</script>
+	$("#xiangqing").click(function(){
+		alert($("#zhi").val());
+	})
+	</script>
