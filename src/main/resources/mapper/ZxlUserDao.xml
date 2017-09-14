@@ -53,7 +53,7 @@
 	</update>
 	<!-- 查询用户未还款项目 -->
 	<select id="listhuankuan" resultType="com.entity.ZxlMyHuankuan" parameterType="String">
-		select r.repayid,r.projrctid,r.hktime,r.hkmoney,ptmoney,c.codename from repaymoney r,usertable u,code c where u.username=#{username} and r.projrctid=u.userid and r.statu=c.codeid and r.statu=8 
+		select p.id,p.projectname,P.RATEMONEY,h.money,h.time,c.codename from huankuantable h,projectapplication p,usertable u ,code c where h.projectid=p.id and p.userid=u.userid and h.status=c.codeid and u.username=#{name}
 	</select> 
 	<select id="seljiekuanren" resultType="java.util.HashMap" parameterType="int">
 		select * from projectapplication p,psersonalform f where p.userid=f.userid and p.id=#{id}	

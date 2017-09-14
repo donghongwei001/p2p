@@ -461,11 +461,9 @@ a {
 			//data : str1,
 			contentType : "application/json;charset=utf-8",
 			success : function(dataa) {
-				alert(dataa);
 				if (dataa == null || dataa == "") {
 					window.location.href = "../jsp/jiekuan.jsp";
 				} else {
-					alert("ssss");
 					window.location.href = "../jsp/xiangmushenqing.jsp";
 				}
 			}

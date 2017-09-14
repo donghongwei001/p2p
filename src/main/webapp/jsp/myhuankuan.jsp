@@ -75,7 +75,7 @@
 			<div id="top-menu">
 				<a href="/p2p/user/listpro.do">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="#">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="#">我要借款</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="#" id="asd">我要借款</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="/p2p/jsp/zxlpersonal.jsp">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;						
 			</div>
 			<div id="top-login">										
@@ -108,15 +108,17 @@
 									<th><h4>还款资金</h4></th>
 									<th><h4>平台费用</h4></th>
 									<th><h4>还款日期</h4></th>
+									<th><h4>还款状态</h4></th>
 									<th><h4>操作</h4></th>
 								</tr>
 							<c:forEach items="${huankuan}" var="h">
 								<tr>
-									<td>${h.repayid}</td>
-									<td>${h.projrctid}</td>
-									<td>${h.hktime}</td>
-									<td>${h.hkmoney}</td>
-									<td>${h.ptmoney}</td>
+									<td>${h.ID}</td>
+									<td>${h.PROJECTID}</td>
+									<td>${h.MONEY}</td>
+									<td>${h.RATEMONEY}</td>
+									<td>${h.TIME}</td>
+									<td>${h.CODENAME}</td>
 									<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">还款</button></td>
 								</tr>
 							</c:forEach>
@@ -196,3 +198,26 @@
 </body>
 
 </html>
+<script>
+	$("#asd").click(function(){
+		
+		$.ajax({
+			 type:"post",
+			// dataType:"json",
+			 url:"/p2p/add/name.do",
+			// data:JSON.stringify(row),
+			//data:str1,
+			 contentType:"application/json;charset=utf-8",
+			 success:function(dataa){
+				
+				 if(dataa==null||dataa==""){
+					 window.location.href="../jsp/jiekuan.jsp";
+				 }else{
+					
+					 window.location.href="../jsp/xiangmushenqing.jsp";
+				 }
+			 }
+		 });
+	});
+	
+</script>

@@ -70,7 +70,7 @@
 				<a href="http://localhost:9088/p2p/user/listpro.do">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="#">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<span id="asd">我要借款&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-				<a href="/p2p/user/personal.do">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;			
+				<a href="/p2p/user/zxlpersonal.do">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;			
 			</div>
 			<div id="top-login">										
 				欢迎<a href="http://localhost:9088/p2p/jsp/personal.jsp">${abcd}</a>!加入宜人贷&nbsp;&nbsp;&nbsp;&nbsp;
@@ -283,12 +283,9 @@ $("#distpicker2").distpicker({
 	});
 	$(function(){
 		$("#itemPhoto").change(function(){
-  			alert(this.files);
   			var MAXWIDTH  = 260; 
   			var MAXHEIGHT = 180;
   			var div = document.getElementById('preview');
-  			alert("1212");
-  			alert(this.files);
   			if (this.files && this.files[0])
   			{
   				div.innerHTML ='<img id=imghead>';
