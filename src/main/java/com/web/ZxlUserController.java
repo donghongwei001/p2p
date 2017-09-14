@@ -1,8 +1,10 @@
 package com.web;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSON;
 import com.entity.ZxlMyHuankuan;
@@ -85,11 +88,19 @@ public class ZxlUserController {
 	 * @return
 	 */
 	@RequestMapping("/myproject")
-	public String listproject(HttpServletRequest request){
+	public ModelAndView listproject(HttpServletRequest request){
 		String userna =(String)request.getSession().getAttribute("abcd");
 		List<ZxlMyProject> list=userservice.listproject(userna);		
-		request.setAttribute("project", list);
-		return "myproject";
+		List<Map> list1=userservice.listprojecttwo(userna);
+		List<Map> list2=userservice.selchushen(userna);
+		List<Map> list3=userservice.selzhongshen(userna);
+		ModelAndView model=new ModelAndView();
+		model.addObject("project", list);
+		model.addObject("list1", list1);
+		model.addObject("list2", list2);
+		model.addObject("list3", list3);
+		model.setViewName("myproject");
+		return model;
 	}
 	/**
 	 *查询该用户所投资的项目
@@ -97,11 +108,13 @@ public class ZxlUserController {
 	 * @return
 	 */
 	@RequestMapping("/mytouzi")
-	public String listmytouzi(HttpServletRequest request){
+	public ModelAndView listmytouzi(HttpServletRequest request){
 		String userna =(String)request.getSession().getAttribute("abcd");
-		List<ZxlMyTouzi> list=userservice.listmytouzi(userna);
-		request.setAttribute("touzi", list);
-		return "mytouzi";
+		List<Map> list=userservice.listmytouzi(userna);
+		ModelAndView model=new ModelAndView();
+		model.addObject("touzi", list);
+		model.setViewName("mytouzi");
+		return model;
 	}
 	
 	/**
@@ -139,8 +152,9 @@ public class ZxlUserController {
 	 * @return
 	 */
 	@RequestMapping("/updatepwd")
-	public String updatepwd(@RequestBody String str,ZxlUser pwd,HttpServletRequest request){
+	public String updatepwd(String str,ZxlUser pwd,HttpServletRequest request){
 		String userna =(String)request.getSession().getAttribute("abcd");	
+		System.out.println(userna+"*********************");
 		List<ZxlUser> listz= userservice.updatepwd(userna);		
 		request.setAttribute("updatepwd", listz);
 		return "myupdatepwd";		
@@ -152,6 +166,7 @@ public class ZxlUserController {
 	 */
 	@RequestMapping("/listpro")
 	public String listpro(HttpServletRequest request){	
+		
 		List<ZxlMyProject> list=userservice.listpro();
 		request.setAttribute("listpro", list);
 		return "index";	
@@ -175,5 +190,32 @@ public class ZxlUserController {
 		List<ZxlTouzi> list=userservice.listtouzi();
 		request.setAttribute("listtouzi", list);
 		return "zxltouzi";	
+		}
+	@RequestMapping("/chongzhi")
+	@ResponseBody
+	public void chongzhi(int jine,HttpSession session){
+		String username=(String) session.getAttribute("abcd");
+		
+		userservice.updatejine(username,jine);
+	}
+	@RequestMapping("/tixian")
+	@ResponseBody
+	public void tixian(HttpSession session){
+		String username=(String) session.getAttribute("abcd");
+		userservice.updatezero(username);
+	}
+	@RequestMapping("/xiangqing")
+	public ModelAndView xiangqing(HttpServletRequest request){
+		Integer id=Integer.parseInt(request.getParameter("pid"));
+		String name=(String) request.getSession().getAttribute("abcd");
+		System.out.println(id);
+		List<Map> list=userservice.seljiekuanren(id);
+		List<Map> list1=userservice.selhuankuan(name, id);
+		ModelAndView model=new ModelAndView();
+		model.addObject("jiekuan", list);
+		model.addObject("jiekuanxiangqing", list1);
+		model.setViewName("xiangmuxiangqing");
+		return model;
+		
 	}
 }

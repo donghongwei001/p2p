@@ -7,7 +7,7 @@ import com.entity.ZkjInvest;
 import com.entity.Zkjproject;
 
 public interface Zkjservicedao {
-	public void saveproject(Zkjproject pp);
+	public void saveproject(Zkjproject pp,String username);
 	public List<Map> selectproject();
 	public List<Map> selectusers();
 	public void updateuser(String str);
