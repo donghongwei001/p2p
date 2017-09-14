@@ -111,7 +111,7 @@
 	<div id="body">
 		<div id="top">
 			<div id="top-img">
-				<img src="../image/title2.png" />
+				<img src="../image/title2.png"/>
 			</div>			
 			<div id="top-menu">
 				<a href="/p2p/user/listpro.do">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -174,130 +174,67 @@
 									TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。</p>
 							</div>
 						</div>
-					</div>
-					
-					
-					<!--<ul id="myTab" class="nav nav-tabs">
-						<li class="active">
-							<a href="#home" data-toggle="tab">
-								 菜鸟教程
-							</a>
-						</li>
-						<li>
-								<a href="#ios" data-toggle="tab"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>按月还款</a> 
-						</li>	
-						
-					</ul>
-					<div id="myTabContent" class="tab-content">
-						<div class="tab-pane fade in active" id="home">
-							<p>菜鸟教程是一个提供最新的web技术站点，本站免费提供了建站相关的技术文档，帮助广大web技术爱好者快速入门并建立自己的网站。菜鸟先飞早入行——学的不仅是技术，更是梦想。</p>
-						</div>
-						<div class="tab-pane fade" id="ios">
-							<p>iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple 
-								TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。</p>
-						</div>
-						<div class="tab-pane fade" id="jmeter">
-							<p>jMeter 是一款开源的测试软件。它是 100% 纯 Java 应用程序，用于负载和性能测试。</p>
-						</div>
-						<div class="tab-pane fade" id="ejb">
-							<p>Enterprise Java Beans（EJB）是一个创建高度可扩展性和强大企业级应用程序的开发架构，部署在兼容应用程序服务器（比如 JBOSS、Web Logic 等）的 J2EE 上。
-							</p>
-						</div>
-					</div> -->
-					
-					
-					 <!--  <div class="panel panel-default" id="panelOne">
-					    <div class="bg-info" role="tab" id="headingOne">
-					      <h4 class="panel-title">
-					        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-					          	还款详情
-					        </a>
-					      </h4>
-					    </div>
-					    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-					      <div class="panel-body">
-					        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-					      </div>
-					    </div>
-					  </div> -->
-								
-							
+					</div>															
 					<div id="right-div">						
 						<table class="table table-hover">
-								<tr class="active">
-									<th><h5>还款日期</h5></th>
-									<th><h5>项目名称</h5></th>
-									<th><h5>还款资金</h5></th>
-									<th><h5>平台费用</h5></th>
-									<th><h5>实收金额</h5></th>
-									<th><h5>逾期天数</h5></th>
-									<th><h5>还款状态</h5></th>
-									<th><h5>操作</h5></th>
-								</tr>
-							
-								<tr>
-									<td>0</td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td>0</td>
-									<td>0</td>
-									<td></td>
-								    <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">还款</button></td>
-								</tr>
+							<tr class="active">
+								<th><h5>还款日期</h5></th>
+								<th><h5>项目名称</h5></th>
+								<th><h5>还款资金</h5></th>
+								<th><h5>平台费用</h5></th>
+								<th><h5>实收金额</h5></th>
+								<th><h5>逾期天数</h5></th>
+								<th><h5>还款状态</h5></th>
+								<th><h5>操作</h5></th>
+							</tr>
+						
+							<tr>
+								<td>0</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td>0</td>
+								<td>0</td>
+								<td></td>
+							    <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">还款</button></td>
+							</tr>
 						</table>
 					</div>
 					
-					   <!-- Button trigger modal -->
+				   <!-- Button trigger modal -->
 
 
-						<!-- Modal -->
-						<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-						  <div class="modal-dialog" role="document">
-						    <div class="modal-content">
-						      <div class="modal-header">
-						        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-						      </div>
-						      <div class="modal-body">
-						        	<form id="myForm" method="post">
-										<table width="100%" class="formtable">
-											<c:forEach items="${huankuan}" var="h">
-											<tr>
-												<th height="40" >应还款：</th><td>${h.hkmoney}元</td>
-											</tr>
-											</c:forEach>
-											<tr class="">
-												<th height="40">还款金额：</th><td><input type="text"/></td>
-											</tr>
+					<!-- Modal -->
+					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+					  <div class="modal-dialog" role="document">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+					      </div>
+					      <div class="modal-body">
+					        	<form id="myForm" method="post">
+									<table width="100%" class="formtable">
+										<c:forEach items="${huankuan}" var="h">
+										<tr>
+											<th height="40" >应还款：</th><td>${h.hkmoney}元</td>
+										</tr>
+										</c:forEach>
+										<tr class="">
+											<th height="40">还款金额：</th><td><input type="text"/></td>
+										</tr>
+										
+									</table>
 											
-										</table>
-												
-										<button id="btn" type="button" class="btn btn-default" data-dismiss="modal">关闭</button><button type="button" class="btn btn-primary">提交</button>
-												
-									</form>
-						      </div>
-						      
-						    </div>
-						  </div>
-						</div>
-					
-					<!-- <div id="handlerDialog">
-						<form id="myForm" method="post">
-							<table width="100%" class="formtable">
-								<tr>
-									<th height="40" >应还款：</th><td></td>
-								</tr>
-								<tr>
-									<th height="40">密码：</th><td><input id="emppwd" name="emppwd" class="easyui-validatebox" data-options="required:true"></td>
-								</tr>
-								
-								<tr>
-									<th height="40"></th><td><input type="button" id="rolename"></td>
-								</tr>
-							</table>
-						</form>
-					</div>		 -->			
+									<button id="btn" type="button" class="btn btn-default" data-dismiss="modal">关闭</button><button type="button" class="btn btn-primary">提交</button>
+											
+								</form>
+					      </div>
+					      
+					    </div>
+					  </div>
+					</div>
+						
 				</div>
 			</div>
 		</div>

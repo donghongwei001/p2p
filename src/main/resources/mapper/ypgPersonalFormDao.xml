@@ -9,6 +9,7 @@
 	<select id="queryEmployee" resultType="java.util.HashMap">
 		select * from empty
 	</select>
+	<!-- 插入个人认证信息  -->
 	<insert id="insertPersonalForm" parameterType="com.entity.ypgPersonalForm">
 		insert into psersonalform values(psersonalid.nextval,${userID},'${personalname}','${idcard}','${iphone}','${accountnumber}','${mailbox}','${sex}',to_date('${birthday}','yyyy-MM-dd'),'${educational}','${marriage}','${havachidren}','${address}','${homephone}','${worklife}','${occupation}','${workunit}','${unitproperties}','${unitphone}','${monthlyincome}','${haveroom}','${houseloan}','${havecar}','${carloan}','${contactname}','${contactrelation}','${contactphone}')
 	</insert>

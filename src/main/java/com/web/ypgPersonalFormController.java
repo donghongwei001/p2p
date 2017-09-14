@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.dao.Zkjdaointerface;
 import com.entity.YpgEmployee;
 import com.entity.ZxlUser;
 import com.entity.ypgPersonalForm;
@@ -23,6 +24,8 @@ import com.service.ypgPersonalFormService;
 public class ypgPersonalFormController {
 	@Autowired
 	private ypgPersonalFormService pfService;
+	@Autowired
+	private Zkjdaointerface dao;
 	
 	@RequestMapping("/ypgPerson")
 	public String getQueryPersonalForm(HttpServletRequest request,HttpSession session){
@@ -40,13 +43,11 @@ public class ypgPersonalFormController {
 	}
 	
 	
-	@RequestMapping("/nal")
-	public void insertPersonalForm(ypgPersonalForm pff,HttpSession session){
-		System.out.println(pff);
-		int userID =1;
-		pff.setUserID(userID);
-		pfService.getPersonalForm(pff);
-		
+	@RequestMapping("/ypgNal")
+	public String insertPersonalForm(ypgPersonalForm pff,HttpServletRequest request){
+		String userna =(String)request.getSession().getAttribute("abcd");
+		pfService.getPersonalForm(pff, userna);
+		return "xiangmushenqing";
 	}
 	
 	@RequestMapping("/update")

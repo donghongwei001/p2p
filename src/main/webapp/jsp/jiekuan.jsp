@@ -67,15 +67,12 @@
 	
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<script type="text/javascript" src="../bootstrap/js/jquery-1.8.2.min.js"></script>
-	<script type="text/javascript" src="../bootstrap/js/menu.js"></script>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
 
     <link rel="icon" href="favicon.ico">  
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../bootrap/scss/ie10-viewport-bug-workaround.css" rel="stylesheet">
-    <script src="js/ie-emulation-modes-warning.js"></script>
 	<script type="text/javascript"></script>
 	
 </head>
@@ -106,7 +103,7 @@
 		<div id="content">
 			<div id="zeroDiv">
 				<div id="secondDiv">
-					<form action="/p2p/jsp/xiangmushenqing.jsp" method="post">
+					<form action="/p2p/ypgPerson/ypgNal.do" method="post">
 						<table class="table table-hover">						
 							<tr class="warning">
 								<td><span style="float:right;font-size:18px;margin-top:4px;">姓名:</span></td><td><input name="personalname" style="width:250px;" class="form-control" type="text"/></td>
@@ -126,7 +123,7 @@
 							<tr class="info">
 								<td><span style="float:right;font-size:18px;margin-top:4px;">性别:</span></td>
 								<td >
-									<select name="sex"  style="width:60px;" class="selectpicker show-tick form-control">
+									<select name="sex"  style="width:70px;" class="selectpicker show-tick form-control">
 										<option >男</option>
 										<option>女</option>
 							    	</select>
@@ -150,7 +147,7 @@
 							<tr class="active">
 								<td><span style="float:right;font-size:18px;margin-top:4px;">是否有子女:</span></td>
 								<td>
-									<select name="havachidren" style="width:60px;" class="selectpicker show-tick form-control" >
+									<select name="havachidren" style="width:70px;" class="selectpicker show-tick form-control" >
 										<option>是</option>
 										<option>否</option>
 								    </select>
@@ -183,7 +180,7 @@
 							<tr class="active">
 								<td><span style="float:right;font-size:18px;margin-top:4px;">是否有房:</span></td>
 								<td>
-									<select name="haveroom" style="width:60px;" class="form-control">
+									<select name="haveroom" style="width:70px;" class="form-control">
 										<option>是</option>
 										<option>否</option>
 								    </select>
@@ -192,7 +189,7 @@
 							<tr class="active">
 								<td><span style="float:right;font-size:18px;margin-top:4px;">是否有房贷:</span></td>
 								<td>
-									<select name="houseloan" style="width:60px;" class="form-control">
+									<select name="houseloan" style="width:70px;" class="form-control">
 										<option>是</option>
 										<option>否</option>
 								    </select>
@@ -201,7 +198,7 @@
 							<tr class="active">
 								<td><span style="float:right;font-size:18px;margin-top:4px;">是否有车:</span></td>
 								<td>
-									<select name="havecar" style="width:60px;" class="form-control">
+									<select name="havecar" style="width:70px;" class="form-control">
 										<option>是</option>
 										<option>否</option>
 								    </select>
@@ -210,7 +207,7 @@
 							<tr class="active">
 								<td><span style="float:right;font-size:18px;margin-top:4px;">是否有车贷:</span></td>
 								<td>
-									<select name="carloan" style="width:60px;" class="form-control">
+									<select name="carloan" style="width:70px;" class="form-control">
 										<option>是</option>
 										<option>否</option>
 								    </select>
@@ -226,12 +223,13 @@
 								<td><span style="float:right;font-size:18px;margin-top:4px;">亲属电话:</span></td><td><input name="contactphone" class="form-control" style="width:250px;" type="text"/></td>
 							</tr>
 						</table>
+						<div id="but">
+							<button id="btn" type="submit" class="btn btn-danger" >提交</button>
+						</div>
 					</form>
 				</div>
 			</div>
-			<div id="but">
-				<button id="btn" class="btn btn-danger" >提交</button>
-			</div>	
+				
 		</div>
 		
 		<div id="down">
