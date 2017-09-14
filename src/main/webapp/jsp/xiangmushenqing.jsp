@@ -136,7 +136,7 @@
 					<label for="input2" style="font-size:16px;" class="col-sm-2 control-label">借款期限</label>
 					<div class="col-sm-9">
 						
-						<select class="form-control" name="lifeloan" >
+						<select class="form-control" id="life" name="lifeloan" >
 							<option   value=6>6个月</option>
 							<option   value=12>12个月</option>
 							<option   value=12>18个月</option>
@@ -145,24 +145,12 @@
 					</div>
 				 </div>
 				 <div class="form-group">
-					<label for="input2" style="font-size:16px;" class="col-sm-2 control-label">利率</label>
+					<label for="input2" style="font-size:16px;" class="col-sm-2 control-label">月利率</label>
 					<div class="col-sm-9">
-						<input type="text" class="form-control" id="input2" name="ratemoney" placeholder="例如：0.001" >
+						<input type="text" class="form-control" id="rate" name="ratemoney" placeholder="例如：0.001" >
 					</div>
 				 </div>
-				 
-				 <div class="form-group">
-					<label for="input2" style="font-size:16px;" class="col-sm-2 control-label">还款期限</label>
-					<div class="col-sm-9">
-						
-						<select class="form-control" name="lifeloan" >
-							<option   va>一次性还清</option>
-							<option   value=12>12个月</option>
-							
-							
-						</select>
-					</div>
-				 </div>
+				
 				 
 				 <div class="form-group">
 					<label for="inputEmail3" style="font-size:16px;" class="col-sm-2 control-label">附件</label>
@@ -248,6 +236,21 @@ $("#ptojectname").blur(function(){
 	}
 });
 
+$("#rat").blur(function(){
+	var rate=$("#rate").val();
+	var life=$("#life").val();
+	var mmoney=$("mmoney").val();
+	$.ajax({
+		type:"post",
+		url:"",
+		data:JSON.stringify(data),
+		success :function(dataa){
+			
+		}
+		
+	});
+	
+});
 
 $("#distpicker2").distpicker({
 	  province: "---- 所在省 ----",

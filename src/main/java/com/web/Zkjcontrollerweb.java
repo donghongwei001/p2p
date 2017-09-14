@@ -66,10 +66,8 @@ public class Zkjcontrollerweb {
 
 	/*1.
 	 * 閹绘帒鍙嗛崚鐗堝鐠у嫯銆�閺�偓顑欑悰锟�
-=======
-	/*
+	 *
 	 * 鎻掑叆鍒版姇璧勮〃(鏀炬琛�
-
 	 */
 	@RequestMapping("/money")
 	public String projectmoney(HttpServletRequest request,HttpSession session){
@@ -112,6 +110,10 @@ public class Zkjcontrollerweb {
 		mm.addObject("allpeoject",listp);
 		mm.setViewName("invest");
 		return mm;
+	}
+	@RequestMapping("capital")
+	public void suancapital(){
+		
 	}
 
 }
