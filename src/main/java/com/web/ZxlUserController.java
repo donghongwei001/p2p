@@ -185,6 +185,11 @@ public class ZxlUserController {
 		request.setAttribute("listmoney", listz);	
 		return "personal";	
 	}
+	/**
+	 * 查询所有已发布的项目的项目到首页
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping("/listtouzi")
 	public String listtouzi(HttpServletRequest request){
 		List<ZxlTouzi> list=userservice.listtouzi();
