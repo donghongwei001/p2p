@@ -45,7 +45,7 @@
 		}
 		#content{
 			float:left;
-			border:1px solid red;
+			
 			width:600px;
 		}
 		#disc{
@@ -53,6 +53,7 @@
 			width:400px;
 			height:500px;
 			float:left;
+			display:none;
 		}
 	</style>
 	
@@ -151,14 +152,14 @@
 				 </div>
 				 
 				 <div class="form-group">
-					<label for="input2" style="font-size:16px;" class="col-sm-2 control-label">借款期限</label>
+					<label for="input2" style="font-size:16px;" class="col-sm-2 control-label">还款期限</label>
 					<div class="col-sm-9">
 						
 						<select class="form-control" name="lifeloan" >
 							<option   va>一次性还清</option>
 							<option   value=12>12个月</option>
-							<option   value=12>18个月</option>
-							<option   value=24>24个月</option>
+							
+							
 						</select>
 					</div>
 				 </div>

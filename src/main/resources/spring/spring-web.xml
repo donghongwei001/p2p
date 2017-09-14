@@ -64,6 +64,7 @@
 				/add/** =anon
 				/user/** =anon
 				/zkj/** =anon
+				/jsp/myupdatepwd.jsp=anon
 				/** = authc
 
 

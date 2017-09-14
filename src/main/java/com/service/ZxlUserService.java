@@ -27,6 +27,6 @@ public interface ZxlUserService {
 	public List<ZxlUser> updatepwd(String pwd);//修改密码
 	public List<ZxlMyProject> listpro();//查询项目信息
 	public List<ZxlUser> listmoney(String user);//查询用户余额
-	//查询前台还款信息
-	 public List<ypgHuanK> queryHuanK(ypgHuanK hk);
+	public void updatejine(String username,int money);//插入金额
+	public void updatezero(String username);
 }

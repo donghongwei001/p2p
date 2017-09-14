@@ -130,35 +130,22 @@ public class ZxlUserServiceImpl implements ZxlUserService{
 	public List<ZxlUser> listmoney(String user) {
 		List<ZxlUser> zxluser= userdao.listmoney(user);
 		return zxluser;
-	} 
-	
-	/**
-	 * 等额本息计算获取还款方式为等额本息的每月偿还利息
-	 * 
-	 * 公式：每月偿还利息=贷款本金×月利率×〔(1+月利率)^还款月数-(1+月利率)^(还款月序号-1)〕÷〔(1+月利率)^还款月数-1〕
-	 * @param invest
-	 *            总借款额（贷款本金）
-	 * @param yearRate
-	 *            年利率
-	 * @param month
-	 *            还款总月数
-	 * @return 每月偿还利息
-	 */
-	@Override
-	public List<ypgHuanK> queryHuanK(ypgHuanK hk) {
-		
-		List<ypgHuanK> list=userdao.queryHuanK(hk);
-		for(int i=0;i<list.size();i++){
-			float yearRate =list.get(i).getRatemoney();
-			System.out.println(yearRate+"====================");
-			float monthRate = yearRate/12;
-			
-			float monthInterest;
-			for(int j=1;j<list.get(i).getLifeloan()+1;j++){
-				
-			}
-		}
-		return null;
 	}
 	
+	@Override
+	public void updatejine(String username, int money) {
+		// TODO Auto-generated method stub
+		int jine=userdao.seljine(username);
+		System.out.println("11111111111111");
+		int total=money+jine;
+		System.out.println(total);
+		userdao.updatejine(total, username);
+	}
+	@Override
+	public void updatezero(String username) {
+		// TODO Auto-generated method stub
+		userdao.updatezero(username);
+	} 
+	
+
 }
