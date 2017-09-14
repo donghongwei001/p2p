@@ -37,10 +37,18 @@
 	<select id="listmoney" resultType="com.entity.ZxlUser" parameterType="String">
 		select u.money,u.username from usertable u where u.username=#{username} 
 	</select> 
-
+	<select id="seljine" resultType="int" parameterType="String">
+		select money from usertable where username=#{username}
+	</select>
+	<update id="updatejine">
+		update usertable set money=#{0} where username=#{1}
+	</update>
+	<update id="updatezero" parameterType="String">
+		update usertable set money=0 where username=#{username}
+	</update>
 	<!-- 查询用户未还款项目 -->
 	<select id="listhuankuan" resultType="com.entity.ZxlMyHuankuan" parameterType="String">
 		select r.repayid,r.projrctid,r.hktime,r.hkmoney,ptmoney,c.codename from repaymoney r,usertable u,code c where u.username=#{username} and r.projrctid=u.userid and r.statu=c.codeid and r.statu=8 
 	</select> 
-
+	
 </mapper>

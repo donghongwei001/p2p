@@ -1,8 +1,11 @@
 package com.web;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -138,8 +141,9 @@ public class ZxlUserController {
 	 * @return
 	 */
 	@RequestMapping("/updatepwd")
-	public String updatepwd(@RequestBody String str,ZxlUser pwd,HttpServletRequest request){
+	public String updatepwd(String str,ZxlUser pwd,HttpServletRequest request){
 		String userna =(String)request.getSession().getAttribute("abcd");	
+		System.out.println(userna+"*********************");
 		List<ZxlUser> listz= userservice.updatepwd(userna);		
 		request.setAttribute("updatepwd", listz);
 		return "myupdatepwd";		
@@ -170,5 +174,18 @@ public class ZxlUserController {
 		List<ZxlUser> listz= userservice.listmoney(userna);		
 		request.setAttribute("listmoney", listz);	
 		return "personal";	
+	}
+	@RequestMapping("/chongzhi")
+	@ResponseBody
+	public void chongzhi(int jine,HttpSession session){
+		String username=(String) session.getAttribute("abcd");
+		
+		userservice.updatejine(username,jine);
+	}
+	@RequestMapping("/tixian")
+	@ResponseBody
+	public void tixian(HttpSession session){
+		String username=(String) session.getAttribute("abcd");
+		userservice.updatezero(username);
 	}
 }

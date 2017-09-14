@@ -126,6 +126,23 @@ public class ZxlUserServiceImpl implements ZxlUserService{
 	public List<ZxlUser> listmoney(String user) {
 		List<ZxlUser> zxluser= userdao.listmoney(user);
 		return zxluser;
+	}
+	
+	@Override
+	public void updatejine(String username, int money) {
+		// TODO Auto-generated method stub
+		int jine=userdao.seljine(username);
+		System.out.println("11111111111111");
+		int total=money+jine;
+		System.out.println(total);
+		userdao.updatejine(total, username);
+	}
+	@Override
+	public void updatezero(String username) {
+		// TODO Auto-generated method stub
+		userdao.updatezero(username);
 	} 
+	
+	
 
 }

@@ -24,5 +24,7 @@ public interface ZxlUserDao {
 
 	public List<ZxlMyProject> listpro();//查询项目信息
 	public List<ZxlUser> listmoney(String user);//查询用户余额
-	
+	public int seljine(String username);
+	public void updatejine(int total,String username);
+	public void updatezero(String username);
 }
