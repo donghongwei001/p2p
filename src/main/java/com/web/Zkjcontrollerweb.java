@@ -83,7 +83,7 @@ public class Zkjcontrollerweb {
 		System.out.println(ss);
 		int subjectid=Integer.parseInt(ss);
 		System.out.println(subjectid+"subjectid");
-		zz.setUsername(username);
+		zz.setUsername(username); 
 		zz.setSubjectid(subjectid);
 		
 		ssdao.addinvest(zz,username);
