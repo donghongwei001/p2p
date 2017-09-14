@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> branch 'master' of https://github.com/donghongwei001/p2p
 (function(factory) {
     if (typeof module === 'object' && module.exports) {
         module.exports = factory;

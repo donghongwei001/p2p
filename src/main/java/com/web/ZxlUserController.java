@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -18,6 +19,7 @@ import com.entity.ZxlMyHuankuan;
 import com.entity.ZxlMyPersonal;
 import com.entity.ZxlMyProject;
 import com.entity.ZxlMyTouzi;
+import com.entity.ZxlTouzi;
 import com.entity.ZxlUser;
 import com.service.ZxlUserService;
 /**
@@ -67,7 +69,7 @@ public class ZxlUserController {
 	 */
 	@RequestMapping("/login")
 	@ResponseBody
-	public String login(@RequestBody String str,HttpServletRequest request){ 
+	public String login(@RequestBody String str,HttpServletRequest request,Model model){ 
 	
 		System.out.println(str);
 		ZxlUser zu=JSON.parseObject(str, ZxlUser.class);
@@ -88,11 +90,10 @@ public class ZxlUserController {
 	@RequestMapping("/myproject")
 	public ModelAndView listproject(HttpServletRequest request){
 		String userna =(String)request.getSession().getAttribute("abcd");
-		List<ZxlMyProject> list=userservice.listproject(userna);
+		List<ZxlMyProject> list=userservice.listproject(userna);		
 		List<Map> list1=userservice.listprojecttwo(userna);
 		List<Map> list2=userservice.selchushen(userna);
 		List<Map> list3=userservice.selzhongshen(userna);
-		request.setAttribute("project", list);
 		ModelAndView model=new ModelAndView();
 		model.addObject("project", list);
 		model.addObject("list1", list1);
@@ -157,8 +158,6 @@ public class ZxlUserController {
 		List<ZxlUser> listz= userservice.updatepwd(userna);		
 		request.setAttribute("updatepwd", listz);
 		return "myupdatepwd";		
-
-
 	}
 	/**
 	 * 查询发布项目
@@ -186,6 +185,17 @@ public class ZxlUserController {
 		request.setAttribute("listmoney", listz);	
 		return "personal";	
 	}
+	/**
+	 * 查询所有已发布的项目的项目到首页
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping("/listtouzi")
+	public String listtouzi(HttpServletRequest request){
+		List<ZxlTouzi> list=userservice.listtouzi();
+		request.setAttribute("listtouzi", list);
+		return "zxltouzi";	
+		}
 	@RequestMapping("/chongzhi")
 	@ResponseBody
 	public void chongzhi(int jine,HttpSession session){

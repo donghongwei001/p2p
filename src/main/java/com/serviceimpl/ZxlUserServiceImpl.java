@@ -11,6 +11,7 @@ import com.entity.ZxlMyHuankuan;
 import com.entity.ZxlMyPersonal;
 import com.entity.ZxlMyProject;
 import com.entity.ZxlMyTouzi;
+import com.entity.ZxlTouzi;
 import com.entity.ZxlUser;
 import com.service.ZxlUserService;
 /**
@@ -110,7 +111,6 @@ public class ZxlUserServiceImpl implements ZxlUserService{
 	@Override
 	public List<ZxlUser> updatepwd(String pwd) {
 		return userdao.updatepwd(pwd);		
-
 	}
 	/**
 	 * 查询项目详情
@@ -128,7 +128,14 @@ public class ZxlUserServiceImpl implements ZxlUserService{
 		List<ZxlUser> zxluser= userdao.listmoney(user);
 		return zxluser;
 	}
-	
+	/**
+	 * 查询所有投资项目
+	 */
+	@Override
+	public List<ZxlTouzi> listtouzi() {
+		List<ZxlTouzi> list=userdao.listtouzi();
+		return list;
+	}
 	@Override
 	public void updatejine(String username, int money) {
 		// TODO Auto-generated method stub

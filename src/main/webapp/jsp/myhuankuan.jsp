@@ -15,7 +15,7 @@
 		body{/* background-color:#F5F5F5; */}
 		div a{text-decoration:none;}
 		#body{width:100%;height:auto;}
-		#top{width:76%;height:auto;align:center;margin-left:12%;float:left;}
+		#top{width:76%;height:auto;align:center;margin-left:11%;float:left;}
 		#top-img{float:left;}
 		#top-menu{float:left;margin-top:3.5%;margin-left:40px;}
 		#top-menu a{text-decoration:none;color:black;font-size:18px;}
@@ -70,12 +70,13 @@
 	<div id="body">
 		<div id="top">
 			<div id="top-img">
-				<img src="../image/title2.png" />
+				<img src="../image/top.PNG" />
 			</div>			
 			<div id="top-menu">
 				<a href="/p2p/user/listpro.do">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="#">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="#" id="asd">我要借款</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+				<a href="/p2p/user/listtouzi.do">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<span id="asd">我要借款&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 				<a href="/p2p/jsp/zxlpersonal.jsp">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;						
 			</div>
 			<div id="top-login">										
@@ -196,6 +197,28 @@
 		</div>
 	</div>	
 </body>
+<script type="text/javascript">
+$("#asd").click(function(){
+	$.ajax({
+		 type:"post",
+		// dataType:"json",
+		 url:"/p2p/add/name.do",
+		// data:JSON.stringify(row),
+		//data:str1,
+		 contentType:"application/json;charset=utf-8",
+		 success:function(dataa){
+			 alert(dataa);
+			 if(dataa==null||dataa==""){
+				 window.location.href="../jsp/jiekuan.jsp";
+			 }else{
+				 alert("ssss");
+				 window.location.href="../jsp/xiangmushenqing.jsp";
+			 }
+		 }
+	 });
+});
+
+</script>
 
 </html>
 <script>
