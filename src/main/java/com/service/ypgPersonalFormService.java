@@ -19,4 +19,6 @@ public interface ypgPersonalFormService {
 	public int getInsertEmployee(YpgEmployee ee);
 	//查询员工信息
 	public List<Map> getQueryEmployee();
+	//用户信息插入投资表
+	public int insertInvestor(ypgPersonalForm pf,String username);
 }

@@ -46,7 +46,10 @@ public class ypgPersonalFormController {
 	@RequestMapping("/ypgNal")
 	public String insertPersonalForm(ypgPersonalForm pff,HttpServletRequest request){
 		String userna =(String)request.getSession().getAttribute("abcd");
+		String address=request.getParameter("location1")+request.getParameter("location2")+request.getParameter("location3");
+		pff.setAddress(address);
 		pfService.getPersonalForm(pff, userna);
+		pfService.insertInvestor(pff, userna);
 		return "xiangmushenqing";
 	}
 	

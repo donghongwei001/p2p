@@ -59,5 +59,13 @@ public class ypgPersonalFormImpl implements ypgPersonalFormService{
 		return pfDao.insertEmployee(ee);
 	}
 
+	@Override
+	public int insertInvestor(ypgPersonalForm pf,String username) {
+		int userID=dao.quertuserid(username);
+		pf.setUserID(userID);
+		pfDao.insertInvestor(pf);
+		return userID;
+	}
+
 
 }
