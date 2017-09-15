@@ -7,7 +7,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <script src="../easyui/js/jquery.min.js"></script>
 <title>index</title>
-	
 	<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="../easyui/js/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')</script>
@@ -17,7 +16,7 @@
 	<style type="text/css">
 		body{/* background-color:#F5F5F5; */}
 		#body{width:100%;height:auto;}
-		#top{width:76%;height:auto;align:center;margin-left:12%;float:left;}
+		#top{width:76%;height:auto;align:center;margin-left:11%;float:left;}
 		#top-img{float:left;}
 		#top-menu{float:left;margin-top:3.5%;margin-left:40px;}
 		#top-menu a{text-decoration:none;color:black;font-size:18px;}
@@ -44,6 +43,11 @@
 		#right-but{float:left;width:100%;height:auto;margin-top:50px;}
 		#right-tzbut{float:left;}
 		#right-jkbut{float:left;margin-left:20px;}
+		#right-span{width:100%;height:auto;border:1px solid red;}
+		#total1{float:left;font-size:18px;width:100%;margin-top:50px;margin-left:10%;}
+		#total2{float:left;font-size:18px;width:100%;margin-top:10px;margin-left:40%;}
+		#total3{float:left;font-size:18px;width:100%;margin-top:10px;margin-left:10%;}
+		#total4{float:left;font-size:18px;width:100%;margin-top:10px;margin-left:40%;}
 		#down{width:100%;border-top:1px solid #DCDCDC;float:left;margin-top:20px;}
 		#down-one{margin-left:35.5%;margin-top:20px;}
 		#down-two{margin-left:37.3%;}
@@ -60,11 +64,11 @@
 	<div id="body">
 		<div id="top">
 			<div id="top-img">
-				<img src="../image/title2.png" />
+				<img src="../image/top.PNG" />
 			</div>			
 			<div id="top-menu">
 				<a href="/p2p/user/listpro.do">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="#">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="/p2p/user/listtouzi.do">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<span id="asd">我要借款&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 				<a href="/p2p/user/zxlpersonal.do">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;			
 			</div>
@@ -93,7 +97,7 @@
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								</div>
 								<div id="left-conqx">
-									<span id="left-span">借款期限</span>&nbsp;<span id="left-conspan">${user.lifeloan}</span>&nbsp;<span id="left-span">年</span>
+									<span id="left-span">借款期限</span>&nbsp;<span id="left-conspan">${user.lifeloan}</span>&nbsp;<span id="left-span">月</span>
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								</div>
 								<div id="left-conll">
@@ -108,13 +112,10 @@
 							</div>
 						</div>										
 					</div>	
+						
 				</c:forEach>
-
-
-
-
 				<div id="left-conbutton">
-					<button class="btn btn-default">查看更多</button>
+					<button id="more" class="btn btn-default">查看更多</button>
 				</div>	
 			</div>
 			<div id="content-right">
@@ -127,7 +128,18 @@
 					</div>
 				</div>
 				<div id="right-span">
-					
+					<div id="total1">
+						<span>累计投资笔数：</span>
+					</div>
+					<div id="total2">
+						<span>23</span><span>笔</span>
+					</div>
+					<div id="total3">
+						<span>总投资金额：</span>
+					</div>
+					<div id="total4">
+						<span>222,2222,00</span><span>元</span>
+					</div>
 				</div>
 					
 			</div>	
@@ -151,8 +163,12 @@
 </body>
 </html>
 <script>
+	$("#more").click(function(){
+		window.location.href="/p2p/user/listtouzi.do"
+	})
+
 	$("#asd").click(function(){
-		alert("123");
+		
 		$.ajax({
 			 type:"post",
 			// dataType:"json",
@@ -161,11 +177,11 @@
 			//data:str1,
 			 contentType:"application/json;charset=utf-8",
 			 success:function(dataa){
-				 alert(dataa);
+				
 				 if(dataa==null||dataa==""){
 					 window.location.href="../jsp/jiekuan.jsp";
 				 }else{
-					 alert("ssss");
+					
 					 window.location.href="../jsp/xiangmushenqing.jsp";
 				 }
 			 }
