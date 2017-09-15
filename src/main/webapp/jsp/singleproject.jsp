@@ -360,14 +360,36 @@
 </html>
 <script>
 	function check(){
-		
 		var mm=$("#npu").val();
 	
 		if(mm==""||mm==null){
 			alert("请输入金额");
 			return false;
+		}else{
+			var sp=$("#did");
+			var asspan=$("#asspan").html();
+			var reg=/^[0-9]*$/;
+			sp.empty();
+				if(mm<=0){
+					sp.html("请输入大于0的整数");
+					sp.css("color","red");
+					sp.css("text-align","center");
+					return false;
+				}else{
+					if(!reg.test(mm)){
+						sp.html("请输入正整数");
+						sp.css("color","purple");
+						return false;
+					}else{
+							if(mm>asspan){
+								$("#npu").val(asspan)	;
+								sp.html("金额不能大于当前项目剩余的最大金额");
+								sp.css("color","purple");
+							return false;
+						}
+					}
 		}
-	}
+	};
 
 	$("#npu").blur(function(){
 		var mm=$("#npu").val();
@@ -381,9 +403,9 @@
 			sp.css("color","red");
 			return false;
 		}else{
-			if(mm<100){
-				$("#npu").val(100);
-				sp.html("请输入大于100的整数");
+			if(mm<=0){
+				
+				sp.html("请输入大于0的整数");
 				sp.css("color","red");
 				sp.css("text-align","center");
 				return false;
@@ -407,7 +429,7 @@
 </script>
 <script>
 	$("#asd").click(function(){
-		alert("123");
+		
 		$.ajax({
 			 type:"post",
 			// dataType:"json",
@@ -416,11 +438,11 @@
 			//data:str1,
 			 contentType:"application/json;charset=utf-8",
 			 success:function(dataa){
-				 alert(dataa);
+				
 				 if(dataa==null||dataa==""){
 					 window.location.href="../jsp/jiekuan.jsp";
 				 }else{
-					 alert("ssss");
+					
 					 window.location.href="../jsp/xiangmushenqing.jsp";
 				 }
 			 }

@@ -9,12 +9,16 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.alibaba.fastjson.JSON;
+import com.entity.ZkjCapitalaverage;
 import com.entity.ZkjInvest;
+import com.entity.Zkjprojectrelease;
 import com.service.Zkjservicedao;
 import com.service.Zkjservicedaointerface;
 
@@ -83,7 +87,6 @@ public class Zkjcontrollerweb {
 		System.out.println(subjectid+"subjectid");
 		zz.setUsername(username); 
 		zz.setSubjectid(subjectid);
-		
 		ssdao.addinvest(zz,username);
 		return "zkjsuccess";
 	}
@@ -112,8 +115,16 @@ public class Zkjcontrollerweb {
 		return mm;
 	}
 	@RequestMapping("capital")
-	public void suancapital(){
-		
+	@ResponseBody
+	public String[] suancapital(@RequestBody String data){
+		ZkjCapitalaverage zz=JSON.parseObject(data, ZkjCapitalaverage.class);
+		System.out.println(zz.getLife()+"asda"+zz.getRate());
+		Capitalaverage cc=new Capitalaverage();
+		double monthIncome=cc.getPerMonthPrincipalInterest(zz.getMmoney(),zz.getRate()*12,zz.getLife());
+		double charge=zz.getMmoney()*0.01;
+		double totalmoney=zz.getMmoney()+cc.getInterestCount(zz.getMmoney(),zz.getRate()*12,zz.getLife());
+		String[] str=new String[]{Double.toString(monthIncome) ,Double.toString(charge),Double.toString(totalmoney)};
+		return str;
 	}
 
 }

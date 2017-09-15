@@ -171,12 +171,17 @@
 			<table>
 				<tr>
 					<td>
-					<h3>到期一次性还清</h3>
+					<h3>到期还款</h3>
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td id="benjin">
 						本金为：
+					</td>
+				</tr>
+				<tr >
+					<td id="meiyue">
+						每月还款
 					</td>
 				</tr>
 				<tr>
@@ -236,16 +241,20 @@ $("#ptojectname").blur(function(){
 	}
 });
 
-$("#rat").blur(function(){
+$("#rate").blur(function(){
 	var rate=$("#rate").val();
 	var life=$("#life").val();
 	var mmoney=$("mmoney").val();
+	var data={};
+	data["rate"]=rate;
+	data["life"]=life;
+	data["mmoney"]=mmoney;
 	$.ajax({
 		type:"post",
-		url:"",
+		url:"/p2p/zkj/capital.do",
 		data:JSON.stringify(data),
 		success :function(dataa){
-			
+			alert(dataa);
 		}
 		
 	});
