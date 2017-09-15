@@ -21,25 +21,7 @@
 			data-options="iconCls:'icon-add'">查看详情</a>
 </div>
 	<table id="proDataGrid">
-	
-		<%-- <c:forEach items="${lm }" var="m">
-			<tr>
-			<td><input type="text" size="5" name="xmid"
-				style="border:0px;background:rgba(0, 0, 0, 0);"
-				value="${m.projectid}"></td>
-				<td>${m.projectname}</td>
-				<td>${m.firststatus }</td>
-				<td>${m.firstdate }</td>
-				<td>${m.firstname }</td>
-				<td>${m.firstremarks }</td>
-				<td><input type="radio" value="1" name="xmstates" />同意
-				<input type="radio" value="0" name="xmstates" />拒绝</td>
-				<td><textarea name="note" cols=15 rows=1 id="reason"></textarea></td>
-				<td><button type="button" value="submit" class="btn default btn-xs" id="addsecond">审核</button></td>
-				<!-- <td><input type="button" value="详情" class="btn default btn-xs" id="selxm"></td> -->
-				<td><a href="http://localhost:9088/p2p/yx/xiang.do?projectid=${m.projectid}"style="font-size:16px;color:red">查看项目详情</a></td>
-			</tr>
-		</c:forEach> --%>
+
 	</table>
 <div id="dialog">
 			<form id="myform" method="post">
@@ -312,7 +294,8 @@ $(function(){
 									data["projectid"]=row[0].PROJECTID;
 									data["finalstatus"]=$("input[name='xmstates']:checked").val();
 									data["finalremarks"]=$("#reason").val(); 
-								
+									data["tworeason"]=$("#reason").val(); 
+									if(data.finalstatus=='1'){
 									$.ajax({
 										type : "post",
 										url : "/p2p/first/director.do",
@@ -338,9 +321,22 @@ $(function(){
 											}
 										}
 									});
+									}else{
+										$.ajax({
+											type : "post",
+											url : "/p2p/first/twofailed.do",
+											contentType :"application/json;charset=UTF-8",
+											data:JSON.stringify(data),
+											success : function(data3){
+												
+													alert("审核完成");
+													window.location.href="http://localhost:9088/p2p/jsp/first.jsp"
+													
+											}
+										});
 									}
-								},
-								{text : '关闭',
+								}
+							},{text : '关闭',
 								handler : function() {
 									alert("你确定取消吗？");
 									$('#dialog').dialog("close");

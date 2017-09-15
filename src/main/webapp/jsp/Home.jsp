@@ -16,7 +16,7 @@
 	<style type="text/css">
 		body{/* background-color:#F5F5F5; */}
 		#body{width:100%;height:auto;}
-		#top{width:76%;height:auto;align:center;margin-left:12%;float:left;}
+		#top{width:76%;height:auto;align:center;margin-left:11%;float:left;}
 		#top-img{float:left;}
 		#top-menu{float:left;margin-top:3.5%;margin-left:40px;}
 		#top-menu a{text-decoration:none;color:#333;font-size:18px;}
@@ -41,13 +41,13 @@
 	<div id="body">
 		<div id="top">
 			<div id="top-img">
-				<img src="../image/title2.png" />
+				<img src="../image/top.PNG" />
 			</div>			
 			<div id="top-menu">
 				<a href="#">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="#">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="#">我要借款</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="/p2p/user/zxlpersonal.do">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;						
+				<a href="">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;						
 			</div>
 			<div id="top-login">										
 				<button type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">注册</button>
@@ -201,19 +201,16 @@
 				data : JSON.stringify(data),
 				success : function(data1) {
 
-					if(data1=="no"){						
+					if(data1=="success"){						
 						window.location.href="/p2p/jsp/Home.jsp"
 					}
 					else{						
 						alert("用户名已注册！！！  ");
-					}
-
-				
+						window.location.href="/p2p/jsp/Home.jsp"
+					}			
 				},
 				error : function(){
 					alert("error");
-
-
 				}
 			}); 
   		})
@@ -222,6 +219,7 @@
   			var data={};
 			data["username"] = $("#username").val();
 			data["pwd"] = $("#possword").val();
+			alert($("#username").val());
 			$.ajax({
 				type : "post",
 				url : "/p2p/user/login.do", 

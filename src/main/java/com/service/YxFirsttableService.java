@@ -18,4 +18,12 @@ public interface YxFirsttableService {
 	public int addfa(YxFabu yb);
 	//发布项目成功后，更新项目状态
 	public void updatefina(int id);
+	//初审失败插入到项目表
+	public void onexmm(YxFabu yb);
+	//初审失败数据插入成功改状态
+	public void updatexmm(int id);
+	//终审失败插入到项目表
+	public void twoxmm(YxFabu yf);
+	//终审失败数据插入成功改状态
+	public void updatetxm(int id);
 }

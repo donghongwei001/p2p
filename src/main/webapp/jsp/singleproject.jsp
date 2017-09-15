@@ -171,29 +171,29 @@
 				
 		<span>	
 		
-		<c:if test="${li.PROJECTTYPE ==1}">建筑类</c:if> 
-		<c:if test="${li.PROJECTTYPE==2 }">科学类</c:if>
-		<c:if test="${li.PROJECTTYPE ==3}">医药类</c:if>
-		<c:if test="${li.PROJECTTYPE ==4}">金融类</c:if>
-		<c:if test="${li.PROJECTTYPE==5 }">食品类</c:if>
-		<c:if test="${li.PROJECTTYPE==6 }">军火类</c:if>
-			&nbsp;		&nbsp;	&nbsp;	&nbsp;<b>${li.PROJECTNAME }</b></span><br/>
+		<c:if test="${li.projecttype ==1}">建筑类</c:if> 
+		<c:if test="${li.projecttype==2 }">科学类</c:if>
+		<c:if test="${li.projecttype ==3}">医药类</c:if>
+		<c:if test="${li.projecttype ==4}">金融类</c:if>
+		<c:if test="${li.projecttype==5 }">食品类</c:if>
+		<c:if test="${li.projecttype==6 }">军火类</c:if>
+			&nbsp;		&nbsp;	&nbsp;	&nbsp;<b>${li.projectname }</b></span><br/>
 					
-					<div id="ddm"><span>借款期限</span><br/>${li.LIFELOAN}<br/>个月</div>
-					<div id="dda"><span>收益率</span><br/>${ratemoney } &#37;</div>
-					<div id="ddb"><span>借款金额</span><br/>${li.MONEY }<br/>元</div>
+					<div id="ddm"><span>借款期限</span><br/>${li.lifeloan}<br/>个月</div>
+					<div id="dda"><span>收益率</span><br/>${li.ratemoney } &#37;</div>
+					<div id="ddb"><span>借款金额</span><br/>${li.money }<br/>元</div>
 					<div id="ddc"><span>最少借款金额</span><br/>100<br/>元</div>
 					<br/>
 					
 				
 				</div>
 			<div id="mmo">
-			<form action="/p2p/zkj/money.do?subjectid=${li.ID }" method="post"   onsubmit="return check(this)">
+			<form action="/p2p/zkj/money.do?subjectid=${li.id }" method="post"   onsubmit="return check(this)">
 				<div>剩余可投资金额：<span id="asspan">${surplusmoney }</span>元</div>
 				<br/>
 				<div class="input-group" id="ind">
 				  <span class="input-group-addon" id="basic-addon1">￥</span>
-				  <input type="text" class="form-control" placeholder="请输入投资金额" id="npu" onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');" aria-describedby="basic-addon1">
+				  <input type="text" class="form-control" name="money" placeholder="请输入投资金额" id="npu" onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');" aria-describedby="basic-addon1">
 				  <br/>
 				</div>
 				<i id="did"></i><br/>
@@ -322,7 +322,7 @@
 								    	</tr>
 							    	<c:forEach items="${selectinvestinformation}" var="li">
 								    	<tr>
-								    		<td class="yyyy" >${li.USERNAME }</td><td class="yyyy" >${li.MONEY }元</td><td class="yyyy"><fmt:formatDate value="${li.TIME }" pattern="yyyy年MM月mm分"/> </td>
+								    		<td class="yyyy" >${li.USERNAME }</td><td class="yyyy" >${li.MONEY }元</td><td class="yyyy"><fmt:formatDate value="${li.TIME }" pattern="yyyy年MM月dd日  "/> </td>
 								    	</tr>
 							  
 					    			</c:forEach>
@@ -404,4 +404,27 @@
 	
 		
 });
+</script>
+<script>
+	$("#asd").click(function(){
+		alert("123");
+		$.ajax({
+			 type:"post",
+			// dataType:"json",
+			 url:"/p2p/add/name.do",
+			// data:JSON.stringify(row),
+			//data:str1,
+			 contentType:"application/json;charset=utf-8",
+			 success:function(dataa){
+				 alert(dataa);
+				 if(dataa==null||dataa==""){
+					 window.location.href="../jsp/jiekuan.jsp";
+				 }else{
+					 alert("ssss");
+					 window.location.href="../jsp/xiangmushenqing.jsp";
+				 }
+			 }
+		 });
+	});
+	
 </script>

@@ -15,7 +15,7 @@
 		body{/* background-color:#F5F5F5; */}
 		div a{text-decoration:none;}
 		#body{width:100%;height:auto;}
-		#top{width:76%;height:auto;align:center;margin-left:12%;float:left;}
+		#top{width:76%;height:auto;align:center;margin-left:11%;float:left;}
 		#top-img{float:left;}
 		#top-menu{float:left;margin-top:3.5%;margin-left:40px;}
 		#top-menu a{text-decoration:none;color:black;font-size:18px;}
@@ -69,11 +69,11 @@
 	<div id="body">
 		<div id="top">
 			<div id="top-img">
-				<img src="../image/title2.png" />
+				<img src="../image/top.PNG" />
 			</div>			
 			<div id="top-menu">
 				<a href="/p2p/user/listpro.do">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="#">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="/p2p/user/listtouzi.do">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<span id="asd">我要借款&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 				<a href="/p2p/user/zxlpersonal.do">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;						
 			</div>
@@ -95,7 +95,7 @@
 					<div id="left3"><a href="/p2p/user/mytouzi.do">我的投资</a></div>
 					<div id="left4"><a href="/p2p/user/myhuankuan.do">我的还款</a></div>
 					<div id="left5"><a href="/p2p/user/mypersonal.do">个人信息</a></div>
-					<div id="left6"><a href="/p2p/user/updatepwd.do">修改密码</a></div>
+					<div id="left6"><a href="/p2p/jsp/myupdatepwd.jsp">修改密码</a></div>
 				</div>
 			
 				<div id="content-right">

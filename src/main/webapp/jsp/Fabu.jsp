@@ -5,7 +5,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Insert title here</title>
 <script src="../easyui/js/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="../easyui/css/icon.css" />
@@ -15,34 +15,26 @@
 <script type="text/javascript" src="../easyui/js/easyui-lang-zh_CN.js"></script>
 </head>
 <body>
+<div id="toolbar">
+		<a id="fabu"
+			href="javascript:void(0)" class="easyui-linkbutton"
+			data-options="iconCls:'icon-add'">发布项目</a>
+		<a id="xiajia"
+			href="javascript:void(0)" class="easyui-linkbutton"
+			data-options="iconCls:'icon-remove'">项目下架</a>
+	</div>
 	<table id="proDataGrid"> 
-		<c:forEach items="${lm}" var="lm">
-			<tr>
-				<td><input type="text" size="5" name="faid"
-				style="border:0px;background:rgba(0, 0, 0, 0);"
-				value="${lm.PROJECTID}"></td>
-				<td>${lm.USERNAME}</td>
-				<td>${lm.PROJECTNAME}</td>
-				<td>${lm.NAME}</td>
-				<td>${lm.LOCATION}</td>
-				<td>${lm.MONEY}</td>
-				<td><input id="dd" type="text" name="shijian"></input></td>
-				<td><input type="button" value="发布" class="btn default btn-xs" id="sal"></td>
-			</tr>
-		</c:forEach>
+
 	</table>
 	<table id="dg">
-		<tr>
-			<td></td>
-		</tr>
-		
+	
 	</table>
 </body>
 </html>
 <script type="text/javascript">
 $(function(){
 	$('#proDataGrid').datagrid({
-	url : 'http://localhost:9088/p2p/yx/fabu.do',
+	url : 'http://localhost:9088/p2p/yx/fa.do',
 	// data:data,
 	fitColumns : true,//自动适应网格宽度
 	striped : true,//显示斑马线
@@ -52,8 +44,8 @@ $(function(){
 	rownumbers : true,
 	singleSelect : false,
 	pagination : true,
-	pageSize : 20,
-	pageList : [ 20, 40, 60 ],
+	pageSize : 5,
+	pageList : [ 5, 10, 15 ],
 	toolbar : "#toolbar",
 
 	columns : [ [{
@@ -81,32 +73,36 @@ $(function(){
 		width : 120
 	},{
 		field : 'MONEY',
-		title : '金额',
+		title : '申请金额',
 		width : 200
 	},{
-		field : 'SHIJIAN',
-		title : '截止日期',
-		width : 200
-	},{
-		field : 'CAOZUO',
-		title : '操作',
-		width : 200
+		field : 'POSTSTATUS',
+		title : '状态',
+		width : 200,
+		formatter: function(value,row,index){
+            if (row.POSTSTATUS=='5'){
+                return "发布中";
+            }else if(row.POSTSTATUS=='12'){
+                return "待发布";
+            }else{
+            	return "已下架";
+            }
+        }
 	}] ]
 });
 	//////////////////
-	$('#dd').datebox({    
-	    required:true   
-	});
-	///////////////
-	
-	$("#sal").click(function(){
-		alert("333");
+
+	 
+	$("#fabu").click(function(){
+		var row = $('#proDataGrid').datagrid("getSelections");
+		if (row.length==1) {
+			//var index=row[0].PROJECTID;
 		var data={};
-		data["projectid"]=$('input[name="faid"]').val();
-		data["lasttime"]=$('input[name="shijian"]').val();
-		//data["poststatus"]=$("input[name='lstates']:checked").val();
+		data["projectid"]=row[0].PROJECTID;
+		//data["poststatus"]=row[6].POSTSTATUS;
 		alert(data.projectid);
-		alert(data.lasttime);
+		
+		if (window.confirm('确定发布吗？')) {
 		$.ajax({
 			type : "post",
 			url : "/p2p/first/addfa.do",
@@ -114,10 +110,15 @@ $(function(){
 			data:JSON.stringify(data),
 			success : function(data1){
 				alert("发布成功");
-				window.location.href="http://localhost:9088/p2p/yx/fa.do"
+				window.location.href="http://localhost:9088/p2p/jsp/Fabu.jsp"
 			}
 		});
+		}
 		
+		}else{
+			alert("请选择要发布的项目");
+		}
 	});
+	
 });
 </script>

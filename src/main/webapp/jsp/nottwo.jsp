@@ -197,11 +197,11 @@ $(function(){
 		title : '终审时间',
 		width : 200
 	},{
-		field : 'FINALNAME',
+		field : 'TWOPERSON',
 		title : '审核人',
 		width : 200
 	},{
-		field : 'FINALREMARKS',
+		field : 'TWOREASON',
 		title : '审核意见',
 		width : 200
 	}] ]

@@ -9,13 +9,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dao.Zkjdao;
+import com.dao.Zkjdaointerface;
 import com.entity.ZkjInvest;
 import com.entity.Zkjproject;
+import com.entity.Zkjtom;
 import com.service.Zkjservicedao;
 @Service
 public class Zkjserviceimpl implements Zkjservicedao {
 	@Autowired
 	private Zkjdao dao;
+	@Autowired
+	private Zkjdaointerface ssdao;
 	@Override
 	public void saveproject(Zkjproject pp,String name) {
 		// TODO Auto-generated method stub
@@ -64,11 +68,26 @@ public class Zkjserviceimpl implements Zkjservicedao {
 		// TODO Auto-generated method stub
 		
 		int id=dao.quertuserid(name);
-		SimpleDateFormat sm=new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat sm=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String timm=sm.format(new Date());
 		zz.setInvestorid(id);
 		zz.setTime(timm);
 		dao.saveinvest(zz);
+		Zkjtom zt=new Zkjtom();
+		
+		Integer investmoney=ssdao.totalmoneyinvest(zz.getSubjectid());
+		
+		Integer loanmoney=ssdao.loanmoney(zz.getSubjectid());
+		System.out.println(investmoney+"investmoney");
+		System.out.println(loanmoney+"loanmoney");
+		if(investmoney==null){
+			investmoney=0;
+		}
+		int surplusinvest=loanmoney-investmoney;
+		
+		zt.setNowmoney(surplusinvest);
+		zt.setProjectid(zz.getSubjectid());
+		dao.updateprojectrelease(zt);
 	}
 	@Override
 	public String queryname(String name) {

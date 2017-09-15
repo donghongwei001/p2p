@@ -259,7 +259,11 @@
 										data["projectid"]=row[0].ID;
 										data["firststatus"]=$("input[name='xmstates']:checked").val();
 										data["firstremarks"]=$("#reason").val();
-									
+										data["onereason"]=$("#reason").val();
+									/* 	alert(data.firststatus);
+										alert(data.firstremarks);
+										alert(data.onereason); */
+										if(data.firststatus=='1'){
 										$.ajax({
 											type : "post",
 											url : "/p2p/first/shenhe.do",
@@ -285,6 +289,36 @@
 												}
 											}
 										});
+										}else{
+											$.ajax({
+												type : "post",
+												url : "/p2p/first/onefailed.do",
+												contentType :"application/json;charset=UTF-8",
+												data:JSON.stringify(data),
+												success : function(data3){
+													
+														alert("审核完成");
+														window.location.href="http://localhost:9088/p2p/jsp/one.jsp"
+												/* 		var row = $('#proDataGrid').datagrid("getSelections");
+														var data={};
+														data["id"]=row[0].ID;
+														$.ajax({
+															type : "post",
+															url : "/p2p/first/updatestatus.do",
+															contentType :"application/json;charset=UTF-8",
+															data:JSON.stringify(data),
+															success : function(data2){
+																if(data2=="ture"){
+																	
+																}
+														}
+															}) */
+														
+													//}
+														
+												}
+											});
+										}
 									}
 								},{text : '关闭',
 									handler : function() {

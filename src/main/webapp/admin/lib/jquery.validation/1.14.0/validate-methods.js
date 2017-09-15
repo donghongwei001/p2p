@@ -197,6 +197,7 @@ else {
 		//alert("输入的数字位数不对。"); 
 		return false;
 	} 
+
  var a = num.match(re); 
  if (a != null) 
 {
@@ -211,6 +212,22 @@ var D = new Date(a[3]+"/"+a[4]+"/"+a[5]);
 var B = D.getFullYear()==a[3]&&(D.getMonth()+1)==a[4]&&D.getDate()==a[5]; 
 }
  if (!B) {
+
+　  var a = num.match(re); 
+　　 if (a != null) 
+　　 { 
+　　 if (len==15) 
+　　 { 
+　　 var D = new Date("19"+a[3]+"/"+a[4]+"/"+a[5]); 
+　　 var B = D.getYear()==a[3]&&(D.getMonth()+1)==a[4]&&D.getDate()==a[5]; 
+　　 } 
+　　 else 
+　　 { 
+　　 var D = new Date(a[3]+"/"+a[4]+"/"+a[5]); 
+　　 var B = D.getFullYear()==a[3]&&(D.getMonth()+1)==a[4]&&D.getDate()==a[5]; 
+　　 }  
+　　 if (!B) {
+
 		//alert("输入的身份证号 "+ a[0] +" 里出生日期不对。"); 
 		return false;
 	} 
@@ -222,3 +239,4 @@ if(!re.test(num)){
 	}
 return true; 
 }
+ 

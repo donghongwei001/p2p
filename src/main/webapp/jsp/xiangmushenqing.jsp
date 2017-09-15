@@ -19,7 +19,7 @@
 	<style type="text/css">
 		body{/* background-color:#F5F5F5; */}
 		#body{width:100%;height:auto;}
-		#top{width:76%;height:auto;align:center;margin-left:12%;float:left;}
+		#top{width:76%;height:auto;align:center;margin-left:11%;float:left;}
 		#top-img{float:left;}
 		#top-menu{float:left;margin-top:3.5%;margin-left:40px;}
 		#top-menu a{text-decoration:none;color:black;font-size:18px;}
@@ -43,7 +43,18 @@
 			width:auto;
 			border:1px solid red;
 		}
-		
+		#content{
+			float:left;
+			
+			width:600px;
+		}
+		#disc{
+			border:1px solid blue;
+			width:400px;
+			height:500px;
+			float:left;
+			display:none;
+		}
 	</style>
 	
 	
@@ -53,17 +64,17 @@
 	<div id="body">
 		<div id="top">
 			<div id="top-img">
-				<img src="../image/title2.png" />
+				<img src="../image/top.PNG" />
 			</div>			
 			<div id="top-menu">
-				<a href="http://localhost:9088/p2p/user/listpro.do">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="#">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="/p2p/user/listpro.do">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="/p2p/user/listtouzi.do">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<span id="asd">我要借款&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-				<a href="/p2p/user/personal.do">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;			
+				<a href="/p2p/user/zxlpersonal.do">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;			
 			</div>
 			<div id="top-login">										
-				欢迎<a href="http://localhost:9088/p2p/jsp/personal.jsp">${abcd}</a>!加入宜人贷&nbsp;&nbsp;&nbsp;&nbsp;
-				<a>帮助</a><span>|</span><a href="http://localhost:9088/p2p/jsp/Home.jsp">退出</a>
+				欢迎<a href="/p2p/user/zxlpersonal.do">${abcd}</a>!加入宜人贷&nbsp;&nbsp;&nbsp;&nbsp;
+				<a>帮助</a><span>|</span><a href="/p2p/jsp/Home.jsp">退出</a>
 			</div>
 		</div>
 		
@@ -74,17 +85,17 @@
 		</div>
 			
 		<div id="content">
-			<form class="form-horizontal" name="myform" action="/p2p/zkj/project.do" method="post" enctype="multipart/form-data">
+			<form class="form-horizontal" name="myform" action="/p2p/add/project.do" method="post" enctype="multipart/form-data">
 				<div class="form-group">
 					<label for="inputEmail3" style="font-size:16px;" class="col-sm-2 control-label">项目名称</label>
-					<div class="col-sm-5">
+					<div class="col-sm-9">
 						<input type="text" class="form-control" id="ptojectname" name="projectname"><span id="absf"></span>
 					</div>
 					
 				 </div>
 				 <div class="form-group">
 					<label for="input3" style="font-size:16px;" class="col-sm-2 control-label">项目类型</label>
-					<div class="col-sm-5">
+					<div class="col-sm-9">
 						<select class="form-control" name="projecttype" >
 							<option   value=1>建筑</option>
 							<option   value=2>科学</option>
@@ -95,7 +106,7 @@
 				 </div>
 				 <div class="form-group">
 					<label for="inputE" style="font-size:16px;" class="col-sm-2 control-label">项目地点</label>
-					<div class="col-sm-5 " >
+					<div class="col-sm-9" >
 						 <div id="distpicker2">
 							  <select name="location1" class="form-control "  id="s1"></select>
 							  <select name="location2" class="form-control" id="s2"></select>
@@ -107,7 +118,7 @@
 				
 				 <div class="form-group">
 				 	<label for="inputEm" style="font-size:16px;" class="col-sm-2 control-label">申请金额</label>
-				 <div class="col-lg-5">
+				 <div class="col-lg-9">
 					    <div class="input-group">
 					      <input type="text" class="form-control" name="money"  id="mmoney" placeholder="例如：10000" onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');">
 					      <span class="input-group-btn">
@@ -123,7 +134,7 @@
 				 
 				 <div class="form-group">
 					<label for="input2" style="font-size:16px;" class="col-sm-2 control-label">借款期限</label>
-					<div class="col-sm-5">
+					<div class="col-sm-9">
 						
 						<select class="form-control" name="lifeloan" >
 							<option   value=6>6个月</option>
@@ -135,10 +146,24 @@
 				 </div>
 				 <div class="form-group">
 					<label for="input2" style="font-size:16px;" class="col-sm-2 control-label">利率</label>
-					<div class="col-sm-5">
+					<div class="col-sm-9">
 						<input type="text" class="form-control" id="input2" name="ratemoney" placeholder="例如：0.001" >
 					</div>
 				 </div>
+				 
+				 <div class="form-group">
+					<label for="input2" style="font-size:16px;" class="col-sm-2 control-label">还款期限</label>
+					<div class="col-sm-9">
+						
+						<select class="form-control" name="lifeloan" >
+							<option   va>一次性还清</option>
+							<option   value=12>12个月</option>
+							
+							
+						</select>
+					</div>
+				 </div>
+				 
 				 <div class="form-group">
 					<label for="inputEmail3" style="font-size:16px;" class="col-sm-2 control-label">附件</label>
 					<div class="input-group " >
@@ -153,6 +178,36 @@
 				 </div>	
 				 <input type="submit"/>
 			</form>			
+		</div>
+		<div id="disc">
+			<table>
+				<tr>
+					<td>
+					<h3>到期一次性还清</h3>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						本金为：
+					</td>
+				</tr>
+				<tr>
+					<td>
+					总利息为：
+					</td>
+				</tr>
+				<tr>
+					<td>
+						手续费为：
+					</td>
+				</tr>
+				<tr>
+					<td>
+						总共应还：
+					</td>
+				</tr>
+			
+			</table>
 		</div>
 		
 		<div id="down">
@@ -177,7 +232,7 @@
 
 <script>
 $("#ptojectname").blur(function(){
-	alert("asd");
+	
 	var pp=$("#ptojectname").val();
 	var asd=$("#absf");
 	var qwe= /[\u4e00-\u9fa5]/;

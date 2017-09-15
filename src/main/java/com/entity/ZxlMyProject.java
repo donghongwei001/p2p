@@ -11,7 +11,7 @@ public class ZxlMyProject {
 	String time;//申请时间
 	String name;//项目类型表名称
 	String lifeloan;//借款期限
-	String ratemoney;//利率
+	double ratemoney;//利率
 	String location;//项目地点
 	String aduitstate;
 	String codename;
@@ -57,11 +57,12 @@ public class ZxlMyProject {
 	public void setLifeloan(String lifeloan) {
 		this.lifeloan = lifeloan;
 	}
-	public String getRatemoney() {
+
+	public double getRatemoney() {
 		return ratemoney;
 	}
-	public void setRatemoney(String ratemoney) {
-		this.ratemoney = ratemoney;
+	public void setRatemoney(double ratemoney) {
+		this.ratemoney = ratemoney*100;
 	}
 	public String getCodename() {
 		return codename;

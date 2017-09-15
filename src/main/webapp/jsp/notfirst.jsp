@@ -198,11 +198,11 @@ $(function(){
 		title : '初审时间',
 		width : 200
 	},{
-		field : 'FIRSTNAME',
+		field : 'ONEPERSON',
 		title : '审核人',
 		width : 200
 	},{
-		field : 'FIRSTREMARKS',
+		field : 'ONEREASON',
 		title : '审核意见',
 		width : 200
 	}] ]
