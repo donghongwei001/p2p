@@ -7,9 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dao.YxExamineDao;
+import com.entity.Fabu;
 import com.entity.Outtime;
-import com.entity.YxExamine;
-import com.entity.YxFirst;
 import com.service.YxExamineService;
 
 

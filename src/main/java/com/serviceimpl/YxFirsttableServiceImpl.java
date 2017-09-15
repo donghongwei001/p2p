@@ -65,5 +65,37 @@ public class YxFirsttableServiceImpl implements YxFirsttableService {
 		firdao.updatefinal(id);
 	
 	}
+	/**
+	 * 初审失败插入到项目表
+	 */
+	@Override
+	public void onexmm(YxFabu yb) {
+		// TODO Auto-generated method stub
+		 firdao.onexm(yb);
+	}
+	/**
+	 * 初审失败数据插入成功改状态
+	 */
+	@Override
+	public void updatexmm(int id) {
+		// TODO Auto-generated method stub
+		firdao.updatexm(id);
+	}
+	/**
+	 * 终审失败插入到项目表
+	 */
+	@Override
+	public void twoxmm(YxFabu yf) {
+		// TODO Auto-generated method stub
+		firdao.twoxm(yf);
+	}
+	/**
+	 * 终审失败数据插入成功改状态
+	 */
+	@Override
+	public void updatetxm(int id) {
+		// TODO Auto-generated method stub
+		firdao.updatetxmm(id);
+	}
 
 }

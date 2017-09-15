@@ -5,7 +5,11 @@
 
 
 	<display-name>Archetype Created Web Application</display-name>
+<<<<<<< HEAD
     <context-param>
+=======
+	<context-param>
+>>>>>>> branch 'master' of https://github.com/donghongwei001/p2p.git
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:spring/spring-*.xml</param-value>
 	</context-param>
