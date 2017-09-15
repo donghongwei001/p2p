@@ -9,16 +9,12 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.entity.Fabu;
 import com.entity.Outtime;
-import com.entity.Page;
-import com.entity.Pageresult;
-import com.entity.YxExamine;
-import com.entity.YxFirst;
 import com.service.YxExamineService;
 
 @Controller
@@ -118,12 +114,11 @@ public class YxExamineController {
 	 * @return
 	 */
 		@RequestMapping(value="/fa")
-		public ModelAndView queryfafa(){
+		@ResponseBody
+		public List<Map> queryfafa(){
 			List<Map> lm=yxservice.queryfa();
-			ModelAndView mm=new ModelAndView();
-			mm.addObject("lm", lm);
-			mm.setViewName("Fabu");
-			return mm;
+			
+			return lm;
 		}
 		/**
 		 * 查询第一次审核没通过的项目
@@ -136,7 +131,7 @@ public class YxExamineController {
 			List<Map> lp=yxservice.querynotone();
 			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 			for (int i = 0; i < lp.size(); i++) {
-				String time=simpleDateFormat.format(lp.get(i).get("FIRSTDATE"));
+				String time=simpleDateFormat.format(lp.get(i).get("BEGINTIME"));
 				lp.get(i).put("time1", time);
 				
 			}
@@ -153,7 +148,7 @@ public class YxExamineController {
 			List<Map> mp=yxservice.querytwo();
 			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 			for (int i = 0; i < mp.size(); i++) {
-				String time=simpleDateFormat.format(mp.get(i).get("FINALDATE"));
+				String time=simpleDateFormat.format(mp.get(i).get("BEGINTIME"));
 				mp.get(i).put("time1", time);
 				
 			}

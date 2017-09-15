@@ -76,7 +76,7 @@ public class YxFirsttableController {
 		yt.setFinaldate(date);
 		DhwEmpTab use=(DhwEmpTab) request.getSession().getAttribute("user");
 		yt.setFinalname(use.getEmpname());
-		yt.setPoststatus(1);
+		
 		int flag=firservice.addseconds(yt);
 		try{
 			if(flag==1){
@@ -89,6 +89,40 @@ public class YxFirsttableController {
 		}catch(Exception e){
 			
 		}
+	}
+	/**
+	 * 初审失败的插入到项目表
+	 * @param json
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(value="/onefailed")
+	@ResponseBody
+	public void onefail(@RequestBody String json,HttpServletRequest request){
+		YxFabu yb=JSON.parseObject(json,YxFabu.class);
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		String date=simpleDateFormat.format(new Date());
+		yb.setBegintime(date);
+		DhwEmpTab usera=(DhwEmpTab)request.getSession().getAttribute("user");
+		yb.setOneperson(usera.getEmpname());
+		int id=yb.getProjectid();
+		firservice.updatexmm(id);
+		firservice.onexmm(yb);
+		}
+		
+	@RequestMapping(value="/twofailed")
+	@ResponseBody
+	public void twofail(@RequestBody String json,HttpServletRequest request){
+		YxFabu yb=JSON.parseObject(json,YxFabu.class);
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		String date=simpleDateFormat.format(new Date());
+		yb.setBegintime(date);
+		DhwEmpTab usera=(DhwEmpTab)request.getSession().getAttribute("user");
+		yb.setTwoperson(usera.getEmpname());
+		int id=yb.getProjectid();
+		firservice.updatetxm(id);
+		firservice.twoxmm(yb);
+
 	}
 	/**
 	 * 更新项目申请表的状态
@@ -132,26 +166,17 @@ public class YxFirsttableController {
 	 */
 	@RequestMapping(value="/addfa")
 	@ResponseBody
-	public String addfafa(@RequestBody String json){
+	public int addfafa(@RequestBody String json){
 		YxFabu yf=JSON.parseObject(json,YxFabu.class);
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		String date=simpleDateFormat.format(new Date());
 		System.out.println(date);
 		yf.setBegintime(date);
-		yf.setNowmoney(0);
-		yf.setContent("测试用的");
-		yf.setPicture("图");
-		yf.setStatus(5);
-		yf.setMinmoney(100);
 		int id=yf.getProjectid();
 		firservice.updatefina(id);
 		System.out.println(id+"id");
 		int flag=firservice.addfa(yf);
-		if(flag>0){
-			return "oo";
-		}else{
-			return "nn";
-		}
+		return flag;
 	
 	}
 	/**
@@ -166,5 +191,15 @@ public class YxFirsttableController {
 		return null;
 		
 	}
- 
+	/**
+	 * 更新发布状态
+	 * @param json
+	 * @return
+	 */
+	@RequestMapping(value="updatex")
+	@ResponseBody
+	public String updatexx(@RequestBody String json){
+		YxFabu yf=JSON.parseObject(json,YxFabu.class);
+		return null;
+	}
 }

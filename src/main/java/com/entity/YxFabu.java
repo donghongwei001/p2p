@@ -9,6 +9,10 @@ public class YxFabu {
 	String picture; //ͼƬ
 	int status; //״̬
 	int minmoney;
+	String oneperson;
+	String onereason;
+	String twoperson;
+	String tworeason;
 	public int getProjectid() {
 		return projectid;
 	}
@@ -57,6 +61,31 @@ public class YxFabu {
 	public void setMinmoney(int minmoney) {
 		this.minmoney = minmoney;
 	}
+	public String getOneperson() {
+		return oneperson;
+	}
+	public void setOneperson(String oneperson) {
+		this.oneperson = oneperson;
+	}
+	public String getOnereason() {
+		return onereason;
+	}
+	public void setOnereason(String onereason) {
+		this.onereason = onereason;
+	}
+	public String getTwoperson() {
+		return twoperson;
+	}
+	public void setTwoperson(String twoperson) {
+		this.twoperson = twoperson;
+	}
+	public String getTworeason() {
+		return tworeason;
+	}
+	public void setTworeason(String tworeason) {
+		this.tworeason = tworeason;
+	}
+	
 	
 	
 }
