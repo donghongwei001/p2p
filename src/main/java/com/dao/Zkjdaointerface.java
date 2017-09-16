@@ -3,6 +3,7 @@ package com.dao;
 import java.util.List;
 import java.util.Map;
 
+import com.entity.Zkjinvestor;
 import com.entity.Zkjprojectrelease;
 
 public interface Zkjdaointerface {
@@ -16,5 +17,8 @@ public interface Zkjdaointerface {
 	public List<Map> investinformation(int id);//根据项目id查询项目信息
 	public List<Map> selectinvestinformation(int id);//根据项目id查询投标记录
 	public void updateprojectrelease(Zkjprojectrelease zz);//更新项目发布表的剩余要投资的资金
+	public void saveinvestor(Zkjinvestor zz);//插入投资人的身份认证
+	public String selectinvector(int id);//根据用户id查询投资人的name
+	public int selectuseri(String name);//根据用户名查勋ID
 }
 

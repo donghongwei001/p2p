@@ -32,4 +32,13 @@
 	<update id="updateprojectrelease" parameterType="Zkjprojectrelease">
 		update projectrelease set nowmoney=#{money} where projectid=#{id} 
 	</update>
+	<insert id="saveinvestor" parameterType="Zkjinvestor">
+		insert into investor (id,name,sex,idcard,telphone,banknumber)values(#{id},#{name},#{sex},#{idcard},#{telphone},#{banknumber})
+	</insert>
+	<select id="selectinvector" parameterType="int" resultType="String">
+		select name from investor where id=#{id}
+	</select>
+	<select id="selectuseri" parameterType="String" resultType="int">
+		select userid from usertable where username=#{name}
+	</select>
 </mapper>

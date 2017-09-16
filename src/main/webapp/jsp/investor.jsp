@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <script src="../easyui/js/jquery.min.js"></script>
 <title>index</title>
+	<link rel="stylesheet" type="text/css" href="../bootstrap/css/build.css">
 	<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="../easyui/js/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')</script>
@@ -53,6 +54,11 @@
 		#down-two{margin-left:37.3%;}
 		#down-three{margin-left:41%;margin-bottom:20px;}
 		#input-btu{margin-left:250px;}
+		#submit{margin-left:28%;}
+		#content{
+			margin-left:18%;
+			width:600px;
+		}
 	</style>
 	
 	<script type="text/javascript">
@@ -80,82 +86,54 @@
 		</div>
 		
 		<div id="content">
-			<form class="form-horizontal" name="myform" action="/p2p/add/project.do" method="post" enctype="multipart/form-data">
+			<form class="form-horizontal" name="myform" action="/p2p/" method="post" >
 				<div class="form-group">
 					<label for="inputEmail3" style="font-size:16px;" class="col-sm-2 control-label">姓名：</label>
-					<div class="col-sm-9">
-						<input type="text" class="form-control" id="ptojectname" name="name" /><span id="absf"></span>
+					<div class="col-sm-8">
+						<input type="text" class="form-control" id="name" name="name" placeholder="王五"/><span id="qwe"></span>
 					</div>
 					
 				 </div>
 				 <div class="form-group">
 					<label for="input3" style="font-size:16px;" class="col-sm-2 control-label">性别:</label>
-					<div class="col-sm-9">
-						<input type="radio" class="form-control"  name="sex">
-						<input type="radio" class="form-control"  name="sex">
-					</div>
+					<fieldset>
+					 <div class="radio radio-info radio-inline">
+		                    &nbsp; &nbsp;&nbsp;&nbsp;   <input type="radio" id="inlineRadio1" value="男" name="sex" checked>
+		                        <label for="inlineRadio1"> 男 </label>
+		                    </div>
+		                    <div class="radio radio-inline">
+		                        <input type="radio" id="inlineRadio2" value="女" name="sex" >
+		                        <label for="inlineRadio2"> 女 </label>
+		                    </div>
+		                    </fieldset>
 				 </div>
+				
+				
 				 <div class="form-group">
-					<label for="inputE" style="font-size:16px;" class="col-sm-2 control-label">项目地点</label>
-					<div class="col-sm-9" >
-						 <div id="distpicker2">
-							  <select name="location1" class="form-control "  id="s1"></select>
-							  <select name="location2" class="form-control" id="s2"></select>
-							  <select name="location3" class="form-control" id="s3" ></select>
+				 	<label for="inputEm" style="font-size:16px; width:auto;" class="col-sm-2 control-label">身份证号码：</label>
+						<div class="col-sm-8">
+								<input type="text" class="form-control" id="idcard" name="idcard" placeholder="142424199307545854" ><scpan id="qwr"></scpan>
 						</div>
-						
-					</div>
-				 </div>
-				
-				 <div class="form-group">
-				 	<label for="inputEm" style="font-size:16px;" class="col-sm-2 control-label">申请金额</label>
-				 <div class="col-lg-9">
-					    <div class="input-group">
-					      <input type="text" class="form-control" name="money"  id="mmoney" placeholder="例如：10000" onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');">
-					      <span class="input-group-btn">
-					        <button class="btn btn-default"   type="button">元</button>
-					      </span><br/>
-					     
-					    </div><!-- /input-group -->
-					    <div><span id="sp"></span></div> 
- 				 </div>
 				 </div>
 				 
 				 
 				 
 				 <div class="form-group">
-					<label for="input2" style="font-size:16px;" class="col-sm-2 control-label">借款期限</label>
-					<div class="col-sm-9">
-						
-						<select class="form-control" id="life" name="lifeloan" >
-							<option   value=6>6个月</option>
-							<option   value=12>12个月</option>
-							<option   value=12>18个月</option>
-							<option   value=24>24个月</option>
-						</select>
+					<label for="input2" style="font-size:16px;" class="col-sm-2 control-label">手机号码</label>
+					<div class="col-sm-8">
+						<input type="text" class="form-control" id="iphone" name="iphone" placeholder="18135930755" ><scpan></scpan>
 					</div>
 				 </div>
 				 <div class="form-group">
-					<label for="input2" style="font-size:16px;" class="col-sm-2 control-label">月利率</label>
-					<div class="col-sm-9">
-						<input type="text" class="form-control" id="rate" name="ratemoney" placeholder="例如：0.001" >
+					<label for="input2" style="font-size:16px;width:auto" class="col-sm-2 control-label">银行卡号：</label>
+					<div class="col-sm-8">
+						<input type="text" class="form-control" id="bankcard" name="bankcard" placeholder="6227002090170455454" ><scpan></scpan>
 					</div>
 				 </div>
 				
 				 
-				 <div class="form-group">
-					<label for="inputEmail3" style="font-size:16px;" class="col-sm-2 control-label">附件</label>
-					<div class="input-group " >
 				
-				<div id="photo" >
-				  <div id="preview" >
-                     <img id="imghead" width=100 height=100 border=0 src=''/>                 
-                  </div>
-				  <input id="itemPhoto" type="file" name="file" class="form-control"/>
-			    </div>
-			</div>
-				 </div>	
-				 <input type="submit"/>
+				 <input id="submit" type="submit" class="btn btn-primary" value="完成身份实名认证"/>
 			</form>			
 		</div>
 		<div id="down">
@@ -202,4 +180,43 @@
 		 });
 	});
 	
+	$("#name").blur(function(){
+		var name=$("#name").val();
+		var qwe= /[\u4e00-\u9fa5]/;
+		$("#qwe").empty();
+		if(name==null||name==""){
+			$("#qwe").html("姓名不能为空");
+			$("#qwe").css("color","red");
+			return false;
+		}else{
+			if(!qwe.test(name)){
+				$("#qwe").html("请输入中文");
+				$("#qwe").css("color","red");
+				return false;
+			}
+		}
+	});
+	$("idcard").blur(function(){
+		var idcard=$("idcard").val();
+		$("qwr").empty();
+		if(idcard=""||idcard==null){
+			$("qwr").html("身份证号码不能为空");
+			$("qwr").css("color","red");
+		}else{
+			var reg=/^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/;
+			if(!reg.test(idcard)){
+				$("qwr").html("身份证号码格式不对");
+				$("qwr").css("color","red");
+			}
+		}
+		
+	});
+	
+	
 </script>
+<script type="text/javascript">
+	    function changeState(el) {
+	        if (el.readOnly) el.checked=el.readOnly=false;
+	        else if (!el.checked) el.readOnly=el.indeterminate=true;
+	    }
+	</script>

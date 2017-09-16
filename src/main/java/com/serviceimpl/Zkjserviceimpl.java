@@ -86,7 +86,7 @@ public class Zkjserviceimpl implements Zkjservicedao {
 		}
 		int surplusinvest=loanmoney-investmoney;
 		
-		zt.setNowmoney(surplusinvest);
+		zt.setNowmoney(investmoney);
 		zt.setProjectid(zz.getSubjectid());
 		dao.updateprojectrelease(zt);
 	}

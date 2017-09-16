@@ -18,7 +18,7 @@ public class Capitalaverage {
      *            还款总月数  
      * @return 每月偿还本金和利息,不四舍五入，直接截取小数点最后两位  
      */  
-    public static double getPerMonthPrincipalInterest(double invest, double yearRate, int totalmonth) {  
+    public  double getPerMonthPrincipalInterest(double invest, double yearRate, int totalmonth) {  
         double monthRate = yearRate / 12;  
         BigDecimal monthIncome = new BigDecimal(invest)  
                 .multiply(new BigDecimal(monthRate * Math.pow(1 + monthRate, totalmonth)))  
@@ -39,7 +39,7 @@ public class Capitalaverage {
      *            还款总月数  
      * @return 每月偿还利息  
      */  
-    public static Map<Integer, BigDecimal> getPerMonthInterest(double invest, double yearRate, int totalmonth) {  
+    public  Map<Integer, BigDecimal> getPerMonthInterest(double invest, double yearRate, int totalmonth) {  
         Map<Integer, BigDecimal> map = new HashMap<Integer, BigDecimal>();  
         double monthRate = yearRate/12;  
         BigDecimal monthInterest;  
@@ -66,7 +66,7 @@ public class Capitalaverage {
      *            还款总月数  
      * @return 每月偿还本金  
      */  
-    public static Map<Integer, BigDecimal> getPerMonthPrincipal(double invest, double yearRate, int totalmonth) {  
+    public  Map<Integer, BigDecimal> getPerMonthPrincipal(double invest, double yearRate, int totalmonth) {  
         double monthRate = yearRate / 12;  
         BigDecimal monthIncome = new BigDecimal(invest)  
                 .multiply(new BigDecimal(monthRate * Math.pow(1 + monthRate, totalmonth)))  
@@ -93,7 +93,7 @@ public class Capitalaverage {
      *            还款总月数  
      * @return 总利息  
      */  
-    public static double getInterestCount(double invest, double yearRate, int totalmonth) {  
+    public  double getInterestCount(double invest, double yearRate, int totalmonth) {  
         BigDecimal count = new BigDecimal(0);  
         Map<Integer, BigDecimal> mapInterest = getPerMonthInterest(invest, yearRate, totalmonth);  
   
@@ -117,7 +117,7 @@ public class Capitalaverage {
      *            还款总月数  
      * @return 应还本金总和  
      */  
-    public static double getPrincipalInterestCount(double invest, double yearRate, int totalmonth) {  
+    public double getPrincipalInterestCount(double invest, double yearRate, int totalmonth) {  
         double monthRate = yearRate / 12;  
         BigDecimal perMonthInterest = new BigDecimal(invest)  
                 .multiply(new BigDecimal(monthRate * Math.pow(1 + monthRate, totalmonth)))  
@@ -129,38 +129,6 @@ public class Capitalaverage {
     
     
     
-    /**  
-     * @param args  
-     */  
-    public static void main(String[] args) {  
-        double invest = 20000; // 本金  
-        int month = 12;  
-        double yearRate = 0.15; // 年利率  
-        double perMonthPrincipalInterest = getPerMonthPrincipalInterest(invest, yearRate, month);  
-        
-        
-        System.out.println("等额本息---每月还款本息：" + perMonthPrincipalInterest);  
-        
-        
-        Map<Integer, BigDecimal> mapInterest = getPerMonthInterest(invest, yearRate, month);  
-        
-        
-        System.out.println("等额本息---每月还款利息：" + mapInterest);  
-        
-        
-        Map<Integer, BigDecimal> mapPrincipal = getPerMonthPrincipal(invest, yearRate, month);  
-        
-        
-        System.out.println("等额本息---每月还款本金：" + mapPrincipal);  
-        
-        double count = getInterestCount(invest, yearRate, month);  
-        
-        System.out.println("等额本息---总利息：" + count);  
-        
-        double principalInterestCount = getPrincipalInterestCount(invest, yearRate, month);  
-        
-        System.out.println("等额本息---应还本息总和：" + principalInterestCount);  
-    }  
-
+   
 
 }
