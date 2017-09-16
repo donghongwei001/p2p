@@ -6,7 +6,13 @@ public class Zkjinvestor {
 	String sex;
 	String idcard ;
 	String telphone;
-	String bankbumber;
+	String banknumber;
+	public String getBanknumber() {
+		return banknumber;
+	}
+	public void setBanknumber(String banknumber) {
+		this.banknumber = banknumber;
+	}
 	public int getId() {
 		return id;
 	}
@@ -37,10 +43,10 @@ public class Zkjinvestor {
 	public void setTelphone(String telphone) {
 		this.telphone = telphone;
 	}
-	public String getBankbumber() {
-		return bankbumber;
+	@Override
+	public String toString() {
+		return "Zkjinvestor [id=" + id + ", name=" + name + ", sex=" + sex + ", idcard=" + idcard + ", telphone="
+				+ telphone + ", banknumber=" + banknumber + "]";
 	}
-	public void setBankbumber(String bankbumber) {
-		this.bankbumber = bankbumber;
-	}
+
 }
