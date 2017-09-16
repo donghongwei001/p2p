@@ -55,4 +55,13 @@
 	<insert id="addhuankuan">
 		insert into REPAYSCHEDULE values(#{0},to_date(#{1},'yyyy-MM-dd'),#{2},#{3},#{4},8)
 	</insert>
+	<select id="selfangman" parameterType="int" resultType="java.util.HashMap">
+		select * from invest  where subjectid=#{id}
+	</select>
+	<select id="selman" parameterType="String" resultType="int">
+		select userid from usertable where username=#{name}
+	</select>
+	<insert id="addshoukuan">
+		insert into shoukuantable values(#{0},#{1},to_date(#{2},'yyyy-MM-dd'),#{3},14,#{4},#{5}) 
+	</insert>
 </mapper>

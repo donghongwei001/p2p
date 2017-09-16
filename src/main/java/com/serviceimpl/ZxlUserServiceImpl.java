@@ -198,4 +198,19 @@ public class ZxlUserServiceImpl implements ZxlUserService{
 		// TODO Auto-generated method stub
 		userdao.updatestatus(id,money);
 	}
+	@Override
+	public void updateshoukuan(int id, String date) {
+		// TODO Auto-generated method stub
+		userdao.updateshoukuan(id, date);
+	}
+	@Override
+	public List<Map> seluserid(int id, String date) {
+		// TODO Auto-generated method stub
+		return userdao.seluserid(id, date);
+	}
+	@Override
+	public int seljinqian(int id) {
+		// TODO Auto-generated method stub
+		return userdao.seljinqian(id);
+	}
 }

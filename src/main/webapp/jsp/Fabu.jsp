@@ -123,7 +123,7 @@ $(function(){
 		var row = $('#proDataGrid').datagrid("getSelections");
 		if (row.length==1) {
 			var index=row[0].POSTSTATUS;
-			if (index=='5') {
+			if (index='5') {
 				if (window.confirm('你确定下架该项目吗？')) {
 					var pid=row[0].PROJECTID;
 				$.ajax({ //发送了一个新的请求，与按钮这个请求完全不是一马事

@@ -143,67 +143,10 @@
 				</div>
 			
 				<div id="content-right">
-					<div id="HuanK">
-						<div id="HuanK_button" class="bg-info">
-							<ul id="myTab" class="nav nav-tabs">
-								<li class="active">
-									<a href="#HuanK_information" data-toggle="tab">
-										<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>按月还款 
-									</a>
-								</li>
-								<li id="HuanK_btn">
-										<a href="#ios" data-toggle="tab"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>一次还清 </a> 
-								</li>	
-							</ul>
-							
-							<!-- <button type="button"  class="btn btn-default">
-							  
-							</button>
-							<button type="button" id="HuanK_btn" class="btn btn-default">
-							  
-							</button> -->
-						</div>
-						<div id="myTabContent" class="tab-content">
-							<div id="HuanK_information" class="tab-pane fade in active">
-								
-								<span>本期应还款:元</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>还款截止日期:</span>
-								&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-info"> 立即还款 </button>
-								
-							</div>
-							
-							<div class="tab-pane fade" id="ios">
-								<p>iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple 
-									TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。</p>
-							</div>
-						</div>
-					</div>															
+																			
 					<div id="right-div">						
 
-						<%-- <table class="table table-hover">
-								<tr>
-									<th><h4>项目编号</h4></th>
-									<th><h4>项目名称</h4></th>
-									<th><h4>还款日期</h4></th>
-									<th><h4>借款总金额</h4></th>
-									<th><h4>还款利率</h4></th>
-									<th><h4>每月还款数</h4></th>
-									<th><h4>还款状态</h4></th>
-									<th><h4>操作</h4></th>
-								</tr>
-							<c:forEach items="${huankuan}" var="h">
-								<tr>
-									<td>${h.ID}</td>
-									<td>${h.PROJECTNAME}</td>
-									<td>${h.REPAYDATE}</td>
-									<td>${h.MONTHMONEY}</td>
-									<td>${h.MONTHINTEREST}</td>
-									<td>${h.MONTHPRINCIPAL}</td>
-									<td>${h.MONTHSTATUS}</td>
-									<input type="hidden" id="pid" value="${h.ID}"/>
-									<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">还款</button></td>
-								</tr>
-							</c:forEach>
-						</table> --%>
+						
 						<div id="toolbar">
 						<a id="addbtn" class="easyui-linkbutton"
 			data-options="iconCls:'icon-save'">确认还款 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
@@ -365,6 +308,10 @@ $("#asd").click(function(){
 				var index=row[0].ID;
 				var qian=row[0].MONTHPRINCIPAL;
 				var date=row[0].time1;
+				var statu=row[0].MONTHSTATUS;
+				if (statu=="8") {
+					
+				
 				alert(index);
 				if (window.confirm('你确定还款吗？')) {
 				$.ajax({ //发送了一个新的请求，与按钮这个请求完全不是一马事
@@ -385,6 +332,9 @@ $("#asd").click(function(){
 					}
 				
 				});
+				}
+				}else {
+					alert("该条账单不可以还款")
 				}
 			} else {
 				alert("请选择一条账单再进行还款！");

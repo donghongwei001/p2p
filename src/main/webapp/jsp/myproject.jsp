@@ -138,53 +138,9 @@
 							</div>
 						</div>
 					</div>
-<<<<<<< HEAD
+
 					
-=======
-					<div class="panel panel-default">
-						<div class="panel-heading" role="tab" id="headingTwo">
-							<h4 class="panel-title">
-								<a class="collapsed" role="button" data-toggle="collapse"
-									data-parent="#accordion" href="#collapseTwo"
-									aria-expanded="false" aria-controls="collapseTwo">
-									<span class="label label-default">已发布项目</span> </a>
-							</h4>
-						</div>
-						<div id="collapseTwo" class="panel-collapse collapse"
-							role="tabpanel" aria-labelledby="headingTwo">
-							<div class="panel-body">
-								<table class="table table-hover">
-							<thead>
-								<tr>
-									<th><h4>项目编号</h4></th>
-									<th><h4>项目名称</h4></th>
-									<th><h4>借款资金</h4></th>
-									<th><h4>当前已筹到金额</h4></th>
-									<th><h4>发布时间</h4></th>
-									<th><h4>截止时间</h4></th>
-									<th><h4>当前状态</h4></th>
-									<th><h4>原因</h4></th>
-								</tr>
-							</thead>
-							<tbody>
-								<c:forEach items="${list1}" var="user">
-									<tr>
-										<td>${user.ID}</td>
-										<td>${user.PROJECTNAME}</td>
-										<td>${user.MONEY}</td>
-										<td>${user.NOWMONEY}</td>
-										<td>${user.BEGINTIME}</td>
-										<td>${user.LASTTIME}</td>
-										<td>${user.CODENAME}</td>
-										<td>${user.ONEREASON}</td>
-									</tr>
-								</c:forEach>
-							</tbody>
-						</table>
-							</div>
-						</div>
 					</div>
->>>>>>> branch 'master' of https://github.com/donghongwei001/p2p.git
 					<div class="panel panel-default">
 						<div class="panel-heading" role="tab" id="headingThree">
 							<h4 class="panel-title">

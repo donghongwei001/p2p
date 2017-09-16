@@ -42,4 +42,7 @@ public interface ZxlUserService {
 	public List<Map> seltime(int id);
 	public void updatemoney(double money,String name);
 	public void updatestatus(int id,double money);
+	public void updateshoukuan(int id,String date);
+	public List<Map> seluserid(int id,String date);
+	public int seljinqian(int id);
 }

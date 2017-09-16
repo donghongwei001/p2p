@@ -33,4 +33,7 @@ public interface YxFirsttableService {
 	public void updatefinalstatu(int id);
 	public List<Map> selmoney(int id);
 	public void addhuankuan(int id,String date,double qian,double lilv,Double allmoney);
+	public List<Map> selfangman(int id);
+	public int selman(String name);
+	public void addshoukuan(int userid,int projectid,String date,double money,double lilv,double benjin);
 }

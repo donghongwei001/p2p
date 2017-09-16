@@ -1,6 +1,7 @@
 package com.web;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -126,6 +127,7 @@ public class ZxlUserController {
 	 * @return
 	 */
  @RequestMapping("/myhuankuan")
+ @ResponseBody
 	public Pageresult listhuankuan(HttpServletRequest request,Integer page,Integer rows){
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		int page1=page;
@@ -262,11 +264,13 @@ public class ZxlUserController {
 	@ResponseBody
 	public int huankuan(int id,double money,String time,HttpServletRequest request){
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		String time1=simpleDateFormat.format(new Date());
 		String name=(String) request.getSession().getAttribute("abcd");
 		int flag=0;
 		List<Map> list=userservice.seltime(id);
 		for (int i = 0; i < list.size(); i++) {
-			if (simpleDateFormat.format(list.get(i).get("REPAYDATE")).equals(time)) {
+			if (simpleDateFormat.format(list.get(i).get("REPAYDATE")).equals(time1)) {
+				System.out.println(list.get(i).get("REPAYDATE")+"*****"+time1);
 				flag=1;
 				int money1=userservice.seljine(name);
 				double qian=Double.valueOf(money1).doubleValue();
@@ -275,6 +279,17 @@ public class ZxlUserController {
 					double money2=qian-money;
 					userservice.updatemoney(money2, name);
 					userservice.updatestatus(id,money);
+					userservice.updateshoukuan(id, time1);
+					List<Map> list2=userservice.seluserid(id, time1);
+					for (int j = 0; j < list2.size(); j++) {
+						String userid=list2.get(j).get("USERID").toString();
+						int uid=Integer.parseInt(userid);
+						int renminbi=userservice.seljinqian(uid);
+						String mony=list2.get(j).get("MONEY").toString();
+						double moy=Double.valueOf(mony).doubleValue();
+						double mo=moy+renminbi;
+						userservice.updatemoney(mo, name);
+					}
 				}
 				break;
 			}

@@ -207,7 +207,7 @@ public class YxFirsttableController {
 	}
 	@RequestMapping("/xiajia")
 	@ResponseBody
-	public void xiajia(int id){
+	public void xiajia(int id,HttpServletRequest request){
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		String date=simpleDateFormat.format(new Date());
 		firservice.updatexiajia(date, id);
@@ -220,20 +220,38 @@ public class YxFirsttableController {
 		String ratemoney=list.get(0).get("RATEMONEY").toString();
 		double lilv=Double.valueOf(ratemoney).doubleValue();
 		System.out.println(qian+"***********"+lilv);
-		for (int i = 0; i < cishu; i++) {
-			double money1=i*qian/12;
-			double money2=(qian-money1)*lilv;
-			double money3=money2+qian/12;
-			double money4=qian*0.01;
-			if (i==0) {
-				money3=money3+money4;
+		if (qian>0) {
+			for (int i = 0; i < cishu; i++) {
+				double money1=i*qian/cishu;
+				double money2=(qian-money1)*lilv;
+				double money3=money2+qian/cishu;
+				double money4=qian*0.01;
+				if (i==0) {
+					money3=money3+money4;
+				}
+				System.out.println(money3);
+				Calendar c=Calendar.getInstance();
+				c.setTime(new Date());
+				c.add(Calendar.MONTH,i+1); //将当前日期加一个月
+				String validityDate=simpleDateFormat.format(c.getTime());  //返回String型的时间
+				firservice.addhuankuan(id, validityDate, qian, lilv, money3);
 			}
-			System.out.println(money3);
-			Calendar c=Calendar.getInstance();
-			c.setTime(new Date());
-			c.add(Calendar.MONTH,i+1); //将当前日期加一个月
-			String validityDate=simpleDateFormat.format(c.getTime());  //返回String型的时间
-			firservice.addhuankuan(id, validityDate, qian, lilv, money3);
+			List<Map> mans=firservice.selfangman(id);
+			for (int i = 0; i < mans.size(); i++) {
+				String mony=mans.get(i).get("MONEY").toString();
+				String userid=mans.get(i).get("INVESTORID").toString();
+				int uid=Integer.parseInt(userid);
+				double moy=Double.valueOf(mony).doubleValue();
+				for (int j = 0; j < cishu; j++) {
+					double jine=moy/cishu+(moy-j*moy/cishu)*lilv;
+					Calendar c=Calendar.getInstance();
+					c.setTime(new Date());
+					c.add(Calendar.MONTH,j+1); //将当前日期加一个月
+					String validityDate=simpleDateFormat.format(c.getTime());
+					firservice.addshoukuan(uid, id, validityDate, jine, lilv, moy);
+				}
+				
+			}
 		}
 		
 	}

@@ -119,6 +119,21 @@ public class YxFirsttableServiceImpl implements YxFirsttableService {
 		// TODO Auto-generated method stub
 		firdao.addhuankuan(id, date, qian, lilv, allmoney);
 	}
+	@Override
+	public List<Map> selfangman(int id) {
+		// TODO Auto-generated method stub
+		return firdao.selfangman(id);
+	}
+	@Override
+	public int selman(String name) {
+		// TODO Auto-generated method stub
+		return firdao.selman(name);
+	}
+	@Override
+	public void addshoukuan(int userid, int projectid, String date, double money, double lilv, double benjin) {
+		// TODO Auto-generated method stub
+		firdao.addshoukuan(userid, projectid, date, money, lilv, benjin);
+	}
 	
 
 }
