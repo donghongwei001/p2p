@@ -31,7 +31,6 @@ public interface ZxlUserDao {
 
 	public List<ZxlTouzi> listtouzi();//查询所有投资项目
 	
-
 	public int seljine(String username);
 	public void updatejine(int total,String username);
 	public void updatezero(String username);

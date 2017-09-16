@@ -153,14 +153,14 @@
 								<table class="table table-hover">
 							<thead>
 								<tr>
-									<th><h5>项目编号</h4></th>
-									<th><h5>项目名称</h4></th>
-									<th><h5>借款资金</h4></th>
-									<th><h5>当前已筹到金额</h4></th>
-									<th><h5>发布时间</h4></th>
-									<th><h5>截止时间</h4></th>
-									<th><h5>当前状态</h4></th>
-									<th><h5>原因</h4></th>
+									<th><h4>项目编号</h4></th>
+									<th><h4>项目名称</h4></th>
+									<th><h4>借款资金</h4></th>
+									<th><h4>当前已筹到金额</h4></th>
+									<th><h4>发布时间</h4></th>
+									<th><h4>截止时间</h4></th>
+									<th><h4>当前状态</h4></th>
+									<th><h4>原因</h4></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -196,11 +196,11 @@
 								<table class="table table-hover">
 							<thead>
 								<tr>
-									<th><h5>项目编号</h4></th>
-									<th><h5>项目名称</h4></th>
-									<th><h5>借款资金</h4></th>
-									<th><h5>当前已筹到金额</h4></th>
-									<th><h5>发布时间</h4></th>
+									<th><h4>项目编号</h4></th>
+									<th><h4>项目名称</h4></th>
+									<th><h4>借款资金</h4></th>
+									<th><h4>当前已筹到金额</h4></th>
+									<th><h4>发布时间</h4></th>
 									
 								</tr>
 							</thead>
@@ -234,11 +234,11 @@
 								<table class="table table-hover">
 							<thead>
 								<tr>
-									<th><h5>项目编号</h4></th>
-									<th><h5>项目名称</h4></th>
-									<th><h5>借款资金</h4></th>
-									<th><h5>当前已筹到金额</h4></th>
-									<th><h5>发布时间</h4></th>
+									<th><h4>项目编号</h4></th>
+									<th><h4>项目名称</h4></th>
+									<th><h4>借款资金</h4></th>
+									<th><h4>当前已筹到金额</h4></th>
+									<th><h4>发布时间</h4></th>
 									
 								</tr>
 							</thead>

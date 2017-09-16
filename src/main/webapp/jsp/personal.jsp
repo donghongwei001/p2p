@@ -69,10 +69,6 @@
 <script src="../bootstrap/js/bootstrap.min.js"></script>
 
 
-<script type="text/javascript">
-	
-</script>
-
 </head>
 <body>
 	<div id="body">
@@ -89,8 +85,7 @@
 			</div>
 			<div id="top-login">
 				欢迎<a href="/p2p/user/zxlpersonal.do">${abcd}</a>!加入宜人贷&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="#"><span>帮助</span></a><span>|</span><a
-					href="/p2p/jsp/Home.jsp"><span>退出</span></a>
+				<a href="#"><span>帮助</span></a><span>|</span><a href="/p2p/jsp/Home.jsp"><span>退出</span></a>
 			</div>
 		</div>
 		<div id="address">
@@ -178,6 +173,7 @@
 						<button type="button" id="quxiao" class="btn btn-default" data-dismiss="modal">取消</button>
 						<button type="button" id="chongzhi" class="btn btn-primary">确认充值</button>
 					</div>
+					
 				</div>
 			</div>
 		</div>

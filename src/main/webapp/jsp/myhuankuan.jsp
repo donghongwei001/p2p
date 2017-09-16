@@ -38,7 +38,7 @@
 		#left5{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
 		#left6{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
 		#content-right{width:76%;height:800px;float:left;margin-left:15px;background-color:#FFFFFF;}
-		#right-div{width:76%;height:auto;float:left;margin:50px 50px 50px 90px;}
+		#right-div{width:86%;height:auto;float:left;margin:50px 50px 50px 40px;}
 		#div-img{float:left;}
 		#div-name{float:left;margin-left:20px;margin-right:20px;}	
 		#th{float:left;width:10px;height:130px;border-right:1px dashed #DCDCDC;}
@@ -56,9 +56,50 @@
 		#input-btu{margin-left:250px;}
 		#btn {
 			
-			margin-left:200px;
+			margin-left:400px;
 			
 		}
+		
+		#HuanK_button {
+			width:76%;
+			height:auto;
+			border:1px solid gray;
+		}
+		#HuanK_information{
+			width:76%;
+			height:100px;
+			line-height:100px;
+			text-align:center;
+			border:1px solid gray;
+			
+		}
+		#HuanK_btn{
+			float:right;
+		}
+		#HuanK{
+			margin-top:20px;
+			margin-left:95px;
+		}
+		#ios{
+			width:76%;
+			height:100px;
+			text-align:center;
+			border:1px solid gray;
+		}
+		/* #headingOne{
+			height:50px;
+			text-align:center;
+			
+		}
+		#headingOne a{
+			line-height:50px;
+		}
+		
+		#panelOne{
+			width:76%;
+			margin-top:60px;
+			margin-left:95px;
+		} */
 	</style>
 	
 	<script type="text/javascript">
@@ -100,81 +141,100 @@
 				</div>
 			
 				<div id="content-right">
+					<div id="HuanK">
+						<div id="HuanK_button" class="bg-info">
+							<ul id="myTab" class="nav nav-tabs">
+								<li class="active">
+									<a href="#HuanK_information" data-toggle="tab">
+										<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>按月还款 
+									</a>
+								</li>
+								<li id="HuanK_btn">
+										<a href="#ios" data-toggle="tab"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>一次还清 </a> 
+								</li>	
+							</ul>
+							
+							<!-- <button type="button"  class="btn btn-default">
+							  
+							</button>
+							<button type="button" id="HuanK_btn" class="btn btn-default">
+							  
+							</button> -->
+						</div>
+						<div id="myTabContent" class="tab-content">
+							<div id="HuanK_information" class="tab-pane fade in active">
+								
+								<span>本期应还款:元</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>还款截止日期:</span>
+								&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-info"> 立即还款 </button>
+								
+							</div>
+							
+							<div class="tab-pane fade" id="ios">
+								<p>iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple 
+									TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。</p>
+							</div>
+						</div>
+					</div>															
 					<div id="right-div">						
 						<table class="table table-hover">
-								<tr>
-									<th><h4>项目编号</h4></th>
-									<th><h4>项目名称</h4></th>
-									<th><h4>还款资金</h4></th>
-									<th><h4>平台费用</h4></th>
-									<th><h4>还款日期</h4></th>
-									<th><h4>操作</h4></th>
-								</tr>
-							<c:forEach items="${huankuan}" var="h">
-								<tr>
-									<td>${h.repayid}</td>
-									<td>${h.projrctid}</td>
-									<td>${h.hktime}</td>
-									<td>${h.hkmoney}</td>
-									<td>${h.ptmoney}</td>
-									<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">还款</button></td>
-								</tr>
-							</c:forEach>
+							<tr class="active">
+								<th><h5>还款日期</h5></th>
+								<th><h5>项目名称</h5></th>
+								<th><h5>还款资金</h5></th>
+								<th><h5>平台费用</h5></th>
+								<th><h5>实收金额</h5></th>
+								<th><h5>逾期天数</h5></th>
+								<th><h5>还款状态</h5></th>
+								<th><h5>操作</h5></th>
+							</tr>
+						
+							<tr>
+								<td>0</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td>0</td>
+								<td>0</td>
+								<td></td>
+							    <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">还款</button></td>
+							</tr>
 						</table>
 					</div>
 					
-					   <!-- Button trigger modal -->
+				   <!-- Button trigger modal -->
 
 
-						<!-- Modal -->
-						<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-						  <div class="modal-dialog" role="document">
-						    <div class="modal-content">
-						      <div class="modal-header">
-						        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-						      </div>
-						      <div class="modal-body">
-						        	<form id="myForm" method="post">
-										<table width="100%" class="formtable">
-											<tr>
-												<th height="40" >应还款：</th><td></td>
-											</tr>
-											<tr>
-												<th height="40">密码：</th><td></td>
-											</tr>
-											<tr>
-												<th height="40">密码：</th><td><input type="text"/></td>
-											</tr>
-											<tr>
-												<td id="btn" width="450px;"></td><td><button type="button" class="btn btn-default" data-dismiss="modal">关闭</button><button type="button" class="btn btn-primary">提交</button></td>
-											</tr>
-										</table>
-												
-								        		
-									</form>
-						      </div>
-						      
-						    </div>
-						  </div>
-						</div>
-					
-					<!-- <div id="handlerDialog">
-						<form id="myForm" method="post">
-							<table width="100%" class="formtable">
-								<tr>
-									<th height="40" >应还款：</th><td></td>
-								</tr>
-								<tr>
-									<th height="40">密码：</th><td><input id="emppwd" name="emppwd" class="easyui-validatebox" data-options="required:true"></td>
-								</tr>
-								
-								<tr>
-									<th height="40"></th><td><input type="button" id="rolename"></td>
-								</tr>
-							</table>
-						</form>
-					</div>		 -->			
+					<!-- Modal -->
+					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+					  <div class="modal-dialog" role="document">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+					      </div>
+					      <div class="modal-body">
+					        	<form id="myForm" method="post">
+									<table width="100%" class="formtable">
+										<c:forEach items="${huankuan}" var="h">
+										<tr>
+											<th height="40" >应还款：</th><td>${h.hkmoney}元</td>
+										</tr>
+										</c:forEach>
+										<tr class="">
+											<th height="40">还款金额：</th><td><input type="text"/></td>
+										</tr>
+										
+									</table>
+											
+									<button id="btn" type="button" class="btn btn-default" data-dismiss="modal">关闭</button><button type="button" class="btn btn-primary">提交</button>
+											
+								</form>
+					      </div>
+					      
+					    </div>
+					  </div>
+					</div>
+						
 				</div>
 			</div>
 		</div>

@@ -19,9 +19,19 @@ public class SzhProjectServiceImpl implements SzhProjectService {
 		return spd.queryProject();
 	}
 	@Override
-	public List<SzhProject> queryPart() {
+	public List<SzhProject> queryPart(String comname) {
 		// TODO Auto-generated method stub
-		return spd.queryPart();
+		return spd.queryPart(comname);
+	}
+	@Override
+	public List<SzhProject> queryUser(String user) {
+		// TODO Auto-generated method stub
+		return spd.queryUser(user);
+	}
+	@Override
+	public List<SzhProject> queryTime(String zzz, String hhh) {
+		// TODO Auto-generated method stub
+		return spd.queryTime(zzz, hhh);
 	}
 
 }

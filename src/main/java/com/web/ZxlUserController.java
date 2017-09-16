@@ -1,8 +1,6 @@
 package com.web;
-
 import java.util.List;
 import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -15,10 +13,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSON;
-import com.entity.ZxlMyHuankuan;
 import com.entity.ZxlMyPersonal;
 import com.entity.ZxlMyProject;
-import com.entity.ZxlMyTouzi;
 import com.entity.ZxlTouzi;
 import com.entity.ZxlUser;
 import com.service.ZxlUserService;
@@ -122,13 +118,30 @@ public class ZxlUserController {
 	 * @param request
 	 * @return
 	 */
-	@RequestMapping("/myhuankuan")
+/*  @RequestMapping("/myhuankuan")
 	public String listhuankuan(HttpServletRequest request){
 		String userna =(String)request.getSession().getAttribute("abcd");
 		List<ZxlMyHuankuan> list=userservice.listhuankuan(userna);
 		request.setAttribute("huankuan", list);
 		return "myhuankuan";
-	}
+	}*/
+	
+	
+	/**
+	 * ǰ̨����
+	 * @param hkuan
+	 * @param request
+	 * @return
+	 */
+	/*@RequestMapping("/myhuankuan")
+	public String queryHuanK(ypgHuanK hkuan,HttpServletRequest request){
+		String userna =(String)request.getSession().getAttribute("abcd");
+		Map<Integer, BigDecimal> mapHK=userservice.queryHuanK(hkuan);
+		request.setAttribute("mapHuank", mapHK);
+		return "myhuankuan";
+	}*/
+	
+	
 	
 	/**
 	 * 查询该用户的基本信息

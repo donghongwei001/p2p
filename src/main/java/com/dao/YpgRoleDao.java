@@ -3,6 +3,8 @@ package com.dao;
 import java.util.List;
 import java.util.Map;
 
+import com.entity.ypgHuanK;
+
 public interface YpgRoleDao {
 	public List<Map> queryRole();
 	//查询所有用户的信息

@@ -61,7 +61,6 @@
 	<update id="updatezero" parameterType="String">
 		update usertable set money=0 where username=#{username}
 	</update>
-	<!-- 查询用户未还款项目 -->
 	<select id="listhuankuan" resultType="com.entity.ZxlMyHuankuan" parameterType="String">
 		select r.repayid,r.projrctid,r.hktime,r.hkmoney,ptmoney,c.codename from repaymoney r,usertable u,code c where u.username=#{username} and r.projrctid=u.userid and r.statu=c.codeid and r.statu=8 
 

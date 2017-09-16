@@ -1,5 +1,6 @@
 package com.service;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -9,6 +10,7 @@ import com.entity.ZxlMyProject;
 import com.entity.ZxlMyTouzi;
 import com.entity.ZxlTouzi;
 import com.entity.ZxlUser;
+import com.entity.ypgHuanK;
 /**
  * 
  * @author ZXL
@@ -30,7 +32,6 @@ public interface ZxlUserService {
 	public List<ZxlUser> listmoney(String user);//查询用户余额
 
 	public List<ZxlTouzi> listtouzi();//查询所有投资项目
-
 	public void updatejine(String username,int money);//插入金额
 	public void updatezero(String username);
 	public List<Map> seljiekuanren(int id);
