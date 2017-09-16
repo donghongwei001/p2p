@@ -1,5 +1,8 @@
 package com.dao;
 
+import java.util.List;
+import java.util.Map;
+
 import com.entity.YxExamine;
 import com.entity.YxFabu;
 import com.entity.YxFinaltable;
@@ -27,4 +30,8 @@ public interface YxFirsttableDao {
 	public void twoxm(YxFabu yf);
 	//终审失败数据插入成功改状态
 	public void updatetxmm(int id);
+	public void updatexiajia(String date,int id);
+	public void updatefinalstatu(int id);
+	public List<Map> selmoney(int id);
+	public void addhuankuan(int id,String date,Double money,Double lilv,double allmoney);
 }

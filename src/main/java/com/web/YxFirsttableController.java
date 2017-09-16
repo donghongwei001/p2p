@@ -2,7 +2,10 @@ package com.web;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -201,5 +204,42 @@ public class YxFirsttableController {
 	public String updatexx(@RequestBody String json){
 		YxFabu yf=JSON.parseObject(json,YxFabu.class);
 		return null;
+	}
+	@RequestMapping("/xiajia")
+	@ResponseBody
+	public void xiajia(int id){
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		String date=simpleDateFormat.format(new Date());
+		firservice.updatexiajia(date, id);
+		firservice.updatefinalstatu(id);
+		List<Map> list=firservice.selmoney(id);
+		String count=list.get(0).get("LIFELOAN").toString();
+		int cishu=Integer.parseInt(count);
+		String money=list.get(0).get("NOWMONEY").toString();
+		double qian=Double.valueOf(money).doubleValue();
+		String ratemoney=list.get(0).get("RATEMONEY").toString();
+		double lilv=Double.valueOf(ratemoney).doubleValue();
+		System.out.println(qian+"***********"+lilv);
+		for (int i = 0; i < cishu; i++) {
+			double money1=i*qian/12;
+			double money2=(qian-money1)*lilv;
+			double money3=money2+qian/12;
+			double money4=qian*0.01;
+			if (i==0) {
+				money3=money3+money4;
+			}
+			System.out.println(money3);
+			Calendar c=Calendar.getInstance();
+			c.setTime(new Date());
+			c.add(Calendar.MONTH,i+1); //将当前日期加一个月
+			String validityDate=simpleDateFormat.format(c.getTime());  //返回String型的时间
+			firservice.addhuankuan(id, validityDate, qian, lilv, money3);
+		}
+		
+	}
+	@RequestMapping("/huankuana")
+	@ResponseBody
+	public void huankuan(){
+		System.out.println("***********************");
 	}
 }

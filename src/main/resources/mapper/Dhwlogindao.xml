@@ -15,4 +15,7 @@
 	<select id="querycount" resultType="int">
 		select count(*) from projectapplication where ADUITSTATE=1
 	</select>
+	<select id="queryxiajia" resultType="java.util.HashMap">
+		select (sysdate-begintime) as time from projectrelease
+	</select>
 </mapper>

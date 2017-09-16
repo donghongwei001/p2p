@@ -1,5 +1,8 @@
 package com.serviceimpl;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -7,7 +10,6 @@ import com.dao.YxFirsttableDao;
 import com.entity.YxExamine;
 import com.entity.YxFabu;
 import com.entity.YxFinaltable;
-import com.entity.YxFirst;
 import com.entity.YxFirsttable;
 import com.service.YxFirsttableService;
 @Service
@@ -97,5 +99,26 @@ public class YxFirsttableServiceImpl implements YxFirsttableService {
 		// TODO Auto-generated method stub
 		firdao.updatetxmm(id);
 	}
+	@Override
+	public void updatexiajia(String date, int id) {
+		// TODO Auto-generated method stub
+		firdao.updatexiajia(date, id);
+	}
+	@Override
+	public void updatefinalstatu(int id) {
+		// TODO Auto-generated method stub
+		firdao.updatefinalstatu(id);
+	}
+	@Override
+	public List<Map> selmoney(int id) {
+		// TODO Auto-generated method stub
+		return firdao.selmoney(id);
+	}
+	@Override
+	public void addhuankuan(int id, String date, double qian, double lilv, Double allmoney) {
+		// TODO Auto-generated method stub
+		firdao.addhuankuan(id, date, qian, lilv, allmoney);
+	}
+	
 
 }

@@ -62,8 +62,8 @@
 		update usertable set money=0 where username=#{username}
 	</update>
 	<!-- 查询用户未还款项目 -->
-	<select id="listhuankuan" resultType="com.entity.ZxlMyHuankuan" parameterType="String">
-		select p.id,p.projectname,P.RATEMONEY,h.money,h.time,c.codename from huankuantable h,projectapplication p,usertable u ,code c where h.projectid=p.id and p.userid=u.userid and h.status=c.codeid and u.username=#{name}
+	<select id="listhuankuan" resultType="java.util.HashMap" parameterType="String">
+		select p.id,p.projectname,r.repaydate,r.monthmoney,r.monthinterest,r.monthprincipal,r.monthstatus from projectapplication p,REPAYSCHEDULE r,usertable u where r.projectid=p.id and p.userid = u.userid and u.username=#{name}
 
 	</select> 
 	<select id="seljiekuanren" resultType="java.util.HashMap" parameterType="int">
@@ -79,4 +79,14 @@
 	<select id="selzhongshen" resultType="java.util.HashMap" parameterType="String">
 		select p.id,p.projectname,p.money,p.time,c.codename from finaltable f,projectapplication p,usertable u,code c where f.projectid=p.id and p.userid=u.userid and f.poststatus=c.codeid and f.poststatus=12 and f.finalstatus=1 and u.username=#{name}
 	</select>
+	<select id="seltime" resultType="java.util.HashMap" parameterType="int">
+		select repaydate from REPAYSCHEDULE where projectid=#{id}
+	</select>
+	
+	<update id="updatemoney">
+		update usertable set money=#{0} where username=#{1} 
+	</update>
+	<update id="updatestatus">
+		update REPAYSCHEDULE set monthstatus=7 where projectid=#{0} and MONTHPRINCIPAL=#{1}
+	</update>
 </mapper>
