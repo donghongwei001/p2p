@@ -197,6 +197,7 @@
 		}
 	});
 	$("idcard").blur(function(){
+		alert("asd");
 		var idcard=$("idcard").val();
 		$("qwr").empty();
 		if(idcard=""||idcard==null){
