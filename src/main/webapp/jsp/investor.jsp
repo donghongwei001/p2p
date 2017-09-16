@@ -86,7 +86,7 @@
 		</div>
 		
 		<div id="content">
-			<form class="form-horizontal" name="myform" action="/p2p/" method="post" >
+			<form class="form-horizontal" name="myform" action="/p2p/zkj/savenvestor.do" method="post" onsubmit="return check(this)" >
 				<div class="form-group">
 					<label for="inputEmail3" style="font-size:16px;" class="col-sm-2 control-label">姓名：</label>
 					<div class="col-sm-8">
@@ -112,7 +112,7 @@
 				 <div class="form-group">
 				 	<label for="inputEm" style="font-size:16px; width:auto;" class="col-sm-2 control-label">身份证号码：</label>
 						<div class="col-sm-8">
-								<input type="text" class="form-control" id="idcard" name="idcard" placeholder="142424199307545854" ><scpan id="qwr"></scpan>
+								<input type="text" class="form-control" id="idcard" name="idcard" ><scpan id="qwr"></scpan>
 						</div>
 				 </div>
 				 
@@ -121,13 +121,13 @@
 				 <div class="form-group">
 					<label for="input2" style="font-size:16px;" class="col-sm-2 control-label">手机号码</label>
 					<div class="col-sm-8">
-						<input type="text" class="form-control" id="iphone" name="iphone" placeholder="18135930755" ><scpan></scpan>
+						<input type="text" class="form-control" id="iphonee" name="telphone" ><scpan id="qwtt"></scpan>
 					</div>
 				 </div>
 				 <div class="form-group">
 					<label for="input2" style="font-size:16px;width:auto" class="col-sm-2 control-label">银行卡号：</label>
 					<div class="col-sm-8">
-						<input type="text" class="form-control" id="bankcard" name="bankcard" placeholder="6227002090170455454" ><scpan></scpan>
+						<input type="text" class="form-control" id="bankcard" name="banknumber"  ><scpan id="dfg"></scpan>
 					</div>
 				 </div>
 				
@@ -179,7 +179,20 @@
 			 }
 		 });
 	});
-	
+	$("#bankcard").blur(function(){
+		var bank=$("#bankcard").val();
+		var reg=/^(\d{16}|\d{19})$/;
+		$("#dfg").empty();
+		if(bank==null||bank==""){
+			$("#dfg").html("银行卡号不能为空");
+			$("#dfg").css("color","red");
+		}else{
+			if(!reg.test(bank)){
+				$("#dfg").html("银行卡号必须为19或16位纯数字");
+				$("#dfg").css("color","red");
+			}
+		}
+	});
 	$("#name").blur(function(){
 		var name=$("#name").val();
 		var qwe= /[\u4e00-\u9fa5]/;
@@ -196,24 +209,103 @@
 			}
 		}
 	});
-	$("idcard").blur(function(){
-		alert("asd");
-		var idcard=$("idcard").val();
-		$("qwr").empty();
-		if(idcard=""||idcard==null){
-			$("qwr").html("身份证号码不能为空");
-			$("qwr").css("color","red");
+	$("#idcard").blur(function(){
+		
+		var idcard=$("#idcard").val();
+		$("#qwr").empty();
+		if(idcard==""||idcard==null){
+			$("#qwr").html("身份证号码不能为空");
+			$("#qwr").css("color","red");
 		}else{
-			var reg=/^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/;
+			var reg=/^(\d{16}|\d{18})$/;
 			if(!reg.test(idcard)){
-				$("qwr").html("身份证号码格式不对");
-				$("qwr").css("color","red");
+				$("#qwr").html("身份证号码格式不对");
+				$("#qwr").css("color","red");
+				
 			}
 		}
 		
 	});
+	$("#iphonee").blur(function(){
 	
-	
+		var iphone=$("#iphonee").val();
+		var red=/^1[2|3|4|5|6|7|8][0-9]\d{4,8}$/;
+		$("#qwtt").empty();
+		if(ipone==null||iphone==""){
+			$("#qwtt").html("手机号码不能为空");
+			$("#qwtt").css("color","red");
+			return false;
+		}else{
+			if(!red.test(iphone)){
+				$("#qwtt").html("手机号码必须为1开头的11位数字");
+				$("#qwtt").css("color","red");
+				return false;
+			}
+		}
+	});
+	function check(){
+		var idcard=$("#idcard").val();
+		var iphone=$("#iphonee").val();
+		var name=$("#name").val();
+		var bank=$("#bankcard").val();
+		var qwe= /[\u4e00-\u9fa5]/;
+		$("#qwe").empty();
+		if(name==null||name==""){
+			$("#qwe").html("姓名不能为空");
+			$("#qwe").css("color","red");
+			return false;
+		}else{
+			if(!qwe.test(name)){
+				$("#qwe").html("请输入中文");
+				$("#qwe").css("color","red");
+				return false;
+			}
+		}
+		var reg=/^(\d{16}|\d{19})$/;
+		$("#dfg").empty();
+		if(bank==null||bank==""){
+			$("#dfg").html("银行卡号不能为空");
+			$("#dfg").css("color","red");
+			return false;
+		}else{
+			if(!reg.test(bank)){
+				$("#dfg").html("银行卡号必须为19或16位纯数字");
+				$("#dfg").css("color","red");
+				return false;
+			}
+		}
+		$("#qwr").empty();
+		if(idcard==""||idcard==null){
+			$("#qwr").html("身份证号码不能为空");
+			$("#qwr").css("color","red");
+			return false;
+		}else{
+			var reg=/\d{15}|\d{18}/;
+			if(!reg.test(idcard)){
+				$("#qwr").html("身份证号码格式不对");
+				$("#qwr").css("color","red");
+				return false;
+			}
+		}
+		var red=/^1[2|3|4|5|6|7|8][0-9]\d{4,8}$/;
+		$("#qwt").empty();
+		if(iphone==null||iphone==""){
+			$("#qwtt").html("手机号码不能为空");
+			$("#qwtt").css("color","red");
+			return false;
+		}else{
+			if(!red.test(iphone)){
+				$("#qwtt").html("手机号码必须为1开头的11位数字");
+				$("#qwtt").css("color","red");
+				return false;
+			}
+		}
+		
+		
+		if(bank==null||bank==""||idcard==null||idcard==""||iphone==""||iphone==null||name==null||name==""){
+			return false;
+		}
+	}
 </script>
 <script type="text/javascript">
 	    function changeState(el) {

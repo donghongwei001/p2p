@@ -132,9 +132,10 @@ public class Zkjcontrollerweb {
 	 * 保存投资人的身份信息
 	 */
 	@RequestMapping("/savenvestor")
-	public void saveinvestor(HttpServletSession session,Zkjinvestor zz){
+	public String saveinvestor(HttpSession session,Zkjinvestor zz){
 		String name=(String) session.getAttribute("abcd");
 		servicedao.saveinvestor(zz, name);
+		return "index";
 	}
 	/*
 	 * 查询投资人的信息

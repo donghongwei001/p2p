@@ -67,6 +67,8 @@ public class Zkjserviceimplment implements Zkjservicedaointerface {
 		
 		int id=zkjdao.quertuserid(name);
 		zz.setId(id);
+		System.out.println(zz);
+		System.out.println("asdad");
 		dao.saveinvestor(zz);
 	}
 	@Override
