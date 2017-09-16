@@ -93,9 +93,11 @@
 					<div id="left1"><a href="/p2p/user/zxlpersonal.do">我的资产</a></div>
 					<div id="left2"><a href="/p2p/user/myproject.do">我的项目</a></div>
 					<div id="left3"><a href="/p2p/user/mytouzi.do">我的投资</a></div>
+
 					<div id="left4"><a href="/p2p/jsp/myhuankuan.jsp">我的还款</a></div>
 					<div id="left5"><a href="/p2p/user/mypersonal.do">个人信息</a></div>
 					<div id="left6"><a href="/p2p/jsp/myupdatepwd.jsp">修改密码</a></div>
+
 				</div>
 			
 				<div id="content-right">

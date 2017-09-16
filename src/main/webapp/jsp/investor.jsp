@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <script src="../easyui/js/jquery.min.js"></script>
 <title>index</title>
+	<link rel="stylesheet" type="text/css" href="../bootstrap/css/build.css">
 	<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="../easyui/js/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')</script>
@@ -53,6 +54,11 @@
 		#down-two{margin-left:37.3%;}
 		#down-three{margin-left:41%;margin-bottom:20px;}
 		#input-btu{margin-left:250px;}
+		#submit{margin-left:28%;}
+		#content{
+			margin-left:18%;
+			width:600px;
+		}
 	</style>
 	
 	<script type="text/javascript">
@@ -78,72 +84,57 @@
 				<a>帮助</a><span>|</span><a href="/p2p/jsp/Home.jsp">退出</a>
 			</div>
 		</div>
-		<div id="img">
-			<img src="../image/img6.png" width="100%" />		
-		</div>
-			
+		
 		<div id="content">
-			
-			<div id="content-left">	
-				<c:forEach items="${listpro}" var="user">		
-					<div id="left-con">				
-						<div id="left-conleft">
-							<div id="left-contop">
-								<span>${user.projectname}</span>
-								<span style="font-size:18px;color:#1E90FF;">(${user.personalname}，${user.name}，${user.location})</span>
-							</div>
-							<div id="left-conbut">
-								<div id="left-conmoney">
-									<span id="left-span">借款金额</span>&nbsp;<span id="left-conspan">${user.money}</span>&nbsp;<span id="left-span">元</span>
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								</div>
-								<div id="left-conqx">
-									<span id="left-span">借款期限</span>&nbsp;<span id="left-conspan">${user.lifeloan}</span>&nbsp;<span id="left-span">个月</span>
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								</div>
-								<div id="left-conll">
-									<span id="left-span">利率</span>&nbsp;<span id="left-conspan">${user.ratemoney}</span>&nbsp;<span id="left-span">%</span>
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								</div>
-							</div>
-						</div>
-						<div id="left-right">
-							<div id="left-button">
-							<a href="/p2p/zkj/allproject.do?id=${user.projectid}">	<button class="btn btn-primary" style="font-size:18px;">投标</button></a>
-							</div>
-						</div>										
-					</div>	
-						
-				</c:forEach>
-				<div id="left-conbutton">
-					<button id="more" class="btn btn-default">查看更多</button>
-				</div>	
-			</div>
-			<div id="content-right">
-				<div id="right-but">
-					<div id="right-tzbut">
-						<button class="btn btn-warning" style="font-size:18px;width:135px;height:50px;">我要投资</button>
+			<form class="form-horizontal" name="myform" action="/p2p/" method="post" >
+				<div class="form-group">
+					<label for="inputEmail3" style="font-size:16px;" class="col-sm-2 control-label">姓名：</label>
+					<div class="col-sm-8">
+						<input type="text" class="form-control" id="name" name="name" placeholder="王五"/><span id="qwe"></span>
 					</div>
-					<div id="right-jkbut">
-						<button class="btn btn-success" style="font-size:18px;width:135px;height:50px;">我要借款</button>
-					</div>
-				</div>
-				<div id="right-span">
-					<div id="total1">
-						<span>累计投资笔数：</span>
-					</div>
-					<div id="total2">
-						<span>23</span><span>笔</span>
-					</div>
-					<div id="total3">
-						<span>总投资金额：</span>
-					</div>
-					<div id="total4">
-						<span>222,2222,00</span><span>元</span>
-					</div>
-				</div>
 					
-			</div>	
+				 </div>
+				 <div class="form-group">
+					<label for="input3" style="font-size:16px;" class="col-sm-2 control-label">性别:</label>
+					<fieldset>
+					 <div class="radio radio-info radio-inline">
+		                    &nbsp; &nbsp;&nbsp;&nbsp;   <input type="radio" id="inlineRadio1" value="男" name="sex" checked>
+		                        <label for="inlineRadio1"> 男 </label>
+		                    </div>
+		                    <div class="radio radio-inline">
+		                        <input type="radio" id="inlineRadio2" value="女" name="sex" >
+		                        <label for="inlineRadio2"> 女 </label>
+		                    </div>
+		                    </fieldset>
+				 </div>
+				
+				
+				 <div class="form-group">
+				 	<label for="inputEm" style="font-size:16px; width:auto;" class="col-sm-2 control-label">身份证号码：</label>
+						<div class="col-sm-8">
+								<input type="text" class="form-control" id="idcard" name="idcard" placeholder="142424199307545854" ><scpan id="qwr"></scpan>
+						</div>
+				 </div>
+				 
+				 
+				 
+				 <div class="form-group">
+					<label for="input2" style="font-size:16px;" class="col-sm-2 control-label">手机号码</label>
+					<div class="col-sm-8">
+						<input type="text" class="form-control" id="iphone" name="iphone" placeholder="18135930755" ><scpan></scpan>
+					</div>
+				 </div>
+				 <div class="form-group">
+					<label for="input2" style="font-size:16px;width:auto" class="col-sm-2 control-label">银行卡号：</label>
+					<div class="col-sm-8">
+						<input type="text" class="form-control" id="bankcard" name="bankcard" placeholder="6227002090170455454" ><scpan></scpan>
+					</div>
+				 </div>
+				
+				 
+				
+				 <input id="submit" type="submit" class="btn btn-primary" value="完成身份实名认证"/>
+			</form>			
 		</div>
 		<div id="down">
 			<div id="down-one">
@@ -189,4 +180,44 @@
 		 });
 	});
 	
+	$("#name").blur(function(){
+		var name=$("#name").val();
+		var qwe= /[\u4e00-\u9fa5]/;
+		$("#qwe").empty();
+		if(name==null||name==""){
+			$("#qwe").html("姓名不能为空");
+			$("#qwe").css("color","red");
+			return false;
+		}else{
+			if(!qwe.test(name)){
+				$("#qwe").html("请输入中文");
+				$("#qwe").css("color","red");
+				return false;
+			}
+		}
+	});
+	$("idcard").blur(function(){
+		alert("asd");
+		var idcard=$("idcard").val();
+		$("qwr").empty();
+		if(idcard=""||idcard==null){
+			$("qwr").html("身份证号码不能为空");
+			$("qwr").css("color","red");
+		}else{
+			var reg=/^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/;
+			if(!reg.test(idcard)){
+				$("qwr").html("身份证号码格式不对");
+				$("qwr").css("color","red");
+			}
+		}
+		
+	});
+	
+	
 </script>
+<script type="text/javascript">
+	    function changeState(el) {
+	        if (el.readOnly) el.checked=el.readOnly=false;
+	        else if (!el.checked) el.readOnly=el.indeterminate=true;
+	    }
+	</script>

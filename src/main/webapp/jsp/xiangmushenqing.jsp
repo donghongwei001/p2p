@@ -8,11 +8,11 @@
  	
     <!-- Bootstrap core CSS -->
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <script src="../easyui/js/jquery.min.js"></script>  
     <script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../easyui/js/jquery.min.js"></script> 
     <script src="../bootstrap/js/bootstrap.min.js"></script>
     
- 	<script src="../bootstrap/js/shengshijilian/distpicker.data.js"></script>
+    <script src="../bootstrap/js/shengshijilian/distpicker.data.js"></script>
 	<script src="../bootstrap/js/shengshijilian/distpicker.js"></script>
 	<script src="../bootstrap/js/shengshijilian/main.js"></script>
 	
@@ -136,7 +136,7 @@
 					<label for="input2" style="font-size:16px;" class="col-sm-2 control-label">借款期限</label>
 					<div class="col-sm-9">
 						
-						<select class="form-control" name="lifeloan" >
+						<select class="form-control" id="life" name="lifeloan" >
 							<option   value=6>6个月</option>
 							<option   value=12>12个月</option>
 							<option   value=12>18个月</option>
@@ -145,24 +145,12 @@
 					</div>
 				 </div>
 				 <div class="form-group">
-					<label for="input2" style="font-size:16px;" class="col-sm-2 control-label">利率</label>
+					<label for="input2" style="font-size:16px;" class="col-sm-2 control-label">月利率</label>
 					<div class="col-sm-9">
-						<input type="text" class="form-control" id="input2" name="ratemoney" placeholder="例如：0.001" >
+						<input type="text" class="form-control" id="rate" name="ratemoney" placeholder="例如：0.001" >
 					</div>
 				 </div>
-				 
-				 <div class="form-group">
-					<label for="input2" style="font-size:16px;" class="col-sm-2 control-label">还款期限</label>
-					<div class="col-sm-9">
-						
-						<select class="form-control" name="lifeloan" >
-							<option   va>一次性还清</option>
-							<option   value=12>12个月</option>
-							
-							
-						</select>
-					</div>
-				 </div>
+				
 				 
 				 <div class="form-group">
 					<label for="inputEmail3" style="font-size:16px;" class="col-sm-2 control-label">附件</label>
@@ -183,12 +171,17 @@
 			<table>
 				<tr>
 					<td>
-					<h3>到期一次性还清</h3>
+					<h3>到期还款</h3>
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td id="benjin">
 						本金为：
+					</td>
+				</tr>
+				<tr >
+					<td id="meiyue">
+						每月还款
 					</td>
 				</tr>
 				<tr>
@@ -248,6 +241,25 @@ $("#ptojectname").blur(function(){
 	}
 });
 
+$("#rate").blur(function(){
+	var rate=$("#rate").val();
+	var life=$("#life").val();
+	var mmoney=$("mmoney").val();
+	var data={};
+	data["rate"]=rate;
+	data["life"]=life;
+	data["mmoney"]=mmoney;
+	$.ajax({
+		type:"post",
+		url:"/p2p/zkj/capital.do",
+		data:JSON.stringify(data),
+		success :function(dataa){
+			alert(dataa);
+		}
+		
+	});
+	
+});
 
 $("#distpicker2").distpicker({
 	  province: "---- 所在省 ----",

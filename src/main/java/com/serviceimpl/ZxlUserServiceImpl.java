@@ -1,5 +1,6 @@
 package com.serviceimpl;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -10,7 +11,6 @@ import com.dao.ZxlUserDao;
 import com.entity.ZxlMyHuankuan;
 import com.entity.ZxlMyPersonal;
 import com.entity.ZxlMyProject;
-import com.entity.ZxlMyTouzi;
 import com.entity.ZxlTouzi;
 import com.entity.ZxlUser;
 import com.service.ZxlUserService;
@@ -171,6 +171,7 @@ public class ZxlUserServiceImpl implements ZxlUserService{
 		// TODO Auto-generated method stub
 		return userdao.selchushen(name);
 	} 
+	
 	@Override
 	public List<Map> selzhongshen(String name) {
 		// TODO Auto-generated method stub

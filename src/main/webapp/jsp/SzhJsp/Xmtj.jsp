@@ -15,8 +15,17 @@
 </head>
 <body>
 	<div id="toolbar">
-		<input type="text" id="changeName1" size="24" maxlength="50" class="easyui-combobox"
+		<input id="changeName1" size="24" maxlength="50" class="easyui-combobox change"
 		data-options="required:false,validType:'special'"/>
+		项目检索：<input id="ss" class="easyui-searchbox change"/>
+		用户检索：<input id="sss" class="easyui-searchbox change"/>
+		<br/>    
+                                    日期检索：<input id="begindate" type="text" class="easyui-datebox" currentText="今天" closeText="关闭" />到     
+            <input id="enddate" type="text" class="easyui-datebox" currentText="今天" closeText="关闭" />  
+            <input style="width:10px;visibility:hidden" />  
+            <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'" onclick="searchOrder()">查询</a>
+            <a href="index.html" class="easyui-linkbutton c1" data-options="iconCls:'icon-large-chart'" style="width:80px">统计图</a>
+            <!-- <input type="button" value="统计图" onclick="window.location='index.html?name=row1&参数2=值2'"> -->
 	</div>
     <table id="dg"></table>
 	<script>
@@ -34,7 +43,8 @@
                 pageList : [ 20, 40, 60 ],
                 title: '项目统计',
                 toolbar : "#toolbar",
-                columns: [[{
+                columns: [[
+             	{
 					field : 'username',
 					title : '申请人',
 					width : 200
@@ -78,25 +88,198 @@
                 utotal += rows[i]['lifeloan'];
             }
             //新增一行显示统计信息
-            $('#dg').datagrid('appendRow', { username: '<b style="font-size:16px;font-family:仿宋;">统计</b>', money: '<b style="font-size:16px;font-family:仿宋;">共'+ptotal+'元</b>', lifeloan: '<b style="font-size:16px;font-family:仿宋;">共'+utotal+'天</b>' });
+            $('#dg').datagrid('appendRow', { username: '<b style="font-size:14px;font-family:仿宋;">统计：</b>', money: '<b style="font-size:14px;font-family:仿宋;">共'+ptotal+'元</b>', lifeloan: '<b style="font-size:14px;font-family:仿宋;">共'+utotal+'天</b>' });
         }
         $(document).ready(function(){
         	//自动搜索 
-
         	$('#changeName1').combobox({
-
-        	mode:'remote' ,
-
-        	url:'/p2p/queryProject.do' ,
-
-        	valueField:'projectname' ,
-
-        	textField:'projectname' ,
-
-        	delay:500
-
+	        	mode:'remote' ,
+	        	url:'/p2p/queryProject.do' ,
+	        	valueField:'projectname' ,
+	        	textField:'projectname' ,
+	        	delay:500
         	});
         });
+        $(function(){
+        	$('#ss').searchbox({ 
+            	searcher:function(value,name){ 
+            		/* var comName = $(".change").val();
+            		alert(value); */
+            		$('#dg').datagrid({
+                        singleSelect: true,
+                        method:'post',
+                        onLoadSuccess: compute,//加载完毕后执行计算
+                        url:'/p2p/queryPart.do',
+                        fitColumns: true,
+        				striped : true,
+                        pagination: true,
+                        fit : true,
+                        queryParams: {
+                        	comname : value
+        				},
+        				rownumbers : true,
+                        pageSize: 20,
+                        pageList : [ 20, 40, 60 ],
+                        title: '项目统计',
+                       toolbar : "#toolbar",
+                        columns: [[{
+        					field : 'username',
+        					title : '申请人',
+        					width : 200
+        				},{
+        					field : 'projectname',
+        					title : '项目名称',
+        					width : 200
+        				}, {
+        					field : 'name',
+        					title : '项目类型',
+        					width : 200
+        				}, {
+        					field : 'time',
+        					title : '申请时间',
+        					width : 200
+        				}, {
+        					field : 'money',
+        					title : '申请金额',
+        					width : 200
+        				}, {
+        					field : 'lifeloan',
+        					title : '借款期限',
+        					width : 200
+        				}, {
+        					field : 'ratemoney',
+        					title : '利率',
+        					width : 200
+        				}, {
+        					field : 'codename',
+        					title : '审核状态',
+        					width : 200
+        				}]]
+                    });
+            	}, 
+            	prompt:'请输入项目名...'
+            }); 
+        });
+        
+        $(function(){
+        	$('#sss').searchbox({ 
+            	searcher:function(value,name){ 
+            		/* var comName = $(".change").val();
+            		alert(value); */
+            		$('#dg').datagrid({
+                        singleSelect: true,
+                        method:'post',
+                        onLoadSuccess: compute,//加载完毕后执行计算
+                        url:'/p2p/queryUser.do',
+                        fitColumns: true,
+        				striped : true,
+                        pagination: true,
+                        fit : true,
+        				rownumbers : true,
+        				queryParams: {
+        					user : value
+        				},
+                        pageSize: 20,
+                        pageList : [ 20, 40, 60 ],
+                        title: '项目统计',
+                       toolbar : "#toolbar",
+                        columns: [[{
+        					field : 'username',
+        					title : '用户名',
+        					width : 200
+        				},{
+        					field : 'projectname',
+        					title : '项目名称',
+        					width : 200
+        				}, {
+        					field : 'name',
+        					title : '项目类型',
+        					width : 200
+        				}, {
+        					field : 'time',
+        					title : '申请时间',
+        					width : 200
+        				}, {
+        					field : 'money',
+        					title : '申请金额',
+        					width : 200
+        				}, {
+        					field : 'lifeloan',
+        					title : '借款期限',
+        					width : 200
+        				}, {
+        					field : 'ratemoney',
+        					title : '利率',
+        					width : 200
+        				}, {
+        					field : 'codename',
+        					title : '审核状态',
+        					width : 200
+        				}]]
+                    });
+            	}, 
+            	prompt:'请输入用户名...'
+            }); 
+        });
+        
+        function searchOrder(){  
+            //$.messager.alert('提示',"search","info");
+            var begindate = $('#begindate').datebox('getValue');    //获取查询的起始日期  
+            var enddate = $('#enddate').datebox('getValue');    //获取查询的终止日期  
+            //$.messager.alert('提示',content+"&"+begindate+"&"+enddate,"info");  
+            $('#dg').datagrid({
+                singleSelect: true,
+                method:'post',
+                onLoadSuccess: compute,//加载完毕后执行计算
+                url:'/p2p/queryTime.do',
+                fitColumns: true,
+				striped : true,
+                pagination: true,
+                fit : true,
+				rownumbers : true,
+				queryParams: {
+					zzz : begindate,
+					hhh : enddate
+				},
+                pageSize: 20,
+                pageList : [ 20, 40, 60 ],
+                title: '项目统计',
+               toolbar : "#toolbar",
+                columns: [[{
+					field : 'username',
+					title : '用户名',
+					width : 200
+				},{
+					field : 'projectname',
+					title : '项目名称',
+					width : 200
+				}, {
+					field : 'name',
+					title : '项目类型',
+					width : 200
+				}, {
+					field : 'time',
+					title : '申请时间',
+					width : 200
+				}, {
+					field : 'money',
+					title : '申请金额',
+					width : 200
+				}, {
+					field : 'lifeloan',
+					title : '借款期限',
+					width : 200
+				}, {
+					field : 'ratemoney',
+					title : '利率',
+					width : 200
+				}, {
+					field : 'codename',
+					title : '审核状态',
+					width : 200
+				}]]
+            });
+        }  
     </script>
 </body>
 </html>

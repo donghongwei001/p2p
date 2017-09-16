@@ -21,5 +21,5 @@ public interface Zkjdao {
 	public String queryname(int id);//鏍规嵁鐢ㄦ埛ID鏌ヨ鐢ㄦ埛鐨勭湡瀹炲鍚�
 	public List<Map> queryuserinfo();
 	public List<Map> queryoneuserinfo(String name);
-	public void updateprojectrelease(Zkjtom zt);
+	public void updateprojectrelease(Zkjtom zt);//更新已经筹到多少钱
 }

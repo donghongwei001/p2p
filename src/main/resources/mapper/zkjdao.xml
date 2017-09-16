@@ -42,4 +42,5 @@
 	<update id="updateprojectrelease" parameterType="Zkjtom">
 		update projectrelease set nowmoney=#{nowmoney} where projectid=#{projectid}
 	</update>
+	
 </mapper>

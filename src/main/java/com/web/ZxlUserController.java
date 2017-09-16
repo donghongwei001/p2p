@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Map;
 
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -21,7 +22,6 @@ import com.entity.Pageresult;
 import com.entity.ZxlMyHuankuan;
 import com.entity.ZxlMyPersonal;
 import com.entity.ZxlMyProject;
-import com.entity.ZxlMyTouzi;
 import com.entity.ZxlTouzi;
 import com.entity.ZxlUser;
 import com.service.ZxlUserService;
@@ -125,8 +125,7 @@ public class ZxlUserController {
 	 * @param request
 	 * @return
 	 */
-	@RequestMapping("/myhuankuan")
-	@ResponseBody
+ @RequestMapping("/myhuankuan")
 	public Pageresult listhuankuan(HttpServletRequest request,Integer page,Integer rows){
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		int page1=page;
@@ -148,6 +147,24 @@ public class ZxlUserController {
 		return pResult;
 	}
 
+	
+	
+	/**
+	 * ǰ̨����
+	 * @param hkuan
+	 * @param request
+	 * @return
+	 */
+	/*@RequestMapping("/myhuankuan")
+	public String queryHuanK(ypgHuanK hkuan,HttpServletRequest request){
+		String userna =(String)request.getSession().getAttribute("abcd");
+		Map<Integer, BigDecimal> mapHK=userservice.queryHuanK(hkuan);
+		request.setAttribute("mapHuank", mapHK);
+		return "myhuankuan";
+	}*/
+	
+	
+	
 	/**
 	 * 查询该用户的基本信息
 	 * 根据用户名
@@ -264,4 +281,5 @@ public class ZxlUserController {
 		}
 		return flag;
 	}
+	
 }

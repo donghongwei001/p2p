@@ -18,5 +18,20 @@ public class SzhMoneyServiceImpl implements SzhMoneyService {
 		// TODO Auto-generated method stub
 		return smd.queryMoney();
 	}
+	@Override
+	public List<SzhMoney> queryMoneyName(String name) {
+		// TODO Auto-generated method stub
+		return smd.queryMoneyName(name);
+	}
+	@Override
+	public List<SzhMoney> queryMoneyProject(String moneyProject) {
+		// TODO Auto-generated method stub
+		return smd.queryMoneyProject(moneyProject);
+	}
+	@Override
+	public List<SzhMoney> queryMoneyTime(String ti, String me) {
+		// TODO Auto-generated method stub
+		return smd.queryMoneyTime(ti, me);
+	}
 
 }
