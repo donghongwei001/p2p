@@ -22,13 +22,60 @@
 		<a id="xiajia"
 			href="javascript:void(0)" class="easyui-linkbutton"
 			data-options="iconCls:'icon-remove'">项目下架</a>
+		<a id="seldo"
+			href="javascript:void(0)" class="easyui-linkbutton"
+			data-options="iconCls:'icon-remove'">查看项目金额</a>
 	</div>
 	<table id="proDataGrid"> 
 
 	</table>
-	<table id="dg">
-	
-	</table>
+<div id="dialog">
+  	<form id="myform" method="post">
+			<table with="100%" class="formtable">
+				<tr>
+					<th height="28">用户姓名:</th>
+					<td><input id="personalname1" name="personalname"
+						class="easyui-validatebox"style="border:0px;background:rgba(0, 0, 0, 0);"></td>
+				
+				</tr>
+				<tr>
+					<th height="28">身份证号:</th>
+					<td><input id="idcard1" name="idcard"
+						class="easyui-validatebox" style="border:0px;background:rgba(0, 0, 0, 0);"></td>
+				</tr>
+				<tr>
+					<th height="28">手机号:</th>
+					<td><input id="iphone1" name="iphone"
+						class="easyui-validatebox" style="border:0px;background:rgba(0, 0, 0, 0);"></td>
+				</tr>
+				<tr>
+					<th height="28">电子邮箱:</th>
+					<td><input id="mailbox1" name="mailbox"
+						class="easyui-validatebox" style="border:0px;background:rgba(0, 0, 0, 0);"></td>
+				</tr>
+				<tr>
+					<th height="28">居住地址:</th>
+					<td><input id="address1" name="address"
+						class="easyui-validatebox" style="border:0px;background:rgba(0, 0, 0, 0);"></td>
+				</tr>
+				<tr>
+					<th height="28">已筹到金额:</th>
+					<td><input id="nowmoney1" name="nowmoney"
+						class="easyui-validatebox" style="border:0px;background:rgba(0, 0, 0, 0);"></td>
+				</tr>
+				<tr>
+					<th height="28">发布时间:</th>
+					<td><input id="begintime1" name="begintime"
+						class="easyui-validatebox" style="border:0px;background:rgba(0, 0, 0, 0);"></td>
+				</tr>
+				<tr>
+					<th height="28">结束时间:</th>
+					<td><input id="lasttime1" name="lasttime"
+						class="easyui-validatebox" style="border:0px;background:rgba(0, 0, 0, 0);"></td>
+				</tr>
+			</table>
+			</form>
+	</div>
 </body>
 </html>
 <script type="text/javascript">
@@ -43,11 +90,14 @@ $(function(){
 	fit : true,//
 	rownumbers : true,
 	singleSelect : false,
-	pagination : true,
-	pageSize : 5,
-	pageList : [ 5, 10, 15 ],
+	pageSize : 10,//每页显示的记录条数，默认为10 
+	pageList : [ 5, 10, 15 ],//可以设置每页记录条数的列表 
+	beforePageText : '第',//页数文本框前显示的汉字 
+	afterPageText : '页    共 {pages} 页',
+	pagination : true, //分页工具栏
+	pagePosition : "bottom",
 	toolbar : "#toolbar",
-
+	
 	columns : [ [{
 		field : 'PROJECTID',
 		title : '项目ID',
@@ -99,9 +149,11 @@ $(function(){
 			//var index=row[0].PROJECTID;
 		var data={};
 		data["projectid"]=row[0].PROJECTID;
-		//data["poststatus"]=row[6].POSTSTATUS;
 		alert(data.projectid);
-		
+		if(row[0].POSTSTATUS=='5'){
+			alert("该项目已发布");
+			return false;
+		}else if(row[0].POSTSTATUS=='12'){
 		if (window.confirm('确定发布吗？')) {
 		$.ajax({
 			type : "post",
@@ -114,11 +166,81 @@ $(function(){
 			}
 		});
 		}
-		
+		}else{
+			alert("该项目已下架");
+			return false;
+		}
 		}else{
 			alert("请选择要发布的项目");
 		}
 	});
+	
+	
+	$("#seldo").click(function() {
+		var row = $('#proDataGrid').datagrid("getSelections");
+		if (row.length==1) {
+			var index=row[0].PROJECTID;
+			alert(index);
+			if(row[0].POSTSTATUS=='12'){
+				alert("该项目还未发布");
+				return false;
+			}else{
+		$('#dialog')
+		.dialog(
+				{
+					title : '我的模态框', //模态框标题
+					width : 600, //宽度
+					height : 400, //高度	
+					left : 400,
+					close : true, //是否可以关闭
+					closable:false,
+					top : 0, //上移100
+					cache : false, //
+					modal : true,//模态框 
+					onOpen : function() {
+						
+						$.ajax({ //发送了一个新的请求，与按钮这个请求完全不是一马事
+							type : "post", //请求方式
+							url : "/p2p/yx/removexmsel.do", //请求地址
+							data : {
+								id : index
+							},//{nameha:$("#username").val(),passha:$("#password").val()},
+							dataType : "json",
+							success : function(data) { //请求成功后调用的回调函数，参数1【data】 请求返回的数据，这个数据类型是dataType制定
+								var jsonObj = eval(data);
+								$.each(jsonObj, function(i, a) {
+									$("#personalname1").val(a.PERSONALNAME);
+									$("#idcard1").val(a.IDCARD);
+									$("#iphone1").val(a.IPHONE);
+									$("#mailbox1").val(a.MAILBOX);
+									$("#address1").val(a.ADDRESS);
+									$("#nowmoney1").val(a.NOWMONEY);
+									$("#begintime1").val(a.time1);
+									$("#lasttime1").val(a.time2);
+								
+									$("input").attr("readonly", "readonly"); //对所有的input标签禁用
+								})
+							}
+						})
+					},
+					buttons : [
+							{ //自带的按钮 
+								text : '关闭',
+								handler : function() {
+									alert("你确定取消吗？");
+									$('#dialog').dialog("close");
+									window.location.reload();
+								}
+							} ]
+				})
+			}
+		}else{
+			alert("请选择一条数据");
+		}
+	});
+$('#dialog').dialog("close");
+
+	
 	
 });
 </script>

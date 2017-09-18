@@ -44,4 +44,9 @@
 		pp.personalname,pp.idcard,pp.iphone,pp.mailbox,pp.marriage,pp.havachidren,pp.address,pp.worklife,pp.occupation,pp.workunit,pp.unitphone,pp.monthlyincome,pp.haveroom,pp.houseloan,pp.havecar,pp.carloan,pp.contactname,pp.contactrelation,pp.contactphone
 		from projectapplication p,firsttable f,usertable u,subjectType s,psersonalform  pp where p.projecttype=s.id and p.userid=u.userid and p.projecttype=s.id and f.projectid=p.id and f.projectid=#{projectid} and p.userid=u.userid and pp.userid=u.userid and p.id=#{projectid}
 	</select>
+	<!-- 下架的项目查看详情 -->
+	<select id="queryremove" resultType="java.util.HashMap" parameterType="int">
+		<!-- select p.projectid,pp.projectname,s.name,pp.location,pp.money,p.nowmoney,p.begintime,p.lasttime from projectrelease p,finaltable f,projectapplication pp,subjectType s where pp.projecttype=s.id and pp.id=p.projectid and p.projectid=#{projectid} -->
+  select pf.personalname,pf.idcard,pf.iphone,pf.mailbox,pf.address,p.nowmoney,p.begintime,p.lasttime from projectrelease p,finaltable f,projectapplication pp,psersonalform pf,usertable u where p.projectid=f.projectid and pp.id=p.projectid and pp.userid=pf.userid and pf.userid=u.userid and p.projectid=#{projectid}
+	</select>
 </mapper>
