@@ -196,7 +196,7 @@ public class YxExamineController {
 		 * @param request
 		 * @return
 		 */
-		@RequestMapping("/removexmsel")
+	@RequestMapping("/removexmsel")
 		@ResponseBody
 		public List<Map> querythree(HttpServletRequest request){
 			int id=Integer.parseInt(request.getParameter("id"));
@@ -206,14 +206,16 @@ public class YxExamineController {
 				System.out.println(lmp.get(i).get("BEGINTIME"));
 				String time=simpleDateFormat.format(lmp.get(i).get("BEGINTIME"));
 				lmp.get(i).put("time1", time);
+				if(lmp.get(i).get("LASTTIME")!=null && lmp.get(i).get("LASTTIME")!=""){
+					String time1=simpleDateFormat.format(lmp.get(i).get("LASTTIME"));
+					lmp.get(i).put("time2", time1);
+				}
+				
 				
 			}
-			for (int i = 0; i < lmp.size(); i++) {
-				System.out.println(lmp.get(i).get("BEGINTIME"));
-				String time=simpleDateFormat.format(lmp.get(i).get("LASTTIME"));
-				lmp.get(i).put("time2", time);
-				
-			}
+	
 			return lmp;
 		}
+		
+		
 }

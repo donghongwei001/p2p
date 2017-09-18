@@ -29,4 +29,5 @@ public interface YxExamineDao {
 	public List<Map>queryfirst(int id);
 	//查看发布中，下架的项目详情
 	public List<Map>queryremove(int id);
+
 }

@@ -99,6 +99,7 @@
 			
 				<div id="content-right">
 					<div id="right-div">
+					
 					<div role="tabpanel" class="tab-pane" id="settings">
 				<div class="panel-group" id="accordion" role="tablist"
 					aria-multiselectable="true">

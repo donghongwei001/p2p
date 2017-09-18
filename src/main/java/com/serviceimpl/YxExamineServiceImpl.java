@@ -97,5 +97,4 @@ public class YxExamineServiceImpl implements YxExamineService{
 		return yxdao.queryremove(id);
 	}
 
-
 }

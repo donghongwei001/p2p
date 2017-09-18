@@ -282,7 +282,7 @@ $(function(){
 				})
 		
 		}else{
-			alert("111");
+			alert("请选择一条数据");
 		}
 	});
 $('#dialog').dialog("close");
