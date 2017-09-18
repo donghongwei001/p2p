@@ -209,7 +209,7 @@
 				</dt>
 				<dd>
 					<ul>
-						<li><a data-href="http://localhost:9088/p2p/jsp/touzi.jsp" data-title="项目初审未通过"
+						<li><a data-href="http://localhost:9088/p2p/jsp/touzi.jsp" data-title="投资管理"
 							href="javascript:void(0)">投资管理</a></li>
 					</ul>
 				</dd>
@@ -225,11 +225,11 @@
 				<dd>
 
 					<ul><shiro:hasPermission name="intime">
-						<li><a data-href="../jsp/project.jsp" data-title="折线图"
+						<li><a data-href="../jsp/project.jsp" data-title="到期还款"
 
 							href="javascript:void(0)">到期还款</a></li></shiro:hasPermission>
 						<shiro:hasPermission name="outtime">
-						<li><a data-href="../role/Hmoney.do" data-title="时间轴折线图"
+						<li><a data-href="../role/Hmoney.do" data-title="逾期还款"
 							href="javascript:void(0)">逾期还款</a></li></shiro:hasPermission>
 
 
@@ -248,10 +248,10 @@
 				<dd>
 
 					<ul><shiro:hasPermission name="peojecttongji">
-						<li><a data-href="../jsp/SzhJsp/Xmtj.jsp" data-title="系统设置"
+						<li><a data-href="../jsp/SzhJsp/Xmtj.jsp" data-title="项目统计"
 							href="javascript:void(0)">项目统计</a></li></shiro:hasPermission>
 						<shiro:hasPermission name="zijintongji">
-						<li><a data-href="../jsp/SzhJsp/Zjtj.jsp" data-title="栏目管理"
+						<li><a data-href="../jsp/SzhJsp/Zjtj.jsp" data-title="资金统计"
 							href="javascript:void(0)">资金统计</a></li></shiro:hasPermission>
 
 					</ul>
