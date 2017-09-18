@@ -77,9 +77,6 @@
 						<li id="Hui-msg"><a href="#" title="消息"><span
 								class="badge badge-danger">该下架项目${xiajia}</span><i class="Hui-iconfont"
 								style="font-size: 18px">&#xe68a;</i></a></li>
-						<%-- <li id="Hui-msg"><a href="#" title="消息"><span
-								class="badge badge-danger">未审核项目${count}</span><i class="Hui-iconfont"
-								style="font-size: 18px">&#xe68a;</i></a></li> --%>
 						<li id="Hui-skin" class="dropDown right dropDown_hover"><a
 							href="javascript:;" class="dropDown_A" title="换肤"><i
 								class="Hui-iconfont" style="font-size: 18px">&#xe62a;</i></a>
