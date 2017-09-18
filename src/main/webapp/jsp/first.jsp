@@ -189,9 +189,12 @@ $(function(){
 	fit : true,//
 	rownumbers : true,
 	singleSelect : false,
-	pagination : true,
-	pageSize : 10,
-	pageList : [ 10, 20, 30 ],
+	pageSize : 10,//每页显示的记录条数，默认为10 
+	pageList : [ 5, 10, 15 ],//可以设置每页记录条数的列表 
+	beforePageText : '第',//页数文本框前显示的汉字 
+	afterPageText : '页    共 {pages} 页',
+	pagination : true, //分页工具栏
+	pagePosition : "bottom",
 	toolbar : "#toolbar",
 	columns : [ [{
 		field : 'PROJECTID',

@@ -36,4 +36,3 @@ function(){r.apply(this,Array.prototype.slice.call(arguments));a.addAccessibleCo
 Array.prototype.slice.call(arguments,1)).replace("\x3ctable\x3e",'\x3ctable id\x3d"'+p+'" summary\x3d"Table representation of chart"\x3e\x3ccaption\x3e'+t+"\x3c/caption\x3e")});e.wrap(a,"viewData",function(a){if(!this.insertedTable){a.apply(this,Array.prototype.slice.call(arguments,1));var b=l.getElementById(p),c=b.getElementsByTagName("tbody")[0],d=c.firstChild.children,e="\x3ctr\x3e\x3ctd\x3e\x3c/td\x3e",f,h;b.setAttribute("tabindex","-1");g(c.children,function(a){f=a.firstChild;h=l.createElement("th");
 h.setAttribute("scope","row");h.innerHTML=f.innerHTML;f.parentNode.replaceChild(h,f)});g(d,function(a){"TH"===a.tagName&&a.setAttribute("scope","col")});m.length&&(g(m,function(a){e+='\x3cth scope\x3d"col" colspan\x3d"'+a.span+'"\x3e'+a.text+"\x3c/th\x3e"}),c.insertAdjacentHTML("afterbegin",e))}})}})})(h)});
 
-

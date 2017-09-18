@@ -88,6 +88,14 @@ public class YxExamineServiceImpl implements YxExamineService{
 		// TODO Auto-generated method stub
 		return yxdao.queryfirst(id);
 	}
+	/**
+	 * 发布中，下架的项目，查看详情
+	 */
+	@Override
+	public List<Map> queryde(int id) {
+		// TODO Auto-generated method stub
+		return yxdao.queryremove(id);
+	}
 
 
 }

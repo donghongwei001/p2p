@@ -36,7 +36,8 @@ public class YxFirsttableController {
 	 * @throws ParseException
 	 */
 	@RequestMapping(value="/shenhe")
-	public void sert(@RequestBody String json,HttpServletResponse response,HttpServletRequest request) throws ParseException{
+	@ResponseBody
+	public void sert(@RequestBody String json,HttpServletResponse response,HttpServletRequest request){
 		System.out.println("11111111111111111");
 		YxFirsttable yft=JSON.parseObject(json,YxFirsttable.class);
 		System.out.println(yft.getProjectid());
@@ -50,7 +51,7 @@ public class YxFirsttableController {
 		DhwEmpTab usera=(DhwEmpTab)request.getSession().getAttribute("user");
 		System.out.println(usera.getEmpname());
 		yft.setFirstname(usera.getEmpname());
-		
+	
 		int flag=firservice.addfirsts(yft);
 		try{
 			if(flag==1){
