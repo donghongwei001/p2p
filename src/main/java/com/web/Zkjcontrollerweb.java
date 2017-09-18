@@ -120,11 +120,11 @@ public class Zkjcontrollerweb {
 	@ResponseBody
 	public String[] suancapital(@RequestBody String data){
 		ZkjCapitalaverage zz=JSON.parseObject(data, ZkjCapitalaverage.class);
-		System.out.println(zz.getLife()+"asda"+zz.getRate());
+		System.out.println(zz);
 		Capitalaverage cc=new Capitalaverage();
-		double monthIncome=cc.getPerMonthPrincipalInterest(zz.getMmoney(),zz.getRate()*12,zz.getLife());
-		double charge=zz.getMmoney()*0.01;
-		double totalmoney=zz.getMmoney()+cc.getInterestCount(zz.getMmoney(),zz.getRate()*12,zz.getLife());
+		double monthIncome=cc.getPerMonthPrincipalInterest(zz.getMmoney(),zz.getRate()*12,zz.getLife());//每月应还的利息和本金
+		double charge=zz.getMmoney()*0.01;//服务费
+		double totalmoney=zz.getMmoney()+cc.getInterestCount(zz.getMmoney(),zz.getRate()*12,zz.getLife());//本金+总利息
 		String[] str=new String[]{Double.toString(monthIncome) ,Double.toString(charge),Double.toString(totalmoney)};
 		return str;
 	}

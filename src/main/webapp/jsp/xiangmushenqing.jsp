@@ -49,11 +49,11 @@
 			width:600px;
 		}
 		#disc{
-			border:1px solid blue;
+			
 			width:400px;
 			height:500px;
 			float:left;
-			display:none;
+			
 		}
 	</style>
 	
@@ -120,7 +120,7 @@
 				 	<label for="inputEm" style="font-size:16px;" class="col-sm-2 control-label">申请金额</label>
 				 <div class="col-lg-9">
 					    <div class="input-group">
-					      <input type="text" class="form-control" name="money"  id="mmoney" placeholder="例如：10000" onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');">
+					      <input type="text" class="form-control" name="money"  id="mmmoney" placeholder="例如：10000" onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');">
 					      <span class="input-group-btn">
 					        <button class="btn btn-default"   type="button">元</button>
 					      </span><br/>
@@ -147,7 +147,7 @@
 				 <div class="form-group">
 					<label for="input2" style="font-size:16px;" class="col-sm-2 control-label">月利率</label>
 					<div class="col-sm-9">
-						<input type="text" class="form-control" id="rate" name="ratemoney" placeholder="例如：0.001" >
+						<input type="text" class="form-control" id="rateee" name="ratemoney" placeholder="例如：0.001" ><span id="vvi"></span>
 					</div>
 				 </div>
 				
@@ -168,37 +168,7 @@
 			</form>			
 		</div>
 		<div id="disc">
-			<table>
-				<tr>
-					<td>
-					<h3>到期还款</h3>
-					</td>
-				</tr>
-				<tr>
-					<td id="benjin">
-						本金为：
-					</td>
-				</tr>
-				<tr >
-					<td id="meiyue">
-						每月还款
-					</td>
-				</tr>
-				<tr>
-					<td>
-					总利息为：
-					</td>
-				</tr>
-				<tr>
-					<td>
-						手续费为：
-					</td>
-				</tr>
-				<tr>
-					<td>
-						总共应还：
-					</td>
-				</tr>
+			<table id="ttb">
 			
 			</table>
 		</div>
@@ -241,23 +211,47 @@ $("#ptojectname").blur(function(){
 	}
 });
 
-$("#rate").blur(function(){
-	var rate=$("#rate").val();
+$("#rateee").blur(function(){
+	var rate=$("#rateee").val();
 	var life=$("#life").val();
-	var mmoney=$("mmoney").val();
-	var data={};
-	data["rate"]=rate;
-	data["life"]=life;
-	data["mmoney"]=mmoney;
-	$.ajax({
-		type:"post",
-		url:"/p2p/zkj/capital.do",
-		data:JSON.stringify(data),
-		success :function(dataa){
-			alert(dataa);
+	var mmoney=$("#mmmoney").val();
+	if(rate==null||rate==""){
+		$("#vvi").html("月利率不能为空");
+		$("#vvi").css("color","red");
+		return false;
+	}else{
+		if(parseFloat(rate)>1){
+			$("#vvi").html("利率太大啦");
+			return false;
+		}else{
+			if(rate==null||rate==""||life==null||life==""||mmmoney==null||mmmoney==""){
+				return false;
+			}else{
+				var data={};
+				data["rate"]=rate;
+				data["life"]=life;
+				data["mmoney"]=mmoney;
+				$.ajax({
+					type:"post",
+					url:"/p2p/zkj/capital.do",
+					contentType:"application/json;charset=utf-8",
+					data:JSON.stringify(data),
+					success :function(dataa){
+						$("#ttb").empty();
+						$("#ttb").append("<tr><td><h3>到期还款计划</h3></td></tr>");
+						$("#ttb").append("<tr><td><h3>本金为："+mmoney+"元</h3></td></tr>");
+						$("#ttb").append("<tr><td><h3>每月还款:"+dataa[0]+"元</h3></td></tr>");
+						$("#ttb").append("<tr><td><h3>总利息为："+(dataa[2]-mmoney).toFixed(2)+"元</h3></td></tr>");
+						$("#ttb").append("<tr><td><h3>本息总共："+dataa[2]+"元</h3></td></tr>");
+						$("#ttb").append("<tr><td><h3>手续费为："+dataa[1]+"元</h3></td></tr>");
+					
+					}
+					
+				});
+			}
 		}
-		
-	});
+	}
+	
 	
 });
 
@@ -268,10 +262,11 @@ $("#distpicker2").distpicker({
 	});
 	
 	
-	$("#mmoney").blur(function(){
-		var mm=$("#mmoney").val();
+	$("#mmmoney").blur(function(){
+		var mm=$("#mmmoney").val();
 		var sp=$("#sp");
-		
+		var rate=$("#rateee").val();
+		var life=$("#life").val();
 		var reg=/^[0-9]*$/;
 		sp.empty();
 		if(mm==""||mm==null){
@@ -287,10 +282,70 @@ $("#distpicker2").distpicker({
 			if(mm<0){
 				sp.html("请输入大于零的整数");
 				return false;
+			}else{
+				if(rate==null||rate==""||life==null||life==""||mm==null||mm==""){
+					return false;
+				}else{
+					var data={};
+					data["rate"]=rate;
+					data["life"]=life;
+					data["mmoney"]=mm;
+					$.ajax({
+						type:"post",
+						url:"/p2p/zkj/capital.do",
+						contentType:"application/json;charset=utf-8",
+						data:JSON.stringify(data),
+						success :function(dataa){
+							$("#ttb").empty();
+							$("#ttb").append("<tr><td><h3>到期还款计划</h3></td></tr>");
+							$("#ttb").append("<tr><td><h3>本金为："+mm+"元</h3></td></tr>");
+							$("#ttb").append("<tr><td><h3>每月还款:"+dataa[0]+"元</h3></td></tr>");
+							$("#ttb").append("<tr><td><h3>总利息为："+(dataa[2]-mm).toFixed(2)+"元</h3></td></tr>");
+							$("#ttb").append("<tr><td><h3>本息总共："+dataa[2]+"元</h3></td></tr>");
+							$("#ttb").append("<tr><td><h3>手续费为："+dataa[1]+"元</h3></td></tr>");
+						
+						}
+						
+					});
+				}
 			}
 		}
 		}
 		
+		
+	});
+	
+	
+	$("#life").blur(function(){
+		var mm=$("#mmmoney").val();
+		
+		var rate=$("#rateee").val();
+		var life=$("#life").val();
+		if(rate==null||rate==""||life==null||life==""||mm==null||mm==""){
+			return false;
+		}else{
+			var data={};
+			data["rate"]=rate;
+			data["life"]=life;
+			data["mmoney"]=mm;
+			$.ajax({
+				type:"post",
+				url:"/p2p/zkj/capital.do",
+				contentType:"application/json;charset=utf-8",
+				data:JSON.stringify(data),
+				success :function(dataa){
+					$("#ttb").empty();
+					$("#ttb").append("<tr><td><h3>到期还款计划</h3></td></tr>");
+					$("#ttb").append("<tr><td><h3>本金为："+mm+"元</h3></td></tr>");
+					$("#ttb").append("<tr><td><h3>每月还款:"+dataa[0]+"元</h3></td></tr>");
+					$("#ttb").append("<tr><td><h3>总利息为："+(dataa[2]-mm).toFixed(2)+"元</h3></td></tr>");
+					$("#ttb").append("<tr><td><h3>本息总共："+dataa[2]+"元</h3></td></tr>");
+					$("#ttb").append("<tr><td><h3>手续费为："+dataa[1]+"元</h3></td></tr>");
+				
+				}
+				
+			});
+		}
 		
 	});
 	$(function(){
