@@ -20,35 +20,35 @@ public class YxFirsttableServiceImpl implements YxFirsttableService {
 	 * 第一次审核插入到数据库
 	 */
 	@Override
-	public int addfirsts(YxFirsttable yf) {
+	public void addfirsts(YxFirsttable yf) {
 		// TODO Auto-generated method stub
-		return firdao.addfirst(yf);
+		firdao.addfirst(yf);
 	}
 	/**
 	 * 第二次审核插入到数据库
 	 */
 	@Override
-	public int addseconds(YxFinaltable yt) {
+	public void addseconds(YxFinaltable yt) {
 		// TODO Auto-generated method stub
-		return firdao.addsecond(yt);
+		firdao.addsecond(yt);
 	}
 	/**
 	 * 第一次审核成功后更新项目审核表审核状态
 	 */
 	@Override
-	public int update(YxExamine ym) {
+	public void update(int id) {
 		// TODO Auto-generated method stub
-		int flag=firdao.update(ym);
-		return flag;
+		firdao.update(id);
+		
 	}
 	/**
 	 * 第二次审核成功后更新第二次审核状态
 	 */
 	@Override
-	public int updates(YxFirsttable yx) {
+	public void updates(int id) {
 		// TODO Auto-generated method stub
-		int flag=firdao.updatesecond(yx);
-		return flag;
+		firdao.updatesecond(id);
+		
 	}
 	/**
 	 * 发布项目

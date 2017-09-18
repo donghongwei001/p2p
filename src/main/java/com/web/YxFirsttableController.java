@@ -51,9 +51,11 @@ public class YxFirsttableController {
 		DhwEmpTab usera=(DhwEmpTab)request.getSession().getAttribute("user");
 		System.out.println(usera.getEmpname());
 		yft.setFirstname(usera.getEmpname());
-	
-		int flag=firservice.addfirsts(yft);
-		try{
+		 int id=yft.getProjectid();
+		 firservice.update(id);
+		 firservice.addfirsts(yft);
+		
+	/*	try{
 			if(flag==1){
 				 
 				response.getWriter().write("success");
@@ -64,7 +66,7 @@ public class YxFirsttableController {
 			response.getWriter().close();
 		}catch(Exception e){
 			
-		}
+		}*/
 	}
 	
 	/**
@@ -80,19 +82,10 @@ public class YxFirsttableController {
 		yt.setFinaldate(date);
 		DhwEmpTab use=(DhwEmpTab) request.getSession().getAttribute("user");
 		yt.setFinalname(use.getEmpname());
-		
-		int flag=firservice.addseconds(yt);
-		try{
-			if(flag==1){
-				response.getWriter().write("right");
-			}else{
-				response.getWriter().write("wrong");
-			}
-			response.getWriter().flush();
-			response.getWriter().close();
-		}catch(Exception e){
-			
-		}
+		int id=yt.getProjectid();
+		firservice.updates(id);
+		firservice.addseconds(yt);
+	
 	}
 	/**
 	 * 初审失败的插入到项目表
@@ -137,13 +130,7 @@ public class YxFirsttableController {
 	@ResponseBody
 	public String update(@RequestBody String json){
 		YxExamine ym=JSON.parseObject(json,YxExamine.class);
-		int flag=firservice.update(ym);
-	
-			if(flag>0){
-				return "ture";
-			}else{
-				return "false";
-			}
+		return null;
 		
 	}
 	/**
@@ -155,12 +142,7 @@ public class YxFirsttableController {
 	@ResponseBody
 	public String updates(@RequestBody String json){
 		YxFirsttable yx=JSON.parseObject(json,YxFirsttable.class);
-		int flag=firservice.updates(yx);
-		if(flag>0){
-			return "ok";
-		}else{
-			return "no";
-		}
+		return null;
 	}
 	
 	/**
