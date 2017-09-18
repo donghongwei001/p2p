@@ -83,12 +83,13 @@
 		</div>
 			
 		<div id="content">
+			
 			<div id="content-left">	
 				<c:forEach items="${listpro}" var="user">		
 					<div id="left-con">				
 						<div id="left-conleft">
 							<div id="left-contop">
-								<span>${user.projectname}</span>${user.projectid}
+								<span>${user.projectname}</span>
 								<span style="font-size:18px;color:#1E90FF;">(${user.personalname}，${user.name}，${user.location})</span>
 							</div>
 							<div id="left-conbut">
@@ -97,7 +98,7 @@
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								</div>
 								<div id="left-conqx">
-									<span id="left-span">借款期限</span>&nbsp;<span id="left-conspan">${user.lifeloan}</span>&nbsp;<span id="left-span">月</span>
+									<span id="left-span">借款期限</span>&nbsp;<span id="left-conspan">${user.lifeloan}</span>&nbsp;<span id="left-span">个月</span>
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								</div>
 								<div id="left-conll">

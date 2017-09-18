@@ -134,7 +134,7 @@ $(function(){
                 return "发布中";
             }else if(row.POSTSTATUS=='12'){
                 return "待发布";
-            }else{
+            }else if(row.POSTSTATUS=='6'){
             	return "已下架";
             }
         }
@@ -174,6 +174,7 @@ $(function(){
 			alert("请选择要发布的项目");
 		}
 	});
+
 	
 	
 	$("#seldo").click(function() {
@@ -242,5 +243,34 @@ $('#dialog').dialog("close");
 
 	
 	
+
+	$("#xiajia").click(function(){
+		var row = $('#proDataGrid').datagrid("getSelections");
+		if (row.length==1) {
+			var index=row[0].POSTSTATUS;
+			if (index='5') {
+				if (window.confirm('你确定下架该项目吗？')) {
+					var pid=row[0].PROJECTID;
+				$.ajax({ //发送了一个新的请求，与按钮这个请求完全不是一马事
+					type : "post", //请求方式
+					url : "/p2p/first/xiajia.do", //请求地址
+					data : {
+						id : pid
+					},//{nameha:$("#username").val(),passha:$("#password").val()},
+					//dataType : "json",
+					success : function(data) { //请求成功后调用的回调函数，参数1【data】 请求返回的数据，这个数据类型是dataType制定
+						alert("下架成功!")
+						window.location.reload();
+					}
+				})
+				}
+			} else {
+				alert("该项目不可以下架")
+			}
+		}else {
+			alert("请选择一条要下架的项目");
+		}
+	})
+
 });
 </script>

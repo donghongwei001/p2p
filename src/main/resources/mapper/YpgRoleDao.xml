@@ -6,13 +6,17 @@
 	<select id="queryRole" resultType="java.util.HashMap">
 		select * from role
 	</select>
+	<!-- 个人信息查询 -->
 	<select id="queryPersonals" resultType="java.util.HashMap">
 		select * from psersonalform
 	</select>
+	<!-- 后台还款查询 -->
 	<select id="queryRepayMoney" resultType="java.util.HashMap">
 		select r.repayid,r.projrctid,r.hktime,r.hkmoney,ptmoney,c.codename from repaymoney r,code c where r.statu=c.codeid and r.statu=8
 	</select>
+	<!-- 还款查询 -->
 	<select id="queryRepay" resultType="java.util.HashMap">
 		select r.repayid,r.projrctid,r.hktime,r.hkmoney,ptmoney,c.codename from repaymoney r,code c where r.statu=c.codeid and r.statu=7
 	</select>
+	
 </mapper>

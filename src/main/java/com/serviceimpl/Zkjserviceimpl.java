@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.dao.Zkjdao;
 import com.dao.Zkjdaointerface;
@@ -63,7 +64,7 @@ public class Zkjserviceimpl implements Zkjservicedao {
 		
 	}
 	@Override
-
+	@Transactional
 	public void addinvest(ZkjInvest zz,String name) {
 		// TODO Auto-generated method stub
 		
@@ -85,7 +86,7 @@ public class Zkjserviceimpl implements Zkjservicedao {
 		}
 		int surplusinvest=loanmoney-investmoney;
 		
-		zt.setNowmoney(surplusinvest);
+		zt.setNowmoney(investmoney);
 		zt.setProjectid(zz.getSubjectid());
 		dao.updateprojectrelease(zt);
 	}

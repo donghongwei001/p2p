@@ -1,5 +1,8 @@
 package com.service;
 
+import java.util.List;
+import java.util.Map;
+
 import com.entity.YxExamine;
 import com.entity.YxFabu;
 import com.entity.YxFinaltable;
@@ -26,4 +29,11 @@ public interface YxFirsttableService {
 	public void twoxmm(YxFabu yf);
 	//终审失败数据插入成功改状态
 	public void updatetxm(int id);
+	public void updatexiajia(String date,int id);
+	public void updatefinalstatu(int id);
+	public List<Map> selmoney(int id);
+	public void addhuankuan(int id,String date,double qian,double lilv,Double allmoney);
+	public List<Map> selfangman(int id);
+	public int selman(String name);
+	public void addshoukuan(int userid,int projectid,String date,double money,double lilv,double benjin);
 }

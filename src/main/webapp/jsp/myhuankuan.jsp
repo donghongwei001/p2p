@@ -6,11 +6,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>personal</title>
-	<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="../easyui/js/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="../bootstrap/js/bootstrap.min.js"></script>
-    
+    <link rel="stylesheet" type="text/css" href="../easyui/css/icon.css" />
+<link rel="stylesheet" type="text/css" href="../easyui/css/easyui.css" />
+<script src="../easyui/js/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="../easyui/js/easyui-lang-zh_CN.js"></script>
 	<style type="text/css">
 		body{/* background-color:#F5F5F5; */}
 		div a{text-decoration:none;}
@@ -38,7 +39,7 @@
 		#left5{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
 		#left6{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
 		#content-right{width:76%;height:800px;float:left;margin-left:15px;background-color:#FFFFFF;}
-		#right-div{width:76%;height:auto;float:left;margin:50px 50px 50px 90px;}
+		#right-div{width:86%;height:auto;float:left;margin:50px 50px 50px 40px;}
 		#div-img{float:left;}
 		#div-name{float:left;margin-left:20px;margin-right:20px;}	
 		#th{float:left;width:10px;height:130px;border-right:1px dashed #DCDCDC;}
@@ -56,9 +57,50 @@
 		#input-btu{margin-left:250px;}
 		#btn {
 			
-			margin-left:200px;
+			margin-left:400px;
 			
 		}
+		
+		#HuanK_button {
+			width:76%;
+			height:auto;
+			border:1px solid gray;
+		}
+		#HuanK_information{
+			width:76%;
+			height:100px;
+			line-height:100px;
+			text-align:center;
+			border:1px solid gray;
+			
+		}
+		#HuanK_btn{
+			float:right;
+		}
+		#HuanK{
+			margin-top:20px;
+			margin-left:95px;
+		}
+		#ios{
+			width:76%;
+			height:100px;
+			text-align:center;
+			border:1px solid gray;
+		}
+		/* #headingOne{
+			height:50px;
+			text-align:center;
+			
+		}
+		#headingOne a{
+			line-height:50px;
+		}
+		
+		#panelOne{
+			width:76%;
+			margin-top:60px;
+			margin-left:95px;
+		} */
 	</style>
 	
 	<script type="text/javascript">
@@ -74,8 +116,9 @@
 			</div>			
 			<div id="top-menu">
 				<a href="/p2p/user/listpro.do">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 				<a href="/p2p/user/listtouzi.do">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<span id="asd">我要借款&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<a id="asd">我要借款&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
 				<a href="/p2p/jsp/zxlpersonal.jsp">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;						
 			</div>
 			<div id="top-login">										
@@ -94,87 +137,30 @@
 					<div id="left1"><a href="/p2p/user/zxlpersonal.do">我的资产</a></div>
 					<div id="left2"><a href="/p2p/user/myproject.do">我的项目</a></div>
 					<div id="left3"><a href="/p2p/user/mytouzi.do">我的投资</a></div>
-					<div id="left4"><a href="/p2p/user/myhuankuan.do">我的还款</a></div>
+					<div id="left4"><a href="/p2p/jsp/myhuankuan.jsp">我的还款</a></div>
 					<div id="left5"><a href="/p2p/user/mypersonal.do">个人信息</a></div>
 					<div id="left6"><a href="/p2p/jsp/myupdatepwd.jsp">修改密码</a></div>
 				</div>
 			
 				<div id="content-right">
+																			
 					<div id="right-div">						
-						<table class="table table-hover">
-								<tr>
-									<th><h4>项目编号</h4></th>
-									<th><h4>项目名称</h4></th>
-									<th><h4>还款资金</h4></th>
-									<th><h4>平台费用</h4></th>
-									<th><h4>还款日期</h4></th>
-									<th><h4>操作</h4></th>
-								</tr>
-							<c:forEach items="${huankuan}" var="h">
-								<tr>
-									<td>${h.repayid}</td>
-									<td>${h.projrctid}</td>
-									<td>${h.hktime}</td>
-									<td>${h.hkmoney}</td>
-									<td>${h.ptmoney}</td>
-									<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">还款</button></td>
-								</tr>
-							</c:forEach>
+
+						
+						<div id="toolbar">
+						<a id="addbtn" class="easyui-linkbutton"
+			data-options="iconCls:'icon-save'">确认还款 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+			</div>
+						<table id="tb">
+						
+
 						</table>
 					</div>
 					
-					   <!-- Button trigger modal -->
+				   <!-- Button trigger modal -->
 
 
-						<!-- Modal -->
-						<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-						  <div class="modal-dialog" role="document">
-						    <div class="modal-content">
-						      <div class="modal-header">
-						        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-						      </div>
-						      <div class="modal-body">
-						        	<form id="myForm" method="post">
-										<table width="100%" class="formtable">
-											<tr>
-												<th height="40" >应还款：</th><td></td>
-											</tr>
-											<tr>
-												<th height="40">密码：</th><td></td>
-											</tr>
-											<tr>
-												<th height="40">密码：</th><td><input type="text"/></td>
-											</tr>
-											<tr>
-												<td id="btn" width="450px;"></td><td><button type="button" class="btn btn-default" data-dismiss="modal">关闭</button><button type="button" class="btn btn-primary">提交</button></td>
-											</tr>
-										</table>
-												
-								        		
-									</form>
-						      </div>
-						      
-						    </div>
-						  </div>
-						</div>
-					
-					<!-- <div id="handlerDialog">
-						<form id="myForm" method="post">
-							<table width="100%" class="formtable">
-								<tr>
-									<th height="40" >应还款：</th><td></td>
-								</tr>
-								<tr>
-									<th height="40">密码：</th><td><input id="emppwd" name="emppwd" class="easyui-validatebox" data-options="required:true"></td>
-								</tr>
-								
-								<tr>
-									<th height="40"></th><td><input type="button" id="rolename"></td>
-								</tr>
-							</table>
-						</form>
-					</div>		 -->			
+
 				</div>
 			</div>
 		</div>
@@ -218,3 +204,141 @@ $("#asd").click(function(){
 </script>
 
 </html>
+<script>
+	$("#asd").click(function(){
+		
+		$.ajax({
+			 type:"post",
+			// dataType:"json",
+			 url:"/p2p/add/name.do",
+			// data:JSON.stringify(row),
+			//data:str1,
+			 contentType:"application/json;charset=utf-8",
+			 success:function(dataa){
+				
+				 if(dataa==null||dataa==""){
+					 window.location.href="../jsp/jiekuan.jsp";
+				 }else{
+					
+					 window.location.href="../jsp/xiangmushenqing.jsp";
+				 }
+			 }
+		 });
+	});
+	$(function(){
+		$('#tb').datagrid({
+			url : '/p2p/user/myhuankuan.do',
+			striped : true,
+			rownumbers : true,
+			fitColumns : true,
+			singleSelect : false, //是否只能选择一行
+			pageSize : 10,//每页显示的记录条数，默认为10 
+			pageList : [ 5, 10, 15 ],//可以设置每页记录条数的列表 
+			beforePageText : '第',//页数文本框前显示的汉字 
+			afterPageText : '页    共 {pages} 页',
+			pagination : true, //分页工具栏
+			pagePosition : "bottom",
+			toolbar : "#toolbar",
+			queryParams : {
+				
+			},
+
+			/* onClickRow:function(rowIndex,rowData){
+				 var rowInfo = $("#tb").datagrid('getChecked');
+				 
+				 if (rowInfo) {
+					alert("已经选中的行");
+				}
+			}, */
+			//fit : true,  
+			onLoadSuccess : function(list) {
+
+			},
+			columns : [ [{
+				field : 'xuanze',
+				title : 'Code',
+				width : 200,
+				align : 'center',
+				checkbox : true
+			},{
+				field : 'ID',
+				title : '项目id',
+				width : 150,
+				align : 'center'
+			}, {
+				field : 'PROJECTNAME',
+				title : '项目名称',
+				width : 150,
+				align : 'center'
+			},  {
+				field : 'time1',
+				title : '还款日期',
+				width : 150,
+				align : 'center'
+			},{
+				field : 'MONTHMONEY',
+				title : '还款本金',
+				width : 150,
+				align : 'center'
+			},{
+				field : 'MONTHINTEREST',
+				title : '还款利息',
+				width : 150,
+				align : 'center'
+			},{
+				field : 'MONTHPRINCIPAL',
+				title : '还款本息',
+				width : 150,
+				align : 'center'
+			},{
+				field : 'MONTHSTATUS',
+				title : '还款状态',
+				width : 150,
+				align : 'center',
+				formatter : function(value,row,index){
+					   
+					if(value=='8'){return '未还款'}  
+						 else {return '已还款'}                        
+						 }
+			}] ]
+		});
+		$("#addbtn").click(function(){
+			var row = $('#tb').datagrid("getSelections");
+			if (row.length==1) {
+				var index=row[0].ID;
+				var qian=row[0].MONTHPRINCIPAL;
+				var date=row[0].time1;
+				var statu=row[0].MONTHSTATUS;
+				if (statu=="8") {
+					
+				
+				alert(index);
+				if (window.confirm('你确定还款吗？')) {
+				$.ajax({ //发送了一个新的请求，与按钮这个请求完全不是一马事
+					type : "post", //请求方式
+					url : "/p2p/user/huankuan.do", //请求地址
+					data:{id:index,money:qian,time:date},
+					success : function(data) { //请求成功后调用的回调函数，参数1【data】 请求返回的数据，这个数据类型是dataType制定
+							alert(data);
+						if (data=="0") {
+							alert("今日不用还款哦！")
+						}else if (data=="1") {
+							alert("您的金额不足，请充值!")
+						}else {
+							alert("还款成功！")
+						}
+						window.location.reload();
+		        			
+					}
+				
+				});
+				}
+				}else {
+					alert("该条账单不可以还款")
+				}
+			} else {
+				alert("请选择一条账单再进行还款！");
+			} 
+		})
+	})
+</script>

@@ -18,4 +18,6 @@ public interface ypgPersonalFormDao {
 	public int insertEmployee(YpgEmployee ee);
 	//员工信息的查询
 	public List<Map> queryEmployee();
+	//用户信息插入投资表
+	public int insertInvestor(ypgPersonalForm pf);
 }

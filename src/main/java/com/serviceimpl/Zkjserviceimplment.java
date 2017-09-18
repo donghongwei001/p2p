@@ -6,13 +6,16 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.dao.Zkjdao;
 import com.dao.Zkjdaointerface;
+import com.entity.Zkjinvestor;
 import com.service.Zkjservicedaointerface;
 @Service
 public class Zkjserviceimplment implements Zkjservicedaointerface {
 	@Autowired
 	private Zkjdaointerface dao;
-
+	@Autowired
+	private Zkjdao zkjdao;
 	/*鍓╀綑鍙姇璧勯噾棰�
 	 * (non-Javadoc)
 	 * @see com.service.Zkjservicedao#surplusinvest(int)
@@ -57,6 +60,22 @@ public class Zkjserviceimplment implements Zkjservicedaointerface {
 	}
 	public List<Map> selectinvestinformation(int id){
 		return dao.selectinvestinformation(id);
+	}
+	@Override
+	public void saveinvestor(Zkjinvestor zz,String name) {
+		// TODO Auto-generated method stub
+		
+		int id=zkjdao.quertuserid(name);
+		zz.setId(id);
+		System.out.println(zz);
+		System.out.println("asdad");
+		dao.saveinvestor(zz);
+	}
+	@Override
+	public String selectid(String name) {
+		// TODO Auto-generated method stub
+		int id=dao.selectuseri(name);
+		return dao.selectinvector(id);
 	}
 
 }
