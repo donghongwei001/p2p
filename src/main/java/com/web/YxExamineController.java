@@ -11,10 +11,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
-import com.entity.Fabu;
 import com.entity.Outtime;
+import com.entity.Page;
+import com.entity.Pageresult;
 import com.service.YxExamineService;
 
 @Controller
@@ -29,7 +29,9 @@ public class YxExamineController {
 	 */
 	@RequestMapping(value="/first")
 	@ResponseBody
-	public List<Map> query(){
+	public Pageresult query(Integer page,Integer rows){
+		int page1=page;
+		int rows1=rows;
 		List<Map> ly=yxservice.queryexam();
 		/*m.addAttribute("ly", ly);*/
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -38,7 +40,13 @@ public class YxExamineController {
 			ly.get(i).put("time1", time);
 			
 		}
-		return ly;
+		Page<Map> paging=new Page<Map>();
+		List<Map> list1=paging.paging(ly,rows1,page1);
+		Pageresult<Map> pResult=new Pageresult<Map>();
+		
+		pResult.setTotal(ly.size());
+		pResult.setRows(list1);
+		return pResult;
 	}
 	/**
 	 * 查询逾期的项目
@@ -58,15 +66,23 @@ public class YxExamineController {
 	 */
 	@RequestMapping(value="/chushe")
 	@ResponseBody
-	public List<Map> queryyy(){
+	public Pageresult queryyy(Integer page,Integer rows){
 		List<Map> lm=yxservice.queryftt();
+		int page1=page;
+		int rows1=rows;
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		for (int i = 0; i < lm.size(); i++) {
 			String time=simpleDateFormat.format(lm.get(i).get("FIRSTDATE"));
 			lm.get(i).put("time1", time);
 			
 		}
-		return lm;
+		Page<Map> paging=new Page<Map>();
+		List<Map> list1=paging.paging(lm,rows1,page1);
+		Pageresult<Map> pResult=new Pageresult<Map>();
+		
+		pResult.setTotal(lm.size());
+		pResult.setRows(list1);
+		return pResult;
 	}
 	/**
 	 * 一次审核时查看用户信息详情
@@ -115,10 +131,17 @@ public class YxExamineController {
 	 */
 		@RequestMapping(value="/fa")
 		@ResponseBody
-		public List<Map> queryfafa(){
+		public Pageresult queryfafa(Integer page,Integer rows){
+			int page1=page;
+			int rows1=rows;
 			List<Map> lm=yxservice.queryfa();
-			
-			return lm;
+			Page<Map> paging=new Page<Map>();
+			List<Map> list1=paging.paging(lm,rows1,page1);
+			Pageresult<Map> pResult=new Pageresult<Map>();
+			pResult.setTotal(lm.size());
+			pResult.setRows(list1);
+			return pResult;
+			//return lm;
 		}
 		/**
 		 * 查询第一次审核没通过的项目
@@ -126,8 +149,9 @@ public class YxExamineController {
 		 */
 		@RequestMapping(value="/notone")
 		@ResponseBody
-		public List<Map> queryone(){
-			
+		public Pageresult queryone(Integer page,Integer rows){
+			int page1=page;
+			int rows1=rows;
 			List<Map> lp=yxservice.querynotone();
 			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 			for (int i = 0; i < lp.size(); i++) {
@@ -135,7 +159,13 @@ public class YxExamineController {
 				lp.get(i).put("time1", time);
 				
 			}
-			return lp;
+			Page<Map> paging=new Page<Map>();
+			List<Map> list1=paging.paging(lp,rows1,page1);
+			Pageresult<Map> pResult=new Pageresult<Map>();
+			pResult.setTotal(lp.size());
+			pResult.setRows(list1);
+			return pResult;
+		
 		}
 		
 		/**
@@ -144,7 +174,9 @@ public class YxExamineController {
 		 */
 		@RequestMapping(value="/nottwo")
 		@ResponseBody
-		public List<Map> querytwo(){
+		public Pageresult querytwo(Integer page,Integer rows){
+			int page1=page;
+			int rows1=rows;
 			List<Map> mp=yxservice.querytwo();
 			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 			for (int i = 0; i < mp.size(); i++) {
@@ -152,8 +184,36 @@ public class YxExamineController {
 				mp.get(i).put("time1", time);
 				
 			}
-			return mp;
+			Page<Map> paging=new Page<Map>();
+			List<Map> list1=paging.paging(mp,rows1,page1);
+			Pageresult<Map> pResult=new Pageresult<Map>();
+			pResult.setTotal(mp.size());
+			pResult.setRows(list1);
+			return pResult;
 		}
-		
-
+		/**
+		 * 发布中，下架的看详情
+		 * @param request
+		 * @return
+		 */
+		@RequestMapping("/removexmsel")
+		@ResponseBody
+		public List<Map> querythree(HttpServletRequest request){
+			int id=Integer.parseInt(request.getParameter("id"));
+			List<Map> lmp=yxservice.queryde(id);
+			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+			for (int i = 0; i < lmp.size(); i++) {
+				System.out.println(lmp.get(i).get("BEGINTIME"));
+				String time=simpleDateFormat.format(lmp.get(i).get("BEGINTIME"));
+				lmp.get(i).put("time1", time);
+				
+			}
+			for (int i = 0; i < lmp.size(); i++) {
+				System.out.println(lmp.get(i).get("BEGINTIME"));
+				String time=simpleDateFormat.format(lmp.get(i).get("LASTTIME"));
+				lmp.get(i).put("time2", time);
+				
+			}
+			return lmp;
+		}
 }
