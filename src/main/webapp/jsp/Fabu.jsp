@@ -131,7 +131,7 @@ $(function(){
 		width : 200,
 		formatter: function(value,row,index){
             if (row.POSTSTATUS=='5'){
-                return "发布中";
+                return "已发布";
             }else if(row.POSTSTATUS=='12'){
                 return "待发布";
             }else if(row.POSTSTATUS=='6'){
@@ -149,7 +149,6 @@ $(function(){
 			//var index=row[0].PROJECTID;
 		var data={};
 		data["projectid"]=row[0].PROJECTID;
-		alert(data.projectid);
 		if(row[0].POSTSTATUS=='5'){
 			alert("该项目已发布");
 			return false;
@@ -209,7 +208,6 @@ $(function(){
 		var row = $('#proDataGrid').datagrid("getSelections");
 		if (row.length==1) {
 			var index=row[0].PROJECTID;
-			alert(index);
 			if(row[0].POSTSTATUS=='12'){
 				alert("该项目还未发布");
 				return false;

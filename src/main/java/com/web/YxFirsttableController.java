@@ -54,19 +54,7 @@ public class YxFirsttableController {
 		 int id=yft.getProjectid();
 		 firservice.update(id);
 		 firservice.addfirsts(yft);
-		
-	/*	try{
-			if(flag==1){
-				 
-				response.getWriter().write("success");
-			}else{
-				response.getWriter().write("error");
-			}
-			response.getWriter().flush();
-			response.getWriter().close();
-		}catch(Exception e){
-			
-		}*/
+
 	}
 	
 	/**
