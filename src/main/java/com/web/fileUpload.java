@@ -15,7 +15,7 @@ public class fileUpload {
 			String fileName = file.getOriginalFilename();
 			//System.out.println("ÎÄ¼þÂ·¾¶"+request.getSession().getServletContext().getRealPath("/stucy/src/main/webapp/caoImage/"));
 			//request.getSession().getServletContext().getRealPath("\\main\\webapp\\caoImage\\")
-			String filePath ="e:/image/" +new Date().getTime()+
+			String filePath ="E:/eclipsejava/p2p/src/main/webapp/tupian/" +new Date().getTime()+
 					fileName.substring(fileName.lastIndexOf("."));
 		    try {	
 				

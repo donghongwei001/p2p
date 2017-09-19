@@ -46,18 +46,22 @@
 		<table class="table table-hover" style="width:500px;">
 		<thead>
 								<tr>
+									<th><h4>项目id</h4></th>
+									<th><h4>收款本金</h4></th>
+									<th><h4>收款利率</h4></th>
 									<th><h4>收款时间</h4></th>
 									<th><h4>收款金额</h4></th>
 									<th><h4>收款状态</h4></th>
 									
-									
 								</tr>
 							</thead>
 		<c:forEach items="${jiekuanxiangqing}" var="user">
-			<tr>
+			<tr><td>${user.PROJECTID }</td>
+				<td>${user.BENJIN }</td>
+				<td>${user.LIxi }</td>
 				<td>${user.TIME }</td>
 				<td>${user.MONEY }</td>
-				<td>${user.STATUS }</td>
+				<td><c:if test="${user.STATUS  eq 14}">未还款</c:if><c:if test="${user.STATUS  eq 13}">已还款</c:if></td>
 			</tr>
 		</c:forEach>
 		</table>			

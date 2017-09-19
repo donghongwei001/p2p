@@ -23,7 +23,7 @@ public interface ZxlUserDao {
 	public List<Map> listmytouzi(String name);//查询每个用户的投资
 
 
-	public List<ZxlMyHuankuan> listhuankuan(String str);//查询该用户还款信息
+	public List<Map> listhuankuan(String name);//查询该用户还款信息
 	public List<ZxlMyPersonal> listmypersonal(String str);//查询该用户的个人信息
 	public List<ZxlUser> updatepwd(String pwd);//修改密码
 	public List<ZxlMyProject> listpro();//查询项目信息
@@ -38,5 +38,10 @@ public interface ZxlUserDao {
 	public List<Map> selhuankuan(String name,int id);
 	public List<Map> selchushen(String name);
 	public List<Map> selzhongshen(String name);
-
+	public List<Map> seltime(int id);
+	public void updatemoney(double money,String name);
+	public void updatestatus(int id,double money);
+	public void updateshoukuan(int id,String date);
+	public List<Map> seluserid(int id,String date);
+	public int seljinqian(int id);
 }

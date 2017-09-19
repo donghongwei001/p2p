@@ -92,13 +92,14 @@
 					<div id="left1"><a href="/p2p/user/zxlpersonal.do">我的资产</a></div>
 					<div id="left2"><a href="/p2p/user/myproject.do">我的项目</a></div>
 					<div id="left3"><a href="/p2p/user/mytouzi.do">我的投资</a></div>
-					<div id="left4"><a href="/p2p/user/myhuankuan.do">我的还款</a></div>
+					<div id="left4"><a href="/p2p/jsp/myhuankuan.jsp">我的还款</a></div>
 					<div id="left5"><a href="/p2p/user/mypersonal.do">个人信息</a></div>
 					<div id="left6"><a href="/p2p/jsp/myupdatepwd.jsp">修改密码</a></div>
 				</div>
 			
 				<div id="content-right">
 					<div id="right-div">
+					
 					<div role="tabpanel" class="tab-pane" id="settings">
 				<div class="panel-group" id="accordion" role="tablist"
 					aria-multiselectable="true">
@@ -138,48 +139,8 @@
 							</div>
 						</div>
 					</div>
-					<div class="panel panel-default">
-						<div class="panel-heading" role="tab" id="headingTwo">
-							<h4 class="panel-title">
-								<a class="collapsed" role="button" data-toggle="collapse"
-									data-parent="#accordion" href="#collapseTwo"
-									aria-expanded="false" aria-controls="collapseTwo">
-									<span class="label label-default">已发布项目</span> </a>
-							</h4>
-						</div>
-						<div id="collapseTwo" class="panel-collapse collapse"
-							role="tabpanel" aria-labelledby="headingTwo">
-							<div class="panel-body">
-								<table class="table table-hover">
-							<thead>
-								<tr>
-									<th><h4>项目编号</h4></th>
-									<th><h4>项目名称</h4></th>
-									<th><h4>借款资金</h4></th>
-									<th><h4>当前已筹到金额</h4></th>
-									<th><h4>发布时间</h4></th>
-									<th><h4>截止时间</h4></th>
-									<th><h4>当前状态</h4></th>
-									<th><h4>原因</h4></th>
-								</tr>
-							</thead>
-							<tbody>
-								<c:forEach items="${list1}" var="user">
-									<tr>
-										<td>${user.ID}</td>
-										<td>${user.PROJECTNAME}</td>
-										<td>${user.MONEY}</td>
-										<td>${user.NOWMONEY}</td>
-										<td>${user.BEGINTIME}</td>
-										<td>${user.LASTTIME}</td>
-										<td>${user.CODENAME}</td>
-										<td>${user.ONEREASON}</td>
-									</tr>
-								</c:forEach>
-							</tbody>
-						</table>
-							</div>
-						</div>
+
+					
 					</div>
 					<div class="panel panel-default">
 						<div class="panel-heading" role="tab" id="headingThree">
@@ -258,6 +219,49 @@
 							</div>
 						</div>
 					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="headingTwo">
+							<h4 class="panel-title">
+								<a class="collapsed" role="button" data-toggle="collapse"
+									data-parent="#accordion" href="#collapseTwo"
+									aria-expanded="false" aria-controls="collapseTwo">
+									<span class="label label-default">已发布项目</span> </a>
+							</h4>
+						</div>
+						<div id="collapseTwo" class="panel-collapse collapse"
+							role="tabpanel" aria-labelledby="headingTwo">
+							<div class="panel-body">
+								<table class="table table-hover">
+							<thead>
+								<tr>
+									<th><h5>项目编号</h4></th>
+									<th><h5>项目名称</h4></th>
+									<th><h5>借款资金</h4></th>
+									<th><h5>当前已筹到金额</h4></th>
+									<th><h5>发布时间</h4></th>
+									<th><h5>截止时间</h4></th>
+									<th><h5>当前状态</h4></th>
+									<th><h5>原因</h4></th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach items="${list1}" var="user">
+									<tr>
+										<td>${user.ID}</td>
+										<td>${user.PROJECTNAME}</td>
+										<td>${user.MONEY}</td>
+										<td>${user.NOWMONEY}</td>
+										<td>${user.BEGINTIME}</td>
+										<td>${user.LASTTIME}</td>
+										<td>${user.CODENAME}</td>
+										<td>${user.ONEREASON}</td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+							</div>
+						</div>
+					</div>
 				</div>
 				
 				
@@ -293,6 +297,7 @@
 </html>
 <script>
 	$("#asd").click(function(){
+		
 		$.ajax({
 			 type:"post",
 			// dataType:"json",
@@ -301,11 +306,11 @@
 			//data:str1,
 			 contentType:"application/json;charset=utf-8",
 			 success:function(dataa){
-				 alert(dataa);
+				
 				 if(dataa==null||dataa==""){
 					 window.location.href="../jsp/jiekuan.jsp";
 				 }else{
-					 alert("ssss");
+					
 					 window.location.href="../jsp/xiangmushenqing.jsp";
 				 }
 			 }

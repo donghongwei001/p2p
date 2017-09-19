@@ -93,8 +93,8 @@ public class ZxlUserServiceImpl implements ZxlUserService{
 	 */
 	@Override
 
-	public List<ZxlMyHuankuan> listhuankuan(String str) {
-		List<ZxlMyHuankuan> list=userdao.listhuankuan(str);
+	public List<Map> listhuankuan(String str) {
+		List<Map> list=userdao.listhuankuan(str);
 		return list;
 	}
 	/**
@@ -176,6 +176,41 @@ public class ZxlUserServiceImpl implements ZxlUserService{
 	public List<Map> selzhongshen(String name) {
 		// TODO Auto-generated method stub
 		return userdao.selzhongshen(name);
+	}
+	@Override
+	public List<Map> seltime(int id) {
+		// TODO Auto-generated method stub
+		return userdao.seltime(id);
+	}
+	@Override
+	public void updatemoney(double money, String name) {
+		// TODO Auto-generated method stub
+		userdao.updatemoney(money, name);
 	}	
 	
+	@Override
+	public int seljine(String username) {
+		// TODO Auto-generated method stub
+		return userdao.seljine(username);
+	}
+	@Override
+	public void updatestatus(int id,double money) {
+		// TODO Auto-generated method stub
+		userdao.updatestatus(id,money);
+	}
+	@Override
+	public void updateshoukuan(int id, String date) {
+		// TODO Auto-generated method stub
+		userdao.updateshoukuan(id, date);
+	}
+	@Override
+	public List<Map> seluserid(int id, String date) {
+		// TODO Auto-generated method stub
+		return userdao.seluserid(id, date);
+	}
+	@Override
+	public int seljinqian(int id) {
+		// TODO Auto-generated method stub
+		return userdao.seljinqian(id);
+	}
 }

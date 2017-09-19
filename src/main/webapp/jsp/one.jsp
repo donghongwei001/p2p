@@ -148,9 +148,12 @@
 	fit : true,//
 	rownumbers : true,
 	singleSelect : false,
-	pagination : true,
-	pageSize : 10,
-	pageList : [ 10, 20, 30 ],
+	pageSize : 10,//每页显示的记录条数，默认为10 
+	pageList : [ 5, 10, 15 ],//可以设置每页记录条数的列表 
+	beforePageText : '第',//页数文本框前显示的汉字 
+	afterPageText : '页    共 {pages} 页',
+	pagination : true, //分页工具栏
+	pagePosition : "bottom",
 	toolbar : "#toolbar",
 	columns : [ [{
 		field : 'ID',
@@ -219,7 +222,7 @@
 								url : "/p2p/yx/onex.do", //请求地址
 								data : {
 									id : index
-								},//{nameha:$("#username").val(),passha:$("#password").val()},
+								},
 								dataType : "json",
 								success : function(data) { //请求成功后调用的回调函数，参数1【data】 请求返回的数据，这个数据类型是dataType制定
 									var jsonObj = eval(data);
@@ -270,8 +273,10 @@
 											contentType :"application/json;charset=UTF-8",
 											data:JSON.stringify(data),
 											success : function(data1){
-												if(data1=="success"){
-													alert("审核完成");
+												alert("审核完成");
+												window.location.href="http://localhost:9088/p2p/jsp/one.jsp"
+											/* 	if(data1=="success"){
+													
 													var row = $('#proDataGrid').datagrid("getSelections");
 													var data={};
 													data["id"]=row[0].ID;
@@ -286,7 +291,7 @@
 															}
 													}
 														})
-												}
+												} */
 											}
 										});
 										}else{
@@ -299,22 +304,6 @@
 													
 														alert("审核完成");
 														window.location.href="http://localhost:9088/p2p/jsp/one.jsp"
-												/* 		var row = $('#proDataGrid').datagrid("getSelections");
-														var data={};
-														data["id"]=row[0].ID;
-														$.ajax({
-															type : "post",
-															url : "/p2p/first/updatestatus.do",
-															contentType :"application/json;charset=UTF-8",
-															data:JSON.stringify(data),
-															success : function(data2){
-																if(data2=="ture"){
-																	
-																}
-														}
-															}) */
-														
-													//}
 														
 												}
 											});
