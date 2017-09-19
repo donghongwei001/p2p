@@ -6,8 +6,14 @@ import java.util.Map;
 public interface YpgRepaymentDao {
 	//还款查询
 	public List<Map> queryRepayment();
-	//投标人简查询
+	
+	
+	/*//投标人简单查询
 	public List<Map> queryPublish();
 	//投标详细信息查询
-	public List<Map> queryMinute();
+	public List<Map> queryMinute();*/
+	
+	
+	//还款计划表
+	public List<Map> querySchedule(int id);
 }

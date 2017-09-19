@@ -41,7 +41,8 @@ public class ypgPersonalFormImpl implements ypgPersonalFormService{
 		return userID;
 	}
 	
-	@Override
+	
+	/*@Override
 	public int UpdatePersonalForm(ypgPersonalForm pff) {
 		// TODO Auto-generated method stub
 		return pfDao.updatePersonalForm(pff);
@@ -57,8 +58,9 @@ public class ypgPersonalFormImpl implements ypgPersonalFormService{
 	public int getInsertEmployee(YpgEmployee ee) {
 		// TODO Auto-generated method stub
 		return pfDao.insertEmployee(ee);
-	}
+	}*/
 
+	
 	@Override
 	public int insertInvestor(ypgPersonalForm pf,String username) {
 		int userID=dao.quertuserid(username);

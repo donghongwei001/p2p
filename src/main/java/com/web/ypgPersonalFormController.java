@@ -1,21 +1,9 @@
 package com.web;
 
-
-import java.util.List;
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import com.dao.Zkjdaointerface;
-import com.entity.YpgEmployee;
-import com.entity.ZxlUser;
 import com.entity.ypgPersonalForm;
 import com.service.ypgPersonalFormService;
 
@@ -24,25 +12,28 @@ import com.service.ypgPersonalFormService;
 public class ypgPersonalFormController {
 	@Autowired
 	private ypgPersonalFormService pfService;
-	@Autowired
-	private Zkjdaointerface dao;
 	
-	@RequestMapping("/ypgPerson")
+	/*@RequestMapping("/ypgPerson")
 	public String getQueryPersonalForm(HttpServletRequest request,HttpSession session){
 		ZxlUser user=new ZxlUser(); //暂时没有值
 		List<Map> list=pfService.getQueryPersonalForm(user.getUserID());
 		request.setAttribute("personal", list);
 		return "ypgPersonal";
-	}
-	@RequestMapping("/ypgPP")
+	}*/
+	/*@RequestMapping("/ypgPP")
 	public String QueryPersonalForm(HttpServletRequest request){
 		ZxlUser user=new ZxlUser(); //暂时没有值
 		List<Map> list=pfService.getQueryPersonalForm(user.getUserID());
 		request.setAttribute("person", list);
 		return "YpgUpdate";
-	}
+	}*/
 	
-	
+	/**
+	 * 插入个人信息到数据库
+	 * @param pff
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping("/ypgNal")
 	public String insertPersonalForm(ypgPersonalForm pff,HttpServletRequest request){
 		String userna =(String)request.getSession().getAttribute("abcd");
@@ -53,22 +44,22 @@ public class ypgPersonalFormController {
 		return "xiangmushenqing";
 	}
 	
-	@RequestMapping("/update")
+	/*@RequestMapping("/update")
 	public String  updatePersonalForm(ypgPersonalForm pff){
 		pfService.UpdatePersonalForm(pff);
 		return "YpgUpdate";
-	}
+	}*/
 	
-	@RequestMapping("/ypgEmployee")
+	/*@RequestMapping("/ypgEmployee")
 	public String getQueryEmployee(HttpServletRequest request){
 		List<Map> list=pfService.getQueryEmployee();
 		request.setAttribute("Employee", list);
 		return "ypgEmployee";
-	}
+	}*/
 	
 	
 	
-	@RequestMapping("/insertEmployee")
+	/*@RequestMapping("/insertEmployee")
 	@ResponseBody
 	public int getinsertEmployee(YpgEmployee emp){
 		
@@ -76,5 +67,5 @@ public class ypgPersonalFormController {
 		int flag = pfService.getInsertEmployee(emp);
 		System.out.println("sdljglsjljgldjldfglsfgl   " + flag);
 		return flag;
-	}
+	}*/
 }

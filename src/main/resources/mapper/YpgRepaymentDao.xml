@@ -3,13 +3,22 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dao.YpgRepaymentDao">	
+	<!-- 还款  -->
 	<select id="queryRepayment" resultType="java.util.HashMap">
-		select rm.repayid,rm.projrctid,rm.hktime,rm.hkmoney,rm.ptmoney,cc.codename from repaymoney rm,code cc where rm.statu=cc.codeid and rm.statu=8
+		select pp.ID,pp.projectname,pf.personalname,pp.time,pp.money,pp.lifeloan,pp.ratemoney from projectapplication pp,psersonalform pf,projectrelease psq,code c where pp.userid=pf.userid and pp.ID=psq.projectid and psq.status=c.codeid and psq.status=6
 	</select>
+	
+	<!-- 
 	<select id="queryPublish" resultType="java.util.HashMap">
 		select t.name,i.money,i.time from invest i,investor t where i.investorid=t.id  
 	</select>
+	
 	<select id="queryMinute" resultType="java.util.HashMap">
 		select pp.projectid,p.ratemoney,p.lifeloan,p.money,ff.occupation,ff.worklife,ff.monthlyincome,ff.iphone,ff.educational,ff.marriage,ff.houseloan,ff.address,ff.idcard,ff.accountnumber,ff.contactphone,u.username,pp.lasttime from projectapplication p,projectrelease pp,code c,usertable u,psersonalform ff  where p.id=pp.projectid and u.userID=ff.userID and p.userid=u.userID and pp.projectid=2 and pp.status=c.codeid and pp.status=5
+	</select> -->
+	
+	<!-- 还款计划  -->
+	<select id="querySchedule" resultType="java.util.HashMap" parameterType="int">
+		select rs.projectid,pp.projectname,p.personalname,rs.repaydate,rs.monthmoney,rs.monthinterest,rs.monthprincipal,c.codename from RepaySchedule rs,projectapplication pp,code c,psersonalform p where pp.ID=rs.projectid and pp.userid=p.userID and rs.monthstatus=c.codeid and rs.projectid=#{id}
 	</select>
 </mapper>

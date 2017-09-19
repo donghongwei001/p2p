@@ -13,12 +13,17 @@ import com.service.YpgRepaymentService;
 public class YpgRepaymentImpl implements YpgRepaymentService{
 	@Autowired
 	private YpgRepaymentDao reDao;
+	
+	/**
+	 * »¹¿î
+	 */
 	@Override
 	public List<Map> queryRepayment() {
 		// TODO Auto-generated method stub
 		return reDao.queryRepayment();
 	}
-	@Override
+	
+	/*@Override
 	public List<Map> queryPublish() {
 		// TODO Auto-generated method stub
 		return reDao.queryPublish();
@@ -27,6 +32,12 @@ public class YpgRepaymentImpl implements YpgRepaymentService{
 	public List<Map> queryMinute() {
 		// TODO Auto-generated method stub
 		return reDao.queryMinute();
+	}*/
+	
+	@Override
+	public List<Map> querySchedule(int id) {
+		// TODO Auto-generated method stub
+		return reDao.querySchedule(id);
 	}
 
 }

@@ -12,12 +12,14 @@ public interface ypgPersonalFormDao {
 	public List<Map> queryPersonalForm(int userID);
 	//用户信息的插入
 	public int insertPersonalForm(ypgPersonalForm pf);
-	//用户信息的更新
+	
+	/*//用户信息的更新
 	public int updatePersonalForm(ypgPersonalForm pf);
 	//员工信息的插入
 	public int insertEmployee(YpgEmployee ee);
 	//员工信息的查询
-	public List<Map> queryEmployee();
+	public List<Map> queryEmployee();*/
+	
 	//用户信息插入投资表
 	public int insertInvestor(ypgPersonalForm pf);
 }
