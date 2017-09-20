@@ -215,6 +215,7 @@ $("#rateee").blur(function(){
 	var rate=$("#rateee").val();
 	var life=$("#life").val();
 	var mmoney=$("#mmmoney").val();
+	$("#vvi").empty();
 	if(rate==null||rate==""){
 		$("#vvi").html("月利率不能为空");
 		$("#vvi").css("color","red");
@@ -240,8 +241,8 @@ $("#rateee").blur(function(){
 						$("#ttb").empty();
 						$("#ttb").append("<tr><td><h3>到期还款计划</h3></td></tr>");
 						$("#ttb").append("<tr><td><h3>本金为："+mmoney+"元</h3></td></tr>");
-						$("#ttb").append("<tr><td><h3>每月还款:"+dataa[0]+"元</h3></td></tr>");
-						$("#ttb").append("<tr><td><h3>总利息为："+(dataa[2]-mmoney).toFixed(2)+"元</h3></td></tr>");
+						/* $("#ttb").append("<tr><td><h3>每月还款:"+dataa[0]+"元</h3></td></tr>"); */
+						$("#ttb").append("<tr><td><h3>总利息为："+/* (dataa[2]-mmoney).toFixed(2) */dataa[0]+"元</h3></td></tr>");
 						$("#ttb").append("<tr><td><h3>本息总共："+dataa[2]+"元</h3></td></tr>");
 						$("#ttb").append("<tr><td><h3>手续费为："+dataa[1]+"元</h3></td></tr>");
 					
@@ -290,6 +291,7 @@ $("#distpicker2").distpicker({
 					data["rate"]=rate;
 					data["life"]=life;
 					data["mmoney"]=mm;
+					
 					$.ajax({
 						type:"post",
 						url:"/p2p/zkj/capital.do",

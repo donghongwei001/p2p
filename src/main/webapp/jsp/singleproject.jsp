@@ -263,20 +263,20 @@ body { /* background-color:#F5F5F5; */
 
 					<c:forEach items="${listp }" var="li">
 
-						<span> <c:if test="${li.projecttype ==1}">建筑类</c:if> <c:if
+						<span> 类型：<c:if test="${li.projecttype ==1}">建筑类</c:if> <c:if
 								test="${li.projecttype==2 }">科学类</c:if> <c:if
 								test="${li.projecttype ==3}">医药类</c:if> <c:if
 								test="${li.projecttype ==4}">金融类</c:if> <c:if
 								test="${li.projecttype==5 }">食品类</c:if> <c:if
 								test="${li.projecttype==6 }">军火类</c:if> &nbsp; &nbsp; &nbsp;
-							&nbsp;<b>${li.projectname }</b></span>
+							&nbsp;项目名称：<b>${li.projectname }</b></span><span id="usermoney">${usermoney }</span>
 						<br />
 
 						<div id="ddm">
-							<span>借款期限</span><br />${li.lifeloan}<br />个月
+							<span>借款期限</span><br /><div id="ddlife">${li.lifeloan}</div>个月
 						</div>
 						<div id="dda">
-							<span>收益率</span><br />${li.ratemoney } &#37;
+							<span>收益率</span><br /> <div id="rrmoney">${li.ratemoney }</div> &#37;
 						</div>
 						<div id="ddb">
 							<span>借款金额</span><br />${li.money }<br />元
@@ -545,6 +545,13 @@ body { /* background-color:#F5F5F5; */
 								sp.html("金额不能大于当前项目剩余的最大金额");
 								sp.css("color","purple");
 							return false;
+						}else{
+							var usermoney=parseFloat($("#usermoney").html());
+							if(mm>usermoney){
+								sp.html("您当前余额不足请及时充值");
+								sp.css("color","red");
+								return false;
+							}
 						}
 					}
 				}
@@ -552,10 +559,11 @@ body { /* background-color:#F5F5F5; */
 	}
 	$("#npu").blur(function(){
 		var asspan=parseFloat($("#asspan").html());
+		var ddlife=parseFloat($("#ddlife").html());
 		if(asspan>=100){
 		var mm=parseFloat($("#npu").val());
 		var sp=$("#did");
-		
+		var rrmoney=parseFloat($("#rrmoney").html());
 		var reg=/^[0-9]*$/;
 		sp.empty();
 		if(mm==""||mm==null){
@@ -579,6 +587,23 @@ body { /* background-color:#F5F5F5; */
 							sp.html("金额不能大于当前项目剩余的最大金额");
 							sp.css("color","purple");
 							return false;
+					}else{
+						var datac={};
+						datac["rate"]=rrmoney;
+						datac["life"]=ddlife;
+						datac["mmoney"]=mm;
+						
+						$.ajax({
+							type:"post",
+							url:"/p2p/zkj/totalinterest.do",
+							contentType:"application/json;charset=utf-8",
+							data:JSON.stringify(datac), 
+							success:function(da){
+								alert(da);
+								sp.html("预计所有收益为："+da.toFixed(2)+"元");
+							}
+						});
+
 					}
 				}
 		}
@@ -592,7 +617,78 @@ body { /* background-color:#F5F5F5; */
 			return false;
 		}
 });
-	
+	$("#npu").change(function(){
+		var asspan=parseFloat($("#asspan").html());
+		var ddlife=parseFloat($("#ddlife").html());
+		if(asspan>=100){
+		var mm=parseFloat($("#npu").val());
+		var sp=$("#did");
+		var rrmoney=parseFloat($("#rrmoney").html());
+		var reg=/^[0-9]*$/;
+		sp.empty();
+		if(mm==""||mm==null){
+			sp.html("金额不能为空");
+			sp.css("color","red");
+			return false;
+		}else{
+			if(mm<100){
+				
+				sp.html("请输入大于100的整数");
+				sp.css("color","red");
+				sp.css("text-align","center");
+				return false;
+			}else{
+				if(!reg.test(mm)){
+					sp.html("请输入正整数");
+					sp.css("color","purple");
+					return false;
+				}else{
+						if(mm>asspan){
+							sp.html("金额不能大于当前项目剩余的最大金额");
+							sp.css("color","purple");
+							return false;
+					}else{
+						var usermoney=parseFloat($("#usermoney").html());
+						if(mm>usermoney){
+							sp.html("您当前余额不足请及时充值");
+							sp.css("color","red");
+							return false;
+						}else{
+							var datab={};
+							datab["rate"]=rrmoney;
+							datab["life"]=ddlife;
+							datab["mmoney"]=mm;
+							alert(data.rate);
+							alert(data.life);
+							alert(data.mmoney);
+							$.ajax({
+								type:"post",
+								url:"/p2p/zkj/totalinterest.do",
+								contentType:"application/json;charset=utf-8",
+								data:JSON.stringify(datab),
+								success:function(da){
+									sp.html("预计所有收益为："+da+"元");
+								}
+							});
+							
+							
+							
+						}
+						
+
+					}
+				}
+		}
+		}
+		}else{
+			$("#npu").val("项目已完成")	;
+			$("#npu").css("color","purple");
+			$("#npu").css("font-size","20px");
+			$("#npu").attr("disabled",true);
+			$("#sub").css("display","none");
+			return false;
+		}
+	});
 $("#asd").click(function(){
 		
 		$.ajax({
@@ -623,6 +719,6 @@ $("#asd").click(function(){
 			$("#sub").css("display","none");
 			return false;
 		}
-	})
+	});
 </script>
 
