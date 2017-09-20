@@ -113,9 +113,33 @@
 				    title: 'My Dialog',    
 				    width: 600,    
 				    height: 400,    
-				    closed: false,    
+				    closed:false,    
 				    cache: false,    
-				    modal: true   
+				    modal: true,
+				    buttons:[{
+						text:'还款',
+						handler:function(){
+							var row = $('#proGrid').datagrid("getSelections");
+							//var datetime=row[0].time1;
+							if(row.length>0 ){
+								var id=row[0].PROJECTID;
+								alert("是否继续");
+								$.ajax({
+									type : "post",
+									url : "/p2p/repay/YpgProblem.do",
+									contentType :"application/json;charset=UTF-8",
+									data:{id:id},
+									success : function(data2){
+										alert(data2);
+									}	
+								})
+							}else{
+								alert("请选择数据");
+							}
+						},
+						
+					}
+					]
 				}); 
 				
 	    		$("#proGrid").datagrid({    
@@ -131,13 +155,14 @@
 						{field:'PROJECTNAME',title:'项目名称'},  
 	    				{field:'PERSONALNAME',title:'还款人'}, 
 	    				{field:'time1',title:'还款日期'}, 
-	    				{field:'MONTHMONEY',title:'每月本金'},    
-	    				{field:'MONTHINTEREST',title:'每月利息'}, 
+	    				{field:'MONTHMONEY',title:'还款本金'},    
+	    				{field:'MONTHINTEREST',title:'利率'}, 
 	    				{field:'MONTHPRINCIPAL',title:'每月本息'}, 
 	    				{field:'CODENAME',title:'状态'}   
 	    				
-	    		    ]]    
-	    		}); 
+	    		    ]]
+	    			
+	    		});
 				 
 			}else{
 				alert("请选择一条数据");

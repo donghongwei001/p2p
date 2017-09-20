@@ -40,4 +40,10 @@ public class YpgRepaymentImpl implements YpgRepaymentService{
 		return reDao.querySchedule(id);
 	}
 
+	@Override
+	public List<Map> queryProblems(int id) {
+		
+		return null;
+	}
+
 }

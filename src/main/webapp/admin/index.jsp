@@ -222,7 +222,7 @@
 				<dd>
 
 					<ul><shiro:hasPermission name="intime">
-						<li><a data-href="../jsp/project.jsp" data-title="到期还款"
+						<li><a data-href="../jsp/YpgRepayment.jsp" data-title="到期还款"
 
 							href="javascript:void(0)">到期还款</a></li></shiro:hasPermission>
 						<shiro:hasPermission name="outtime">

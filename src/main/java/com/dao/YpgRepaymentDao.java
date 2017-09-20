@@ -16,4 +16,7 @@ public interface YpgRepaymentDao {
 	
 	//还款计划表
 	public List<Map> querySchedule(int id);
+	
+	//还款杂表查询
+	public List<Map> queryProblems(int id);
 }

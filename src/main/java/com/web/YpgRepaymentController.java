@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -25,7 +26,6 @@ public class YpgRepaymentController {
 		for (int i = 0; i < repaymentList.size(); i++) {
 			String time=simpleDateFormat.format(repaymentList.get(i).get("TIME"));
 			repaymentList.get(i).put("TIME2", time);
-			
 		}
 		return repaymentList;
 	}
@@ -62,4 +62,8 @@ public class YpgRepaymentController {
 		return schedule;
 	}
 	
+	@RequestMapping("/YpgProblem")
+	public void problems(@RequestBody int id){
+		List<Map> problemList=reService.queryProblems(id);
+	}
 }
