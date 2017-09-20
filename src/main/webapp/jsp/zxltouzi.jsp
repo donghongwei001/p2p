@@ -84,7 +84,7 @@
 								<td id="table-top">${user.lifeloan}<span style="font-size:16px;">年</span></td>
 								<td rowspan="2" id="table-top">
 									<br/>
-									<button class="btn btn-primary" style="font-size:18px;width:120px;">投标</button>
+								<a href="/p2p/zkj/allproject.do?id=${user.projectid}">		<button class="btn btn-primary" style="font-size:18px;width:120px;">投标</button></a>
 								</td>
 							</tr>
 							<tr><td colspan="5">&nbsp;</td></tr>

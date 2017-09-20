@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.entity.Zkjinvestor;
+import com.entity.Zkjzong;
 
 public interface Zkjservicedaointerface {
 	
@@ -18,4 +19,7 @@ public interface Zkjservicedaointerface {
 	public List<Map> selectinvestinformation(int id);//鏍规嵁椤圭洰id鏌ヨ鎶曟爣璁板綍
 	public void saveinvestor(Zkjinvestor zz,String name);//保存投资人的身份信息
 	public String selectid(String name);//查询投资人有没有认证
+	public Zkjzong countmoney();//查询总投资
+	public void totalmoney(String name,String mm,int id);//计算自己总的money并更新导数据库
+	public double selectusermoney(String username);//根据用户名查询money
 }

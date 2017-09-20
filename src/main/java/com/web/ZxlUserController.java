@@ -1,10 +1,8 @@
 package com.web;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -20,11 +18,12 @@ import org.springframework.web.servlet.ModelAndView;
 import com.alibaba.fastjson.JSON;
 import com.entity.Page;
 import com.entity.Pageresult;
-import com.entity.ZxlMyHuankuan;
+import com.entity.Zkjzong;
 import com.entity.ZxlMyPersonal;
 import com.entity.ZxlMyProject;
 import com.entity.ZxlTouzi;
 import com.entity.ZxlUser;
+import com.service.Zkjservicedaointerface;
 import com.service.ZxlUserService;
 /**
  * 控制层
@@ -36,6 +35,8 @@ import com.service.ZxlUserService;
 public class ZxlUserController {
 	@Autowired
 	private ZxlUserService userservice;
+	@Autowired
+	private Zkjservicedaointerface zkjdao;
 	/**
 	 * 查询用表的所有数据
 	 * @param request
@@ -204,8 +205,12 @@ public class ZxlUserController {
 	@RequestMapping("/listpro")
 	public String listpro(HttpServletRequest request){	
 
+		Zkjzong zz=zkjdao.countmoney();
+		System.out.println(zz.getCcount()+zz.getSum()+"aaaaaaa");
+
 		List<ZxlMyProject> list=userservice.listpro();
 		request.setAttribute("listpro", list);
+		request.setAttribute("zong",zz);
 		return "index";	
 	}
 	/**

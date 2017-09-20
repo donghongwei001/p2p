@@ -22,6 +22,7 @@ public class Zkjserviceimpl implements Zkjservicedao {
 	@Autowired
 	private Zkjdaointerface ssdao;
 	@Override
+	@Transactional
 	public void saveproject(Zkjproject pp,String name) {
 		// TODO Auto-generated method stub
 		int userid=dao.quertuserid(name);

@@ -133,13 +133,13 @@
 						<span>累计投资笔数：</span>
 					</div>
 					<div id="total2">
-						<span>23</span><span>笔</span>
+						<span>${zong.ccount}</span><span>笔</span>
 					</div>
 					<div id="total3">
 						<span>总投资金额：</span>
 					</div>
 					<div id="total4">
-						<span>222,2222,00</span><span>元</span>
+						<span>${zong.sum}</span><span>元</span>
 					</div>
 				</div>
 					
