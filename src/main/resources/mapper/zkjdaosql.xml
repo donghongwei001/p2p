@@ -3,7 +3,10 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dao.Zkjdaointerface">	
-	
+	<resultMap type="Zkjzong" id="selectsum">
+		<result property="sum" column="ssum" />
+		<result property="ccount" column="ccount" />
+	</resultMap>
 	<select id="totalmoneyinvest" parameterType="int" resultType="Integer">
 		select sum(money) from invest where subjectid=#{id}
 	</select>
@@ -38,7 +41,24 @@
 	<select id="selectinvector" parameterType="int" resultType="String">
 		select name from investor where id=#{id}
 	</select>
+	
 	<select id="selectuseri" parameterType="String" resultType="int">
 		select userid from usertable where username=#{name}
+	</select>
+	
+	<select id="countmoney" resultMap="selectsum">
+		select sum(money) ssum,count(*) ccount from invest
+	</select>
+	<select id="selectusermoney" parameterType="String" resultType="double">
+		select money from usertable where username=#{username}
+	</select>
+	<update id="updateusermoney" parameterType="Zkjmoney">
+		update usertable set money=#{money} where username=#{name}
+	</update>
+	<update id="replaceinvestormoney" parameterType="Zkjinvestmoney">
+		update usertable set money=#{money} where userid=#{id}
+	</update>
+	<select id="selectuseridmoney" parameterType="int" resultType="double">
+		select money from usertable where userid=#{id}
 	</select>
 </mapper>

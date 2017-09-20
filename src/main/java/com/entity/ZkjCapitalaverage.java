@@ -22,4 +22,8 @@ public class ZkjCapitalaverage {
 	public void setLife(int life) {
 		this.life = life;
 	}
+	@Override
+	public String toString() {
+		return "ZkjCapitalaverage [rate=" + rate + ", mmoney=" + mmoney + ", life=" + life + "]";
+	}
 }

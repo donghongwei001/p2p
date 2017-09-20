@@ -12,11 +12,11 @@
 		insert into finaltable values(${projectid},${finalstatus},to_date('${finaldate}','yyyy-MM-dd'),'${finalname}','${finalremarks}',12)
 	</insert>
 	<!-- 第一次审核成功后更新项目表状态 -->
-	<update id="update" parameterType="com.entity.YxExamine">
+	<update id="update" parameterType="int">
 		update projectapplication set aduitstate = '2' where id = #{id}
 	</update> 
 	<!-- 第二次审核成功后更新二次审核状态  -->
-	<update id="updatesecond" parameterType="com.entity.YxFirsttable">
+	<update id="updatesecond" parameterType="int">
 		update firsttable set finalstatus='2' where projectid = #{projectid}
 	</update> 
 	<!-- 将项目发布到前台 -->

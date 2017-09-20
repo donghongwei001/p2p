@@ -5,10 +5,14 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.dao.Zkjdao;
 import com.dao.Zkjdaointerface;
+import com.entity.Zkjinvestmoney;
 import com.entity.Zkjinvestor;
+import com.entity.Zkjmoney;
+import com.entity.Zkjzong;
 import com.service.Zkjservicedaointerface;
 @Service
 public class Zkjserviceimplment implements Zkjservicedaointerface {
@@ -21,6 +25,7 @@ public class Zkjserviceimplment implements Zkjservicedaointerface {
 	 * @see com.service.Zkjservicedao#surplusinvest(int)
 	 */
 	@Override
+	@Transactional
 	public int surplusinvest(int projectid) {
 		// TODO Auto-generated method stub
 		Integer investmoney=dao.totalmoneyinvest(projectid);
@@ -40,6 +45,7 @@ public class Zkjserviceimplment implements Zkjservicedaointerface {
 		return dao.queryallproject();
 	}
 	@Override
+	@Transactional
 	public List<Map> personalinformation(int id) {
 		// TODO Auto-generated method stub
 	int  userid=dao.selectuserid(id);//鐢ㄦ埛ID
@@ -76,6 +82,36 @@ public class Zkjserviceimplment implements Zkjservicedaointerface {
 		// TODO Auto-generated method stub
 		int id=dao.selectuseri(name);
 		return dao.selectinvector(id);
+	}
+	@Override
+	public Zkjzong countmoney() {
+		// TODO Auto-generated method stub
+		return dao.countmoney();
+	}
+	@Override
+	@Transactional
+	public void totalmoney(String name,String mm,int id) {
+		// TODO Auto-generated method stub
+		double dd=dao.selectusermoney(name);//投资人用户的钱
+	//	double total=dd+Double.parseDouble(mm);//用户投资的钱
+		
+		int userid=dao.selectuserid(id);
+		double aas=dao.selectuseridmoney(userid);//借款人的账户钱
+		double total=aas+Double.parseDouble(mm);//用户投资的钱+借款人账户的钱
+		Zkjinvestmoney zz=new Zkjinvestmoney();
+			zz.setId(userid);
+			zz.setMoney(aas);
+		dao.replaceinvestormoney(zz);//更新借款人的账户
+		double sheng=dd-Double.parseDouble(mm);
+		Zkjmoney zk=new Zkjmoney();
+		zk.setMoney(sheng);
+		zk.setName(name);
+		dao.updateusermoney(zk);
+	}
+	@Override
+	public double selectusermoney(String username) {
+		// TODO Auto-generated method stub
+		return dao.selectusermoney(username);
 	}
 
 }
