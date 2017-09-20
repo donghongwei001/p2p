@@ -131,10 +131,10 @@ $(function(){
 		width : 200,
 		formatter: function(value,row,index){
             if (row.POSTSTATUS=='5'){
-                return "发布中";
+                return "已发布";
             }else if(row.POSTSTATUS=='12'){
                 return "待发布";
-            }else{
+            }else if(row.POSTSTATUS=='6'){
             	return "已下架";
             }
         }
@@ -149,7 +149,6 @@ $(function(){
 			//var index=row[0].PROJECTID;
 		var data={};
 		data["projectid"]=row[0].PROJECTID;
-		alert(data.projectid);
 		if(row[0].POSTSTATUS=='5'){
 			alert("该项目已发布");
 			return false;
@@ -174,13 +173,41 @@ $(function(){
 			alert("请选择要发布的项目");
 		}
 	});
+
+	$("#xiajia").click(function(){
+		var row = $('#proDataGrid').datagrid("getSelections");
+		if (row.length==1) {
+			var index=row[0].POSTSTATUS;
+			if (index=='5') {
+				if (window.confirm('你确定下架该项目吗？')) {
+					var pid=row[0].PROJECTID;
+				$.ajax({ //发送了一个新的请求，与按钮这个请求完全不是一马事
+					type : "post", //请求方式
+					url : "/p2p/first/xiajia.do", //请求地址
+					data : {
+						id : pid
+					},//{nameha:$("#username").val(),passha:$("#password").val()},
+					//dataType : "json",
+					success : function(data) { //请求成功后调用的回调函数，参数1【data】 请求返回的数据，这个数据类型是dataType制定
+						alert("下架成功!")
+						window.location.reload();
+					}
+				})
+				}
+			} else {
+				alert("该项目不可以下架")
+			}
+		}else {
+			alert("请选择一条要下架的项目");
+		}
+	})
+
 	
 	
 	$("#seldo").click(function() {
 		var row = $('#proDataGrid').datagrid("getSelections");
 		if (row.length==1) {
 			var index=row[0].PROJECTID;
-			alert(index);
 			if(row[0].POSTSTATUS=='12'){
 				alert("该项目还未发布");
 				return false;
@@ -225,7 +252,7 @@ $(function(){
 					},
 					buttons : [
 							{ //自带的按钮 
-								text : '关闭',
+								text : '关闭', 
 								handler : function() {
 									alert("你确定取消吗？");
 									$('#dialog').dialog("close");
@@ -238,9 +265,39 @@ $(function(){
 			alert("请选择一条数据");
 		}
 	});
-$('#dialog').dialog("close");
+$('#dialog').dialog("close"); 
 
-	
-	
+
+
+
+	$("#xiajia").click(function(){
+		var row = $('#proDataGrid').datagrid("getSelections");
+		if (row.length==1) {
+			var index=row[0].POSTSTATUS;
+			if (index='5') {
+				if (window.confirm('你确定下架该项目吗？')) {
+					var pid=row[0].PROJECTID;
+				$.ajax({ //发送了一个新的请求，与按钮这个请求完全不是一马事
+					type : "post", //请求方式
+					url : "/p2p/first/xiajia.do", //请求地址
+					data : {
+						id : pid
+					},//{nameha:$("#username").val(),passha:$("#password").val()},
+					//dataType : "json",
+					success : function(data) { //请求成功后调用的回调函数，参数1【data】 请求返回的数据，这个数据类型是dataType制定
+						alert("下架成功!")
+						window.location.reload();
+					}
+				})
+				}
+			} else {
+				alert("该项目不可以下架")
+			}
+		}else {
+			alert("请选择一条要下架的项目");
+		}
+	})
+
+
 });
 </script>

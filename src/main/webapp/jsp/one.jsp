@@ -222,7 +222,7 @@
 								url : "/p2p/yx/onex.do", //请求地址
 								data : {
 									id : index
-								},//{nameha:$("#username").val(),passha:$("#password").val()},
+								},
 								dataType : "json",
 								success : function(data) { //请求成功后调用的回调函数，参数1【data】 请求返回的数据，这个数据类型是dataType制定
 									var jsonObj = eval(data);
@@ -273,8 +273,10 @@
 											contentType :"application/json;charset=UTF-8",
 											data:JSON.stringify(data),
 											success : function(data1){
-												if(data1=="success"){
-													alert("审核完成");
+												alert("审核完成");
+												window.location.href="http://localhost:9088/p2p/jsp/one.jsp"
+											/* 	if(data1=="success"){
+													
 													var row = $('#proDataGrid').datagrid("getSelections");
 													var data={};
 													data["id"]=row[0].ID;
@@ -289,7 +291,7 @@
 															}
 													}
 														})
-												}
+												} */
 											}
 										});
 										}else{

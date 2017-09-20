@@ -305,23 +305,10 @@ $(function(){
 										contentType :"application/json;charset=UTF-8",
 										data:JSON.stringify(data),
 										success : function(data1){
-											if(data1=="right"){
+										
 												alert("审核完成");
-												var row = $('#proDataGrid').datagrid("getSelections");
-												var data={};
-												data["projectid"]=row[0].PROJECTID;
-												$.ajax({
-													type : "post",
-													url : "/p2p/first/updatefinal.do",
-													contentType :"application/json;charset=UTF-8",
-													data:JSON.stringify(data),
-													success : function(data2){
-														if(data2=="ok"){
-															 window.location.href="http://localhost:9088/p2p/jsp/first.jsp"
-														}
-													}
-												})
-											}
+												 window.location.href="http://localhost:9088/p2p/jsp/first.jsp"
+										
 										}
 									});
 									}else{

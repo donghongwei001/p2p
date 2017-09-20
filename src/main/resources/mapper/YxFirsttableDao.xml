@@ -12,11 +12,11 @@
 		insert into finaltable values(${projectid},${finalstatus},to_date('${finaldate}','yyyy-MM-dd'),'${finalname}','${finalremarks}',12)
 	</insert>
 	<!-- 第一次审核成功后更新项目表状态 -->
-	<update id="update" parameterType="com.entity.YxExamine">
+	<update id="update" parameterType="int">
 		update projectapplication set aduitstate = '2' where id = #{id}
 	</update> 
 	<!-- 第二次审核成功后更新二次审核状态  -->
-	<update id="updatesecond" parameterType="com.entity.YxFirsttable">
+	<update id="updatesecond" parameterType="int">
 		update firsttable set finalstatus='2' where projectid = #{projectid}
 	</update> 
 	<!-- 将项目发布到前台 -->
@@ -43,4 +43,25 @@
 	<update id="updatetxmm" parameterType="int">
 		update firsttable set finalstatus='2' where projectid = #{projectid}
 	</update>
+	<update id="updatexiajia">
+		update projectrelease set lasttime=to_date(#{0},'yyyy-MM-dd'),status=6 where projectid=#{1}
+	</update>
+	<update id="updatefinalstatu" parameterType="int">
+		update finaltable set poststatus=6 where projectid=#{id}
+	</update>
+	<select id="selmoney" parameterType="int" resultType="java.util.HashMap">
+		select p.LIFELOAN, r.NOWMONEY,p.RATEMONEY from projectapplication p,PROJECTRELEASE r where p.id=r.PROJECTID and  id=#{id}
+	</select>
+	<insert id="addhuankuan">
+		insert into REPAYSCHEDULE values(#{0},to_date(#{1},'yyyy-MM-dd'),#{2},#{3},#{4},8)
+	</insert>
+	<select id="selfangman" parameterType="int" resultType="java.util.HashMap">
+		select * from invest  where subjectid=#{id}
+	</select>
+	<select id="selman" parameterType="String" resultType="int">
+		select userid from usertable where username=#{name}
+	</select>
+	<insert id="addshoukuan">
+		insert into shoukuantable values(#{0},#{1},to_date(#{2},'yyyy-MM-dd'),#{3},14,#{4},#{5}) 
+	</insert>
 </mapper>

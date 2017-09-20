@@ -6,11 +6,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>personal</title>
-	<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="../easyui/js/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="../bootstrap/js/bootstrap.min.js"></script>
-    
+    <link rel="stylesheet" type="text/css" href="../easyui/css/icon.css" />
+<link rel="stylesheet" type="text/css" href="../easyui/css/easyui.css" />
+<script src="../easyui/js/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="../easyui/js/easyui-lang-zh_CN.js"></script>
 	<style type="text/css">
 		body{/* background-color:#F5F5F5; */}
 		div a{text-decoration:none;}
@@ -115,8 +116,9 @@
 			</div>			
 			<div id="top-menu">
 				<a href="/p2p/user/listpro.do">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 				<a href="/p2p/user/listtouzi.do">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<span id="asd">我要借款&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<a id="asd">我要借款&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
 				<a href="/p2p/jsp/zxlpersonal.jsp">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;						
 			</div>
 			<div id="top-login">										
@@ -135,106 +137,30 @@
 					<div id="left1"><a href="/p2p/user/zxlpersonal.do">我的资产</a></div>
 					<div id="left2"><a href="/p2p/user/myproject.do">我的项目</a></div>
 					<div id="left3"><a href="/p2p/user/mytouzi.do">我的投资</a></div>
-					<div id="left4"><a href="/p2p/user/myhuankuan.do">我的还款</a></div>
+					<div id="left4"><a href="/p2p/jsp/myhuankuan.jsp">我的还款</a></div>
 					<div id="left5"><a href="/p2p/user/mypersonal.do">个人信息</a></div>
 					<div id="left6"><a href="/p2p/jsp/myupdatepwd.jsp">修改密码</a></div>
 				</div>
 			
 				<div id="content-right">
-					<div id="HuanK">
-						<div id="HuanK_button" class="bg-info">
-							<ul id="myTab" class="nav nav-tabs">
-								<li class="active">
-									<a href="#HuanK_information" data-toggle="tab">
-										<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>按月还款 
-									</a>
-								</li>
-								<li id="HuanK_btn">
-										<a href="#ios" data-toggle="tab"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>一次还清 </a> 
-								</li>	
-							</ul>
-							
-							<!-- <button type="button"  class="btn btn-default">
-							  
-							</button>
-							<button type="button" id="HuanK_btn" class="btn btn-default">
-							  
-							</button> -->
-						</div>
-						<div id="myTabContent" class="tab-content">
-							<div id="HuanK_information" class="tab-pane fade in active">
-								
-								<span>本期应还款:元</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>还款截止日期:</span>
-								&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-info"> 立即还款 </button>
-								
-							</div>
-							
-							<div class="tab-pane fade" id="ios">
-								<p>iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple 
-									TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。</p>
-							</div>
-						</div>
-					</div>															
+																			
 					<div id="right-div">						
-						<table class="table table-hover">
-							<tr class="active">
-								<th><h5>还款日期</h5></th>
-								<th><h5>项目名称</h5></th>
-								<th><h5>还款资金</h5></th>
-								<th><h5>平台费用</h5></th>
-								<th><h5>实收金额</h5></th>
-								<th><h5>逾期天数</h5></th>
-								<th><h5>还款状态</h5></th>
-								<th><h5>操作</h5></th>
-							</tr>
+
 						
-							<tr>
-								<td>0</td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td>0</td>
-								<td>0</td>
-								<td></td>
-							    <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">还款</button></td>
-							</tr>
+						<div id="toolbar">
+						<a id="addbtn" class="easyui-linkbutton"
+			data-options="iconCls:'icon-save'">确认还款 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+			</div>
+						<table id="tb">
+						
+
 						</table>
 					</div>
 					
 				   <!-- Button trigger modal -->
 
 
-					<!-- Modal -->
-					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-					  <div class="modal-dialog" role="document">
-					    <div class="modal-content">
-					      <div class="modal-header">
-					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-					      </div>
-					      <div class="modal-body">
-					        	<form id="myForm" method="post">
-									<table width="100%" class="formtable">
-										<c:forEach items="${huankuan}" var="h">
-										<tr>
-											<th height="40" >应还款：</th><td>${h.hkmoney}元</td>
-										</tr>
-										</c:forEach>
-										<tr class="">
-											<th height="40">还款金额：</th><td><input type="text"/></td>
-										</tr>
-										
-									</table>
-											
-									<button id="btn" type="button" class="btn btn-default" data-dismiss="modal">关闭</button><button type="button" class="btn btn-primary">提交</button>
-											
-								</form>
-					      </div>
-					      
-					    </div>
-					  </div>
-					</div>
-						
+
 				</div>
 			</div>
 		</div>
@@ -278,3 +204,141 @@ $("#asd").click(function(){
 </script>
 
 </html>
+<script>
+	$("#asd").click(function(){
+		
+		$.ajax({
+			 type:"post",
+			// dataType:"json",
+			 url:"/p2p/add/name.do",
+			// data:JSON.stringify(row),
+			//data:str1,
+			 contentType:"application/json;charset=utf-8",
+			 success:function(dataa){
+				
+				 if(dataa==null||dataa==""){
+					 window.location.href="../jsp/jiekuan.jsp";
+				 }else{
+					
+					 window.location.href="../jsp/xiangmushenqing.jsp";
+				 }
+			 }
+		 });
+	});
+	$(function(){
+		$('#tb').datagrid({
+			url : '/p2p/user/myhuankuan.do',
+			striped : true,
+			rownumbers : true,
+			fitColumns : true,
+			singleSelect : false, //是否只能选择一行
+			pageSize : 10,//每页显示的记录条数，默认为10 
+			pageList : [ 5, 10, 15 ],//可以设置每页记录条数的列表 
+			beforePageText : '第',//页数文本框前显示的汉字 
+			afterPageText : '页    共 {pages} 页',
+			pagination : true, //分页工具栏
+			pagePosition : "bottom",
+			toolbar : "#toolbar",
+			queryParams : {
+				
+			},
+
+			/* onClickRow:function(rowIndex,rowData){
+				 var rowInfo = $("#tb").datagrid('getChecked');
+				 
+				 if (rowInfo) {
+					alert("已经选中的行");
+				}
+			}, */
+			//fit : true,  
+			onLoadSuccess : function(list) {
+
+			},
+			columns : [ [{
+				field : 'xuanze',
+				title : 'Code',
+				width : 200,
+				align : 'center',
+				checkbox : true
+			},{
+				field : 'ID',
+				title : '项目id',
+				width : 150,
+				align : 'center'
+			}, {
+				field : 'PROJECTNAME',
+				title : '项目名称',
+				width : 150,
+				align : 'center'
+			},  {
+				field : 'time1',
+				title : '还款日期',
+				width : 150,
+				align : 'center'
+			},{
+				field : 'MONTHMONEY',
+				title : '还款本金',
+				width : 150,
+				align : 'center'
+			},{
+				field : 'MONTHINTEREST',
+				title : '还款利息',
+				width : 150,
+				align : 'center'
+			},{
+				field : 'MONTHPRINCIPAL',
+				title : '还款本息',
+				width : 150,
+				align : 'center'
+			},{
+				field : 'MONTHSTATUS',
+				title : '还款状态',
+				width : 150,
+				align : 'center',
+				formatter : function(value,row,index){
+					   
+					if(value=='8'){return '未还款'}  
+						 else {return '已还款'}                        
+						 }
+			}] ]
+		});
+		$("#addbtn").click(function(){
+			var row = $('#tb').datagrid("getSelections");
+			if (row.length==1) {
+				var index=row[0].ID;
+				var qian=row[0].MONTHPRINCIPAL;
+				var date=row[0].time1;
+				var statu=row[0].MONTHSTATUS;
+				if (statu=="8") {
+					
+				
+				alert(index);
+				if (window.confirm('你确定还款吗？')) {
+				$.ajax({ //发送了一个新的请求，与按钮这个请求完全不是一马事
+					type : "post", //请求方式
+					url : "/p2p/user/huankuan.do", //请求地址
+					data:{id:index,money:qian,time:date},
+					success : function(data) { //请求成功后调用的回调函数，参数1【data】 请求返回的数据，这个数据类型是dataType制定
+							alert(data);
+						if (data=="0") {
+							alert("今日不用还款哦！")
+						}else if (data=="1") {
+							alert("您的金额不足，请充值!")
+						}else {
+							alert("还款成功！")
+						}
+						window.location.reload();
+		        			
+					}
+				
+				});
+				}
+				}else {
+					alert("该条账单不可以还款")
+				}
+			} else {
+				alert("请选择一条账单再进行还款！");
+			} 
+		})
+	})
+</script>

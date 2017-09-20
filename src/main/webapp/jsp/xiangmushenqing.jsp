@@ -352,12 +352,9 @@ $("#distpicker2").distpicker({
 	});
 	$(function(){
 		$("#itemPhoto").change(function(){
-  			alert(this.files);
   			var MAXWIDTH  = 260; 
   			var MAXHEIGHT = 180;
   			var div = document.getElementById('preview');
-  			alert("1212");
-  			alert(this.files);
   			if (this.files && this.files[0])
   			{
   				div.innerHTML ='<img id=imghead>';

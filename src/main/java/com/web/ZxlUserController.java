@@ -1,4 +1,6 @@
 package com.web;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -14,6 +16,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSON;
+import com.entity.Page;
+import com.entity.Pageresult;
 import com.entity.Zkjzong;
 import com.entity.ZxlMyPersonal;
 import com.entity.ZxlMyProject;
@@ -71,18 +75,18 @@ public class ZxlUserController {
 	@RequestMapping("/login")
 	@ResponseBody
 	public String login(@RequestBody String str,HttpServletRequest request,Model model){ 
-	
+
 		System.out.println(str);
 		ZxlUser zu=JSON.parseObject(str, ZxlUser.class);
 		request.getSession().setAttribute("abcd",zu.getUsername());
 		request.getSession().setAttribute("login", zu);
-        if(userservice.find(zu)) {
-        	 return "Ok";  
-        } 
-        else{
-        	return null;
-        }
-    } 
+		if(userservice.find(zu)) {
+			return "Ok";  
+		} 
+		else{
+			return null;
+		}
+	} 
 	/**
 	 * 该用户的项目
 	 * @param request
@@ -117,19 +121,35 @@ public class ZxlUserController {
 		model.setViewName("mytouzi");
 		return model;
 	}
-	
+
 	/**
 	 * 查询该用户未还款的项目
 	 * @param request
 	 * @return
 	 */
-/*  @RequestMapping("/myhuankuan")
-	public String listhuankuan(HttpServletRequest request){
+ @RequestMapping("/myhuankuan")
+ @ResponseBody
+	public Pageresult listhuankuan(HttpServletRequest request,Integer page,Integer rows){
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		int page1=page;
+		int rows1=rows;
 		String userna =(String)request.getSession().getAttribute("abcd");
-		List<ZxlMyHuankuan> list=userservice.listhuankuan(userna);
-		request.setAttribute("huankuan", list);
-		return "myhuankuan";
-	}*/
+		List<Map> list=userservice.listhuankuan(userna);
+		for (int i = 0; i < list.size(); i++) {
+			String time=simpleDateFormat.format(list.get(i).get("REPAYDATE"));
+			list.get(i).put("time1", time);
+
+		}
+		Page<Map> paging=new Page<Map>();
+		List<Map> list1=paging.paging(list,rows1,page1);
+		System.out.println(list1.size());
+		Pageresult<Map> pResult=new Pageresult<Map>();
+
+		pResult.setTotal(list.size());
+		pResult.setRows(list1);
+		return pResult;
+	}
+
 	
 	
 	/**
@@ -184,8 +204,10 @@ public class ZxlUserController {
 	 */
 	@RequestMapping("/listpro")
 	public String listpro(HttpServletRequest request){	
+
 		Zkjzong zz=zkjdao.countmoney();
 		System.out.println(zz.getCcount()+zz.getSum()+"aaaaaaa");
+
 		List<ZxlMyProject> list=userservice.listpro();
 		request.setAttribute("listpro", list);
 		request.setAttribute("zong",zz);
@@ -215,12 +237,12 @@ public class ZxlUserController {
 		List<ZxlTouzi> list=userservice.listtouzi();
 		request.setAttribute("listtouzi", list);
 		return "zxltouzi";	
-		}
+	}
 	@RequestMapping("/chongzhi")
 	@ResponseBody
 	public void chongzhi(int jine,HttpSession session){
 		String username=(String) session.getAttribute("abcd");
-		
+
 		userservice.updatejine(username,jine);
 	}
 	@RequestMapping("/tixian")
@@ -241,7 +263,43 @@ public class ZxlUserController {
 		model.addObject("jiekuanxiangqing", list1);
 		model.setViewName("xiangmuxiangqing");
 		return model;
-		
+
+	}
+	@RequestMapping("/huankuan")
+	@ResponseBody
+	public int huankuan(int id,double money,String time,HttpServletRequest request){
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		String time1=simpleDateFormat.format(new Date());
+		String name=(String) request.getSession().getAttribute("abcd");
+		int flag=0;
+		List<Map> list=userservice.seltime(id);
+		for (int i = 0; i < list.size(); i++) {
+			if (simpleDateFormat.format(list.get(i).get("REPAYDATE")).equals(time1)) {
+				System.out.println(list.get(i).get("REPAYDATE")+"*****"+time1);
+				flag=1;
+				int money1=userservice.seljine(name);
+				double qian=Double.valueOf(money1).doubleValue();
+				if (qian>money) {
+					flag=2;
+					double money2=qian-money;
+					userservice.updatemoney(money2, name);
+					userservice.updatestatus(id,money);
+					userservice.updateshoukuan(id, time1);
+					List<Map> list2=userservice.seluserid(id, time1);
+					for (int j = 0; j < list2.size(); j++) {
+						String userid=list2.get(j).get("USERID").toString();
+						int uid=Integer.parseInt(userid);
+						int renminbi=userservice.seljinqian(uid);
+						String mony=list2.get(j).get("MONEY").toString();
+						double moy=Double.valueOf(mony).doubleValue();
+						double mo=moy+renminbi;
+						userservice.updatemoney(mo, name);
+					}
+				}
+				break;
+			}
+		}
+		return flag;
 	}
 	
 }

@@ -1,5 +1,8 @@
 package com.serviceimpl;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -7,7 +10,6 @@ import com.dao.YxFirsttableDao;
 import com.entity.YxExamine;
 import com.entity.YxFabu;
 import com.entity.YxFinaltable;
-import com.entity.YxFirst;
 import com.entity.YxFirsttable;
 import com.service.YxFirsttableService;
 @Service
@@ -18,35 +20,35 @@ public class YxFirsttableServiceImpl implements YxFirsttableService {
 	 * 第一次审核插入到数据库
 	 */
 	@Override
-	public int addfirsts(YxFirsttable yf) {
+	public void addfirsts(YxFirsttable yf) {
 		// TODO Auto-generated method stub
-		return firdao.addfirst(yf);
+		firdao.addfirst(yf);
 	}
 	/**
 	 * 第二次审核插入到数据库
 	 */
 	@Override
-	public int addseconds(YxFinaltable yt) {
+	public void addseconds(YxFinaltable yt) {
 		// TODO Auto-generated method stub
-		return firdao.addsecond(yt);
+		firdao.addsecond(yt);
 	}
 	/**
 	 * 第一次审核成功后更新项目审核表审核状态
 	 */
 	@Override
-	public int update(YxExamine ym) {
+	public void update(int id) {
 		// TODO Auto-generated method stub
-		int flag=firdao.update(ym);
-		return flag;
+		firdao.update(id);
+		
 	}
 	/**
 	 * 第二次审核成功后更新第二次审核状态
 	 */
 	@Override
-	public int updates(YxFirsttable yx) {
+	public void updates(int id) {
 		// TODO Auto-generated method stub
-		int flag=firdao.updatesecond(yx);
-		return flag;
+		firdao.updatesecond(id);
+		
 	}
 	/**
 	 * 发布项目
@@ -97,5 +99,41 @@ public class YxFirsttableServiceImpl implements YxFirsttableService {
 		// TODO Auto-generated method stub
 		firdao.updatetxmm(id);
 	}
+	@Override
+	public void updatexiajia(String date, int id) {
+		// TODO Auto-generated method stub
+		firdao.updatexiajia(date, id);
+	}
+	@Override
+	public void updatefinalstatu(int id) {
+		// TODO Auto-generated method stub
+		firdao.updatefinalstatu(id);
+	}
+	@Override
+	public List<Map> selmoney(int id) {
+		// TODO Auto-generated method stub
+		return firdao.selmoney(id);
+	}
+	@Override
+	public void addhuankuan(int id, String date, double qian, double lilv, Double allmoney) {
+		// TODO Auto-generated method stub
+		firdao.addhuankuan(id, date, qian, lilv, allmoney);
+	}
+	@Override
+	public List<Map> selfangman(int id) {
+		// TODO Auto-generated method stub
+		return firdao.selfangman(id);
+	}
+	@Override
+	public int selman(String name) {
+		// TODO Auto-generated method stub
+		return firdao.selman(name);
+	}
+	@Override
+	public void addshoukuan(int userid, int projectid, String date, double money, double lilv, double benjin) {
+		// TODO Auto-generated method stub
+		firdao.addshoukuan(userid, projectid, date, money, lilv, benjin);
+	}
+	
 
 }
