@@ -282,7 +282,7 @@ $("#asd").click(function(){
 				align : 'center'
 			},{
 				field : 'MONTHINTEREST',
-				title : '还款利息',
+				title : '还款利率',
 				width : 150,
 				align : 'center'
 			},{

@@ -38,7 +38,7 @@
 				</tr>
 				<tr>
 					<th height="30">是否生成菜单：</th>
-					<td>是：<input id="generatenemu" name="generatenemu" TYPE="radio">否：<input id="generatenemu" name="generatenemu" TYPE="radio"></td>
+					<td>是：<input id="generatenemu" value="1" name="generatenemu" TYPE="radio">否：<input id="generatenemu" value="0" name="generatenemu" TYPE="radio"></td>
 				</tr>
 				<tr>
 					<th height="25">关键字：</th><td><input id="code" name="code" class="easyui-validatebox" data-options="required:true"></td>
@@ -365,6 +365,7 @@
 										
 											alert("插入成功！")
 											$('#handledialog').dialog("close");
+											window.location.reload();
 										
 									} 
 							 })

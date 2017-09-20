@@ -250,6 +250,9 @@
 						<shiro:hasPermission name="zijintongji">
 						<li><a data-href="../jsp/SzhJsp/Zjtj.jsp" data-title="资金统计"
 							href="javascript:void(0)">资金统计</a></li></shiro:hasPermission>
+						<shiro:hasPermission name="zhichushouru">
+						<li><a data-href="../jsp/zhichushouru.jsp" data-title="支出收入详情"
+							href="javascript:void(0)">支出收入详情</a></li></shiro:hasPermission>
 
 					</ul>
 				</dd>

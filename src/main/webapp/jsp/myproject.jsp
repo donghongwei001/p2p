@@ -100,7 +100,7 @@
 				<div id="content-right">
 					<div id="right-div">
 					
-					<div role="tabpanel" class="tab-pane" id="settings">
+				<div role="tabpanel" class="tab-pane" id="settings">
 				<div class="panel-group" id="accordion" role="tablist"
 					aria-multiselectable="true">
 					<div class="panel panel-default">
@@ -141,7 +141,7 @@
 					</div>
 
 					
-					</div>
+					
 					<div class="panel panel-default">
 						<div class="panel-heading" role="tab" id="headingThree">
 							<h4 class="panel-title">
@@ -261,6 +261,7 @@
 						</table>
 							</div>
 						</div>
+					</div>
 					</div>
 				</div>
 				

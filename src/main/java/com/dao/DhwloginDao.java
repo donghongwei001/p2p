@@ -14,4 +14,6 @@ public interface DhwloginDao {
 	public String queryrolename(int id);
 	public int querycount();
 	public List<Map> queryxiajia();
+	public int selxiajia();
+	public int selmoney();
 }
