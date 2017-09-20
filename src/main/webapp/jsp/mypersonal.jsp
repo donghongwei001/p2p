@@ -33,12 +33,14 @@
 		#left3:hover{background-color:#F5F5F5;}
 		#left4:hover{background-color:#F5F5F5;}
 		#left6:hover{background-color:#F5F5F5;}
+		#left7:hover{background-color:#F5F5F5;}
 		#left1{text-align:center;font-size:18px;width:100%;height:50px;line-height:50px;background-color:#DCDCDC;}
 		#left2{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
 		#left3{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
 		#left4{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
 		#left5{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#F5F5F5;}
 		#left6{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
+		#left7{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
 		#content-right{width:76%;height:800px;float:left;margin-left:15px;background-color:#FFFFFF;}
 		#right-div{width:76%;height:auto;float:left;margin:50px 50px 50px 90px;}
 		#td-left{text-align:right;font-size:18px;width:200px;height:50px;line-hieght:50px;}
@@ -93,8 +95,8 @@
 					<div id="left1"><a href="/p2p/user/zxlpersonal.do">我的资产</a></div>
 					<div id="left2"><a href="/p2p/user/myproject.do">我的项目</a></div>
 					<div id="left3"><a href="/p2p/user/mytouzi.do">我的投资</a></div>
-
 					<div id="left4"><a href="/p2p/jsp/myhuankuan.jsp">我的还款</a></div>
+					<div id="left7"><a href="/p2p/jsp/yuqihuankuan.jsp">逾期还款</a></div>
 					<div id="left5"><a href="/p2p/user/mypersonal.do">个人信息</a></div>
 					<div id="left6"><a href="/p2p/jsp/myupdatepwd.jsp">修改密码</a></div>
 
