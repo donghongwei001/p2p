@@ -219,7 +219,7 @@
 				beforePageText : '第',//页数文本框前显示的汉字 
 				afterPageText : '页    共 {pages} 页',
 				pagination : true, //分页工具栏
-				pagePosition : "top",
+				pagePosition : "bottom",
 				toolbar : "#toolbar",
 				queryParams : {
 					name : $("#powername").val()
@@ -232,7 +232,7 @@
 						alert("已经选中的行");
 					}
 				}, */
-				//fit : true,  
+				fit : true,  
 				onLoadSuccess : function(list) {
 
 				},
@@ -453,7 +453,7 @@
 		fitColumns : true,
 		singleSelect : false, //是否只能选择一行
 		pagination : true, //分页工具栏
-		pagePosition : "top",
+		pagePosition : "bottom",
 		toolbar : "#toolbar",
 		/* onClickRow:function(rowIndex,rowData){
 			 var rowInfo = $("#tb").datagrid('getChecked');
@@ -462,7 +462,7 @@
 				alert("已经选中的行");
 			}
 		}, */
-		//fit : true,  
+		fit : true,  
 		onLoadSuccess : function(list) {
 
 		},

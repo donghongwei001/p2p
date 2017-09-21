@@ -48,4 +48,5 @@ public interface ZxlUserService {
 	public int selgaihuankuan(String name);
 	public int seluser(int id);
 	public String selusername(int userid);
+	public int selyuqi(String name);
 }

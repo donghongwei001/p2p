@@ -35,12 +35,12 @@
 		        {field:'STATE',title:'是否禁用',width:100}
 		    ]]  ,
 		    striped:true, //斑马线
-		    
+		    fit :true,
 			pagination:true, //分页
 			pageSize:5,
 			fitColumns : true,
 			pageList:[5,10,15,20],
-			pagePosition : "top",
+			pagePosition : "bottom",
 			showFooter:true ,  //行脚
 			rownumbers:true   //行号
 

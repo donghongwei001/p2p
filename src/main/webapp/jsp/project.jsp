@@ -187,9 +187,10 @@
 								striped : true,
 								rownumbers : true,
 								fitColumns : false,
+								fit :true,
 								singleSelect : false, //是否只能选择一行
 								pagination : true, //分页工具栏
-								pagePosition : "top",
+								pagePosition : "bottom",
 								toolbar : "#toolbar",
 								onLoadSuccess:function(){
 									$("#sel").textbox('setValue','')
@@ -348,7 +349,7 @@
 							fitColumns : false,
 							singleSelect : false, //是否只能选择一行
 							pagination : true, //分页工具栏
-							pagePosition : "top",
+							pagePosition : "bottom",
 							toolbar : "#toolbar",
 							/* onClickRow:function(rowIndex,rowData){
 								 var rowInfo = $("#tb").datagrid('getChecked');
@@ -357,7 +358,7 @@
                         			alert("已经选中的行");
                     			}
 							}, */
-							//fit : true,  
+							fit : true,  
 							onLoadSuccess:function(list){
 								
 							},
@@ -555,7 +556,7 @@
 												id:row.ID
 												
 											},
-											//fit : true,  
+											fit : true,  
 											onLoadSuccess:function(list){
 												//alert(list.list[0].TIME);
 											},

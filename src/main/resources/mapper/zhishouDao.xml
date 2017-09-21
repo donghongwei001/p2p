@@ -15,4 +15,10 @@
 	<select id="selshouzhi" resultType="java.util.HashMap">
 		select e.projectid,e.time,e.money,c.codename from expendincome e,code c where e.style=c.codeid
 	</select>
+	<select id="selyuqi" resultType="java.util.HashMap" parameterType="String">
+		select p.id,p.projectname,o.lasttime,o.lastmoney,o.newtime,o.newmoney,o.newday from outtimetable o,projectapplication p,usertable u where o.projectid=p.id and p.userid=u.userid and u.username=#{name}
+	</select>
+	<update id="updatenew">
+		update outtimetable set newtime=to_date(#{0},'yyyy-MM-dd'),newday=#{1},newmoney=#{2} where projectid=#{3} and lastmoney=#{4}
+	</update>
 </mapper>
