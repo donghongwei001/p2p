@@ -8,17 +8,43 @@
 		select pp.ID,pp.projectname,pf.personalname,pp.time,pp.money,pp.lifeloan,pp.ratemoney from projectapplication pp,psersonalform pf,projectrelease psq,code c where pp.userid=pf.userid and pp.ID=psq.projectid and psq.status=c.codeid and psq.status=6
 	</select>
 	
-	<!-- 
-	<select id="queryPublish" resultType="java.util.HashMap">
-		select t.name,i.money,i.time from invest i,investor t where i.investorid=t.id  
-	</select>
-	
-	<select id="queryMinute" resultType="java.util.HashMap">
-		select pp.projectid,p.ratemoney,p.lifeloan,p.money,ff.occupation,ff.worklife,ff.monthlyincome,ff.iphone,ff.educational,ff.marriage,ff.houseloan,ff.address,ff.idcard,ff.accountnumber,ff.contactphone,u.username,pp.lasttime from projectapplication p,projectrelease pp,code c,usertable u,psersonalform ff  where p.id=pp.projectid and u.userID=ff.userID and p.userid=u.userID and pp.projectid=2 and pp.status=c.codeid and pp.status=5
-	</select> -->
-	
 	<!-- 还款计划  -->
 	<select id="querySchedule" resultType="java.util.HashMap" parameterType="int">
 		select rs.projectid,pp.projectname,p.personalname,rs.repaydate,rs.monthmoney,rs.monthinterest,rs.monthprincipal,c.codename from RepaySchedule rs,projectapplication pp,code c,psersonalform p where pp.ID=rs.projectid and pp.userid=p.userID and rs.monthstatus=c.codeid and rs.projectid=#{id}
+	</select>
+	
+	<!--还款杂表查询  -->
+	<select id="queryProblems" resultType="java.util.HashMap" parameterType="int">
+		select i.investorid,i.subjectid,i.money,p.lifeloan,p.ratemoney,u.money as usermoney,t.money as totalmoney from invest i,projectapplication p,usertable u,totalmoney t where i.subjectid=p.id and i.investorid=u.userid and subjectid=#{id}
+	</select>
+	
+	<!-- 更新用户总钱数 -->
+	<update id="updateUserMoney" parameterType="com.entity.YpgUsermoney">
+		update usertable set money=#{usertotalmoney} where userID=#{userid}
+	</update>
+	
+	<!-- 更新平台总钱数 -->
+	<update id="updateTotalMoney" parameterType="double">
+		update totalmoney set money=#{totalMoney}
+	</update>
+	
+	<!-- 插入到逾期表 -->
+	<insert id="insertOutTimeTable" parameterType="com.entity.YpgUsermoney">
+		insert into outtimetable(projectid,lasttime,lastmoney)values(#{subjectid},#{time2},#{totalM})
+	</insert>
+	
+	<!-- 更新收款表状态 -->
+	<update id="updateShouKuanTable" parameterType="com.entity.YpgUsermoney">
+		update shoukuantable set status=13 where projectid=#{subjectid} and time=#{time2}
+	</update>
+	
+	<!-- 更新每月还款状态 -->
+	<update id="updateRepaySchedule" parameterType="com.entity.YpgUsermoney">
+		update RepaySchedule set monthStatus=15 where projectid=#{subjectid} and repayDate=#{time2}
+	</update>
+	
+	<!--逾期还款表查询  -->
+	<select id="selectOutTimetable" resultType="java.util.HashMap">
+		select u.userid,ot.projectid,pp.projectname,ot.lasttime,ot.lastmoney,ot.newtime,ot.newday,ot.newmoney from outtimetable ot,usertable u,projectapplication pp where ot.projectid=pp.id and u.userid=pp.userid
 	</select>
 </mapper>

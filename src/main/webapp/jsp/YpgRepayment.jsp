@@ -33,11 +33,7 @@
 <body>
 	<div id="secondDiv">
 		<table id="proDataGrid" width="100%" class="formtable">
-			<%-- <c:forEach items="${repayment}" var="re">
-				<tr>
-					<td height="40" id="id" >${re.ID}</td><td>${re.PROJECTNAME}</td><td>${re.PERSONALNAME}</td><td>${re.TIME}</td><td>${re.MONEY}</td><td>${re.LIFELOAN}</td><td>${re.RATEMONEY}</td>
-				</tr>
-	        </c:forEach> --%> 
+		
 		</table>
 	</div>
   	<div id="toolbar">
@@ -122,17 +118,41 @@
 							var row = $('#proGrid').datagrid("getSelections");
 							//var datetime=row[0].time1;
 							if(row.length>0 ){
-								var id=row[0].PROJECTID;
-								alert("是否继续");
-								$.ajax({
-									type : "post",
-									url : "/p2p/repay/YpgProblem.do",
-									contentType :"application/json;charset=UTF-8",
-									data:{id:id},
-									success : function(data2){
-										alert(data2);
-									}	
-								})
+								var status=row[0].CODENAME;
+								if(status=='平台代付' || status=='已付款'){
+									alert("您选择的已由平台代付(或已付款),请重新选择");
+								}else{	
+										var id=row[0].PROJECTID;
+										var time2=row[0].time1;
+										var dateObj = new Date();
+										var mytime=dateObj.toLocaleDateString();       //获取系统当前日期  
+										if(mytime>time2){
+											alert(mytime + " 系统时间");
+											alert(id + "是否继续" + time2);
+											var getIndex=$('#proGrid').datagrid("getSelected");
+											var row2 = $('#proGrid').datagrid("getRowIndex",getIndex);
+											alert(row2+1);
+											data={};
+											data["id"]=id;
+											data["row2"]=row2+1;
+											data["time2"]=time2;
+											$.ajax({
+												type : "post",
+												url : "/p2p/repay/YpgProblem.do",
+												contentType :"application/json;charset=UTF-8",
+												data:JSON.stringify(data), //json传值
+												success : function(data2){
+													alert(data2);
+													$('#dd').dialog("close");
+												},
+												error:function(){
+													alert("11");
+												}
+											})
+										}else{
+											alert("您前选择的项目还未逾期,请重新选择");
+										}
+								}
 							}else{
 								alert("请选择数据");
 							}

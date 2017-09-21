@@ -4,12 +4,17 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.alibaba.fastjson.JSON;
+import com.entity.Ypg;
 import com.service.YpgRepaymentService;
 
 @Controller
@@ -30,17 +35,6 @@ public class YpgRepaymentController {
 		return repaymentList;
 	}
 	
-	/*@RequestMapping("/publish")
-	public String queryPublish(HttpServletRequest request){
-		List<Map> publishList=reService.queryPublish();
-		request.setAttribute("publl", publishList);
-		
-		List<Map> publish=reService.queryMinute();
-		request.setAttribute("min", publish);
-		
-		return "YpgPublish";
-	}*/
-	
 	/**
 	 * 查询还款计划表
 	 * @param id
@@ -57,13 +51,28 @@ public class YpgRepaymentController {
 			schedule.get(i).put("time1", time);
 			
 		}
-		
-		//System.out.println(schedule+"_+_+_+_+_+_+_+_+");
 		return schedule;
 	}
 	
 	@RequestMapping("/YpgProblem")
-	public void problems(@RequestBody int id){
-		List<Map> problemList=reService.queryProblems(id);
+	@ResponseBody
+	public String problems(@RequestBody String data){
+		Ypg yy=JSON.parseObject(data,Ypg.class);
+		System.out.println("德国发动反攻的");
+		//int id=Integer.parseInt(request.getParameter("id"));
+		List<Map> problemList=reService.queryProblems(yy);
+		return "asd";
+	}
+	
+	@RequestMapping("/ypgouttime")
+	@ResponseBody
+	public List<Map> selectOutTimetable() {
+		List<Map> outtimeList=reService.selectOutTimetable();
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		for (int i = 0; i < outtimeList.size(); i++) {
+			String time=simpleDateFormat.format(outtimeList.get(i).get("LASTTIME"));
+			outtimeList.get(i).put("LASTTIME", time);
+		}
+		return outtimeList;
 	}
 }
