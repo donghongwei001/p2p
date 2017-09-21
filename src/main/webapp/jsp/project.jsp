@@ -256,7 +256,7 @@
 												},
 												{
 													field : 'LIFELOAN',
-													title : '借款年限',
+													title : '借款期限（个月）',
 													width : 150,
 													align : 'center'
 												},
@@ -409,7 +409,7 @@
 									},
 									{
 										field : 'LIFELOAN',
-										title : '借款年限',
+										title : '借款期限（个月）',
 										width : 150,
 										align : 'center'
 									},
