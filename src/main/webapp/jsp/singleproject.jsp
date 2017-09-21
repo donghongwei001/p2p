@@ -545,7 +545,6 @@ body { /* background-color:#F5F5F5; */
 						return false;
 					}else{
 							if(mm>asspan){
-								
 								sp.html("金额不能大于当前项目剩余的最大金额");
 								sp.css("color","purple");
 							return false;
