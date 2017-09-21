@@ -37,4 +37,5 @@ public interface YxFirsttableDao {
 	public List<Map> selfangman(int id);
 	public int selman(String name);
 	public void addshoukuan(int userid,int projectid,String date,double money,double lilv,double benjin);
+	public void updatetotalmoney(int money);
 }

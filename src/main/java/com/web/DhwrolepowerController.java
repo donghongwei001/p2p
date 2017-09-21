@@ -51,6 +51,7 @@ public class DhwrolepowerController {
 	@RequestMapping("/addpower")
 	@ResponseBody
 	public int addpower(@RequestBody String str){
+		System.out.println(str);
 		Power power=JSON.parseObject(str, Power.class);
 		System.out.println(power);
 		int flag=0;

@@ -81,7 +81,9 @@ public class DhwloginController {
 		try {
 			DhwEmpTab user =(DhwEmpTab) subject.getPrincipal();//获得授权时放入的用户
 			String rolename=dhwloginDao.queryrolename(user.getEmpid());
+			int shulliang=dhwloginDao.selxiajia();
 			List<Map> list=dhwloginDao.queryxiajia();
+			int money=dhwloginDao.selmoney();
 			int index=0;
 			for (int i = 0; i < list.size(); i++) {
 				String time=list.get(i).get("TIME").toString().substring(0, 4);
@@ -90,6 +92,7 @@ public class DhwloginController {
 					index=index+1;
 				}
 			}
+			index=index+shulliang+money;
 			request.getSession().setAttribute("xiajia", index);
 			int count=dhwloginDao.querycount();
 			request.getSession().setAttribute("count", count);
