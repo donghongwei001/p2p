@@ -15,7 +15,7 @@
 		body{/* background-color:#F5F5F5; */}
 		div a{text-decoration:none;}
 		#body{width:100%;height:auto;}
-		#top{width:76%;height:auto;align:center;margin-left:12%;float:left;}
+		#top{width:76%;height:auto;align:center;margin-left:11%;float:left;}
 		#top-img{float:left;}
 		#top-menu{float:left;margin-top:3.5%;margin-left:40px;}
 		#top-menu a{text-decoration:none;color:black;font-size:18px;}
@@ -30,19 +30,21 @@
 		#content-left{width:20%;height:800px;float:left;}
 		#left1:hover{background-color:#F5F5F5;}
 		#left2:hover{background-color:#F5F5F5;}
+		#left3:hover{background-color:#F5F5F5;}
 		#left4:hover{background-color:#F5F5F5;}
 		#left5:hover{background-color:#F5F5F5;}
 		#left6:hover{background-color:#F5F5F5;}
-		#left7:hover{background-color:#F5F5F5;}
 		#left1{text-align:center;font-size:18px;width:100%;height:50px;line-height:50px;background-color:#DCDCDC;}
 		#left2{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
-		#left3{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#F5F5F5;}
+		#left3{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
 		#left4{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
 		#left5{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
 		#left6{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
-		#left7{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
+		#left7{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#F5F5F5;}
 		#content-right{width:76%;height:800px;float:left;margin-left:15px;background-color:#FFFFFF;}
 		#right-div{width:76%;height:auto;float:left;margin:50px 50px 50px 90px;}
+		#td-left{text-align:right;font-size:18px;width:200px;height:50px;line-hieght:50px;}
+		#td-right{font-size:18px;height:50px;line-hieght:50px;margin-left:10px;}
 		#div-img{float:left;}
 		#div-name{float:left;margin-left:20px;margin-right:20px;}	
 		#th{float:left;width:10px;height:130px;border-right:1px dashed #DCDCDC;}
@@ -69,7 +71,7 @@
 	<div id="body">
 		<div id="top">
 			<div id="top-img">
-				<img src="../image/title2.png" />
+				<img src="../image/top.PNG" />
 			</div>			
 			<div id="top-menu">
 				<a href="/p2p/user/listpro.do">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -97,43 +99,16 @@
 					<div id="left7"><a href="/p2p/jsp/yuqihuankuan.jsp">逾期还款</a></div>
 					<div id="left5"><a href="/p2p/user/mypersonal.do">个人信息</a></div>
 					<div id="left6"><a href="/p2p/jsp/myupdatepwd.jsp">修改密码</a></div>
+
 				</div>
 			
 				<div id="content-right">
 					<div id="right-div">						
-						<table class="table table-hover">
-							<thead>
-								<tr>
-									<th><h4>项目编号</h4></th>
-									<th><h4>项目名称</h4></th>
-									<th><h4>放款资金</h4></th>
-									<th><h4>放款时间</h4></th>
-									<th><h4>项目截止日期</h4></th>
-									<th><h4>项目状态</h4></th>
-									<th><h4>操作</h4></th>
-									
-								</tr>
-							</thead>
-							<tbody>
-								<c:forEach items="${touzi}" var="user">
-									<tr>
-										<td>${user.PROJECTID}</td>
-										<td>${user.PROJECTNAME}</td>
-										<td>${user.MONEY}</td>
-										<td>${user.TIME}</td>
-										<td>${user.LASTTIME}</td>
-										<td>${user.CODENAME}</td>
-										<input type="hidden" id="zhi" value="${user.PROJECTID}"/>
-										<td><a href="/p2p/user/xiangqing.do?pid=${user.PROJECTID}"><span class="label label-info" id="xiangqing">查看详情</span></a></td>										
-									</tr>
-								</c:forEach>
-							</tbody>
-						</table>
+						
 					</div>					
 				</div>
 			</div>
 		</div>
-		
 		<div id="down">
 			<div id="down-one">
 				<span>联系我们</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;				

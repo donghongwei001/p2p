@@ -44,4 +44,7 @@ public interface ZxlUserDao {
 	public void updateshoukuan(int id,String date);
 	public List<Map> seluserid(int id,String date);
 	public int seljinqian(int id);
+	public int selgaihuankuan(String name);
+	public int seluser(int id);
+	public String selusername(int userid);
 }

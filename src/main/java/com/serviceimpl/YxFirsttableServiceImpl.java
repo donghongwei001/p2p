@@ -134,6 +134,11 @@ public class YxFirsttableServiceImpl implements YxFirsttableService {
 		// TODO Auto-generated method stub
 		firdao.addshoukuan(userid, projectid, date, money, lilv, benjin);
 	}
+	@Override
+	public void updatetotalmoney(int money) {
+		// TODO Auto-generated method stub
+		firdao.updatetotalmoney(money);
+	}
 	
 
 }

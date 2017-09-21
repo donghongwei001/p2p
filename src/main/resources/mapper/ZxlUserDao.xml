@@ -82,7 +82,9 @@
 	<select id="seltime" resultType="java.util.HashMap" parameterType="int">
 		select repaydate from REPAYSCHEDULE where projectid=#{id}
 	</select>
-	
+	<select id="seluser" parameterType="int" resultType="int">
+		select u.userid from usertable u,projectapplication p where u.userid=p.userid and p.id=#{id}
+	</select>
 	<update id="updatemoney">
 		update usertable set money=#{0} where username=#{1} 
 	</update>
@@ -97,5 +99,11 @@
 	</select>
 	<select id="seljinqian" resultType="int" parameterType="int">
 		select money from usertable where userid=#{id}
+	</select>
+	<select id="selusername" parameterType="int" resultType="String">
+		select username from usertable where userid=#{userid}
+	</select>
+	<select id="selgaihuankuan" resultType="int" parameterType="String">
+		select count(*) from REPAYSCHEDULE r,projectapplication p,usertable u where repaydate=sysdate and r.projectid=p.id and p.userid=u.userid and u.username=#{name}
 	</select>
 </mapper>

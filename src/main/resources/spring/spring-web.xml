@@ -66,6 +66,7 @@
 				/zkj/** =anon
 				/jsp/myupdatepwd.jsp=anon
 				/jsp/myhuankuan.jsp=anon
+				/jsp/yuqihuankuan.jsp=anon
 				/** = authc
 
 

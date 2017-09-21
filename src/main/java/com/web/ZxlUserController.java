@@ -78,6 +78,8 @@ public class ZxlUserController {
 
 		System.out.println(str);
 		ZxlUser zu=JSON.parseObject(str, ZxlUser.class);
+		int index=userservice.selgaihuankuan(zu.getUsername());
+		request.getSession().setAttribute("index", index);
 		request.getSession().setAttribute("abcd",zu.getUsername());
 		request.getSession().setAttribute("login", zu);
 		if(userservice.find(zu)) {

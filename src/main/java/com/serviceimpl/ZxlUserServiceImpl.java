@@ -213,4 +213,19 @@ public class ZxlUserServiceImpl implements ZxlUserService{
 		// TODO Auto-generated method stub
 		return userdao.seljinqian(id);
 	}
+	@Override
+	public int selgaihuankuan(String name) {
+		// TODO Auto-generated method stub
+		return userdao.selgaihuankuan(name);
+	}
+	@Override
+	public int seluser(int id) {
+		// TODO Auto-generated method stub
+		return userdao.seluser(id);
+	}
+	@Override
+	public String selusername(int userid) {
+		// TODO Auto-generated method stub
+		return userdao.selusername(userid);
+	}
 }

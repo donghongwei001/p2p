@@ -23,7 +23,7 @@
 	<a href="/p2p/user/mytouzi.do"><button style="margin-left:50px;" type="button" class="btn btn-primary">返回</button></a><br/>
 	
 		<c:forEach items="${jiekuan}" var="user">
-				<div style="background-color:#EEEEE0;width:500px;margin-left:200px;padding:50px;;float:left">	
+				<div style="background-color:#EEEEE0;width:500px;margin-left:200px;padding:50px;">	
 				<span class="label label-default">项目详情</span>	<br/>	<br/>				
 				项目id：<input class="form-control" id="disabledInput" type="text" placeholder="${user.ID}" disabled style="width:200px">
 				项目名称：<input class="form-control" id="disabledInput" type="text" placeholder="${user.PROJECTNAME}" disabled style="width:200px;">
@@ -32,7 +32,7 @@
 				借款期限：	<input class="form-control" id="disabledInput" type="text" placeholder="${user.LIFELOAN}" disabled style="width:200px;">
 				</div>
 				<div style="background-color:#EEEEE0;width:500px;margin-left:200px;padding:50px;float:left">	
-				<span class="label label-default">项目详情</span>	<br/>	<br/>	
+				<span class="label label-default">借款人详情</span>	<br/>	<br/>	
 				借款人姓名：<input class="form-control" id="disabledInput" type="text" placeholder="${user.PERSONALNAME}" disabled style="width:200px;">
 				借款人手机号：<input class="form-control" id="disabledInput" type="text" placeholder="${user.IPHONE}" disabled style="width:200px;">
 				邮箱：<input class="form-control" id="disabledInput" type="text" placeholder="${user.MAILBOX}" disabled style="width:200px;">
@@ -40,7 +40,7 @@
 				生日：<input class="form-control" id="disabledInput" type="text" placeholder="${user.BIRTHDAY}" disabled style="width:200px;">
 				学历：<input class="form-control" id="disabledInput" type="text" placeholder="${user.EDUCATIONAL}" disabled style="width:200px;">
 				</div>	
-			<div style="background-color:#EEEEE0;width:600px;margin-left:200px;padding:50px;float:left">
+			<div style="background-color:#EEEEE0;width:600px;margin-left:200px;padding:50px;float:left;margin-top:-420px;">
 			<span class="label label-default">收款详情</span>	<br/>	<br/>
 		</c:forEach>
 		<table class="table table-hover" style="width:500px;">

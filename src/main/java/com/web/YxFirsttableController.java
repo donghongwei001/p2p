@@ -1,5 +1,6 @@
 package com.web;
 
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -23,12 +24,18 @@ import com.entity.YxFabu;
 import com.entity.YxFinaltable;
 import com.entity.YxFirsttable;
 import com.service.YxFirsttableService;
+import com.service.ZxlUserService;
+import com.service.zhishouservice;
 
 @Controller
 @RequestMapping("/first")
 public class YxFirsttableController {
 	@Autowired
 	private YxFirsttableService firservice;
+	@Autowired
+	private zhishouservice zhishouservices;
+	@Autowired
+	private ZxlUserService zxluserservice;
 	/**
 	 * 第一次项目审核结果插入到数据库
 	 * @param json
@@ -195,9 +202,21 @@ public class YxFirsttableController {
 			for (int i = 0; i < cishu; i++) {
 				double money1=i*qian/cishu;
 				double money2=(qian-money1)*lilv;
-				double money3=money2+qian/cishu;
+				double money39=money2+qian/cishu;
+				DecimalFormat df = new DecimalFormat("#.##");
+				double money3 = Double.parseDouble(df.format(money39));
 				double money4=qian*0.01;
 				if (i==0) {
+					int userid=zxluserservice.seluser(id);
+					int usermoney=zxluserservice.seljinqian(userid);
+					double usermoney1=usermoney-money4;
+					String name=zxluserservice.selusername(userid);
+					zxluserservice.updatemoney(usermoney1, name);
+					zhishouservices.addshouru(id, date, money4);
+					int total=zhishouservices.querytotalmoney();
+					double totalmoney=total+money4;
+					int totalmon=(int) totalmoney;
+					firservice.updatetotalmoney(totalmon);
 					money3=money3+money4;
 				}
 				System.out.println(money3);
@@ -214,7 +233,9 @@ public class YxFirsttableController {
 				int uid=Integer.parseInt(userid);
 				double moy=Double.valueOf(mony).doubleValue();
 				for (int j = 0; j < cishu; j++) {
-					double jine=moy/cishu+(moy-j*moy/cishu)*lilv;
+					double jinee=moy/cishu+(moy-j*moy/cishu)*lilv;
+					DecimalFormat df = new DecimalFormat("#.##");
+					double jine = Double.parseDouble(df.format(jinee));
 					Calendar c=Calendar.getInstance();
 					c.setTime(new Date());
 					c.add(Calendar.MONTH,j+1); //将当前日期加一个月
