@@ -245,7 +245,7 @@ $("#rateee").blur(function(){
 						$("#ttb").append("<tr><td><h3>总利息为："+/* (dataa[2]-mmoney).toFixed(2) */dataa[0]+"元</h3></td></tr>");
 						$("#ttb").append("<tr><td><h3>本息总共："+dataa[2]+"元</h3></td></tr>");
 						$("#ttb").append("<tr><td><h3>手续费为："+dataa[1]+"元</h3></td></tr>");
-					
+						$("#ttb").append("<tr><td>温馨提示：计算结果仅为试算，实际费率结果以还款计划为准！</td></tr>")
 					}
 					
 				});
@@ -284,9 +284,7 @@ $("#distpicker2").distpicker({
 				sp.html("请输入大于零的整数");
 				return false;
 			}else{
-				if(rate==null||rate==""||life==null||life==""||mm==null||mm==""){
-					return false;
-				}else{
+				if(rate!=null&&rate!=""&&life!=null&&life!=""&&mm!=null&&mm!=""){
 					var data={};
 					data["rate"]=rate;
 					data["life"]=life;
@@ -309,6 +307,8 @@ $("#distpicker2").distpicker({
 						}
 						
 					});
+				}else{
+					return false;
 				}
 			}
 		}
@@ -323,9 +323,7 @@ $("#distpicker2").distpicker({
 		
 		var rate=$("#rateee").val();
 		var life=$("#life").val();
-		if(rate==null||rate==""||life==null||life==""||mm==null||mm==""){
-			return false;
-		}else{
+		if(rate!=null&&rate!=""&&life!=null&&life!=""&&mm!=null&&mm!=""){
 			var data={};
 			data["rate"]=rate;
 			data["life"]=life;
@@ -347,6 +345,9 @@ $("#distpicker2").distpicker({
 				}
 				
 			});
+			
+		}else{
+			return false;
 		}
 		
 	});
