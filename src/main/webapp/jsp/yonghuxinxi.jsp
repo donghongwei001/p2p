@@ -69,7 +69,7 @@
 						hidden : true
 					}, {
 						field : 'USERID',
-						title : '用户id',
+						title : '用户编号',
 						width : 150,
 						align : 'center',
 						
@@ -246,7 +246,7 @@
 				hidden : true
 			}, {
 				field : 'USERID',
-				title : '用户id',
+				title : '用户编号',
 				width : 150,
 				align : 'center',
 				

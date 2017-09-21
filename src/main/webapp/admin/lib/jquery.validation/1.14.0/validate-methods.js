@@ -1,4 +1,3 @@
-
 $(function(){
     // 判断整数value是否等于0 
     jQuery.validator.addMethod("isIntEqZero", function(value, element) { 
@@ -211,7 +210,6 @@ var D = new Date(a[3]+"/"+a[4]+"/"+a[5]);
 var B = D.getFullYear()==a[3]&&(D.getMonth()+1)==a[4]&&D.getDate()==a[5]; 
 }
  if (!B) {
-
 　  var a = num.match(re); 
 　　 if (a != null) 
 　　 { 
