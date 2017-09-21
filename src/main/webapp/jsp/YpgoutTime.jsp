@@ -53,12 +53,12 @@
 			pagination : true,
 			toolbar : '#toolbar',
 			columns : [ [{
-				field : 'USERID',
-				title : '用户ID',
+				field : 'USERNAME',
+				title : '用户名',
 				width : 200
 			},{
 				field : 'PROJECTID',
-				title : '项目ID',
+				title : '项目编号',
 				width : 200
 			},{
 				field : 'PROJECTNAME',

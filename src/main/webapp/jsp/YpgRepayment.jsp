@@ -62,7 +62,7 @@
 			toolbar : '#toolbar',
 			columns : [ [{
 				field : 'ID',
-				title : '项目ID',
+				title : '项目编号',
 				width : 200
 			},{
 				field : 'PROJECTNAME',
@@ -171,7 +171,7 @@
 	    			//idField : "LMR_ID",
 	    			rownumbers : true,
 	    		    columns:[[
-						{field:'PROJECTID',title:'项目ID'},
+						{field:'PROJECTID',title:'项目编号'},
 						{field:'PROJECTNAME',title:'项目名称'},  
 	    				{field:'PERSONALNAME',title:'还款人'}, 
 	    				{field:'time1',title:'还款日期'}, 

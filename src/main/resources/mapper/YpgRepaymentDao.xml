@@ -45,6 +45,6 @@
 	
 	<!--逾期还款表查询  -->
 	<select id="selectOutTimetable" resultType="java.util.HashMap">
-		select u.userid,ot.projectid,pp.projectname,ot.lasttime,ot.lastmoney,ot.newtime,ot.newday,ot.newmoney from outtimetable ot,usertable u,projectapplication pp where ot.projectid=pp.id and u.userid=pp.userid
+		select u.username,ot.projectid,pp.projectname,ot.lasttime,ot.lastmoney,ot.newtime,ot.newday,ot.newmoney from outtimetable ot,usertable u,projectapplication pp where ot.projectid=pp.id and u.userid=pp.userid
 	</select>
 </mapper>
