@@ -67,7 +67,6 @@
 			for(i;i<str.length-1;i++){
 				str1=str1+str[i];
 			}
-			 alert(str1);
 			// 循环组装："tom,zhangsan"
 			 $.ajax({
 				 type:"post",
@@ -96,7 +95,6 @@
 			for(i;i<str.length-1;i++){
 				str1=str1+str[i];
 			}
-			 alert(str1);
 			// 循环组装："tom,zhangsan"
 			 $.ajax({
 				 type:"post",

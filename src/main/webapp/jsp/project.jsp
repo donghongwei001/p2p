@@ -174,7 +174,6 @@
 				var shijian1=$("#dd").val();
 				var shijian2=$("#ddd").val();
 				if (username!=""||(shijian1!=""&&shijian2!="")){
-					alert("1111")
 				
 					$('#tb').datagrid(
 							{

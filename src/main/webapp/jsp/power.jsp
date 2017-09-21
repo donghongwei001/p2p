@@ -439,7 +439,6 @@
 			var row = $('#tb').datagrid("getSelections");
 			if (row.length==1) {
 				var index=row[0].ID;
-				alert(index);
 				$.ajax({ //发送了一个新的请求，与按钮这个请求完全不是一马事
 					type : "post", //请求方式
 					url : "/p2p/aaa/deletepower.do", //请求地址
@@ -486,7 +485,6 @@
 			var row = $('#tb').datagrid("getSelections");
 			if (row.length==1) {
 				var index=row[0].ID;
-				alert(index);
 				$.ajax({ //发送了一个新的请求，与按钮这个请求完全不是一马事
 					type : "post", //请求方式
 					url : "/p2p/aaa/selonepower.do", //请求地址

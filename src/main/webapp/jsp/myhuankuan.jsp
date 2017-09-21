@@ -316,7 +316,6 @@ $("#asd").click(function(){
 				if (statu=="8") {
 					
 				
-				alert(index);
 				if (window.confirm('你确定还款吗？')) {
 				$.ajax({ //发送了一个新的请求，与按钮这个请求完全不是一马事
 					type : "post", //请求方式
