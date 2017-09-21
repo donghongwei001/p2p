@@ -112,8 +112,8 @@
 									<th>项目原始还款时间</th>
 									<th>项目原金额</th>
 									<th>项目还款时间</th>
-									<th>项目逾期天数</th>
 									<th>项目应还款金额</th>
+									<th>项目逾期天数</th>
 									<th>项目操作</th>
 								</tr>
 							</thead>
@@ -126,7 +126,7 @@
 									<td>${a.NEWTIME}</td>
 									<td>${a.NEWMONEY}</td>
 									<td>${a.NEWDAY}</td>
-									<td><button type="button" class="btn btn-success" onclick="huankuan(${a.ID},${a.LASTMONEY},${a.NEWMONEY},${a.NEWTIME})">还款</button></td>
+									<td><button type="button" class="btn btn-success" onclick="huankuan(${a.ID},${a.LASTMONEY},${a.NEWMONEY},${a.NEWDAY})">还款</button></td>
 								</tr>
 							</c:forEach>
 						</table>
@@ -171,24 +171,32 @@ $("#asd").click(function(){
 		 }
 	 });
 });
-function huankuan(id,lastmoney,newmoney,money){
-	alert("5454");
-		if (money==null||money=="") {
+function huankuan(id,lastmoney,newmoney,day){
+	if (window.confirm('确定还款吗？')) {
+			var data = {};
+			data["id"] = id;
+			data["lastmoney"] = lastmoney;
+			data["money"] = newmoney;
+			data["day"] = day;
 			$.ajax({
 				 type:"post",
 				// dataType:"json",
 				 url:"/p2p/total/yuqihuan.do",
-				// data:JSON.stringify(row),
-				data:{index:id,money:lastmoney,newqian:newmoney},
-				// contentType:"application/json;charset=utf-8",
-				success:function(dataa){
-					
+				data:JSON.stringify(data),
+				contentType:"application/json;charset=utf-8",
+				success:function(data){
+					if (data=="1") {
+						alert("您的余额不足，请充值！")
+					}else if(data=="2"){
+						alert("还款成功!");
+						window.location.reload();
+					}else{
+						alert("该记录已还款!")
+					}
 					
 				 }
 			 });
-		}else{
-			alert("该记录已经还款，不用重复还款！");
-		}
+	}
 	}
 </script>
 </html>

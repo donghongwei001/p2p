@@ -43,5 +43,10 @@ public class zhishouserviceimpl implements zhishouservice{
 		// TODO Auto-generated method stub
 		zhishoudao.updatenew(date, day, money, id, qian);
 	}
+	@Override
+	public String seltime(int id, double money) {
+		// TODO Auto-generated method stub
+		return zhishoudao.seltime(id, money);
+	}
 
 }

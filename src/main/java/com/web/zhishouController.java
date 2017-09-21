@@ -18,8 +18,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.alibaba.fastjson.JSON;
 import com.entity.Page;
 import com.entity.Pageresult;
+import com.entity.yuqi;
 import com.service.YxFirsttableService;
 import com.service.ZxlUserService;
 import com.service.zhishouservice;
@@ -30,8 +32,8 @@ public class zhishouController {
 
 	@Autowired
 	private zhishouservice zhishouservices;
-	/*@Autowired
-	private YxFirsttableService yxservice;*/
+	@Autowired
+	private YxFirsttableService yxservice;
 	@Autowired
 	private ZxlUserService zxluserservice;
 	
@@ -122,25 +124,30 @@ public class zhishouController {
     }  
 	@RequestMapping("/yuqihuan")
 	@ResponseBody
-	public int huanyuqi(int index,int money,int newqian,int tian){
+	public int huanyuqi(@RequestBody String str){
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		String time=simpleDateFormat.format(new Date());
 		int flag=0;
-		System.out.println(index+"****"+money+"***"+newqian+tian);
-		/*int id=zxluserservice.seluser(index);
-		int qian=zxluserservice.seljinqian(id);
-		String newdate=simpleDateFormat.format(new Date());
-		Date d1=simpleDateFormat.parse(time);
-		Date d2=simpleDateFormat.parse(newdate);
-		if (qian>newqian) {
-			int money1=zhishouservices.querytotalmoney();
-			int total=money1+newqian;
-			yxservice.updatetotalmoney(total);
-			String name=zxluserservice.selusername(id);
-			zxluserservice.updatemoney(qian-newqian, name);
-			zhishouservices.updatenew(date, day, newqian, index, money);
-		}else {
-			flag=1;
-		}*/
+		yuqi yu=JSON.parseObject(str, yuqi.class);
+		System.out.println(yu);
+		String shijian=zhishouservices.seltime(yu.getId(), yu.getLastmoney());
+		if (shijian==null||shijian=="") {
+			int id=zxluserservice.seluser(yu.getId());
+			int qian=zxluserservice.seljinqian(id);
+			if (qian>yu.getMoney()) {
+				int money1=zhishouservices.querytotalmoney();
+				double total=money1+yu.getMoney();
+				int i=(int) total;
+				yxservice.updatetotalmoney(i);
+				String name=zxluserservice.selusername(id);
+				zxluserservice.updatemoney(qian-yu.getMoney(), name);
+				zhishouservices.updatenew(time, yu.getDay(), yu.getMoney(), yu.getId(), yu.getLastmoney());
+				flag=2;
+			}else {
+				flag=1;
+			}
+		}
+		
 		return flag;
 		
 	}

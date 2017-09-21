@@ -21,4 +21,7 @@
 	<update id="updatenew">
 		update outtimetable set newtime=to_date(#{0},'yyyy-MM-dd'),newday=#{1},newmoney=#{2} where projectid=#{3} and lastmoney=#{4}
 	</update>
+	<select id="seltime" resultType="String">
+		select newtime from outtimetable where projectid=#{0} and lastmoney=#{1}
+	</select>
 </mapper>

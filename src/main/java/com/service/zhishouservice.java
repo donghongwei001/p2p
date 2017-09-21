@@ -10,4 +10,5 @@ public interface zhishouservice {
 	public List<Map> selshouzhi();
 	public List<Map> selyuqi(String name);
 	public void updatenew(String date,int day,double money,int id,double qian);
+	public String seltime(int id,double money);
 }
