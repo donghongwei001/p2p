@@ -18,7 +18,7 @@
 	href="../admin/static/h-ui.admin/css/H-ui.admin.css" />
 <link rel="stylesheet" type="text/css"
 	href="../admin/lib/Hui-iconfont/1.0.8/iconfont.css" />
-<link rel="stylesheet" type="text/css"
+<link rel="stylesheet" type="text/css" 
 	href="../admin/static/h-ui.admin/skin/default/skin.css" id="skin" />
 <link rel="stylesheet" type="text/css"
 	href="../admin/static/h-ui.admin/css/style.css" />
@@ -222,11 +222,10 @@
 				<dd>
 
 					<ul><shiro:hasPermission name="intime">
-						<li><a data-href="../jsp/project.jsp" data-title="到期还款"
-
+						<li><a data-href="../jsp/YpgRepayment.jsp" data-title="到期还款"
 							href="javascript:void(0)">到期还款</a></li></shiro:hasPermission>
 						<shiro:hasPermission name="outtime">
-						<li><a data-href="../role/Hmoney.do" data-title="逾期还款"
+						<li><a data-href="../jsp/YpgoutTime.jsp" data-title="逾期还款"
 							href="javascript:void(0)">逾期还款</a></li></shiro:hasPermission>
 
 
@@ -376,23 +375,23 @@
 			var second = dateObj.getSeconds(); //当前系统时间的秒钟值
 			//如果月、日、小时、分、秒的值小于10，在前面补0
 			if(month<10){
-			month = "0"+month;
+				month = "0"+month;
 			}
 			if(date<10){
-			date = "0"+date;
+				date = "0"+date;
 			}
 			if(hour<10){
-			hour = "0"+hour;
+				hour = "0"+hour;
 			}
 			if(minute<10){
-			minute = "0"+minute;
+				minute = "0"+minute;
 			}
 			if(second<10){
-			second = "0"+second;
+				second = "0"+second;
 			}
 			var newDate = year+"年"+month+"月"+date+"日 "+week+" "+hour+":"+minute+":"+second;
-			document.getElementById("show").innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;系统公告：[ "+newDate+" ]";
-			setTimeout("getLangDate()",1000);//每隔1秒重新调用一次该函数 
+				document.getElementById("show").innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;系统公告：[ "+newDate+" ]";
+				setTimeout("getLangDate()",1000);//每隔1秒重新调用一次该函数 
 		}
 		getLangDate();
 	</script>
