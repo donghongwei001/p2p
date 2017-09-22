@@ -19,11 +19,11 @@
 	}
 </style>
 <body>
-	<div id="ssdd" class="easyui-layout">
+	
 		<a id="btn" href="#">禁用</a>  <a id="btna" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'">启用</a>  
 		 
 		<table id="dg" >	</table>
-	</div>
+	
 </body>
 </html>
 <script type="text/javascript"> 
@@ -48,7 +48,7 @@
 			pageSize:5,
 			fitColumns : true,
 			pageList:[5,10,15,20],
-			pagePosition : "bottom",
+			pagePosition : "top",
 			showFooter:true ,  //行脚
 			rownumbers:true   //行号
 

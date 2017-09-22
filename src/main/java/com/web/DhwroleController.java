@@ -24,6 +24,10 @@ public class DhwroleController {
 	private DhwroleService dhwroleService;
 	@Autowired
 	private Dhwrolepowerservice dhwrolepowerservice;
+	/*
+	 * 查询所有角色
+	 * 实行分页
+	 */
 	@RequestMapping("/selrole")
 	@ResponseBody
 	public Pageresult selectrole(Integer page,Integer rows){
@@ -38,7 +42,11 @@ public class DhwroleController {
 		pResult.setRows(list1);
 		return pResult;
 	}
-	
+	/*
+	 * 查询某个角色
+	 * 模糊查询
+	 * 实行分页
+	 */
 	@RequestMapping("/queryrole")
 	@ResponseBody
 	public Pageresult queryrole(Integer page,Integer rows,String id){
@@ -55,6 +63,10 @@ public class DhwroleController {
 		pResult.setRows(list1);
 		return pResult;
 	} 
+	/*
+	 * 搜索出所有的权限
+	 * 到前台显示为权限树
+	 */
 	@RequestMapping("/listpower")
 	@ResponseBody
 	public List<Map> listpower(String id){
@@ -88,36 +100,40 @@ public class DhwroleController {
 		}
 		
 	}
+	/*
+	 * 增加一个角色
+	 * 为这个角色赋予权限
+	 */
 	@RequestMapping("/addrole")
 	@ResponseBody
 	public void addrole(Role role){
 		
 		System.out.println("***************");
 		int id=dhwroleService.addrole(role);
-		System.out.println(role.getRolename());
 		List<Map> list=dhwroleService.queryrole(role.getRolename());
-		System.out.println(list.get(0).get("ROLEID"));
 		
 		String[] chrstr=role.getPower().split(",");
-		System.out.println(chrstr.length);
 		if (!chrstr[0].equals("")) {
 			for (int i = 0; i < chrstr.length; i++) {
 				dhwroleService.addrolepower(list.get(0).get("ROLEID").toString(), chrstr[i]);
 			}
 		}
-		
-		System.out.println(role);
-		
 	}
+	/*
+	 * 
+	 */
 	@RequestMapping("/fanhuirole")
 	@ResponseBody
 	public List<Map> fanhuirole(String id){
 		List<Map> list1=dhwroleService.queryrole(id);
-		System.out.println("**************");
-		System.out.println(list1.size());
 		return list1;
 		
 	}
+	/*
+	 * 查询出这个角色拥有的所有权限
+	 * 列出权限树
+	 * 拥有权限的被勾选
+	 */
 	@RequestMapping("/selrolepower")
 	@ResponseBody
 	public List<Map> selrolepower(String id,String roleid){
@@ -173,28 +189,29 @@ public class DhwroleController {
 		
 		}
 	}
+	/*
+	 * 更改角色
+	 */
 	@RequestMapping("/updaterole")
 	@ResponseBody
 	public void updaterole(Role role){
-		System.out.println("***************");
-		System.out.println(role);
 		dhwroleService.updaterole(role);
-		System.out.println(role.getRolename());
 		String id=Integer.toString(role.getRoleid());
 		dhwroleService.deleterole(id);
 		String[] chrstr=role.getPower().split(",");
-		System.out.println(chrstr.length);
 		if (!chrstr[0].equals("")) {
 			for (int i = 0; i < chrstr.length; i++) {
 				dhwroleService.addrolepower(id, chrstr[i]);
 			}
 		}
 	}
+	/*
+	 * 删除角色
+	 */
 	@RequestMapping("/deleterole")
 	@ResponseBody
 	public void deleterole(String id){
 		dhwroleService.deleterole(id);
-		System.out.println("111111");
 		dhwroleService.deleterolepower(id);
 	}
 }

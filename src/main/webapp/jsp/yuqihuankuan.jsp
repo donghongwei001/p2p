@@ -107,7 +107,7 @@
 						<table class="table table-hover">
 							<thead>
 								<tr>
-									<th>项目id</th>
+									<th>项目编号</th>
 									<th>项目名称</th>
 									<th>项目原始还款时间</th>
 									<th>项目原金额</th>
