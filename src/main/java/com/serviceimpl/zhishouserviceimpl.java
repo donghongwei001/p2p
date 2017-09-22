@@ -33,5 +33,20 @@ public class zhishouserviceimpl implements zhishouservice{
 		// TODO Auto-generated method stub
 		return zhishoudao.selshouzhi();
 	}
+	@Override
+	public List<Map> selyuqi(String name) {
+		// TODO Auto-generated method stub
+		return zhishoudao.selyuqi(name);
+	}
+	@Override
+	public void updatenew(String date, int day, double money, int id, double qian) {
+		// TODO Auto-generated method stub
+		zhishoudao.updatenew(date, day, money, id, qian);
+	}
+	@Override
+	public String seltime(int id, double money) {
+		// TODO Auto-generated method stub
+		return zhishoudao.seltime(id, money);
+	}
 
 }

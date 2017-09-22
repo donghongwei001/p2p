@@ -94,7 +94,7 @@
 					<div id="left2"><a href="/p2p/user/myproject.do">我的项目</a></div>
 					<div id="left3"><a href="/p2p/user/mytouzi.do">我的投资</a></div>
 					<div id="left4"><a href="/p2p/jsp/myhuankuan.jsp">我的还款</a></div>
-					<div id="left7"><a href="/p2p/jsp/yuqihuankuan.jsp">逾期还款</a></div>
+					<div id="left7"><a href="/p2p/total/yuqihuankuan.do">逾期还款</a></div>
 					<div id="left5"><a href="/p2p/user/mypersonal.do">个人信息</a></div>
 					<div id="left6"><a href="/p2p/jsp/myupdatepwd.jsp">修改密码</a></div>
 				</div>
@@ -108,7 +108,7 @@
 									<th><h4>项目名称</h4></th>
 									<th><h4>放款资金</h4></th>
 									<th><h4>放款时间</h4></th>
-									<th><h4>项目截止日期</h4></th>
+									<th><h4>项目开始收益日期</h4></th>
 									<th><h4>项目状态</h4></th>
 									<th><h4>操作</h4></th>
 									

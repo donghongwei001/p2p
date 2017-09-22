@@ -57,7 +57,7 @@
 							alert("已经选中的行");
 						}
 					}, */
-					//fit : true,  
+					fit : true,  
 					onLoadSuccess : function(list) {
 
 					},
@@ -228,7 +228,7 @@
 					alert("已经选中的行");
 				}
 			}, */
-			//fit : true,  
+			fit : true,  
 			onLoadSuccess : function(list) {
 
 			},

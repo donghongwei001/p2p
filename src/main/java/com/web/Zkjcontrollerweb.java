@@ -43,7 +43,7 @@ public class Zkjcontrollerweb {
 			return mm;
 		}else{
 	//System.out.println(id+"id");
-		int  id=Integer.parseInt(request.getParameter("id"));
+		int  id=Integer.parseInt(request.getParameter("id"));//xiangmuID
 	int surplusinvest=	servicedao.surplusinvest(id);
 		mm.addObject("surplusmoney",surplusinvest);
 		List<Map> listp=ssdao.selectallproject(id);
@@ -166,5 +166,11 @@ public class Zkjcontrollerweb {
 		double totalinterest=dd.getInterestCount(zz.getMmoney(),zz.getRate()*12/100,zz.getLife());
 		System.out.println(totalinterest);
 		return totalinterest;
+	}
+	@RequestMapping("projectstatus")
+	@ResponseBody
+	public int selectprojectstatus(int id){
+		
+	return 	servicedao.selectprojectstatus(id);
 	}
 }

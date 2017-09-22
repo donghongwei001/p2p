@@ -81,7 +81,7 @@
 								<td id="table-top">${user.personalname}</td>
 								<td id="table-top">${user.money}<span style="font-size:16px;">元</span></td>
 								<td id="table-top" style="color:red;">${user.ratemoney}<span style="font-size:16px;color:#000000;">%</span></td>
-								<td id="table-top">${user.lifeloan}<span style="font-size:16px;">年</span></td>
+								<td id="table-top">${user.lifeloan}<span style="font-size:16px;">个月</span></td>
 								<td rowspan="2" id="table-top">
 									<br/>
 								<a href="/p2p/zkj/allproject.do?id=${user.projectid}">		<button class="btn btn-primary" style="font-size:18px;width:120px;">投标</button></a>
@@ -123,7 +123,6 @@
 
 <script>
 	$("#asd").click(function(){
-		alert("123");
 		$.ajax({
 			 type:"post",
 			// dataType:"json",
@@ -132,11 +131,9 @@
 			//data:str1,
 			 contentType:"application/json;charset=utf-8",
 			 success:function(dataa){
-				 alert(dataa);
 				 if(dataa==null||dataa==""){
 					 window.location.href="../jsp/jiekuan.jsp";
 				 }else{
-					 alert("ssss");
 					 window.location.href="../jsp/xiangmushenqing.jsp";
 				 }
 			 }

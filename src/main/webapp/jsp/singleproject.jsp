@@ -233,6 +233,9 @@ body { /* background-color:#F5F5F5; */
 #usermoney{
 	display:none;
 }
+#projectdd{
+	display:none;
+}
 </style>
 
 <script type="text/javascript">
@@ -250,7 +253,7 @@ body { /* background-color:#F5F5F5; */
 				<a href="/p2p/user/listpro.do">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="#">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<span id="asd">我要借款&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-				<a href="/p2p/user/personal.do">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="/p2p/user/zxlpersonal.do">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				&nbsp;&nbsp;&nbsp;
 			</div>
 			<div id="top-login">
@@ -273,7 +276,7 @@ body { /* background-color:#F5F5F5; */
 								test="${li.projecttype ==4}">金融类</c:if> <c:if
 								test="${li.projecttype==5 }">食品类</c:if> <c:if
 								test="${li.projecttype==6 }">军火类</c:if> &nbsp; &nbsp; &nbsp;
-							&nbsp;项目名称：<b>${li.projectname }</b></span><span id="usermoney">${usermoney }</span>
+							&nbsp;项目名称：<b>${li.projectname }</b></span><span id="usermoney">${usermoney }</span><span id="projectdd">${li.id }</span>
 						<br />
 
 						<div id="ddm">
@@ -721,6 +724,24 @@ $("#asd").click(function(){
 			$("#npu").attr("disabled",true);
 			$("#sub").css("display","none");
 			return false;
+		}else{
+			var projectid=parseInt($("#projectdd").html());
+		
+			$.ajax({
+				type:"post",
+				url:"/p2p/zkj/projectstatus.do",
+				data:{id:projectid},
+				success:function(dataa){
+					alert(dataa);
+					if(dataa==6){
+						$("#npu").val("项目已完成")	;
+						$("#npu").css("color","purple");
+						$("#npu").css("font-size","20px");
+						$("#npu").attr("disabled",true);
+						$("#sub").css("display","none");
+					}
+				}
+			});
 		}
 	});
 </script>

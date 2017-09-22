@@ -96,7 +96,7 @@
 					<div id="left2"><a href="/p2p/user/myproject.do">我的项目</a></div>
 					<div id="left3"><a href="/p2p/user/mytouzi.do">我的投资</a></div>
 					<div id="left4"><a href="/p2p/jsp/myhuankuan.jsp">我的还款</a></div>
-					<div id="left7"><a href="/p2p/jsp/yuqihuankuan.jsp">逾期还款</a></div>
+					<div id="left7"><a href="/p2p/total/yuqihuankuan.do">逾期还款</a></div>
 					<div id="left5"><a href="/p2p/user/mypersonal.do">个人信息</a></div>
 					<div id="left6"><a href="/p2p/jsp/myupdatepwd.jsp">修改密码</a></div>
 
@@ -104,7 +104,32 @@
 			
 				<div id="content-right">
 					<div id="right-div">						
-						
+						<table class="table table-hover">
+							<thead>
+								<tr>
+									<th>项目id</th>
+									<th>项目名称</th>
+									<th>项目原始还款时间</th>
+									<th>项目原金额</th>
+									<th>项目还款时间</th>
+									<th>项目应还款金额</th>
+									<th>项目逾期天数</th>
+									<th>项目操作</th>
+								</tr>
+							</thead>
+							<c:forEach items="${yuqihuankuan}" var="a">
+								<tr>
+									<td>${a.ID}</td>
+									<td>${a.PROJECTNAME}</td>
+									<td>${a.time1}</td>
+									<td>${a.LASTMONEY}</td>
+									<td>${a.NEWTIME}</td>
+									<td>${a.NEWMONEY}</td>
+									<td>${a.NEWDAY}</td>
+									<td><button type="button" class="btn btn-success" onclick="huankuan(${a.ID},${a.LASTMONEY},${a.NEWMONEY},${a.NEWDAY})">还款</button></td>
+								</tr>
+							</c:forEach>
+						</table>
 					</div>					
 				</div>
 			</div>
@@ -125,27 +150,53 @@
 		</div>
 	</div>	
 </body>
-</html>
 <script>
-	$("#asd").click(function(){
-		
-		$.ajax({
-			 type:"post",
-			// dataType:"json",
-			 url:"/p2p/add/name.do",
-			// data:JSON.stringify(row),
-			//data:str1,
-			 contentType:"application/json;charset=utf-8",
-			 success:function(dataa){
-				
-				 if(dataa==null||dataa==""){
-					 window.location.href="../jsp/jiekuan.jsp";
-				 }else{
-					
-					 window.location.href="../jsp/xiangmushenqing.jsp";
-				 }
-			 }
-		 });
-	});
+$("#asd").click(function(){
 	
+	$.ajax({
+		 type:"post",
+		// dataType:"json",
+		 url:"/p2p/add/name.do",
+		// data:JSON.stringify(row),
+		//data:str1,
+		 contentType:"application/json;charset=utf-8",
+		 success:function(dataa){
+			
+			 if(dataa==null||dataa==""){
+				 window.location.href="../jsp/jiekuan.jsp";
+			 }else{
+				
+				 window.location.href="../jsp/xiangmushenqing.jsp";
+			 }
+		 }
+	 });
+});
+function huankuan(id,lastmoney,newmoney,day){
+	if (window.confirm('确定还款吗？')) {
+			var data = {};
+			data["id"] = id;
+			data["lastmoney"] = lastmoney;
+			data["money"] = newmoney;
+			data["day"] = day;
+			$.ajax({
+				 type:"post",
+				// dataType:"json",
+				 url:"/p2p/total/yuqihuan.do",
+				data:JSON.stringify(data),
+				contentType:"application/json;charset=utf-8",
+				success:function(data){
+					if (data=="1") {
+						alert("您的余额不足，请充值！")
+					}else if(data=="2"){
+						alert("还款成功!");
+						window.location.reload();
+					}else{
+						alert("该记录已还款!")
+					}
+					
+				 }
+			 });
+	}
+	}
 </script>
+</html>

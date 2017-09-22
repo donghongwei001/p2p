@@ -61,7 +61,7 @@
 				<td>${user.LIxi }</td>
 				<td>${user.TIME }</td>
 				<td>${user.MONEY }</td>
-				<td><c:if test="${user.STATUS  eq 14}">未还款</c:if><c:if test="${user.STATUS  eq 13}">已还款</c:if></td>
+				<td><c:if test="${user.STATUS  eq 14}">未收款</c:if><c:if test="${user.STATUS  eq 13}">已收款</c:if></td>
 			</tr>
 		</c:forEach>
 		</table>			

@@ -228,4 +228,9 @@ public class ZxlUserServiceImpl implements ZxlUserService{
 		// TODO Auto-generated method stub
 		return userdao.selusername(userid);
 	}
+	@Override
+	public int selyuqi(String name) {
+		// TODO Auto-generated method stub
+		return userdao.selyuqi(name);
+	}
 }
