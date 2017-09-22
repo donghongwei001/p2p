@@ -191,7 +191,7 @@
 	<script type="text/javascript">
 		/* 用户名验证 */
 		$("#user").focus(function(){
-			$("#s1").html("以字母开头，包括数字").css("color","#A9A9A9");
+			$("#s1").html("以字母开头，包括数字,6-12位").css("color","#A9A9A9");
 		})
 		$("#user").blur(function(){
 			var pwd=$("#user").val();
