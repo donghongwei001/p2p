@@ -47,7 +47,6 @@
 		</table>
 	</div>
 	
-	
 <script>
 	$(function(){
 		$("#proDataGrid").datagrid({
@@ -98,15 +97,12 @@
 		});
 	//----------------------------------------------------------------------------------------------------------------------------------------------
 		$("#addBtn").click(function() {
-			
-			
-			
 			var row = $('#proDataGrid').datagrid("getSelections");
 			if(row.length==1){
 				var id = row[0].ID;
 				alert(id);
 				$('#dd').dialog({    
-				    title: 'My Dialog',    
+				    title: '还款详情',    
 				    width: 600,    
 				    height: 400,    
 				    closed:false,    
@@ -123,11 +119,14 @@
 									alert("您选择的已由平台代付(或已付款),请重新选择");
 								}else{	
 										var id=row[0].PROJECTID;
-										var time2=row[0].time1;
-										var dateObj = new Date();//获取系统当前日期
-										//alert(dateObj);
-										 if(dateObj>time2){
-											alert(dateObj + " 系统时间");
+										var time2=row[0].time1; 
+										var dateObj = new Date();
+										//alert(time);
+										var mytime=dateObj.toLocaleDateString(); //获取系统当前日期
+										var mytimes = mytime.replace(/\//gi,""); //转换成字符串
+										var time2s = time2.replace(/\-/gi,"");
+										 if(mytimes>time2s){   //日期型 转换成 字符串比较大小
+											alert(mytime + " 系统时间");
 											alert(id + "是否继续" + time2);
 											var getIndex=$('#proGrid').datagrid("getSelected");
 											var row2 = $('#proGrid').datagrid("getRowIndex",getIndex);
