@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -122,7 +123,7 @@
 								<tr>
 									<th><h4>项目编号</h4></th>
 									<th><h4>项目名称</h4></th>
-									<th><h4>借款资金</h4></th>
+									<th><h4>借款资金(元)</h4></th>
 									<th><h4>借款时间</h4></th>
 									<th><h4>状态</h4></th>
 								</tr>
@@ -133,7 +134,7 @@
 										<td>${user.id}</td>
 										<td>${user.projectname}</td>
 										<td>${user.money}</td>
-										<td>${user.time}</td>
+										<td> ${user.time} </td>
 										<td>${user.codename}</td>
 									</tr>
 								</c:forEach>
@@ -162,8 +163,8 @@
 								<tr>
 									<th><h4>项目编号</h4></th>
 									<th><h4>项目名称</h4></th>
-									<th><h4>借款资金</h4></th>
-									<th><h4>当前已筹到金额</h4></th>
+									<th><h4>借款资金(元)</h4></th>
+									<th><h4>当前已筹到金额(元)</h4></th>
 									<th><h4>发布时间</h4></th>
 									
 								</tr>
@@ -175,7 +176,7 @@
 										<td>${user.PROJECTNAME}</td>
 										<td>${user.MONEY}</td>
 										<td>${user.TIME}</td>
-										<td>${user.CODENAME}</td>
+										<td><fmt:formatDate value="${user.CODENAME}" pattern="yyyy年MM月dd日"/></td>
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -200,8 +201,8 @@
 								<tr>
 									<th><h4>项目编号</h4></th>
 									<th><h4>项目名称</h4></th>
-									<th><h4>借款资金</h4></th>
-									<th><h4>当前已筹到金额</h4></th>
+									<th><h4>借款资金(元)</h4></th>
+									<th><h4>当前已筹到金额(元)</h4></th>
 									<th><h4>发布时间</h4></th>
 									
 								</tr>
@@ -213,7 +214,7 @@
 										<td>${user.PROJECTNAME}</td>
 										<td>${user.MONEY}</td>
 										<td>${user.TIME}</td>
-										<td>${user.CODENAME}</td>
+										<td><fmt:formatDate value="${user.CODENAME}" pattern="yyyy年MM月dd日"/></td>
 										
 									</tr>
 								</c:forEach>
@@ -239,12 +240,13 @@
 								<tr>
 									<th><h5>项目编号</h4></th>
 									<th><h5>项目名称</h4></th>
-									<th><h5>借款资金</h4></th>
-									<th><h5>当前已筹到金额</h4></th>
+									<th><h5>借款资金(元)</h4></th>
+									<th><h5>当前已筹到金额(元)</h4></th>
 									<th><h5>发布时间</h4></th>
 									<th><h5>截止时间</h4></th>
 									<th><h5>当前状态</h4></th>
-									<th><h5>原因</h4></th>
+									<th><h5>初审原因</h4></th>
+									<th><h5>终审原因</h4></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -254,10 +256,11 @@
 										<td>${user.PROJECTNAME}</td>
 										<td>${user.MONEY}</td>
 										<td>${user.NOWMONEY}</td>
-										<td>${user.BEGINTIME}</td>
-										<td>${user.LASTTIME}</td>
+										<td><fmt:formatDate value="${user.BEGINTIME}" pattern="yyyy年MM月dd日"/> </td>
+										<td><fmt:formatDate value="${user.LASTTIME}" pattern="yyyy年MM月dd日"/></td>
 										<td>${user.CODENAME}</td>
 										<td>${user.ONEREASON}</td>
+										<td>${user.TWOREASON}</td>
 									</tr>
 								</c:forEach>
 							</tbody>

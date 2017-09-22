@@ -22,4 +22,5 @@ public interface Zkjservicedaointerface {
 	public Zkjzong countmoney();//查询总投资
 	public void totalmoney(String name,String mm,int id);//计算自己总的money并更新导数据库
 	public double selectusermoney(String username);//根据用户名查询money
+	public int selectprojectstatus(int id);//根据项目id查询项目状态
 }

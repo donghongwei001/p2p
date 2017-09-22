@@ -265,7 +265,7 @@ $("#asd").click(function(){
 				checkbox : true
 			},{
 				field : 'ID',
-				title : '项目id',
+				title : '项目编号',
 				width : 150,
 				align : 'center'
 			}, {
@@ -280,7 +280,7 @@ $("#asd").click(function(){
 				align : 'center'
 			},{
 				field : 'MONTHMONEY',
-				title : '还款本金',
+				title : '还款本金(元)',
 				width : 150,
 				align : 'center'
 			},{
@@ -290,7 +290,7 @@ $("#asd").click(function(){
 				align : 'center'
 			},{
 				field : 'MONTHPRINCIPAL',
-				title : '还款本息',
+				title : '还款本息(元)',
 				width : 150,
 				align : 'center'
 			},{
@@ -322,7 +322,6 @@ $("#asd").click(function(){
 					url : "/p2p/user/huankuan.do", //请求地址
 					data:{id:index,money:qian,time:date},
 					success : function(data) { //请求成功后调用的回调函数，参数1【data】 请求返回的数据，这个数据类型是dataType制定
-							alert(data);
 						if (data=="0") {
 							alert("今日不用还款哦！")
 						}else if (data=="1") {
@@ -340,7 +339,7 @@ $("#asd").click(function(){
 					alert("该条账单不可以还款")
 				}
 			} else {
-				alert("请选择一条账单再进行还款！");
+				alert("只能选择一条账单再进行还款！");
 			} 
 		})
 	})

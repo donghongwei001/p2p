@@ -28,5 +28,6 @@ public interface Zkjdaointerface {
 	public void updateusermoney(Zkjmoney zz);//更新用户的总钱数
 	public void replaceinvestormoney(Zkjinvestmoney zz);//更新借款人的money
 	public double selectuseridmoney(int id);//根据用户ID查询用户余额
+	public int selectprojectstatus(int projectid);//根据项目id查询项目状态
 }
 

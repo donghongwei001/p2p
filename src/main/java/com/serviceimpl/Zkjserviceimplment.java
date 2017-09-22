@@ -113,5 +113,11 @@ public class Zkjserviceimplment implements Zkjservicedaointerface {
 		// TODO Auto-generated method stub
 		return dao.selectusermoney(username);
 	}
+	@Override
+	public int selectprojectstatus(int id) {
+		// TODO Auto-generated method stub
+	
+		return dao.selectprojectstatus(id);
+	}
 
 }

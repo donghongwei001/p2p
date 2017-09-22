@@ -36,7 +36,9 @@ public class zhishouController {
 	private YxFirsttableService yxservice;
 	@Autowired
 	private ZxlUserService zxluserservice;
-	
+	/*
+	 * 查询公司现在所有钱
+	 */
 	@RequestMapping("/money")
 	@ResponseBody
 	public int querytotalmoney(){
@@ -44,16 +46,14 @@ public class zhishouController {
 		return index;
 		
 	}
+	/*
+	 * 查询所有的收支记录
+	 * 实行分页查询
+	 */
 	@RequestMapping("/shouzhi")
 	@ResponseBody
 	public Pageresult selshouzhi(Integer page,Integer rows){
 		List<Map> list=zhishouservices.selshouzhi();
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		for (int i = 0; i < list.size(); i++) {
-			String time=simpleDateFormat.format(list.get(i).get("TIME"));
-			list.get(i).put("time1", time);
-			
-		}
 		int page1=page;
 		int rows1=rows;
 		Page<Map> paging=new Page<Map>();
@@ -66,39 +66,14 @@ public class zhishouController {
 		return pResult;
 		
 	}
+	/*
+	 * 查询该用户所有的预期还款记录
+	 */
 	@RequestMapping("/yuqihuankuan")
 	@ResponseBody
 	public ModelAndView selyuqi(HttpServletRequest request) throws ParseException{
-		DecimalFormat df = new DecimalFormat("#.##");
 		String userna =(String)request.getSession().getAttribute("abcd");
 		List<Map> list=zhishouservices.selyuqi(userna);
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		for (int i = 0; i < list.size(); i++) {
-			String time=simpleDateFormat.format(list.get(i).get("LASTTIME"));
-			list.get(i).put("time1", time);
-			Object dd=list.get(i).get("NEWTIME");
-			if (dd==null||dd=="") {
-				String newdate=simpleDateFormat.format(new Date());
-				Date d1=simpleDateFormat.parse(time);
-				Date d2=simpleDateFormat.parse(newdate);
-				int day=daysBetween(d1, d2);
-				if (d1.getTime()>d2.getTime()) {
-					continue;
-				}
-				if (day>3) {
-					String money=list.get(i).get("LASTMONEY").toString();
-					double qian=Double.valueOf(money).doubleValue();
-					double newmoney=qian*Math.pow(1.005,(day-3));
-					String newmoney1=df.format(newmoney);
-					list.get(i).put("NEWMONEY", newmoney1);
-				}
-				list.get(i).put("NEWDAY", day);
-			}
-			
-			
-			
-			
-		}
 		ModelAndView view=new ModelAndView();
 		view.addObject("yuqihuankuan", list);
 		view.setViewName("yuqihuankuan");
@@ -106,22 +81,8 @@ public class zhishouController {
 		
 	}
 	/*
-	 * 计算两个日期之间相差的天数
+	 * 用户还款逾期金额
 	 */
-	public static int daysBetween(Date smdate,Date bdate) throws ParseException    
-    {    
-        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");  
-        smdate=sdf.parse(sdf.format(smdate));  
-        bdate=sdf.parse(sdf.format(bdate));  
-        Calendar cal = Calendar.getInstance();    
-        cal.setTime(smdate);    
-        long time1 = cal.getTimeInMillis();                 
-        cal.setTime(bdate);    
-        long time2 = cal.getTimeInMillis();         
-        long between_days=(time2-time1)/(1000*3600*24);  
-            
-       return Integer.parseInt(String.valueOf(between_days));           
-    }  
 	@RequestMapping("/yuqihuan")
 	@ResponseBody
 	public int huanyuqi(@RequestBody String str){
@@ -129,7 +90,6 @@ public class zhishouController {
 		String time=simpleDateFormat.format(new Date());
 		int flag=0;
 		yuqi yu=JSON.parseObject(str, yuqi.class);
-		System.out.println(yu);
 		String shijian=zhishouservices.seltime(yu.getId(), yu.getLastmoney());
 		if (shijian==null||shijian=="") {
 			int id=zxluserservice.seluser(yu.getId());

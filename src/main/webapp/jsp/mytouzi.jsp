@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -106,9 +107,9 @@
 								<tr>
 									<th><h4>项目编号</h4></th>
 									<th><h4>项目名称</h4></th>
-									<th><h4>放款资金</h4></th>
+									<th><h4>放款资金(元)</h4></th>
 									<th><h4>放款时间</h4></th>
-									<th><h4>项目截止日期</h4></th>
+									<th><h4>项目开始收益日期</h4></th>
 									<th><h4>项目状态</h4></th>
 									<th><h4>操作</h4></th>
 									
@@ -120,8 +121,8 @@
 										<td>${user.PROJECTID}</td>
 										<td>${user.PROJECTNAME}</td>
 										<td>${user.MONEY}</td>
-										<td>${user.TIME}</td>
-										<td>${user.LASTTIME}</td>
+										<td><fmt:formatDate value="${user.TIME}" pattern="yyyy年MM月dd日"/> </td>
+										<td><fmt:formatDate value="${user.LASTTIME}" pattern="yyyy年MM月dd日"/></td>
 										<td>${user.CODENAME}</td>
 										<input type="hidden" id="zhi" value="${user.PROJECTID}"/>
 										<td><a href="/p2p/user/xiangqing.do?pid=${user.PROJECTID}"><span class="label label-info" id="xiangqing">查看详情</span></a></td>										
