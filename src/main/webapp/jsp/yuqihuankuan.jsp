@@ -197,6 +197,6 @@ function huankuan(id,lastmoney,newmoney,day){
 				 }
 			 });
 	}
-	}
+}
 </script>
 </html>

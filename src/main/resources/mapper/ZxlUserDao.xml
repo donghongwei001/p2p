@@ -37,8 +37,8 @@
 	<!-- 查询所有要投资的项目 -->
 	<select id="listtouzi" resultType="com.entity.ZxlTouzi">
 		select ps.projectid,p.projectname,p.money,p.lifeloan,p.ratemoney,p.location,pro.personalname,s.name,ps.content from subjectType s,psersonalform pro,projectapplication p,projectrelease ps,usertable us where
-		ps.status=5 and ps.projectid=p.id and p.projecttype=s.id and p.userid=pro.userid 
-		and p.userid=us.userid order by ps.projectid desc
+		ps.status in (5,6) and ps.projectid=p.id and p.projecttype=s.id and p.userid=pro.userid 
+		and p.userid=us.userid order by ps.projectid desc 
 		
 	</select>
 	<!-- 查询发布项目 -->
