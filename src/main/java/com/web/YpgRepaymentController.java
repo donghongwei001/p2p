@@ -43,7 +43,7 @@ public class YpgRepaymentController {
 	@RequestMapping("/YpgSchedule")
 	@ResponseBody
 	public List<Map> querySchedule(@RequestParam int id){
-		System.out.println(id+"----------------------------");
+		//System.out.println(id+"----------------------------");
 		List<Map> schedule=reService.querySchedule(id);
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		for (int i = 0; i < schedule.size(); i++) {
@@ -58,8 +58,6 @@ public class YpgRepaymentController {
 	@ResponseBody
 	public String problems(@RequestBody String data){
 		Ypg yy=JSON.parseObject(data,Ypg.class);
-		System.out.println("德国发动反攻的");
-		//int id=Integer.parseInt(request.getParameter("id"));
 		List<Map> problemList=reService.queryProblems(yy);
 		return "asd";
 	}
@@ -74,5 +72,12 @@ public class YpgRepaymentController {
 			outtimeList.get(i).put("LASTTIME", time);
 		}
 		return outtimeList;
+	}
+	
+	@RequestMapping("/ypgMoHuCXun")
+	@ResponseBody
+	public List<Map> queryOutTimetable(String comname){
+		List<Map> outTimeList=reService.queryOutTimetable(comname);
+		return outTimeList;
 	}
 }

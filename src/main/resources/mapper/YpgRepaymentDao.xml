@@ -47,4 +47,20 @@
 	<select id="selectOutTimetable" resultType="java.util.HashMap">
 		select u.username,ot.projectid,pp.projectname,ot.lasttime,ot.lastmoney,ot.newtime,ot.newday,ot.newmoney from outtimetable ot,usertable u,projectapplication pp where ot.projectid=pp.id and u.userid=pp.userid
 	</select>
+	
+	<!-- 逾期还款表的模糊查询 -->
+	<select id="queryOutTimetable" resultType="java.util.HashMap" parameterType="String">
+		select u.username,ot.projectid,pp.projectname,ot.lasttime,ot.lastmoney,ot.newtime,ot.newday,ot.newmoney from outtimetable ot,usertable u,projectapplication pp
+		<where>
+			ot.projectid=pp.id and u.userid=pp.userid
+			<if test="_parameter != null">
+				and u.username like '%' || #{_parameter} || '%'
+			</if>
+		</where>
+	</select>
+	
+	<!-- 插入到收入支出表 -->
+	<insert id="insertExpendincome" parameterType="com.entity.YpgUsermoney">
+		insert into expendincome values(#{subjectid},to_date(#{newTime},'yyyy-MM-dd'),#{totalM},17)
+	</insert>
 </mapper>

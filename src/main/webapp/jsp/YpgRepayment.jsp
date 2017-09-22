@@ -124,10 +124,10 @@
 								}else{	
 										var id=row[0].PROJECTID;
 										var time2=row[0].time1;
-										var dateObj = new Date();
-										var mytime=dateObj.toLocaleDateString();       //获取系统当前日期  
-										if(mytime>time2){
-											alert(mytime + " 系统时间");
+										var dateObj = new Date();//获取系统当前日期
+										//alert(dateObj);
+										 if(dateObj>time2){
+											alert(dateObj + " 系统时间");
 											alert(id + "是否继续" + time2);
 											var getIndex=$('#proGrid').datagrid("getSelected");
 											var row2 = $('#proGrid').datagrid("getRowIndex",getIndex);
@@ -150,7 +150,7 @@
 												}
 											})
 										}else{
-											alert("您前选择的项目还未逾期,请重新选择");
+											alert("您当前选择的项目还未逾期,请重新选择");
 										}
 								}
 							}else{

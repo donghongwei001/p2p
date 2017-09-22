@@ -13,21 +13,6 @@ public class ypgPersonalFormController {
 	@Autowired
 	private ypgPersonalFormService pfService;
 	
-	/*@RequestMapping("/ypgPerson")
-	public String getQueryPersonalForm(HttpServletRequest request,HttpSession session){
-		ZxlUser user=new ZxlUser(); //暂时没有值
-		List<Map> list=pfService.getQueryPersonalForm(user.getUserID());
-		request.setAttribute("personal", list);
-		return "ypgPersonal";
-	}*/
-	/*@RequestMapping("/ypgPP")
-	public String QueryPersonalForm(HttpServletRequest request){
-		ZxlUser user=new ZxlUser(); //暂时没有值
-		List<Map> list=pfService.getQueryPersonalForm(user.getUserID());
-		request.setAttribute("person", list);
-		return "YpgUpdate";
-	}*/
-	
 	/**
 	 * 插入个人信息到数据库
 	 * @param pff
@@ -44,28 +29,4 @@ public class ypgPersonalFormController {
 		return "xiangmushenqing";
 	}
 	
-	/*@RequestMapping("/update")
-	public String  updatePersonalForm(ypgPersonalForm pff){
-		pfService.UpdatePersonalForm(pff);
-		return "YpgUpdate";
-	}*/
-	
-	/*@RequestMapping("/ypgEmployee")
-	public String getQueryEmployee(HttpServletRequest request){
-		List<Map> list=pfService.getQueryEmployee();
-		request.setAttribute("Employee", list);
-		return "ypgEmployee";
-	}*/
-	
-	
-	
-	/*@RequestMapping("/insertEmployee")
-	@ResponseBody
-	public int getinsertEmployee(YpgEmployee emp){
-		
-		//System.out.println(ee);
-		int flag = pfService.getInsertEmployee(emp);
-		System.out.println("sdljglsjljgldjldfglsfgl   " + flag);
-		return flag;
-	}*/
 }
