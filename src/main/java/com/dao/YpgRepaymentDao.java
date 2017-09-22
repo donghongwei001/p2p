@@ -39,4 +39,8 @@ public interface YpgRepaymentDao {
 	
 	//查询逾期项目表
 	public List<Map> selectOutTimetable();
+	//逾期项目表的模糊查询
+	public List<Map> queryOutTimetable(String comname);
+	//插入到收入支出表
+	public void insertExpendincome(YpgUsermoney yu);
 }

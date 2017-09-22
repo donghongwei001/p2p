@@ -31,6 +31,7 @@
 
 </head>
 <body>
+	用户检索:<input id="ss" class="easyui-searchbox change"/>
 	<div id="secondDiv">
 		<table id="proDataGrid" width="100%" class="formtable">
 			
@@ -92,7 +93,61 @@
 		$("#addtime").datebox({
 			required:true			
 		});
-	
+	//---------------------------------------------------------------------------------------------------
+		$('#ss').searchbox({ 
+        	searcher:function(value,name){ 
+        		$('#proDataGrid').datagrid({
+                    singleSelect: true,
+                    method:'post',
+                    url:'/p2p/repay/ypgMoHuCXun.do',
+                    fitColumns: true,
+    				striped : true,
+                    pagination: true,
+                    fit : true,
+                    queryParams: {
+                    	comname : value
+    				},
+    				rownumbers : true,
+                    pageSize: 20,
+                    pageList : [ 20, 40, 60 ],
+                   toolbar : "#toolbar",
+                    columns: [[{
+        				field : 'USERNAME',
+        				title : '用户名',
+        				width : 200
+        			},{
+        				field : 'PROJECTID',
+        				title : '项目编号',
+        				width : 200
+        			},{
+        				field : 'PROJECTNAME',
+        				title : '项目名称',
+        				width : 200
+        			}, {
+        				field : 'LASTTIME',
+        				title : '应还款时间',
+        				width : 200
+        			}, {
+        				field : 'LASTMONEY',
+        				title : '应还款金额(元)',
+        				width : 200
+        			} ,{
+        				field : 'NEWTIME',
+        				title : '还款时间',
+        				width : 200
+        			}, {
+        				field : 'NEWDAY',
+        				title : '逾期时间',
+        				width : 200
+        			},{
+        				field : 'NEWMONEY',
+        				title : '还款金额',
+        				width : 200
+        			}]]
+                });
+        	}, 
+        	prompt:'请输入用户名...'
+        }); 
 	})
 </script> 
 </body>

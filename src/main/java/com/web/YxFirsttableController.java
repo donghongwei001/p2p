@@ -183,6 +183,11 @@ public class YxFirsttableController {
 		YxFabu yf=JSON.parseObject(json,YxFabu.class);
 		return null;
 	}
+	/**
+	 * ÏîÄ¿ÏÂ¼Ü
+	 * @param id
+	 * @param request
+	 */
 	@RequestMapping("/xiajia")
 	@ResponseBody
 	public void xiajia(int id,HttpServletRequest request){

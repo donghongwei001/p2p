@@ -8,6 +8,7 @@ public class YpgUsermoney {
 	private int subjectid;//项目ID
 	private double totalM;//应还本息
 	private Date time2;// 应还款时间
+	private String newTime; //系统当前时间
 	
 	public int getUserid() {
 		return userid;
@@ -40,6 +41,13 @@ public class YpgUsermoney {
 	public void setTime2(Date time2) {
 		this.time2 = time2;
 	}
+	public String getNewTime() {
+		return newTime;
+	}
+	public void setNewTime(String newTime) {
+		this.newTime = newTime;
+	}
+	
 	
 	
 	
