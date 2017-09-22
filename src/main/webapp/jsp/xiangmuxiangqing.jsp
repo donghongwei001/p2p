@@ -10,10 +10,6 @@
     <script src="../easyui/js/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')</script>
     <script src="../bootstrap/js/bootstrap.min.js"></script>
-    
-	
-	
-	
 	<script type="text/javascript">
 		
 	</script>
