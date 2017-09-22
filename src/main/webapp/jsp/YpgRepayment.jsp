@@ -148,7 +148,7 @@
 													$('#dd').dialog("close");
 												},
 												error:function(){
-													alert("11");
+													alert("error");
 												}
 											})
 										}else{
