@@ -469,7 +469,26 @@
 		  city: "---- 所在市 ----",
 		  district: "---- 所在区 ----"
 		});
-	
+$("#asd").click(function(){
+		
+		$.ajax({
+			 type:"post",
+			// dataType:"json",
+			 url:"/p2p/add/name.do",
+			// data:JSON.stringify(row),
+			//data:str1,
+			 contentType:"application/json;charset=utf-8",
+			 success:function(dataa){
+				
+				 if(dataa==null||dataa==""){
+					 window.location.href="../jsp/jiekuan.jsp";
+				 }else{
+					
+					 window.location.href="../jsp/xiangmushenqing.jsp";
+				 }
+			 }
+		 });
+	});
 	</script>
 	
 	<script type="text/javascript">
