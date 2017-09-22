@@ -7,23 +7,23 @@ import java.util.Map;
 
 public class Dengebengjin {
 	/**  
-     * µÈ¶î±¾½ğ¼ÆËã»ñÈ¡»¹¿î·½Ê½ÎªµÈ¶î±¾½ğµÄÃ¿ÔÂ³¥»¹±¾½ğºÍÀûÏ¢  
+     * ç­‰é¢æœ¬é‡‘è®¡ç®—è·å–è¿˜æ¬¾æ–¹å¼ä¸ºç­‰é¢æœ¬é‡‘çš„æ¯æœˆå¿è¿˜æœ¬é‡‘å’Œåˆ©æ¯  
      *   
-     * ¹«Ê½£ºÃ¿ÔÂ³¥»¹±¾½ğ=(´û¿î±¾½ğ¡Â»¹¿îÔÂÊı)+(´û¿î±¾½ğ-ÒÑ¹é»¹±¾½ğÀÛ¼Æ¶î)¡ÁÔÂÀûÂÊ  
+     * å…¬å¼ï¼šæ¯æœˆå¿è¿˜æœ¬é‡‘=(è´·æ¬¾æœ¬é‡‘Ã·è¿˜æ¬¾æœˆæ•°)+(è´·æ¬¾æœ¬é‡‘-å·²å½’è¿˜æœ¬é‡‘ç´¯è®¡é¢)Ã—æœˆåˆ©ç‡  
      *   
      * @param invest  
-     *            ×Ü½è¿î¶î£¨´û¿î±¾½ğ£©  
+     *            æ€»å€Ÿæ¬¾é¢ï¼ˆè´·æ¬¾æœ¬é‡‘ï¼‰  
      * @param yearRate  
-     *            ÄêÀûÂÊ  
+     *            å¹´åˆ©ç‡  
      * @param month  
-     *            »¹¿î×ÜÔÂÊı  
-     * @return Ã¿ÔÂ³¥»¹±¾½ğºÍÀûÏ¢,²»ËÄÉáÎåÈë£¬Ö±½Ó½ØÈ¡Ğ¡Êıµã×îºóÁ½Î»  
+     *            è¿˜æ¬¾æ€»æœˆæ•°  
+     * @return æ¯æœˆå¿è¿˜æœ¬é‡‘å’Œåˆ©æ¯,ä¸å››èˆäº”å…¥ï¼Œç›´æ¥æˆªå–å°æ•°ç‚¹æœ€åä¸¤ä½  
      */  
     public static Map<Integer, Double> getPerMonthPrincipalInterest(double invest, double yearRate, int totalMonth) {  
         Map<Integer, Double> map = new HashMap<Integer, Double>();  
-        // Ã¿ÔÂ±¾½ğ  
+        // Ã¿ï¿½Â±ï¿½ï¿½ï¿½  
         double monthPri = getPerMonthPrincipal(invest, totalMonth);  
-        // »ñÈ¡ÔÂÀûÂÊ  
+        // ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
         double monthRate = yearRate / 12;  
         DecimalFormat df= new DecimalFormat("#.00");
         monthRate = new BigDecimal(monthRate).setScale(6, BigDecimal.ROUND_HALF_UP).doubleValue();  
@@ -39,18 +39,18 @@ public class Dengebengjin {
     }  
   
     /**  
-     * µÈ¶î±¾½ğ¼ÆËã»ñÈ¡»¹¿î·½Ê½ÎªµÈ¶î±¾½ğµÄÃ¿ÔÂ³¥»¹ÀûÏ¢  
+     * ç­‰é¢æœ¬é‡‘è®¡ç®—è·å–è¿˜æ¬¾æ–¹å¼ä¸ºç­‰é¢æœ¬é‡‘çš„æ¯æœˆå¿è¿˜åˆ©æ¯  
      *   
-     * ¹«Ê½£ºÃ¿ÔÂÓ¦»¹ÀûÏ¢=Ê£Óà±¾½ğ¡ÁÔÂÀûÂÊ=(´û¿î±¾½ğ-ÒÑ¹é»¹±¾½ğÀÛ¼Æ¶î)¡ÁÔÂÀûÂÊ  
+     * å…¬å¼ï¼šæ¯æœˆåº”è¿˜åˆ©æ¯=å‰©ä½™æœ¬é‡‘Ã—æœˆåˆ©ç‡=(è´·æ¬¾æœ¬é‡‘-å·²å½’è¿˜æœ¬é‡‘ç´¯è®¡é¢)Ã—æœˆåˆ©ç‡  
      *   
      * @param invest  
-     *            ×Ü½è¿î¶î£¨´û¿î±¾½ğ£©  
+     *            æ€»å€Ÿæ¬¾é¢ï¼ˆè´·æ¬¾æœ¬é‡‘ï¼‰  
      * @param yearRate  
-     *            ÄêÀûÂÊ  
+     *            å¹´åˆ©ç‡  
      * @param month  
-     *            »¹¿î×ÜÔÂÊı  
-     * @return Ã¿ÔÂ³¥»¹ÀûÏ¢  
-     */   
+     *            è¿˜æ¬¾æ€»æœˆæ•°  
+     * @return æ¯æœˆå¿è¿˜åˆ©æ¯  
+     */  
     public static Map<Integer, Double> getPerMonthInterest(double invest, double yearRate, int totalMonth) {  
         Map<Integer, Double> inMap = new HashMap<Integer, Double>();  
         double principal = getPerMonthPrincipal(invest, totalMonth);  
@@ -66,17 +66,17 @@ public class Dengebengjin {
     }  
   
     /**  
-     * µÈ¶î±¾½ğ¼ÆËã»ñÈ¡»¹¿î·½Ê½ÎªµÈ¶î±¾½ğµÄÃ¿ÔÂ³¥»¹±¾½ğ  
+     * ç­‰é¢æœ¬é‡‘è®¡ç®—è·å–è¿˜æ¬¾æ–¹å¼ä¸ºç­‰é¢æœ¬é‡‘çš„æ¯æœˆå¿è¿˜æœ¬é‡‘  
      *   
-     * ¹«Ê½£ºÃ¿ÔÂÓ¦»¹±¾½ğ=´û¿î±¾½ğ¡Â»¹¿îÔÂÊı  
+     * å…¬å¼ï¼šæ¯æœˆåº”è¿˜æœ¬é‡‘=è´·æ¬¾æœ¬é‡‘Ã·è¿˜æ¬¾æœˆæ•°  
      *   
      * @param invest  
-     *            ×Ü½è¿î¶î£¨´û¿î±¾½ğ£©  
+     *            æ€»å€Ÿæ¬¾é¢ï¼ˆè´·æ¬¾æœ¬é‡‘ï¼‰  
      * @param yearRate  
-     *            ÄêÀûÂÊ  
+     *            å¹´åˆ©ç‡  
      * @param month  
-     *            »¹¿î×ÜÔÂÊı  
-     * @return Ã¿ÔÂ³¥»¹±¾½ğ  
+     *            è¿˜æ¬¾æ€»æœˆæ•°  
+     * @return æ¯æœˆå¿è¿˜æœ¬é‡‘  
      */  
     public static double getPerMonthPrincipal(double invest, int totalMonth) {  
         BigDecimal monthIncome = new BigDecimal(invest).divide(new BigDecimal(totalMonth), 6, BigDecimal.ROUND_HALF_UP);  
@@ -84,16 +84,16 @@ public class Dengebengjin {
     }  
   
     /**  
-     * µÈ¶î±¾½ğ¼ÆËã»ñÈ¡»¹¿î·½Ê½ÎªµÈ¶î±¾½ğµÄ×ÜÀûÏ¢  
+     * ç­‰é¢æœ¬é‡‘è®¡ç®—è·å–è¿˜æ¬¾æ–¹å¼ä¸ºç­‰é¢æœ¬é‡‘çš„æ€»åˆ©æ¯  
      *   
      * @param invest  
-     *            ×Ü½è¿î¶î£¨´û¿î±¾½ğ£©  
+     *            æ€»å€Ÿæ¬¾é¢ï¼ˆè´·æ¬¾æœ¬é‡‘ï¼‰  
      * @param yearRate  
-     *            ÄêÀûÂÊ  
+     *            å¹´åˆ©ç‡  
      * @param month  
-     *            »¹¿î×ÜÔÂÊı  
-     * @return ×ÜÀûÏ¢  
-     */  
+     *            è¿˜æ¬¾æ€»æœˆæ•°  
+     * @return æ€»åˆ©æ¯  
+     */ 
     public  double getInterestCount(double invest, double yearRate, int totalMonth) {  
         BigDecimal count = new BigDecimal(0);  
         Map<Integer, Double> mapInterest = getPerMonthInterest(invest, yearRate, totalMonth);  

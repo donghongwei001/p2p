@@ -61,4 +61,7 @@
 	<select id="selectuseridmoney" parameterType="int" resultType="double">
 		select money from usertable where userid=#{id}
 	</select>
+	<select id="selectprojectstatus" parameterType="int" resultType="int">
+		select status from projectrelease where projectid=#{projectid}
+	</select>
 </mapper>
