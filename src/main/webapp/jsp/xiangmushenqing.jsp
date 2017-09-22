@@ -85,7 +85,7 @@
 		</div>
 			
 		<div id="content">
-			<form class="form-horizontal" name="myform" action="/p2p/add/project.do" method="post" enctype="multipart/form-data">
+			<form class="form-horizontal" name="myform" action="/p2p/add/project.do" method="post" enctype="multipart/form-data" onsubmit="return check(this)">
 				<div class="form-group">
 					<label for="inputEmail3" style="font-size:16px;" class="col-sm-2 control-label">项目名称</label>
 					<div class="col-sm-9">
@@ -164,7 +164,8 @@
 			    </div>
 			</div>
 				 </div>	
-				 <input type="submit"/>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input class="btn btn-info" type="submit" value="完成申请"/>
 			</form>			
 		</div>
 		<div id="disc">
@@ -194,6 +195,76 @@
 </html>
 
 <script>
+function check(){
+	var pp=$("#ptojectname").val();
+	var asd=$("#absf");
+	var qwe= /[\u4e00-\u9fa5]/;
+	asd.empty();
+	if(pp==""||pp==null){
+		asd.html("项目不能为空");
+		asd.css("color","red");
+		return false;
+	}else{ 
+		if(!qwe.test(pp)){
+		asd.html("只能输入汉字");
+		asd.css("color","red");
+		return false;
+	}
+	}
+	
+	var mm=$("#mmmoney").val();
+	var sp=$("#sp");
+	var rate=$("#rateee").val();
+	var life=$("#life").val();
+	var reg=/^[0-9]*$/;
+	sp.empty();
+	if(mm==""||mm==null){
+		sp.html("不能为空");
+		sp.css("color","red");
+		return false;
+	}else{
+	if(!reg.test(mm)){
+		sp.html("请输入正整数");
+		sp.css("color","red");
+		return false;
+	}else{
+		if(mm<0){
+			sp.html("请输入大于零的整数");
+			return false;
+		}else{
+			if(mm>1000000){
+				sp.html("最大申请额度为1000000元");
+				sp.css("color","red");
+				return false;
+			}
+		}
+	}
+	}
+	
+	
+	var rate=$("#rateee").val();
+	var life=$("#life").val();
+	var mmoney=$("#mmmoney").val();
+	$("#vvi").empty();
+	if(rate==null||rate==""){
+		$("#vvi").html("月利率不能为空");
+		$("#vvi").css("color","red");
+		return false;
+	}else{
+		if(parseFloat(rate)>1){
+			$("#vvi").html("利率太大啦");
+			return false;
+		}else{
+			if(rate==null||rate==""||life==null||life==""||mmmoney==null||mmmoney==""){
+				return false;
+			}
+		}
+	}
+
+	
+
+	
+}
 $("#ptojectname").blur(function(){
 	
 	var pp=$("#ptojectname").val();
@@ -221,8 +292,9 @@ $("#rateee").blur(function(){
 		$("#vvi").css("color","red");
 		return false;
 	}else{
-		if(parseFloat(rate)>1){
+		if(parseFloat(rate)>=1){
 			$("#vvi").html("利率太大啦");
+			$("#vvi").css("color","red");
 			return false;
 		}else{
 			if(rate==null||rate==""||life==null||life==""||mmmoney==null||mmmoney==""){
@@ -245,7 +317,7 @@ $("#rateee").blur(function(){
 						$("#ttb").append("<tr><td><h3>总利息为："+/* (dataa[2]-mmoney).toFixed(2) */dataa[0]+"元</h3></td></tr>");
 						$("#ttb").append("<tr><td><h3>本息总共："+dataa[2]+"元</h3></td></tr>");
 						$("#ttb").append("<tr><td><h3>手续费为："+dataa[1]+"元</h3></td></tr>");
-						$("#ttb").append("<tr><td>温馨提示：计算结果仅为试算，实际费率结果以还款计划为准！</td></tr>")
+						$("#ttb").append("<tr><td>温馨提示：计算结果仅为试算，实际费率结果以还款计划为准！</td></tr>");
 					}
 					
 				});
@@ -284,32 +356,39 @@ $("#distpicker2").distpicker({
 				sp.html("请输入大于零的整数");
 				return false;
 			}else{
-				if(rate!=null&&rate!=""&&life!=null&&life!=""&&mm!=null&&mm!=""){
-					var data={};
-					data["rate"]=rate;
-					data["life"]=life;
-					data["mmoney"]=mm;
-					
-					$.ajax({
-						type:"post",
-						url:"/p2p/zkj/capital.do",
-						contentType:"application/json;charset=utf-8",
-						data:JSON.stringify(data),
-						success :function(dataa){
-							$("#ttb").empty();
-							$("#ttb").append("<tr><td><h3>到期还款计划</h3></td></tr>");
-							$("#ttb").append("<tr><td><h3>本金为："+mm+"元</h3></td></tr>");
-							$("#ttb").append("<tr><td><h3>每月还款:"+dataa[0]+"元</h3></td></tr>");
-							$("#ttb").append("<tr><td><h3>总利息为："+(dataa[2]-mm).toFixed(2)+"元</h3></td></tr>");
-							$("#ttb").append("<tr><td><h3>本息总共："+dataa[2]+"元</h3></td></tr>");
-							$("#ttb").append("<tr><td><h3>手续费为："+dataa[1]+"元</h3></td></tr>");
-						
-						}
-						
-					});
-				}else{
+				if(mm>1000000){
+					sp.html("最大申请额度为1000000元");
+					sp.css("color","red");
 					return false;
+				}else{
+					if(rate!=null&&rate!=""&&life!=null&&life!=""&&mm!=null&&mm!=""){
+						var data={};
+						data["rate"]=rate;
+						data["life"]=life;
+						data["mmoney"]=mm;
+						
+						$.ajax({
+							type:"post",
+							url:"/p2p/zkj/capital.do",
+							contentType:"application/json;charset=utf-8",
+							data:JSON.stringify(data),
+							success :function(dataa){
+								$("#ttb").empty();
+								$("#ttb").append("<tr><td><h3>到期还款计划</h3></td></tr>");
+								$("#ttb").append("<tr><td><h3>本金为："+mm+"元</h3></td></tr>");
+								$("#ttb").append("<tr><td><h3>每月还款:"+dataa[0]+"元</h3></td></tr>");
+								$("#ttb").append("<tr><td><h3>总利息为："+(dataa[2]-mm).toFixed(2)+"元</h3></td></tr>");
+								$("#ttb").append("<tr><td><h3>本息总共："+dataa[2]+"元</h3></td></tr>");
+								$("#ttb").append("<tr><td><h3>手续费为："+dataa[1]+"元</h3></td></tr>");
+								$("#ttb").append("<tr><td>温馨提示：计算结果仅为试算，实际费率结果以还款计划为准！</td></tr>");
+							}
+							
+						});
+					}else{
+						return false;
+					}
 				}
+				
 			}
 		}
 		}
@@ -341,7 +420,7 @@ $("#distpicker2").distpicker({
 					$("#ttb").append("<tr><td><h3>总利息为："+(dataa[2]-mm).toFixed(2)+"元</h3></td></tr>");
 					$("#ttb").append("<tr><td><h3>本息总共："+dataa[2]+"元</h3></td></tr>");
 					$("#ttb").append("<tr><td><h3>手续费为："+dataa[1]+"元</h3></td></tr>");
-				
+					$("#ttb").append("<tr><td>温馨提示：计算结果仅为试算，实际费率结果以还款计划为准！</td></tr>");
 				}
 				
 			});

@@ -191,41 +191,20 @@
 	<script type="text/javascript">
 		/* 用户名验证 */
 		$("#user").focus(function(){
-			$("#s1").html("请输入用户名").css("color","#A9A9A9");
+			$("#s1").html("以字母开头，包括数字,6-12位").css("color","#A9A9A9");
 		})
 		$("#user").blur(function(){
-			var data={};
-			data["username"] = $("#user").val();
-			var user=$("#user").val();
-			var re=/[a-z]\d{3,10}/;
-			if(user==""){
-				$("#s1").html("用户名不能为空").css("color","red");
+			var pwd=$("#user").val();
+			var re=/^[a-zA-Z\d]{6,12}$/;
+			if(pwd==""){
+				$("#s1").html("不能为空").css("color","red");
 			}else{
-				if(re.test(user)){
-					$.ajax({
-						type : "post",
-						url : "/p2p/user/add.do", 
-						contentType : "application/json;charset=utf-8",
-						data : JSON.stringify(data),
-						success : function(data1) {
-
-							if(data1=="success"){						
-								$("#s1").html("");
-							}
-							else{						
-								$("#1").html("用户名已注册").css("color","red");
-							}			
-						},
-						/* error : function(){
-							alert("注册错误！！！");
-						} */
-					});
+				if(re.test(pwd)){
+					$("#s1").html("");
 				}else{
-					$("#s1").html("输入正确的用户名").css("color","red");
+					$("#s1").html("请输入正确的用户名").css("color","red");
 				}
-				
 			}
-			
 		})
 		/* 密码验证 *//* pwd、rpwd */
 		$("#pwd").focus(function(){
@@ -261,7 +240,7 @@
 		/* 注册按钮的点击事件 */
   		$("#but").click(function(){
   			
-  			/* var data={};
+  			var data={};
 			data["username"] = $("#user").val();
 			data["pwd"] = $("#pwd").val();
 			$.ajax({
@@ -282,7 +261,7 @@
 				error : function(){
 					alert("error");
 				}
-			});  */
+			});  
   		})
 		/*登录按钮的点击事件*/
   		$("#button").click(function(){
