@@ -182,6 +182,8 @@ public class YxExamineController {
 			for (int i = 0; i < mp.size(); i++) {
 				String time=simpleDateFormat.format(mp.get(i).get("BEGINTIME"));
 				mp.get(i).put("time1", time);
+				String time1=simpleDateFormat.format(mp.get(i).get("FIRSTDATE"));
+				mp.get(i).put("time2", time1);
 				
 			}
 			Page<Map> paging=new Page<Map>();

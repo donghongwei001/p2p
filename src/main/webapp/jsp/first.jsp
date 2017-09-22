@@ -53,7 +53,7 @@
 				</tr>
 				
 				<tr>
-					<th height="28">金额:</th>
+					<th height="28">金额(元):</th>
 					<td><input id="money1" name="money"
 						class="easyui-validatebox"style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 				</tr>
@@ -198,7 +198,7 @@ $(function(){
 	toolbar : "#toolbar",
 	columns : [ [{
 		field : 'PROJECTID',
-		title : '项目序号',
+		title : '编号',
 		width : 60,
 		align : 'center'
 	}, {
