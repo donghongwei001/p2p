@@ -3,19 +3,23 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dao.ypgPersonalFormDao">	
+	<!-- 查询个人信息表 -->
 	<select id="queryPersonalForm" resultType="java.util.HashMap">
 		select PERSONALID,PERSONALNAME,IDCARD,IPHONE,ACCOUNTNUMBER,MAILBOX,SEX,BIRTHDAY,EDUCATIONAL,MARRIAGE,HAVACHIDREN,ADDRESS,HOMEPHONE,WORKLIFE,OCCUPATION,WORKUNIT,UNITPROPERTIES,UNITPHONE,MONTHLYINCOME,HAVEROOM,HOUSELOAN,HAVECAR,CARLOAN,CONTACTNAME,CONTACTRELATION,CONTACTPHONE from psersonalform pf,usertable ut where pf.PERSONALID=ut.USERID and ut.USERID=#{id}
 	</select>
-	<select id="queryEmployee" resultType="java.util.HashMap">
+	
+	<!-- 查询员工表 -->
+	<!-- <select id="queryEmployee" resultType="java.util.HashMap">
 		select * from empty
-	</select>
+	</select> -->
+	
+	<!-- 插入个人认证信息  -->
 	<insert id="insertPersonalForm" parameterType="com.entity.ypgPersonalForm">
 		insert into psersonalform values(psersonalid.nextval,${userID},'${personalname}','${idcard}','${iphone}','${accountnumber}','${mailbox}','${sex}',to_date('${birthday}','yyyy-MM-dd'),'${educational}','${marriage}','${havachidren}','${address}','${homephone}','${worklife}','${occupation}','${workunit}','${unitproperties}','${unitphone}','${monthlyincome}','${haveroom}','${houseloan}','${havecar}','${carloan}','${contactname}','${contactrelation}','${contactphone}')
 	</insert>
-	<insert id="insertEmployee" parameterType="com.entity.YpgEmployee">
-		insert into empty values(empid.nextval,#{empname,jdbcType=VARCHAR},#{emppwd,jdbcType=VARCHAR},#{name,jdbcType=VARCHAR},#{sex,jdbcType=VARCHAR},#{iphone,jdbcType=NUMERIC},#{address,jdbcType=VARCHAR},#{email,jdbcType=VARCHAR},to_date('${addtime}','yyyy-MM-dd'))
+	
+   	<!-- 插入投资人信息  -->
+	<insert id="insertInvestor" parameterType="com.entity.ypgPersonalForm">
+		insert into investor values(${userID},'${personalname}','${sex}','${idcard}','${iphone}','${accountnumber}')
 	</insert>
-	<update id="updatePersonalForm" parameterType="com.entity.ypgPersonalForm">
-   		update psersonalform set personalname=#{personalname},idcard=#{idcard},iphone=#{iphone},accountnumber=#{accountnumber},mailbox=#{mailbox},sex=#{sex},birthday=#{birthday},educational=#{educational},marriage=#{marriage},havachildren=#{havachildren},address=#{address},homephone=#{homephone},worklife=#{worklife},occupation=#{occupation},workunit=#{workunit},unitproperties=#{unitproperties},unitphone=#{unitphone},monthlyincome=#{monthlyincome},haveroom=#{haveroom},houseloan=#{houseloan},havecar=#{havecar},carloan=#{carloan},contactname=#{contactname},contactrelation=#{contactrelation},contactphone=#{contactphone} where personalid=#{personalid} 
-   	</update>
 </mapper>

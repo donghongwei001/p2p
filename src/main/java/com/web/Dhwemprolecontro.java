@@ -23,18 +23,16 @@ public class Dhwemprolecontro {
 	private Dhwempservice dhwempservice;
 	@Autowired
 	private DhwroleService dhwroleservice;
+	/*
+	 * 查询所有员工
+	 * 进行分页查询
+	 */
 	@RequestMapping("/emp")
 	@ResponseBody
 	public Pageresult queryemp(Integer page,Integer rows){
 		int page1=page;
 		int rows1=rows;
 		List<Map> list=dhwempservice.queryemp();
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		for (int i = 0; i < list.size(); i++) {
-			String time=simpleDateFormat.format(list.get(i).get("ADDTIME"));
-			list.get(i).put("time1", time);
-			
-		}
 		Page<Map> paging=new Page<Map>();
 		List<Map> list1=paging.paging(list,rows1,page1);
 		System.out.println(list1.size());
@@ -44,6 +42,9 @@ public class Dhwemprolecontro {
 		pResult.setRows(list1);
 		return pResult;
 	}
+	/*
+	 * 查询所有的角色
+	 */
 	@RequestMapping("/role")
 	@ResponseBody
 	public List<Map> selrole(){
@@ -51,6 +52,9 @@ public class Dhwemprolecontro {
 		return list;
 		
 	}
+	/*
+	 * 查询某个员工所拥有的角色
+	 */
 	@RequestMapping("/fanrole")
 	@ResponseBody
 	public List<Map> selemprole(int id){
@@ -58,6 +62,10 @@ public class Dhwemprolecontro {
 		return list;
 		
 	}
+	/*
+	 * 前台穿来员工id
+	 * 更改员工角色
+	 */
 	@RequestMapping("/updarole")
 	@ResponseBody
 	public void updaterole(Emprole emprole){
@@ -68,6 +76,10 @@ public class Dhwemprolecontro {
 			dhwempservice.addemprole(emprole.getEmpid(), chrstr[i]);
 		}
 	}
+	/*
+	 * 根据前台穿来的员工id
+	 * 模糊查询所有的员工
+	 */
 	@RequestMapping("/sel")
 	@ResponseBody
 	public Pageresult queryrole(Integer page,Integer rows,String id){

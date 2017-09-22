@@ -28,139 +28,133 @@
 				<tr>
 					<th height="28">用户名:</th>
 					<td><input id="username1" name="username"
-						class="easyui-validatebox"></td>
+						class="easyui-validatebox"style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 				</tr>
 				<tr>
 					<th height="28">项目名称:</th>
 					<td><input id="projectname1" name="projectname"
-						class="easyui-validatebox"></td>
+						class="easyui-validatebox"style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 				</tr>
 				<tr>
 					<th height="28">项目类型:</th>
 					<td><input id="name1" name="name"
-						class="easyui-validatebox"></td>
+						class="easyui-validatebox"style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 				</tr>
 				<tr>
 					<th height="28">项目地点:</th>
 					<td><input id="location1" name="location"
-						class="easyui-validatebox"></td>
+						class="easyui-validatebox"style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 				</tr>
 				<tr>
 					<th height="28">申请时间:</th>
 					<td><input id="time1" name="time"
-						class="easyui-validatebox"></td>
+						class="easyui-validatebox"style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 				</tr>
 				
 				<tr>
-					<th height="28">金额:</th>
+					<th height="28">金额(元):</th>
 					<td><input id="money1" name="money"
-						class="easyui-validatebox"></td>
+						class="easyui-validatebox"style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 				</tr>
 				<tr>
 					<th height="28">借款期限:</th>
 					<td><input id="lifeloan1" name="lifeloan"
-						class="easyui-validatebox"></td>
+						class="easyui-validatebox"style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 				</tr>
-				<tr>
-					<th height="28">附件:</th>
-					<td><input id="appendix1" name="appendix"
-						class="easyui-validatebox"></td>
-				</tr>
-				
 			<tr>
 				<th height="28">个人姓名:</th>
 				<td><input id="personalname1" name="personalname"
-					class="easyui-validatebox"></td>
+					class="easyui-validatebox"style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 			</tr>
 			<tr>
 				<th height="28">身份证号:</th>
 				<td><input id="idcard1" name="idcard"
-					class="easyui-validatebox"></td>
+					class="easyui-validatebox"style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 			</tr>
 			<tr>
 				<th height="28">手机号码:</th>
 				<td><input id="iphone1" name="iphone"
-					class="easyui-validatebox"></td>
+					class="easyui-validatebox"style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 			</tr>
 			<tr>
 				<th height="28">联系邮箱:</th>
 				<td><input id="mailbox1" name="mailbox"
-					class="easyui-validatebox"></td>
+					class="easyui-validatebox"style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 			</tr>
 			<tr>
 				<th height="28">是否已婚:</th>
 				<td><input id="marriage1" name="marriage"
-					class="easyui-validatebox"></td>
+					class="easyui-validatebox"style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 			</tr>
 			<tr>
 				<th height="28">是否有子女:</th>
 				<td><input id="havachidren1" name="havachidren"
-					class="easyui-validatebox"></td>
+					class="easyui-validatebox"style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 			</tr>
 			<tr>
 				<th height="28">家庭地址:</th>
 				<td><input id="address1" name="address"
-					class="easyui-validatebox"></td>
+					class="easyui-validatebox"style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 			</tr>
 			<tr>
 				<th height="28">工作年限:</th>
 				<td><input id="worklife1" name="worklife"
-					class="easyui-validatebox"></td>
+					class="easyui-validatebox"style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 			</tr>
 			<tr>
 				<th height="28">职业:</th>
 				<td><input id="occupation1" name="occupation"
-					class="easyui-validatebox"></td>
+					class="easyui-validatebox"style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 			</tr>
 			<tr>
 				<th height="28">工作单位:</th>
 				<td><input id="workunit1" name="workunit"
-					class="easyui-validatebox"></td>
+					class="easyui-validatebox"style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 			</tr>
 			<tr>
 				<th height="28">单位电话:</th>
 				<td><input id="unitphone1" name="unitphone"
-					class="easyui-validatebox"></td>
+					class="easyui-validatebox"style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 			</tr>
 			<tr>
 				<th height="28">月收入:</th>
 				<td><input id="monthlyincome1" name="monthlyincome"
-					class="easyui-validatebox"></td>
+					class="easyui-validatebox"style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 			</tr>
 			<tr>
 				<th height="28">是否有房:</th>
 				<td><input id="haveroom1" name="haveroom"
-					class="easyui-validatebox"></td>
+					class="easyui-validatebox"style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 			</tr>
 			<tr>
 				<th height="28">有无房贷:</th>
 				<td><input id="houseloan1" name="houseloan"
-					class="easyui-validatebox"></td>
+					class="easyui-validatebox"style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 			</tr>
 			<tr>
 				<th height="28">是否有车:</th>
 				<td><input id="havecar1" name="havecar"
-					class="easyui-validatebox"></td>
+					class="easyui-validatebox"style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 			</tr>
 			<tr>
 				<th height="28">有无车贷:</th>
 				<td><input id="carloan1" name="carloan"
-					class="easyui-validatebox"></td>
+					class="easyui-validatebox"style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 			</tr>
 			<tr>
 				<th height="28">亲属姓名:</th>
 				<td><input id="contactname1" name="contactname"
-					class="easyui-validatebox"></td>
+					class="easyui-validatebox"style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 			</tr>
 			<tr>
 				<th height="28">亲属关系:</th>
 				<td><input id="contactrelation1" name="contactrelation"
-					class="easyui-validatebox"></td>
+					class="easyui-validatebox"style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 			</tr>
 			<tr>
 				<th height="28">亲属电话:</th>
 				<td><input id="contactphone1" name="contactphone1"
-					class="easyui-validatebox"></td>
+					class="easyui-validatebox"style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 			</tr>
 		</table>
 	</div>
@@ -176,16 +170,16 @@ $(function(){
 	fitColumns : true,
 	singleSelect : false, //是否只能选择一行
 	pageSize : 10,//每页显示的记录条数，默认为10 
-	pageList : [ 2, 5, 15 ],//可以设置每页记录条数的列表 
+	pageList : [ 5, 10, 15 ],//可以设置每页记录条数的列表 
 	beforePageText : '第',//页数文本框前显示的汉字 
 	afterPageText : '页    共 {pages} 页',
 	pagination : true, //分页工具栏
-	pagePosition : "top",
+	pagePosition : "bottom",
 	toolbar : "#toolbar",
 
 	columns : [ [{
 		field : 'PROJECTID',
-		title : '项目ID',
+		title : '编号',
 		width : 200,
 		
 	},
@@ -198,11 +192,11 @@ $(function(){
 		title : '初审时间',
 		width : 200
 	},{
-		field : 'FIRSTNAME',
+		field : 'ONEPERSON',
 		title : '审核人',
 		width : 200
 	},{
-		field : 'FIRSTREMARKS',
+		field : 'ONEREASON',
 		title : '审核意见',
 		width : 200
 	}] ]
@@ -229,7 +223,6 @@ $(function(){
 						$("#time1").val(a.TIME);
 						$("#money1").val(a.MONEY);
 						$("#lifeloan1").val(a.LIFELOAN);
-						$("#appendix1").val(a.APPENDIX);
 						$("#personalname1").val(a.PERSONALNAME);
 						$("#idcard1").val(a.IDCARD);
 						$("#iphone1").val(a.IPHONE);
@@ -281,8 +274,6 @@ $(function(){
 							text : '关闭',
 							handler : function() {
 								alert("你确定取消吗？");
-								/* $("#personalname1")
-								.val("") */
 								$('#dialog').dialog("close");
 								window.location.reload();
 							}

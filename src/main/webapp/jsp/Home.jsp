@@ -16,7 +16,7 @@
 	<style type="text/css">
 		body{/* background-color:#F5F5F5; */}
 		#body{width:100%;height:auto;}
-		#top{width:76%;height:auto;align:center;margin-left:12%;float:left;}
+		#top{width:76%;height:auto;align:center;margin-left:11%;float:left;}
 		#top-img{float:left;}
 		#top-menu{float:left;margin-top:3.5%;margin-left:40px;}
 		#top-menu a{text-decoration:none;color:#333;font-size:18px;}
@@ -41,13 +41,13 @@
 	<div id="body">
 		<div id="top">
 			<div id="top-img">
-				<img src="../image/title2.png" />
+				<img src="../image/top.PNG" />
 			</div>			
 			<div id="top-menu">
 				<a href="#">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="#">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="#">我要借款</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="/p2p/user/zxlpersonal.do">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;						
+				<a href="/p2p/user/zxlpersonal.do">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;					
 			</div>
 			<div id="top-login">										
 				<button type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">注册</button>
@@ -98,7 +98,7 @@
 								<tr>
 									<td width="220px;" align="right">用户名：</td>
 									<td>
-										<input type="text" id="user" class="form-control" placeholder="必须是5-10位数字或字母组成，开头不能是数字">
+										<input type="text" id="user" class="form-control" placeholder="">
 									</td>
 									<td><div id="s1"></div></td>
 								</tr>
@@ -189,8 +189,57 @@
 	
 </body>
 	<script type="text/javascript">
+		/* 用户名验证 */
+		$("#user").focus(function(){
+			$("#s1").html("以字母开头，包括数字,6-12位").css("color","#A9A9A9");
+		})
+		$("#user").blur(function(){
+			var pwd=$("#user").val();
+			var re=/^[a-zA-Z\d]{6,12}$/;
+			if(pwd==""){
+				$("#s1").html("不能为空").css("color","red");
+			}else{
+				if(re.test(pwd)){
+					$("#s1").html("");
+				}else{
+					$("#s1").html("请输入正确的用户名").css("color","red");
+				}
+			}
+		})
+		/* 密码验证 *//* pwd、rpwd */
+		$("#pwd").focus(function(){
+			$("#s2").html("以字母开头，包括数字、下划线").css("color","#A9A9A9");
+		})
+		$("#pwd").blur(function(){
+			var pwd=$("#pwd").val();
+			var re=/^[a-zA-Z\d_]{6,12}$/;
+			if(pwd==""){
+				$("#s2").html("密码不能为空").css("color","red");
+			}else{
+				if(re.test(pwd)){
+					$("#s2").html("");
+				}else{
+					$("#s2").html("请输入正确的密码格式")
+				}
+			}
+		})
+		
+		$("#rpwd").focus(function(){
+			$("#s3").html("请确认密码").css("color","#A9A9A9");
+		})
+		$("#rpwd").blur(function(){
+			var rpwd=$("#rpwd").val();
+			var pwd=$("#pwd").val();
+			if(rpwd==pwd){
+				$("#s3").html("");
+			}else{
+				$("#s3").html("请确认密码").css("color","red");
+			}
+		})
+		
 		/* 注册按钮的点击事件 */
   		$("#but").click(function(){
+  			
   			var data={};
 			data["username"] = $("#user").val();
 			data["pwd"] = $("#pwd").val();
@@ -201,33 +250,32 @@
 				data : JSON.stringify(data),
 				success : function(data1) {
 
-					if(data1=="no"){						
+					if(data1=="success"){						
 						window.location.href="/p2p/jsp/Home.jsp"
 					}
 					else{						
 						alert("用户名已注册！！！  ");
-					}
-
-				
+						window.location.href="/p2p/jsp/Home.jsp"
+					}			
 				},
 				error : function(){
 					alert("error");
-
-
 				}
-			}); 
+			});  
   		})
 		/*登录按钮的点击事件*/
   		$("#button").click(function(){
   			var data={};
 			data["username"] = $("#username").val();
 			data["pwd"] = $("#possword").val();
+			
 			$.ajax({
 				type : "post",
 				url : "/p2p/user/login.do", 
 				contentType : "application/json;charset=utf-8",
 				data : JSON.stringify(data),
 				success : function(data1) {
+					
 					if(data1=="Ok"){
 						window.location.href="/p2p/user/listpro.do"
 					}

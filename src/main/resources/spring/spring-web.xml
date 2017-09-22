@@ -64,8 +64,12 @@
 				/add/** =anon
 				/user/** =anon
 				/zkj/** =anon
+				/jsp/myupdatepwd.jsp=anon
+				/jsp/myhuankuan.jsp=anon
+				/ypgPerson/ypgNal.do=anon
+				/total/**=anon
 				/** = authc
-
+				
 
 			</value>
 		</property>

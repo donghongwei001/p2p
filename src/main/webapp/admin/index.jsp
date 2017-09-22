@@ -18,7 +18,7 @@
 	href="../admin/static/h-ui.admin/css/H-ui.admin.css" />
 <link rel="stylesheet" type="text/css"
 	href="../admin/lib/Hui-iconfont/1.0.8/iconfont.css" />
-<link rel="stylesheet" type="text/css"
+<link rel="stylesheet" type="text/css" 
 	href="../admin/static/h-ui.admin/skin/default/skin.css" id="skin" />
 <link rel="stylesheet" type="text/css"
 	href="../admin/static/h-ui.admin/css/style.css" />
@@ -32,7 +32,9 @@
 					href="#"><h4>第七小组p2p后台管理</h4></h1></a> <a
 					class="logo navbar-logo-m f-l mr-10 visible-xs"
 					href="/aboutHui.shtml">H-ui</a> <span
-					class="logo navbar-slogan f-l mr-10 hidden-xs">v3.1</span> <a
+					class="logo navbar-slogan f-l mr-10 hidden-xs">v3.1</span><a href="#" title="消息"><span
+								class="badge badge-danger">未审核项目${count}</span><i class="Hui-iconfont"
+								style="font-size: 18px">&#xe68a;</i></a> <a
 					aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs"
 					href="javascript:;">&#xe667;</a>
 				<!-- <nav class="nav navbar-nav">
@@ -62,7 +64,9 @@
 				<nav id="Hui-userbar"
 					class="nav navbar-nav navbar-userbar hidden-xs">
 					<ul class="cl">
+					<li><a id="show" style="color:white;margin-top;15px;"></a></li>
 						<li>${rolename}</li>
+						
 						<li class="dropDown dropDown_hover"><a href="#"
 							class="dropDown_A">${user.empname}<i class="Hui-iconfont">&#xe6d5;</i></a>
 							<ul class="dropDown-menu menu radius box-shadow">
@@ -70,9 +74,8 @@
 								<li><a href="/p2p/login.jsp">切换账户</a></li>
 								<li><a href="/p2p/login.jsp">退出</a></li>
 							</ul></li>
-						<li><a id="show" style="color:white;margin-top;15px;"></a></li>
 						<li id="Hui-msg"><a href="#" title="消息"><span
-								class="badge badge-danger">${count}</span><i class="Hui-iconfont"
+								class="badge badge-danger">该下架项目${xiajia}</span><i class="Hui-iconfont"
 								style="font-size: 18px">&#xe68a;</i></a></li>
 						<li id="Hui-skin" class="dropDown right dropDown_hover"><a
 							href="javascript:;" class="dropDown_A" title="换肤"><i
@@ -187,7 +190,7 @@
 							href="javascript:void(0)">项目初审未通过</a></li></shiro:hasPermission>
 						<shiro:hasPermission name="nolastcheck"><li><a data-href="http://localhost:9088/p2p/jsp/nottwo.jsp" data-title="项目终审未通过"
 							href="javascript:void(0)">项目终审未通过</a></li></shiro:hasPermission>
-						<shiro:hasPermission name="openproject"><li><a data-href="http://localhost:9088/p2p/yx/fa.do" data-title="发布项目"
+						<shiro:hasPermission name="openproject"><li><a data-href="http://localhost:9088/p2p/jsp/Fabu.jsp" data-title="发布项目"
 							href="javascript:void(0)">发布项目</a></li></shiro:hasPermission>
 
 					</ul>
@@ -203,7 +206,7 @@
 				</dt>
 				<dd>
 					<ul>
-						<li><a data-href="http://localhost:9088/p2p/jsp/touzi.jsp" data-title="项目初审未通过"
+						<li><a data-href="http://localhost:9088/p2p/jsp/touzi.jsp" data-title="投资管理"
 							href="javascript:void(0)">投资管理</a></li>
 					</ul>
 				</dd>
@@ -219,11 +222,10 @@
 				<dd>
 
 					<ul><shiro:hasPermission name="intime">
-						<li><a data-href="../jsp/project.jsp" data-title="折线图"
-
+						<li><a data-href="../jsp/YpgRepayment.jsp" data-title="到期还款"
 							href="javascript:void(0)">到期还款</a></li></shiro:hasPermission>
 						<shiro:hasPermission name="outtime">
-						<li><a data-href="../role/Hmoney.do" data-title="时间轴折线图"
+						<li><a data-href="../jsp/YpgoutTime.jsp" data-title="逾期还款"
 							href="javascript:void(0)">逾期还款</a></li></shiro:hasPermission>
 
 
@@ -247,6 +249,9 @@
 						<shiro:hasPermission name="zijintongji">
 						<li><a data-href="../jsp/SzhJsp/Zjtj.jsp" data-title="资金统计"
 							href="javascript:void(0)">资金统计</a></li></shiro:hasPermission>
+						<shiro:hasPermission name="zhichushouru">
+						<li><a data-href="../jsp/zhichushouru.jsp" data-title="支出收入详情"
+							href="javascript:void(0)">支出收入详情</a></li></shiro:hasPermission>
 
 					</ul>
 				</dd>
@@ -370,23 +375,23 @@
 			var second = dateObj.getSeconds(); //当前系统时间的秒钟值
 			//如果月、日、小时、分、秒的值小于10，在前面补0
 			if(month<10){
-			month = "0"+month;
+				month = "0"+month;
 			}
 			if(date<10){
-			date = "0"+date;
+				date = "0"+date;
 			}
 			if(hour<10){
-			hour = "0"+hour;
+				hour = "0"+hour;
 			}
 			if(minute<10){
-			minute = "0"+minute;
+				minute = "0"+minute;
 			}
 			if(second<10){
-			second = "0"+second;
+				second = "0"+second;
 			}
 			var newDate = year+"年"+month+"月"+date+"日 "+week+" "+hour+":"+minute+":"+second;
-			document.getElementById("show").innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;系统公告：[ "+newDate+" ]";
-			setTimeout("getLangDate()",1000);//每隔1秒重新调用一次该函数 
+				document.getElementById("show").innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;系统公告：[ "+newDate+" ]";
+				setTimeout("getLangDate()",1000);//每隔1秒重新调用一次该函数 
 		}
 		getLangDate();
 	</script>

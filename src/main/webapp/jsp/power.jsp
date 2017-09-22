@@ -38,7 +38,7 @@
 				</tr>
 				<tr>
 					<th height="30">是否生成菜单：</th>
-					<td>是：<input id="generatenemu" name="generatenemu" TYPE="radio">否：<input id="generatenemu" name="generatenemu" TYPE="radio"></td>
+					<td>是：<input id="generatenemu" value="1" name="generatenemu" TYPE="radio">否：<input id="generatenemu" value="0" name="generatenemu" TYPE="radio"></td>
 				</tr>
 				<tr>
 					<th height="25">关键字：</th><td><input id="code" name="code" class="easyui-validatebox" data-options="required:true"></td>
@@ -146,7 +146,7 @@
 							beforePageText : '第',//页数文本框前显示的汉字 
 							afterPageText : '页    共 {pages} 页',
 							pagination : true, //分页工具栏
-							pagePosition : "top",
+							pagePosition : "bottom",
 							toolbar : "#toolbar",
 							queryParams: {
 								id: $("#powername").val()
@@ -159,7 +159,7 @@
 		                			alert("已经选中的行");
 		            			}
 							}, */
-							//fit : true,  
+							fit : true,  
 							onLoadSuccess:function(list){
 								
 							},
@@ -249,7 +249,7 @@
 					beforePageText : '第',//页数文本框前显示的汉字 
 					afterPageText : '页    共 {pages} 页',
 					pagination : true, //分页工具栏
-					pagePosition : "top",
+					pagePosition : "bottom",
 					toolbar : "#toolbar",
 					/* onClickRow:function(rowIndex,rowData){
 						 var rowInfo = $("#tb").datagrid('getChecked');
@@ -258,7 +258,7 @@
                 			alert("已经选中的行");
             			}
 					}, */
-					//fit : true,  
+					fit : true,  
 					onLoadSuccess:function(list){
 						
 					},
@@ -342,7 +342,6 @@
 						text : '保存',
 						iconCls : 'icon-save',
 						handler : function() {
-							alert("111");
 							var data={};
 							data["id"] = $("#id").val();
 							data["name"] = $("#name").val();
@@ -352,7 +351,6 @@
 							data["generatenemu"] = $("#generatenemu").val();
 							data["pid"] = $("#pid").val();
 							data["zindex"] = $("#zindex").val();
-							alert(data);
 							//data={id:$("#id").val(),name:$("#name").val(),code:$("#code").val(),page:$("#page").val(),description:$("#description").val(),generatenemu:$("#generatenemu").val(),pid:$("#pid").val(),zindex:$("#zindex").val()};
 							 $.ajax({ //发送了一个新的请求，与按钮这个请求完全不是一马事
 									type : "post", //请求方式
@@ -365,6 +363,7 @@
 										
 											alert("插入成功！")
 											$('#handledialog').dialog("close");
+											window.location.reload();
 										
 									} 
 							 })
@@ -438,18 +437,12 @@
 			var row = $('#tb').datagrid("getSelections");
 			if (row.length==1) {
 				var index=row[0].ID;
-				alert(index);
 				$.ajax({ //发送了一个新的请求，与按钮这个请求完全不是一马事
 					type : "post", //请求方式
 					url : "/p2p/aaa/deletepower.do", //请求地址
 					data:{id:index},//{nameha:$("#username").val(),passha:$("#password").val()},
 					//dataType : "json",
 					success : function(data) { //请求成功后调用的回调函数，参数1【data】 请求返回的数据，这个数据类型是dataType制定
-							
-						alert(data);
-							
-								var index = $('#tb').datagrid("getRowIndex", row); //得到该行的索引
-								$('#tb').datagrid("deleteRow", index); //删除该行
 								window.location.reload();
 		        			
 					}
@@ -485,7 +478,6 @@
 			var row = $('#tb').datagrid("getSelections");
 			if (row.length==1) {
 				var index=row[0].ID;
-				alert(index);
 				$.ajax({ //发送了一个新的请求，与按钮这个请求完全不是一马事
 					type : "post", //请求方式
 					url : "/p2p/aaa/selonepower.do", //请求地址

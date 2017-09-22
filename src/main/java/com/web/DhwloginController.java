@@ -38,6 +38,9 @@ public class DhwloginController {
 	private DhwloginDao  dhwloginDao;
 	@Autowired
 	private Dhwempservice Dhwempservice;
+	/*
+	 * 搜索用户授权
+	 */
 	@RequestMapping("/login")
 	public String login_back(String username,String password,HttpServletResponse response,HttpServletRequest request){
 		//获得当前用户对象
@@ -81,6 +84,19 @@ public class DhwloginController {
 		try {
 			DhwEmpTab user =(DhwEmpTab) subject.getPrincipal();//获得授权时放入的用户
 			String rolename=dhwloginDao.queryrolename(user.getEmpid());
+			int shulliang=dhwloginDao.selxiajia();
+			List<Map> list=dhwloginDao.queryxiajia();
+			int money=dhwloginDao.selmoney();
+			int index=0;
+			for (int i = 0; i < list.size(); i++) {
+				String time=list.get(i).get("TIME").toString().substring(0, 4);
+				 double d=Double.valueOf(time).doubleValue();
+				if (d>=7) {
+					index=index+1;
+				}
+			}
+			index=index+shulliang+money;
+			request.getSession().setAttribute("xiajia", index);
 			int count=dhwloginDao.querycount();
 			request.getSession().setAttribute("count", count);
 			request.getSession().setAttribute("rolename", rolename);
@@ -99,23 +115,16 @@ public class DhwloginController {
 		return "redirect:../login.jsp";
 		
 	}
-
-	private Object getText(String string) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	/*
+	 * 查询用户
+	 * 实行分页
+	 */
 	@RequestMapping("/query")
 	@ResponseBody
 	public Pageresult queryemp(Integer page,Integer rows){
 		int page1=page;
 		int rows1=rows;
 		List<Map> list=Dhwempservice.queryemp();
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		for (int i = 0; i < list.size(); i++) {
-			String time=simpleDateFormat.format(list.get(i).get("ADDTIME"));
-			list.get(i).put("time1", time);
-			
-		}
 		Page<Map> paging=new Page<Map>();
 		List<Map> list1=paging.paging(list,rows1,page1);
 		System.out.println(list1.size());
@@ -125,20 +134,16 @@ public class DhwloginController {
 		pResult.setRows(list1);
 		return pResult;
 	}
+	/*
+	 * 模糊查询员工
+	 */
 	@RequestMapping("/sel")
 	@ResponseBody
 	public Pageresult selemp(Integer page,Integer rows,HttpServletRequest request){
 		int page1=page;
 		int rows1=rows;
 		String name=request.getParameter("name");
-		String rname="%"+name+"%";
-		List<Map> list=Dhwempservice.selemp(rname);
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		for (int i = 0; i < list.size(); i++) {
-			String time=simpleDateFormat.format(list.get(i).get("ADDTIME"));
-			list.get(i).put("time1", time);
-			
-		}
+		List<Map> list=Dhwempservice.selemp(name);
 		Page<Map> paging=new Page<Map>();
 		List<Map> list1=paging.paging(list,rows1,page1);
 		System.out.println(list1.size());
@@ -148,27 +153,35 @@ public class DhwloginController {
 		pResult.setRows(list1);
 		return pResult;
 	}
+	/*
+	 * 增加员工
+	 */
 	@RequestMapping("/add")
 	@ResponseBody
 	public void addemp(DhwEmpTab empTab){
-		System.out.println(empTab);
 		Dhwempservice.addemp(empTab);
-		
-		
 	}
+	/*
+	 * 删除员工
+	 */
 	@RequestMapping("/delete")
 	@ResponseBody
 	public void deleteemp(int id){
 		Dhwempservice.deleteemprole(id);
 		Dhwempservice.deleteemp(id);
-		System.out.println(id);
 	}
+	/*
+	 * 搜索某个员工
+	 */
 	@RequestMapping("/selone")
 	@ResponseBody
 	public List<Map>  seloneemp(int id){
 		List<Map> list=Dhwempservice.seloneemp(id);
 		return list;
 	}
+	/*
+	 * 更改某个员工
+	 */
 	@RequestMapping("/updateemp")
 	@ResponseBody
 	public void updateemp(DhwEmpTab empTab){

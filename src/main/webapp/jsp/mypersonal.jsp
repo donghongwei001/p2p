@@ -15,7 +15,7 @@
 		body{/* background-color:#F5F5F5; */}
 		div a{text-decoration:none;}
 		#body{width:100%;height:auto;}
-		#top{width:76%;height:auto;align:center;margin-left:12%;float:left;}
+		#top{width:76%;height:auto;align:center;margin-left:11%;float:left;}
 		#top-img{float:left;}
 		#top-menu{float:left;margin-top:3.5%;margin-left:40px;}
 		#top-menu a{text-decoration:none;color:black;font-size:18px;}
@@ -33,12 +33,14 @@
 		#left3:hover{background-color:#F5F5F5;}
 		#left4:hover{background-color:#F5F5F5;}
 		#left6:hover{background-color:#F5F5F5;}
+		#left7:hover{background-color:#F5F5F5;}
 		#left1{text-align:center;font-size:18px;width:100%;height:50px;line-height:50px;background-color:#DCDCDC;}
 		#left2{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
 		#left3{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
 		#left4{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
 		#left5{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#F5F5F5;}
 		#left6{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
+		#left7{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
 		#content-right{width:76%;height:800px;float:left;margin-left:15px;background-color:#FFFFFF;}
 		#right-div{width:76%;height:auto;float:left;margin:50px 50px 50px 90px;}
 		#td-left{text-align:right;font-size:18px;width:200px;height:50px;line-hieght:50px;}
@@ -69,11 +71,11 @@
 	<div id="body">
 		<div id="top">
 			<div id="top-img">
-				<img src="../image/title2.png" />
+				<img src="../image/top.PNG" />
 			</div>			
 			<div id="top-menu">
 				<a href="/p2p/user/listpro.do">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="#">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="/p2p/user/listtouzi.do">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<span id="asd">我要借款&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 				<a href="/p2p/user/zxlpersonal.do">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;						
 			</div>
@@ -93,9 +95,11 @@
 					<div id="left1"><a href="/p2p/user/zxlpersonal.do">我的资产</a></div>
 					<div id="left2"><a href="/p2p/user/myproject.do">我的项目</a></div>
 					<div id="left3"><a href="/p2p/user/mytouzi.do">我的投资</a></div>
-					<div id="left4"><a href="/p2p/user/myhuankuan.do">我的还款</a></div>
+					<div id="left4"><a href="/p2p/jsp/myhuankuan.jsp">我的还款</a></div>
+					<div id="left7"><a href="/p2p/total/yuqihuankuan.do">逾期还款</a></div>
 					<div id="left5"><a href="/p2p/user/mypersonal.do">个人信息</a></div>
-					<div id="left6"><a href="/p2p/user/updatepwd.do">修改密码</a></div>
+					<div id="left6"><a href="/p2p/jsp/myupdatepwd.jsp">修改密码</a></div>
+
 				</div>
 			
 				<div id="content-right">
@@ -191,6 +195,7 @@
 </html>
 <script>
 	$("#asd").click(function(){
+		
 		$.ajax({
 			 type:"post",
 			// dataType:"json",
@@ -199,11 +204,11 @@
 			//data:str1,
 			 contentType:"application/json;charset=utf-8",
 			 success:function(dataa){
-				 alert(dataa);
+				
 				 if(dataa==null||dataa==""){
 					 window.location.href="../jsp/jiekuan.jsp";
 				 }else{
-					 alert("ssss");
+					
 					 window.location.href="../jsp/xiangmushenqing.jsp";
 				 }
 			 }

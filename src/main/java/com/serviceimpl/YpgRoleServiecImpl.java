@@ -1,11 +1,8 @@
 package com.serviceimpl;
-
 import java.util.List;
 import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.dao.YpgRoleDao;
 import com.service.YpgRoleService;
 
@@ -13,25 +10,43 @@ import com.service.YpgRoleService;
 public class YpgRoleServiecImpl implements YpgRoleService{
 	@Autowired
 	private YpgRoleDao role;
-	@Override
-	public List<Map> getQueryRole() {
+	
+	/**
+	 * 查询角色
+	 */
+	
+	/*	@Override
+		public List<Map> getQueryRole() {
 		// TODO Auto-generated method stub
 		return role.queryRole();
-	}
+	}*/
+	
+	/**
+	 * 查询个人信息
+	 */
 	@Override
 	public List<Map> queryPersonals() {
 		// TODO Auto-generated method stub
 		return role.queryPersonals();
 	}
-	@Override
+	
+	/**
+	 * 查询后台还款详情
+	 */
+	/*@Override
 	public List<Map> queryRepayMoney() {
 		// TODO Auto-generated method stub
 		return role.queryRepayMoney();
-	}
-	@Override
+	}*/
+	
+	/**
+	 * 查询还款（练习）
+	 */
+	/*@Override
 	public List<Map> queryRepay() {
 		// TODO Auto-generated method stub
 		return role.queryRepay();
-	}
+	}*/
+	
 	
 }

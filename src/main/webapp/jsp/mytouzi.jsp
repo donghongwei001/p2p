@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -33,12 +34,14 @@
 		#left4:hover{background-color:#F5F5F5;}
 		#left5:hover{background-color:#F5F5F5;}
 		#left6:hover{background-color:#F5F5F5;}
+		#left7:hover{background-color:#F5F5F5;}
 		#left1{text-align:center;font-size:18px;width:100%;height:50px;line-height:50px;background-color:#DCDCDC;}
 		#left2{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
 		#left3{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#F5F5F5;}
 		#left4{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
 		#left5{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
 		#left6{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
+		#left7{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
 		#content-right{width:76%;height:800px;float:left;margin-left:15px;background-color:#FFFFFF;}
 		#right-div{width:76%;height:auto;float:left;margin:50px 50px 50px 90px;}
 		#div-img{float:left;}
@@ -67,11 +70,11 @@
 	<div id="body">
 		<div id="top">
 			<div id="top-img">
-				<img src="../image/title2.png" />
+				<img src="../image/top.PNG" />
 			</div>			
 			<div id="top-menu">
 				<a href="/p2p/user/listpro.do">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="#">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="/p2p/user/listtouzi.do">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<span id="asd">我要借款&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 				<a href="/p2p/user/zxlpersonal.do">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;						
 			</div>
@@ -91,9 +94,10 @@
 					<div id="left1"><a href="/p2p/user/zxlpersonal.do">我的资产</a></div>
 					<div id="left2"><a href="/p2p/user/myproject.do">我的项目</a></div>
 					<div id="left3"><a href="/p2p/user/mytouzi.do">我的投资</a></div>
-					<div id="left4"><a href="/p2p/user/myhuankuan.do">我的还款</a></div>
+					<div id="left4"><a href="/p2p/jsp/myhuankuan.jsp">我的还款</a></div>
+					<div id="left7"><a href="/p2p/total/yuqihuankuan.do">逾期还款</a></div>
 					<div id="left5"><a href="/p2p/user/mypersonal.do">个人信息</a></div>
-					<div id="left6"><a href="/p2p/user/updatepwd.do">修改密码</a></div>
+					<div id="left6"><a href="/p2p/jsp/myupdatepwd.jsp">修改密码</a></div>
 				</div>
 			
 				<div id="content-right">
@@ -103,18 +107,25 @@
 								<tr>
 									<th><h4>项目编号</h4></th>
 									<th><h4>项目名称</h4></th>
-									<th><h4>放款资金</h4></th>
+									<th><h4>放款资金(元)</h4></th>
 									<th><h4>放款时间</h4></th>
+									<th><h4>项目开始收益日期</h4></th>
+									<th><h4>项目状态</h4></th>
+									<th><h4>操作</h4></th>
 									
 								</tr>
 							</thead>
 							<tbody>
 								<c:forEach items="${touzi}" var="user">
 									<tr>
-										<td>${user.id}</td>
-										<td>${user.projectname}</td>
-										<td>${user.money}</td>
-										<td>${user.time}</td>										
+										<td>${user.PROJECTID}</td>
+										<td>${user.PROJECTNAME}</td>
+										<td>${user.MONEY}</td>
+										<td><fmt:formatDate value="${user.TIME}" pattern="yyyy年MM月dd日"/> </td>
+										<td><fmt:formatDate value="${user.LASTTIME}" pattern="yyyy年MM月dd日"/></td>
+										<td>${user.CODENAME}</td>
+										<input type="hidden" id="zhi" value="${user.PROJECTID}"/>
+										<td><a href="/p2p/user/xiangqing.do?pid=${user.PROJECTID}"><span class="label label-info" id="xiangqing">查看详情</span></a></td>										
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -123,6 +134,7 @@
 				</div>
 			</div>
 		</div>
+		
 		<div id="down">
 			<div id="down-one">
 				<span>联系我们</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;				
@@ -142,6 +154,7 @@
 </html>
 <script>
 	$("#asd").click(function(){
+		
 		$.ajax({
 			 type:"post",
 			// dataType:"json",
@@ -150,11 +163,11 @@
 			//data:str1,
 			 contentType:"application/json;charset=utf-8",
 			 success:function(dataa){
-				 alert(dataa);
+				
 				 if(dataa==null||dataa==""){
 					 window.location.href="../jsp/jiekuan.jsp";
 				 }else{
-					 alert("ssss");
+					
 					 window.location.href="../jsp/xiangmushenqing.jsp";
 				 }
 			 }

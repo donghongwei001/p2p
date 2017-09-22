@@ -174,7 +174,6 @@
 				var shijian1=$("#dd").val();
 				var shijian2=$("#ddd").val();
 				if (username!=""||(shijian1!=""&&shijian2!="")){
-					alert("1111")
 				
 					$('#tb').datagrid(
 							{
@@ -187,9 +186,10 @@
 								striped : true,
 								rownumbers : true,
 								fitColumns : false,
+								fit :true,
 								singleSelect : false, //是否只能选择一行
 								pagination : true, //分页工具栏
-								pagePosition : "top",
+								pagePosition : "bottom",
 								toolbar : "#toolbar",
 								onLoadSuccess:function(){
 									$("#sel").textbox('setValue','')
@@ -256,7 +256,7 @@
 												},
 												{
 													field : 'LIFELOAN',
-													title : '借款年限',
+													title : '借款期限（个月）',
 													width : 150,
 													align : 'center'
 												},
@@ -348,7 +348,7 @@
 							fitColumns : false,
 							singleSelect : false, //是否只能选择一行
 							pagination : true, //分页工具栏
-							pagePosition : "top",
+							pagePosition : "bottom",
 							toolbar : "#toolbar",
 							/* onClickRow:function(rowIndex,rowData){
 								 var rowInfo = $("#tb").datagrid('getChecked');
@@ -357,7 +357,7 @@
                         			alert("已经选中的行");
                     			}
 							}, */
-							//fit : true,  
+							fit : true,  
 							onLoadSuccess:function(list){
 								
 							},
@@ -409,7 +409,7 @@
 									},
 									{
 										field : 'LIFELOAN',
-										title : '借款年限',
+										title : '借款期限（个月）',
 										width : 150,
 										align : 'center'
 									},
@@ -555,7 +555,7 @@
 												id:row.ID
 												
 											},
-											//fit : true,  
+											fit : true,  
 											onLoadSuccess:function(list){
 												//alert(list.list[0].TIME);
 											},

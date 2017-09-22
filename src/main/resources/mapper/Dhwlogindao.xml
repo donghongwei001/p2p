@@ -15,4 +15,13 @@
 	<select id="querycount" resultType="int">
 		select count(*) from projectapplication where ADUITSTATE=1
 	</select>
+	<select id="queryxiajia" resultType="java.util.HashMap">
+		select (sysdate-begintime) as time from projectrelease
+	</select>
+	<select id="selxiajia" resultType="int">
+		select count(*) from projectrelease r,projectapplication p where r.projectid=p.id and p.money=r.nowmoney and r.status=5
+	</select>
+	<select id="selmoney" resultType="int">
+		select count(*) from projectrelease r,projectapplication p where r.projectid=p.id and r.nowmoney=p.money and r.status=5
+	</select>
 </mapper>

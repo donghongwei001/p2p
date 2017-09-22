@@ -1,6 +1,8 @@
 package com.serviceimpl;
 
+import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,7 +11,7 @@ import com.dao.ZxlUserDao;
 import com.entity.ZxlMyHuankuan;
 import com.entity.ZxlMyPersonal;
 import com.entity.ZxlMyProject;
-import com.entity.ZxlMyTouzi;
+import com.entity.ZxlTouzi;
 import com.entity.ZxlUser;
 import com.service.ZxlUserService;
 /**
@@ -82,8 +84,8 @@ public class ZxlUserServiceImpl implements ZxlUserService{
 	 * 查询该用户投资的项目
 	 */
 	@Override
-	public List<ZxlMyTouzi> listmytouzi(String str) {
-		List<ZxlMyTouzi> list=userdao.listmytouzi(str);
+	public List<Map> listmytouzi(String str) {
+		List<Map> list=userdao.listmytouzi(str);
 		return list;
 	}
 	/**
@@ -91,8 +93,8 @@ public class ZxlUserServiceImpl implements ZxlUserService{
 	 */
 	@Override
 
-	public List<ZxlMyHuankuan> listhuankuan(String str) {
-		List<ZxlMyHuankuan> list=userdao.listhuankuan(str);
+	public List<Map> listhuankuan(String str) {
+		List<Map> list=userdao.listhuankuan(str);
 		return list;
 	}
 	/**
@@ -109,7 +111,6 @@ public class ZxlUserServiceImpl implements ZxlUserService{
 	@Override
 	public List<ZxlUser> updatepwd(String pwd) {
 		return userdao.updatepwd(pwd);		
-
 	}
 	/**
 	 * 查询项目详情
@@ -126,6 +127,110 @@ public class ZxlUserServiceImpl implements ZxlUserService{
 	public List<ZxlUser> listmoney(String user) {
 		List<ZxlUser> zxluser= userdao.listmoney(user);
 		return zxluser;
+	}
+	/**
+	 * 查询所有投资项目
+	 */
+	@Override
+	public List<ZxlTouzi> listtouzi() {
+		List<ZxlTouzi> list=userdao.listtouzi();
+		return list;
+	}
+	@Override
+	public void updatejine(String username, int money) {
+		// TODO Auto-generated method stub
+		int jine=userdao.seljine(username);
+		System.out.println("11111111111111");
+		int total=money+jine;
+		System.out.println(total);
+		userdao.updatejine(total, username);
+	}
+	@Override
+	public void updatezero(String username) {
+		// TODO Auto-generated method stub
+		userdao.updatezero(username);
+	}
+	@Override
+	public List<Map> listprojecttwo(String name) {
+		// TODO Auto-generated method stub
+		return userdao.listprojecttwo(name);
+	}
+	@Override
+	public List<Map> seljiekuanren(int id) {
+		// TODO Auto-generated method stub
+		return userdao.seljiekuanren(id);
+	}
+	@Override
+	public List<Map> selhuankuan(String name, int id) {
+		// TODO Auto-generated method stub
+		
+		return userdao.selhuankuan(name, id);
+	}
+	@Override
+	public List<Map> selchushen(String name) {
+		// TODO Auto-generated method stub
+		return userdao.selchushen(name);
 	} 
-
+	
+	@Override
+	public List<Map> selzhongshen(String name) {
+		// TODO Auto-generated method stub
+		return userdao.selzhongshen(name);
+	}
+	@Override
+	public List<Map> seltime(int id) {
+		// TODO Auto-generated method stub
+		return userdao.seltime(id);
+	}
+	@Override
+	public void updatemoney(double money, String name) {
+		// TODO Auto-generated method stub
+		userdao.updatemoney(money, name);
+	}	
+	
+	@Override
+	public int seljine(String username) {
+		// TODO Auto-generated method stub
+		return userdao.seljine(username);
+	}
+	@Override
+	public void updatestatus(int id,double money) {
+		// TODO Auto-generated method stub
+		userdao.updatestatus(id,money);
+	}
+	@Override
+	public void updateshoukuan(int id, String date) {
+		// TODO Auto-generated method stub
+		userdao.updateshoukuan(id, date);
+	}
+	@Override
+	public List<Map> seluserid(int id, String date) {
+		// TODO Auto-generated method stub
+		return userdao.seluserid(id, date);
+	}
+	@Override
+	public int seljinqian(int id) {
+		// TODO Auto-generated method stub
+		return userdao.seljinqian(id);
+	}
+	@Override
+	public int selgaihuankuan(String name) {
+		// TODO Auto-generated method stub
+		return userdao.selgaihuankuan(name);
+	}
+	@Override
+	public int seluser(int id) {
+		// TODO Auto-generated method stub
+		return userdao.seluser(id);
+	}
+	@Override
+	public String selusername(int userid) {
+		// TODO Auto-generated method stub
+		return userdao.selusername(userid);
+	}
+	@Override
+	public int selyuqi(String name) {
+		// TODO Auto-generated method stub
+		return userdao.selyuqi(name);
+	}
 }

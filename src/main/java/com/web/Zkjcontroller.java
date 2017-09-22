@@ -91,19 +91,7 @@ public class Zkjcontroller {
 	@ResponseBody
 	public String disableuser(@RequestBody String name){
 		servicedao.updateuser(name);
-		//System.out.println(name);
-	/*String[] aa=name.split(",");
-	String str="";
-	for(int i=0;i<aa.le ngth;i++){
-		servicedao.updateuser(aa[i]);
-		str=str+"'"+aa[i]+"'"+",";
-	}
-	String str1="";
-	for(int i=0;i<str.length()-1;i++){
-		str1=str1+str.charAt(i);
-	}
-	servicedao.updateuser(str1);
-	System.out.println(str1);*/
+		
 	
 		return "success";
 	}

@@ -8,18 +8,18 @@
  	
     <!-- Bootstrap core CSS -->
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <script src="../easyui/js/jquery.min.js"></script>  
     <script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../easyui/js/jquery.min.js"></script> 
     <script src="../bootstrap/js/bootstrap.min.js"></script>
     
- 	<script src="../bootstrap/js/shengshijilian/distpicker.data.js"></script>
+    <script src="../bootstrap/js/shengshijilian/distpicker.data.js"></script>
 	<script src="../bootstrap/js/shengshijilian/distpicker.js"></script>
 	<script src="../bootstrap/js/shengshijilian/main.js"></script>
 	
 	<style type="text/css">
 		body{/* background-color:#F5F5F5; */}
 		#body{width:100%;height:auto;}
-		#top{width:76%;height:auto;align:center;margin-left:12%;float:left;}
+		#top{width:76%;height:auto;align:center;margin-left:11%;float:left;}
 		#top-img{float:left;}
 		#top-menu{float:left;margin-top:3.5%;margin-left:40px;}
 		#top-menu a{text-decoration:none;color:black;font-size:18px;}
@@ -43,7 +43,18 @@
 			width:auto;
 			border:1px solid red;
 		}
-		
+		#content{
+			float:left;
+			
+			width:600px;
+		}
+		#disc{
+			
+			width:400px;
+			height:500px;
+			float:left;
+			
+		}
 	</style>
 	
 	
@@ -53,17 +64,17 @@
 	<div id="body">
 		<div id="top">
 			<div id="top-img">
-				<img src="../image/title2.png" />
+				<img src="../image/top.PNG" />
 			</div>			
 			<div id="top-menu">
-				<a href="http://localhost:9088/p2p/user/listpro.do">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="#">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="/p2p/user/listpro.do">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="/p2p/user/listtouzi.do">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<span id="asd">我要借款&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-				<a href="/p2p/user/personal.do">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;			
+				<a href="/p2p/user/zxlpersonal.do">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;			
 			</div>
 			<div id="top-login">										
-				欢迎<a href="http://localhost:9088/p2p/jsp/personal.jsp">${abcd}</a>!加入宜人贷&nbsp;&nbsp;&nbsp;&nbsp;
-				<a>帮助</a><span>|</span><a href="http://localhost:9088/p2p/jsp/Home.jsp">退出</a>
+				欢迎<a href="/p2p/user/zxlpersonal.do">${abcd}</a>!加入宜人贷&nbsp;&nbsp;&nbsp;&nbsp;
+				<a>帮助</a><span>|</span><a href="/p2p/jsp/Home.jsp">退出</a>
 			</div>
 		</div>
 		
@@ -74,17 +85,17 @@
 		</div>
 			
 		<div id="content">
-			<form class="form-horizontal" name="myform" action="/p2p/add/project.do" method="post" enctype="multipart/form-data">
+			<form class="form-horizontal" name="myform" action="/p2p/add/project.do" method="post" enctype="multipart/form-data" onsubmit="return check(this)">
 				<div class="form-group">
 					<label for="inputEmail3" style="font-size:16px;" class="col-sm-2 control-label">项目名称</label>
-					<div class="col-sm-5">
+					<div class="col-sm-9">
 						<input type="text" class="form-control" id="ptojectname" name="projectname"><span id="absf"></span>
 					</div>
 					
 				 </div>
 				 <div class="form-group">
 					<label for="input3" style="font-size:16px;" class="col-sm-2 control-label">项目类型</label>
-					<div class="col-sm-5">
+					<div class="col-sm-9">
 						<select class="form-control" name="projecttype" >
 							<option   value=1>建筑</option>
 							<option   value=2>科学</option>
@@ -95,7 +106,7 @@
 				 </div>
 				 <div class="form-group">
 					<label for="inputE" style="font-size:16px;" class="col-sm-2 control-label">项目地点</label>
-					<div class="col-sm-5 " >
+					<div class="col-sm-9" >
 						 <div id="distpicker2">
 							  <select name="location1" class="form-control "  id="s1"></select>
 							  <select name="location2" class="form-control" id="s2"></select>
@@ -107,9 +118,9 @@
 				
 				 <div class="form-group">
 				 	<label for="inputEm" style="font-size:16px;" class="col-sm-2 control-label">申请金额</label>
-				 <div class="col-lg-5">
+				 <div class="col-lg-9">
 					    <div class="input-group">
-					      <input type="text" class="form-control" name="money"  id="mmoney" placeholder="例如：10000" onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');">
+					      <input type="text" class="form-control" name="money"  id="mmmoney" placeholder="例如：10000" onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');">
 					      <span class="input-group-btn">
 					        <button class="btn btn-default"   type="button">元</button>
 					      </span><br/>
@@ -123,9 +134,9 @@
 				 
 				 <div class="form-group">
 					<label for="input2" style="font-size:16px;" class="col-sm-2 control-label">借款期限</label>
-					<div class="col-sm-5">
+					<div class="col-sm-9">
 						
-						<select class="form-control" name="lifeloan" >
+						<select class="form-control" id="life" name="lifeloan" >
 							<option   value=6>6个月</option>
 							<option   value=12>12个月</option>
 							<option   value=12>18个月</option>
@@ -134,11 +145,13 @@
 					</div>
 				 </div>
 				 <div class="form-group">
-					<label for="input2" style="font-size:16px;" class="col-sm-2 control-label">利率</label>
-					<div class="col-sm-5">
-						<input type="text" class="form-control" id="input2" name="ratemoney" placeholder="例如：0.001" >
+					<label for="input2" style="font-size:16px;" class="col-sm-2 control-label">月利率</label>
+					<div class="col-sm-9">
+						<input type="text" class="form-control" id="rateee" name="ratemoney" placeholder="例如：0.001" ><span id="vvi"></span>
 					</div>
 				 </div>
+				
+				 
 				 <div class="form-group">
 					<label for="inputEmail3" style="font-size:16px;" class="col-sm-2 control-label">附件</label>
 					<div class="input-group " >
@@ -151,8 +164,14 @@
 			    </div>
 			</div>
 				 </div>	
-				 <input type="submit"/>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input class="btn btn-info" type="submit" value="完成申请"/>
 			</form>			
+		</div>
+		<div id="disc">
+			<table id="ttb">
+			
+			</table>
 		</div>
 		
 		<div id="down">
@@ -176,6 +195,76 @@
 </html>
 
 <script>
+function check(){
+	var pp=$("#ptojectname").val();
+	var asd=$("#absf");
+	var qwe= /[\u4e00-\u9fa5]/;
+	asd.empty();
+	if(pp==""||pp==null){
+		asd.html("项目不能为空");
+		asd.css("color","red");
+		return false;
+	}else{ 
+		if(!qwe.test(pp)){
+		asd.html("只能输入汉字");
+		asd.css("color","red");
+		return false;
+	}
+	}
+	
+	var mm=$("#mmmoney").val();
+	var sp=$("#sp");
+	var rate=$("#rateee").val();
+	var life=$("#life").val();
+	var reg=/^[0-9]*$/;
+	sp.empty();
+	if(mm==""||mm==null){
+		sp.html("不能为空");
+		sp.css("color","red");
+		return false;
+	}else{
+	if(!reg.test(mm)){
+		sp.html("请输入正整数");
+		sp.css("color","red");
+		return false;
+	}else{
+		if(mm<0){
+			sp.html("请输入大于零的整数");
+			return false;
+		}else{
+			if(mm>1000000){
+				sp.html("最大申请额度为1000000元");
+				sp.css("color","red");
+				return false;
+			}
+		}
+	}
+	}
+	
+	
+	var rate=$("#rateee").val();
+	var life=$("#life").val();
+	var mmoney=$("#mmmoney").val();
+	$("#vvi").empty();
+	if(rate==null||rate==""){
+		$("#vvi").html("月利率不能为空");
+		$("#vvi").css("color","red");
+		return false;
+	}else{
+		if(parseFloat(rate)>1){
+			$("#vvi").html("利率太大啦");
+			return false;
+		}else{
+			if(rate==null||rate==""||life==null||life==""||mmmoney==null||mmmoney==""){
+				return false;
+			}
+		}
+	}
+
+	
+
+	
+}
 $("#ptojectname").blur(function(){
 	
 	var pp=$("#ptojectname").val();
@@ -193,6 +282,51 @@ $("#ptojectname").blur(function(){
 	}
 });
 
+$("#rateee").blur(function(){
+	var rate=$("#rateee").val();
+	var life=$("#life").val();
+	var mmoney=$("#mmmoney").val();
+	$("#vvi").empty();
+	if(rate==null||rate==""){
+		$("#vvi").html("月利率不能为空");
+		$("#vvi").css("color","red");
+		return false;
+	}else{
+		if(parseFloat(rate)>=1){
+			$("#vvi").html("利率太大啦");
+			$("#vvi").css("color","red");
+			return false;
+		}else{
+			if(rate==null||rate==""||life==null||life==""||mmmoney==null||mmmoney==""){
+				return false;
+			}else{
+				var data={};
+				data["rate"]=rate;
+				data["life"]=life;
+				data["mmoney"]=mmoney;
+				$.ajax({
+					type:"post",
+					url:"/p2p/zkj/capital.do",
+					contentType:"application/json;charset=utf-8",
+					data:JSON.stringify(data),
+					success :function(dataa){
+						$("#ttb").empty();
+						$("#ttb").append("<tr><td><h3>到期还款计划</h3></td></tr>");
+						$("#ttb").append("<tr><td><h3>本金为："+mmoney+"元</h3></td></tr>");
+						/* $("#ttb").append("<tr><td><h3>每月还款:"+dataa[0]+"元</h3></td></tr>"); */
+						$("#ttb").append("<tr><td><h3>总利息为："+/* (dataa[2]-mmoney).toFixed(2) */dataa[0]+"元</h3></td></tr>");
+						$("#ttb").append("<tr><td><h3>本息总共："+dataa[2]+"元</h3></td></tr>");
+						$("#ttb").append("<tr><td><h3>手续费为："+dataa[1]+"元</h3></td></tr>");
+						$("#ttb").append("<tr><td>温馨提示：计算结果仅为试算，实际费率结果以还款计划为准！</td></tr>");
+					}
+					
+				});
+			}
+		}
+	}
+	
+	
+});
 
 $("#distpicker2").distpicker({
 	  province: "---- 所在省 ----",
@@ -201,10 +335,11 @@ $("#distpicker2").distpicker({
 	});
 	
 	
-	$("#mmoney").blur(function(){
-		var mm=$("#mmoney").val();
+	$("#mmmoney").blur(function(){
+		var mm=$("#mmmoney").val();
 		var sp=$("#sp");
-		
+		var rate=$("#rateee").val();
+		var life=$("#life").val();
 		var reg=/^[0-9]*$/;
 		sp.empty();
 		if(mm==""||mm==null){
@@ -220,20 +355,86 @@ $("#distpicker2").distpicker({
 			if(mm<0){
 				sp.html("请输入大于零的整数");
 				return false;
+			}else{
+				if(mm>1000000){
+					sp.html("最大申请额度为1000000元");
+					sp.css("color","red");
+					return false;
+				}else{
+					if(rate!=null&&rate!=""&&life!=null&&life!=""&&mm!=null&&mm!=""){
+						var data={};
+						data["rate"]=rate;
+						data["life"]=life;
+						data["mmoney"]=mm;
+						
+						$.ajax({
+							type:"post",
+							url:"/p2p/zkj/capital.do",
+							contentType:"application/json;charset=utf-8",
+							data:JSON.stringify(data),
+							success :function(dataa){
+								$("#ttb").empty();
+								$("#ttb").append("<tr><td><h3>到期还款计划</h3></td></tr>");
+								$("#ttb").append("<tr><td><h3>本金为："+mm+"元</h3></td></tr>");
+								$("#ttb").append("<tr><td><h3>每月还款:"+dataa[0]+"元</h3></td></tr>");
+								$("#ttb").append("<tr><td><h3>总利息为："+(dataa[2]-mm).toFixed(2)+"元</h3></td></tr>");
+								$("#ttb").append("<tr><td><h3>本息总共："+dataa[2]+"元</h3></td></tr>");
+								$("#ttb").append("<tr><td><h3>手续费为："+dataa[1]+"元</h3></td></tr>");
+								$("#ttb").append("<tr><td>温馨提示：计算结果仅为试算，实际费率结果以还款计划为准！</td></tr>");
+							}
+							
+						});
+					}else{
+						return false;
+					}
+				}
+				
 			}
 		}
 		}
 		
 		
 	});
+	
+	
+	$("#life").blur(function(){
+		var mm=$("#mmmoney").val();
+		
+		var rate=$("#rateee").val();
+		var life=$("#life").val();
+		if(rate!=null&&rate!=""&&life!=null&&life!=""&&mm!=null&&mm!=""){
+			var data={};
+			data["rate"]=rate;
+			data["life"]=life;
+			data["mmoney"]=mm;
+			$.ajax({
+				type:"post",
+				url:"/p2p/zkj/capital.do",
+				contentType:"application/json;charset=utf-8",
+				data:JSON.stringify(data),
+				success :function(dataa){
+					$("#ttb").empty();
+					$("#ttb").append("<tr><td><h3>到期还款计划</h3></td></tr>");
+					$("#ttb").append("<tr><td><h3>本金为："+mm+"元</h3></td></tr>");
+					$("#ttb").append("<tr><td><h3>每月还款:"+dataa[0]+"元</h3></td></tr>");
+					$("#ttb").append("<tr><td><h3>总利息为："+(dataa[2]-mm).toFixed(2)+"元</h3></td></tr>");
+					$("#ttb").append("<tr><td><h3>本息总共："+dataa[2]+"元</h3></td></tr>");
+					$("#ttb").append("<tr><td><h3>手续费为："+dataa[1]+"元</h3></td></tr>");
+					$("#ttb").append("<tr><td>温馨提示：计算结果仅为试算，实际费率结果以还款计划为准！</td></tr>");
+				}
+				
+			});
+			
+		}else{
+			return false;
+		}
+		
+	});
 	$(function(){
 		$("#itemPhoto").change(function(){
-  			alert(this.files);
   			var MAXWIDTH  = 260; 
   			var MAXHEIGHT = 180;
   			var div = document.getElementById('preview');
-  			alert("1212");
-  			alert(this.files);
   			if (this.files && this.files[0])
   			{
   				div.innerHTML ='<img id=imghead>';

@@ -16,7 +16,7 @@
 <script type="text/javascript" src="../easyui/js/easyui-lang-zh_CN.js"></script>
 </head>
 <body>
-<div id="toolbar">
+	<div id="toolbar">
 		<a id="updbtn"
 			href="javascript:void(0)" class="easyui-linkbutton"
 			data-options="iconCls:'icon-add'">查看详情并审核</a>
@@ -31,97 +31,98 @@
 				<tr>
 					<th height="28">个人姓名:</th>
 					<td><input id="personalname1" name="personalname"
-						class="easyui-validatebox"></td>
+						class="easyui-validatebox"style="border:0px;background:rgba(0, 0, 0, 0);"></td>
+				
 				</tr>
 				<tr>
 					<th height="28">身份证号:</th>
 					<td><input id="idcard1" name="idcard"
-						class="easyui-validatebox" ></td>
+						class="easyui-validatebox" style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 				</tr>
 				<tr>
 					<th height="28">手机号码:</th>
 					<td><input id="iphone1" name="iphone"
-						class="easyui-validatebox" ></td>
+						class="easyui-validatebox" style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 				</tr>
 				<tr>
 					<th height="28">联系邮箱:</th>
 					<td><input id="mailbox1" name="mailbox"
-						class="easyui-validatebox" ></td>
+						class="easyui-validatebox" style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 				</tr>
 				<tr>
 					<th height="28">是否已婚:</th>
 					<td><input id="marriage1" name="marriage"
-						class="easyui-validatebox" ></td>
+						class="easyui-validatebox" style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 				</tr>
 				<tr>
 					<th height="28">是否有子女:</th>
 					<td><input id="havachidren1" name="havachidren"
-						class="easyui-validatebox" ></td>
+						class="easyui-validatebox" style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 				</tr>
 				<tr>
 					<th height="28">家庭地址:</th>
 					<td><input id="address1" name="address"
-						class="easyui-validatebox" ></td>
+						class="easyui-validatebox" style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 				</tr>
 				<tr>
 					<th height="28">工作年限:</th>
 					<td><input id="worklife1" name="worklife"
-						class="easyui-validatebox" ></td>
+						class="easyui-validatebox" style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 				</tr>
 				<tr>
 					<th height="28">职业:</th>
 					<td><input id="occupation1" name="occupation"
-						class="easyui-validatebox" ></td>
+						class="easyui-validatebox" style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 				</tr>
 				<tr>
 					<th height="28">工作单位:</th>
 					<td><input id="workunit1" name="workunit"
-						class="easyui-validatebox" ></td>
+						class="easyui-validatebox" style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 				</tr>
 				<tr>
 					<th height="28">单位电话:</th>
 					<td><input id="unitphone1" name="unitphone"
-						class="easyui-validatebox" ></td>
+						class="easyui-validatebox" style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 				</tr>
 				<tr>
 					<th height="28">月收入:</th>
 					<td><input id="monthlyincome1" name="monthlyincome"
-						class="easyui-validatebox" ></td>
+						class="easyui-validatebox" style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 				</tr>
 				<tr>
 					<th height="28">是否有房:</th>
 					<td><input id="haveroom1" name="haveroom"
-						class="easyui-validatebox" ></td>
+						class="easyui-validatebox" style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 				</tr>
 				<tr>
 					<th height="28">有无房贷:</th>
 					<td><input id="houseloan1" name="houseloan"
-						class="easyui-validatebox" ></td>
+						class="easyui-validatebox" style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 				</tr>
 				<tr>
 					<th height="28">是否有车:</th>
 					<td><input id="havecar1" name="havecar"
-						class="easyui-validatebox" ></td>
+						class="easyui-validatebox" style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 				</tr>
 				<tr>
 					<th height="28">有无车贷:</th>
 					<td><input id="carloan1" name="carloan"
-						class="easyui-validatebox" ></td>
+						class="easyui-validatebox" style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 				</tr>
 				<tr>
 					<th height="28">亲属姓名:</th>
 					<td><input id="contactname1" name="contactname"
-						class="easyui-validatebox" ></td>
+						class="easyui-validatebox" style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 				</tr>
 				<tr>
 					<th height="28">亲属关系:</th>
 					<td><input id="contactrelation1" name="contactrelation"
-						class="easyui-validatebox" ></td>
+						class="easyui-validatebox" style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 				</tr>
 				<tr>
 					<th height="28">亲属电话:</th>
 					<td><input id="contactphone1" name="contactphone1"
-						class="easyui-validatebox" ></td>
+						class="easyui-validatebox" style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 				</tr>
 				<tr>
 				<th height="28">是否通过:</th>
@@ -147,13 +148,16 @@
 	fit : true,//
 	rownumbers : true,
 	singleSelect : false,
-	pagination : true,
-	pageSize : 10,
-	pageList : [ 10, 20, 30 ],
+	pageSize : 10,//每页显示的记录条数，默认为10 
+	pageList : [ 5, 10, 15 ],//可以设置每页记录条数的列表 
+	beforePageText : '第',//页数文本框前显示的汉字 
+	afterPageText : '页    共 {pages} 页',
+	pagination : true, //分页工具栏
+	pagePosition : "bottom",
 	toolbar : "#toolbar",
 	columns : [ [{
 		field : 'ID',
-		title : '项目序号',
+		title : '编号',
 		width : 60,
 		align : 'center'
 	}, {
@@ -178,7 +182,7 @@
 		align : 'center'
 	}, {
 		field : 'MONEY',
-		title : '金额',
+		title : '金额(元)',
 		width : 100,
 		align : 'center'
 	}, {
@@ -218,10 +222,9 @@
 								url : "/p2p/yx/onex.do", //请求地址
 								data : {
 									id : index
-								},//{nameha:$("#username").val(),passha:$("#password").val()},
+								},
 								dataType : "json",
 								success : function(data) { //请求成功后调用的回调函数，参数1【data】 请求返回的数据，这个数据类型是dataType制定
-									
 									var jsonObj = eval(data);
 									$.each(jsonObj, function(i, a) {
 										$("#personalname1").val(a.PERSONALNAME);
@@ -259,15 +262,21 @@
 										data["projectid"]=row[0].ID;
 										data["firststatus"]=$("input[name='xmstates']:checked").val();
 										data["firstremarks"]=$("#reason").val();
-										
+										data["onereason"]=$("#reason").val();
+									/* 	alert(data.firststatus);
+										alert(data.firstremarks);
+										alert(data.onereason); */
+										if(data.firststatus=='1'){
 										$.ajax({
 											type : "post",
 											url : "/p2p/first/shenhe.do",
 											contentType :"application/json;charset=UTF-8",
 											data:JSON.stringify(data),
 											success : function(data1){
-												if(data1=="success"){
-													alert("审核完成");
+												alert("审核完成");
+												window.location.href="http://localhost:9088/p2p/jsp/one.jsp"
+											/* 	if(data1=="success"){
+													
 													var row = $('#proDataGrid').datagrid("getSelections");
 													var data={};
 													data["id"]=row[0].ID;
@@ -282,15 +291,27 @@
 															}
 													}
 														})
-												}
+												} */
 											}
 										});
+										}else{
+											$.ajax({
+												type : "post",
+												url : "/p2p/first/onefailed.do",
+												contentType :"application/json;charset=UTF-8",
+												data:JSON.stringify(data),
+												success : function(data3){
+													
+														alert("审核完成");
+														window.location.href="http://localhost:9088/p2p/jsp/one.jsp"
+														
+												}
+											});
+										}
 									}
 								},{text : '关闭',
 									handler : function() {
 										alert("你确定取消吗？");
-										/* $("#personalname1")
-										.val("") */
 										$('#dialog').dialog("close");
 										window.location.reload();
 									}

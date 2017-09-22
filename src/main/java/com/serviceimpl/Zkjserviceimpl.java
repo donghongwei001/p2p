@@ -7,16 +7,22 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.dao.Zkjdao;
+import com.dao.Zkjdaointerface;
 import com.entity.ZkjInvest;
 import com.entity.Zkjproject;
+import com.entity.Zkjtom;
 import com.service.Zkjservicedao;
 @Service
 public class Zkjserviceimpl implements Zkjservicedao {
 	@Autowired
 	private Zkjdao dao;
+	@Autowired
+	private Zkjdaointerface ssdao;
 	@Override
+	@Transactional
 	public void saveproject(Zkjproject pp,String name) {
 		// TODO Auto-generated method stub
 		int userid=dao.quertuserid(name);
@@ -59,7 +65,7 @@ public class Zkjserviceimpl implements Zkjservicedao {
 		
 	}
 	@Override
-
+	@Transactional
 	public void addinvest(ZkjInvest zz,String name) {
 		// TODO Auto-generated method stub
 		
@@ -69,6 +75,21 @@ public class Zkjserviceimpl implements Zkjservicedao {
 		zz.setInvestorid(id);
 		zz.setTime(timm);
 		dao.saveinvest(zz);
+		Zkjtom zt=new Zkjtom();
+		
+		Integer investmoney=ssdao.totalmoneyinvest(zz.getSubjectid());
+		
+		Integer loanmoney=ssdao.loanmoney(zz.getSubjectid());
+		System.out.println(investmoney+"investmoney");
+		System.out.println(loanmoney+"loanmoney");
+		if(investmoney==null){
+			investmoney=0;
+		}
+		int surplusinvest=loanmoney-investmoney;
+		
+		zt.setNowmoney(investmoney);
+		zt.setProjectid(zz.getSubjectid());
+		dao.updateprojectrelease(zt);
 	}
 	@Override
 	public String queryname(String name) {

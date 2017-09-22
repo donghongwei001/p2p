@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -15,7 +16,7 @@
 		body{/* background-color:#F5F5F5; */}
 		div a{text-decoration:none;}
 		#body{width:100%;height:auto;}
-		#top{width:76%;height:auto;align:center;margin-left:12%;float:left;}
+		#top{width:76%;height:auto;align:center;margin-left:11%;float:left;}
 		#top-img{float:left;}
 		#top-menu{float:left;margin-top:3.5%;margin-left:40px;}
 		#top-menu a{text-decoration:none;color:black;font-size:18px;}
@@ -33,13 +34,15 @@
 		#left4:hover{background-color:#F5F5F5;}
 		#left5:hover{background-color:#F5F5F5;}
 		#left6:hover{background-color:#F5F5F5;}
+		#left7:hover{background-color:#F5F5F5;}
 		#left1{text-align:center;font-size:18px;width:100%;height:50px;line-height:50px;background-color:#DCDCDC;}
 		#left2{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#F5F5F5;}
 		#left3{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
 		#left4{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
 		#left5{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
 		#left6{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
-		#content-right{width:76%;height:800px;float:left;margin-left:15px;background-color:#FFFFFF;}
+		#left7{text-align:center;font-size:18px;width:100%;height:50px;margin-top:5px;line-height:50px;background-color:#DCDCDC;}
+		#content-right{width:77%;height:800px;float:left;margin-left:15px;background-color:#FFFFFF;}
 		#right-div{width:76%;height:auto;float:left;margin:50px 50px 50px 90px;}
 		#div-img{float:left;}
 		#div-name{float:left;margin-left:20px;margin-right:20px;}	
@@ -67,11 +70,11 @@
 	<div id="body">
 		<div id="top">
 			<div id="top-img">
-				<img src="../image/title2.png" />
+				<img src="../image/top.PNG" />
 			</div>			
 			<div id="top-menu">
 				<a href="/p2p/user/listpro.do">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="#">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="/p2p/user/listtouzi.do">我要投资</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="#">我要借款</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="/p2p/user/zxlpersonal.do">个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;						
 			</div>
@@ -85,25 +88,42 @@
 				<span>账户首页<span>>></span>我的资产</span>
 			</div>
 		</div>
+		
 		<div id="con">		
 			<div id="content">
 				<div id="content-left">
 					<div id="left1"><a href="/p2p/user/zxlpersonal.do">我的资产</a></div>
 					<div id="left2"><a href="/p2p/user/myproject.do">我的项目</a></div>
 					<div id="left3"><a href="/p2p/user/mytouzi.do">我的投资</a></div>
-					<div id="left4"><a href="/p2p/user/myhuankuan.do">我的还款</a></div>
+					<div id="left4"><a href="/p2p/jsp/myhuankuan.jsp">我的还款</a></div>
+					<div id="left7"><a href="/p2p/total/yuqihuankuan.do">逾期还款</a></div>
 					<div id="left5"><a href="/p2p/user/mypersonal.do">个人信息</a></div>
-					<div id="left6"><a href="/p2p/user/updatepwd.do">修改密码</a></div>
+					<div id="left6"><a href="/p2p/jsp/myupdatepwd.jsp">修改密码</a></div>
 				</div>
 			
 				<div id="content-right">
-					<div id="right-div">						
-						<table class="table table-hover">
+					<div id="right-div">
+					
+				<div role="tabpanel" class="tab-pane" id="settings">
+				<div class="panel-group" id="accordion" role="tablist"
+					aria-multiselectable="true">
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="headingOne">
+							<h4 class="panel-title">
+								<a role="button" data-toggle="collapse" data-parent="#accordion"
+									href="#collapseOne" aria-expanded="true"
+									aria-controls="collapseOne"><span class="label label-default">未审核项目</span></a>
+							</h4>
+						</div>
+						<div id="collapseOne" class="panel-collapse collapse in"
+							role="tabpanel" aria-labelledby="headingOne">
+							<div class="panel-body">
+								<table class="table table-hover">
 							<thead>
 								<tr>
 									<th><h4>项目编号</h4></th>
 									<th><h4>项目名称</h4></th>
-									<th><h4>借款资金</h4></th>
+									<th><h4>借款资金(元)</h4></th>
 									<th><h4>借款时间</h4></th>
 									<th><h4>状态</h4></th>
 								</tr>
@@ -114,16 +134,156 @@
 										<td>${user.id}</td>
 										<td>${user.projectname}</td>
 										<td>${user.money}</td>
-										<td>${user.time}</td>
+										<td> ${user.time} </td>
 										<td>${user.codename}</td>
 									</tr>
 								</c:forEach>
 							</tbody>
 						</table>
+							</div>
+						</div>
+					</div>
+
+					
+					
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="headingThree">
+							<h4 class="panel-title">
+								<a class="collapsed" role="button" data-toggle="collapse"
+									data-parent="#accordion" href="#collapseThree"
+									aria-expanded="false" aria-controls="collapseThree">
+									<span class="label label-default">正审核项目</span></a>
+							</h4>
+						</div>
+						<div id="collapseThree" class="panel-collapse collapse"
+							role="tabpanel" aria-labelledby="headingThree">
+							<div class="panel-body">
+								<table class="table table-hover">
+							<thead>
+								<tr>
+									<th><h4>项目编号</h4></th>
+									<th><h4>项目名称</h4></th>
+									<th><h4>借款资金(元)</h4></th>
+									<th><h4>当前已筹到金额(元)</h4></th>
+									<th><h4>发布时间</h4></th>
+									
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach items="${list2}" var="user">
+									<tr>
+										<td>${user.ID}</td>
+										<td>${user.PROJECTNAME}</td>
+										<td>${user.MONEY}</td>
+										<td>${user.TIME}</td>
+										<td><fmt:formatDate value="${user.CODENAME}" pattern="yyyy年MM月dd日"/></td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="headingfour">
+							<h4 class="panel-title">
+								<a class="collapsed" role="button" data-toggle="collapse"
+									data-parent="#accordion" href="#collapsefour"
+									aria-expanded="false" aria-controls="collapsefour">
+									<span class="label label-default">未发布项目</span></a>
+							</h4>
+						</div>
+						<div id="collapsefour" class="panel-collapse collapse"
+							role="tabpanel" aria-labelledby="headingfour">
+							<div class="panel-body">
+								<table class="table table-hover">
+							<thead>
+								<tr>
+									<th><h4>项目编号</h4></th>
+									<th><h4>项目名称</h4></th>
+									<th><h4>借款资金(元)</h4></th>
+									<th><h4>当前已筹到金额(元)</h4></th>
+									<th><h4>发布时间</h4></th>
+									
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach items="${list3}" var="user">
+									<tr>
+										<td>${user.ID}</td>
+										<td>${user.PROJECTNAME}</td>
+										<td>${user.MONEY}</td>
+										<td>${user.TIME}</td>
+										<td><fmt:formatDate value="${user.CODENAME}" pattern="yyyy年MM月dd日"/></td>
+										
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="headingTwo">
+							<h4 class="panel-title">
+								<a class="collapsed" role="button" data-toggle="collapse"
+									data-parent="#accordion" href="#collapseTwo"
+									aria-expanded="false" aria-controls="collapseTwo">
+									<span class="label label-default">已发布项目</span> </a>
+							</h4>
+						</div>
+						<div id="collapseTwo" class="panel-collapse collapse"
+							role="tabpanel" aria-labelledby="headingTwo">
+							<div class="panel-body">
+								<table class="table table-hover">
+							<thead>
+								<tr>
+									<th><h5>项目编号</h4></th>
+									<th><h5>项目名称</h4></th>
+									<th><h5>借款资金(元)</h4></th>
+									<th><h5>当前已筹到金额(元)</h4></th>
+									<th><h5>发布时间</h4></th>
+									<th><h5>截止时间</h4></th>
+									<th><h5>当前状态</h4></th>
+									<th><h5>初审原因</h4></th>
+									<th><h5>终审原因</h4></th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach items="${list1}" var="user">
+									<tr>
+										<td>${user.ID}</td>
+										<td>${user.PROJECTNAME}</td>
+										<td>${user.MONEY}</td>
+										<td>${user.NOWMONEY}</td>
+										<td><fmt:formatDate value="${user.BEGINTIME}" pattern="yyyy年MM月dd日"/> </td>
+										<td><fmt:formatDate value="${user.LASTTIME}" pattern="yyyy年MM月dd日"/></td>
+										<td>${user.CODENAME}</td>
+										<td>${user.ONEREASON}</td>
+										<td>${user.TWOREASON}</td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+							</div>
+						</div>
+					</div>
+					</div>
+				</div>
+				
+				
+			</div>		
+								
+						
+								
+						
+						
+						
 					</div>					
 				</div>
 			</div>
 		</div>
+		
 		<div id="down">
 			<div id="down-one">
 				<span>联系我们</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;				
@@ -139,10 +299,12 @@
 			</div>
 		</div>
 	</div>	
+
 </body>
 </html>
 <script>
 	$("#asd").click(function(){
+		
 		$.ajax({
 			 type:"post",
 			// dataType:"json",
@@ -151,11 +313,11 @@
 			//data:str1,
 			 contentType:"application/json;charset=utf-8",
 			 success:function(dataa){
-				 alert(dataa);
+				
 				 if(dataa==null||dataa==""){
 					 window.location.href="../jsp/jiekuan.jsp";
 				 }else{
-					 alert("ssss");
+					
 					 window.location.href="../jsp/xiangmushenqing.jsp";
 				 }
 			 }

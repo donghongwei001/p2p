@@ -24,6 +24,9 @@ import oracle.net.aso.p;
 public class DhwrolepowerController {
 	@Autowired
 	private Dhwrolepowerservice dhwrolepowerservice;
+	/*
+	 * 查询所有角色
+	 */
 	@RequestMapping("/querypower")
 	@ResponseBody
 	public Pageresult querypower( Integer page,Integer rows){
@@ -51,6 +54,7 @@ public class DhwrolepowerController {
 	@RequestMapping("/addpower")
 	@ResponseBody
 	public int addpower(@RequestBody String str){
+		System.out.println(str);
 		Power power=JSON.parseObject(str, Power.class);
 		System.out.println(power);
 		int flag=0;
