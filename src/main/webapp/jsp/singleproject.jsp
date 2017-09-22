@@ -732,7 +732,6 @@ $("#asd").click(function(){
 				url:"/p2p/zkj/projectstatus.do",
 				data:{id:projectid},
 				success:function(dataa){
-					alert(dataa);
 					if(dataa==6){
 						$("#npu").val("项目已完成")	;
 						$("#npu").css("color","purple");
