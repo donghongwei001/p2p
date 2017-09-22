@@ -342,7 +342,6 @@
 						text : '保存',
 						iconCls : 'icon-save',
 						handler : function() {
-							alert("111");
 							var data={};
 							data["id"] = $("#id").val();
 							data["name"] = $("#name").val();
@@ -352,7 +351,6 @@
 							data["generatenemu"] = $("#generatenemu").val();
 							data["pid"] = $("#pid").val();
 							data["zindex"] = $("#zindex").val();
-							alert(data);
 							//data={id:$("#id").val(),name:$("#name").val(),code:$("#code").val(),page:$("#page").val(),description:$("#description").val(),generatenemu:$("#generatenemu").val(),pid:$("#pid").val(),zindex:$("#zindex").val()};
 							 $.ajax({ //发送了一个新的请求，与按钮这个请求完全不是一马事
 									type : "post", //请求方式
@@ -445,11 +443,6 @@
 					data:{id:index},//{nameha:$("#username").val(),passha:$("#password").val()},
 					//dataType : "json",
 					success : function(data) { //请求成功后调用的回调函数，参数1【data】 请求返回的数据，这个数据类型是dataType制定
-							
-						alert(data);
-							
-								var index = $('#tb').datagrid("getRowIndex", row); //得到该行的索引
-								$('#tb').datagrid("deleteRow", index); //删除该行
 								window.location.reload();
 		        			
 					}
