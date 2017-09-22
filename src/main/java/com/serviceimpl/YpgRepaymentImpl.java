@@ -1,7 +1,11 @@
 package com.serviceimpl;
 
 import java.math.BigDecimal;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -122,6 +126,17 @@ public class YpgRepaymentImpl implements YpgRepaymentService{
 			ypgrepayschedule.setSubjectid(yy.getId());
 			ypgrepayschedule.setTime2(yy.getTime2());
 			reDao.updateRepaySchedule(ypgrepayschedule);
+			//插入到收入支出表
+			Calendar c = Calendar.getInstance();
+			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");//日期格式的转换
+			c  =  Calendar.getInstance(Locale.CHINESE);   
+			System.out.println(simpleDateFormat.format(c.getTime()));//输出这种形式 2008-03-12    
+			
+			YpgUsermoney ypgExpendincome=new YpgUsermoney();
+			ypgExpendincome.setSubjectid(yy.getId());
+			ypgExpendincome.setNewTime(simpleDateFormat.format(c.getTime()));
+			ypgExpendincome.setTotalM(totalM);
+			reDao.insertExpendincome(ypgExpendincome);
 			
 		}
 		return null;
@@ -134,6 +149,14 @@ public class YpgRepaymentImpl implements YpgRepaymentService{
 	public List<Map> selectOutTimetable() {
 		// TODO Auto-generated method stub
 		return reDao.selectOutTimetable();
+	}
+	/**
+	 * 逾期表的模糊查询
+	 */
+	@Override
+	public List<Map> queryOutTimetable(String comname) {
+		// TODO Auto-generated method stub
+		return reDao.queryOutTimetable(comname);
 	}
 
 }

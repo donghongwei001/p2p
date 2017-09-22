@@ -17,4 +17,6 @@ public interface YpgRepaymentService {
 	public List<Map> queryProblems(Ypg yy);
 	//查询逾期项目表
 	public List<Map> selectOutTimetable();
+	//逾期项目表的模糊查询
+	public List<Map> queryOutTimetable(String comname);
 }

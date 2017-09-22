@@ -157,7 +157,7 @@
 	toolbar : "#toolbar",
 	columns : [ [{
 		field : 'ID',
-		title : '项目序号',
+		title : '编号',
 		width : 60,
 		align : 'center'
 	}, {
@@ -182,7 +182,7 @@
 		align : 'center'
 	}, {
 		field : 'MONEY',
-		title : '金额',
+		title : '金额(元)',
 		width : 100,
 		align : 'center'
 	}, {

@@ -322,7 +322,6 @@ $("#asd").click(function(){
 					url : "/p2p/user/huankuan.do", //请求地址
 					data:{id:index,money:qian,time:date},
 					success : function(data) { //请求成功后调用的回调函数，参数1【data】 请求返回的数据，这个数据类型是dataType制定
-							alert(data);
 						if (data=="0") {
 							alert("今日不用还款哦！")
 						}else if (data=="1") {
