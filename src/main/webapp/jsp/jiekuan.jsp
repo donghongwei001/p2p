@@ -543,7 +543,7 @@
 		})
 		/* 联系邮箱 */mailbox
 		$("#mailbox").focus(function(){
-			$("#span5").html("请输入银行卡号").css("color","#A9A9A9");
+			$("#span5").html("请输入联系邮箱").css("color","#A9A9A9");
 		})
 		$("#mailbox").blur(function(){
 			var name=$("#mailbox").val();
@@ -554,7 +554,7 @@
 				if(re.test(name)){
 					$("#span5").html("");
 				}else{
-					$("#span5").html("请输入正确的银行卡号").css("color","red");
+					$("#span5").html("请输入正确的联系邮箱").css("color","red");
 				}
 			}		
 		})

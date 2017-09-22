@@ -98,7 +98,7 @@
 								<tr>
 									<td width="220px;" align="right">用户名：</td>
 									<td>
-										<input type="text" id="user" class="form-control" placeholder="必须是5-10位数字或字母组成，开头不能是数字">
+										<input type="text" id="user" class="form-control" placeholder="">
 									</td>
 									<td><div id="s1"></div></td>
 								</tr>
@@ -189,9 +189,79 @@
 	
 </body>
 	<script type="text/javascript">
+		/* 用户名验证 */
+		$("#user").focus(function(){
+			$("#s1").html("请输入用户名").css("color","#A9A9A9");
+		})
+		$("#user").blur(function(){
+			var data={};
+			data["username"] = $("#user").val();
+			var user=$("#user").val();
+			var re=/[a-z]\d{3,10}/;
+			if(user==""){
+				$("#s1").html("用户名不能为空").css("color","red");
+			}else{
+				if(re.test(user)){
+					$.ajax({
+						type : "post",
+						url : "/p2p/user/add.do", 
+						contentType : "application/json;charset=utf-8",
+						data : JSON.stringify(data),
+						success : function(data1) {
+
+							if(data1=="success"){						
+								$("#s1").html("");
+							}
+							else{						
+								$("#1").html("用户名已注册").css("color","red");
+							}			
+						},
+						/* error : function(){
+							alert("注册错误！！！");
+						} */
+					});
+				}else{
+					$("#s1").html("输入正确的用户名").css("color","red");
+				}
+				
+			}
+			
+		})
+		/* 密码验证 *//* pwd、rpwd */
+		$("#pwd").focus(function(){
+			$("#s2").html("以字母开头，包括数字、下划线").css("color","#A9A9A9");
+		})
+		$("#pwd").blur(function(){
+			var pwd=$("#pwd").val();
+			var re=/^[a-zA-Z\d_]{6,12}$/;
+			if(pwd==""){
+				$("#s2").html("密码不能为空").css("color","red");
+			}else{
+				if(re.test(pwd)){
+					$("#s2").html("");
+				}else{
+					$("#s2").html("请输入正确的密码格式")
+				}
+			}
+		})
+		
+		$("#rpwd").focus(function(){
+			$("#s3").html("请确认密码").css("color","#A9A9A9");
+		})
+		$("#rpwd").blur(function(){
+			var rpwd=$("#rpwd").val();
+			var pwd=$("#pwd").val();
+			if(rpwd==pwd){
+				$("#s3").html("");
+			}else{
+				$("#s3").html("请确认密码").css("color","red");
+			}
+		})
+		
 		/* 注册按钮的点击事件 */
   		$("#but").click(function(){
-  			var data={};
+  			
+  			/* var data={};
 			data["username"] = $("#user").val();
 			data["pwd"] = $("#pwd").val();
 			$.ajax({
@@ -212,7 +282,7 @@
 				error : function(){
 					alert("error");
 				}
-			}); 
+			});  */
   		})
 		/*登录按钮的点击事件*/
   		$("#button").click(function(){
