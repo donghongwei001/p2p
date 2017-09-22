@@ -75,6 +75,7 @@
 			<div id="top-login">										
 				欢迎<a href="/p2p/user/zxlpersonal.do">${abcd}</a>!加入宜人贷&nbsp;&nbsp;&nbsp;&nbsp;<a href="/p2p/jsp/myhuankuan.jsp"><span
 								class="badge badge-danger">您有${index}条还款消息！</span></a>
+								<input type="hidden" id="yuqi" value="${yuqi}"/>
 				<a>帮助</a><span>|</span><a href="/p2p/jsp/Home.jsp">退出</a>
 			</div>
 		</div>
@@ -188,5 +189,13 @@
 			 }
 		 });
 	});
-	
+	$(function(){
+		var index=$("#yuqi").val();
+		if (index=="0") {
+			
+		}else {
+			alert("您有"+index+"条逾期还款消息,请尽快还款,以免对您的信用造成不良影响!")
+		}
+		
+	})
 </script>

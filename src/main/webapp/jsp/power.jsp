@@ -146,7 +146,7 @@
 							beforePageText : '第',//页数文本框前显示的汉字 
 							afterPageText : '页    共 {pages} 页',
 							pagination : true, //分页工具栏
-							pagePosition : "top",
+							pagePosition : "bottom",
 							toolbar : "#toolbar",
 							queryParams: {
 								id: $("#powername").val()
@@ -159,7 +159,7 @@
 		                			alert("已经选中的行");
 		            			}
 							}, */
-							//fit : true,  
+							fit : true,  
 							onLoadSuccess:function(list){
 								
 							},
@@ -249,7 +249,7 @@
 					beforePageText : '第',//页数文本框前显示的汉字 
 					afterPageText : '页    共 {pages} 页',
 					pagination : true, //分页工具栏
-					pagePosition : "top",
+					pagePosition : "bottom",
 					toolbar : "#toolbar",
 					/* onClickRow:function(rowIndex,rowData){
 						 var rowInfo = $("#tb").datagrid('getChecked');
@@ -258,7 +258,7 @@
                 			alert("已经选中的行");
             			}
 					}, */
-					//fit : true,  
+					fit : true,  
 					onLoadSuccess:function(list){
 						
 					},
@@ -439,7 +439,6 @@
 			var row = $('#tb').datagrid("getSelections");
 			if (row.length==1) {
 				var index=row[0].ID;
-				alert(index);
 				$.ajax({ //发送了一个新的请求，与按钮这个请求完全不是一马事
 					type : "post", //请求方式
 					url : "/p2p/aaa/deletepower.do", //请求地址
@@ -486,7 +485,6 @@
 			var row = $('#tb').datagrid("getSelections");
 			if (row.length==1) {
 				var index=row[0].ID;
-				alert(index);
 				$.ajax({ //发送了一个新的请求，与按钮这个请求完全不是一马事
 					type : "post", //请求方式
 					url : "/p2p/aaa/selonepower.do", //请求地址

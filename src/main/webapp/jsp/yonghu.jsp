@@ -43,7 +43,7 @@
 		        {field:'STATE',title:'是否禁用',width:100}
 		    ]]  ,
 		    striped:true, //斑马线
-		    
+		    fit :true,
 			pagination:true, //分页
 			pageSize:5,
 			fitColumns : true,
@@ -67,7 +67,6 @@
 			for(i;i<str.length-1;i++){
 				str1=str1+str[i];
 			}
-			 alert(str1);
 			// 循环组装："tom,zhangsan"
 			 $.ajax({
 				 type:"post",
@@ -96,7 +95,6 @@
 			for(i;i<str.length-1;i++){
 				str1=str1+str[i];
 			}
-			 alert(str1);
 			// 循环组装："tom,zhangsan"
 			 $.ajax({
 				 type:"post",

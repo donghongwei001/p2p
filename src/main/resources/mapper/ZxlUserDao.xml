@@ -106,4 +106,7 @@
 	<select id="selgaihuankuan" resultType="int" parameterType="String">
 		select count(*) from REPAYSCHEDULE r,projectapplication p,usertable u where repaydate=sysdate and r.projectid=p.id and p.userid=u.userid and u.username=#{name}
 	</select>
+	<select id="selyuqi" parameterType="String" resultType="int">
+		select count(*) from outtimetable o,projectapplication p,usertable u where o.projectid=p.id and p.userid=u.userid and u.username=#{name}
+	</select>
 </mapper>

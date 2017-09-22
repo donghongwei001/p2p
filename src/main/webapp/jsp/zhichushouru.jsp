@@ -45,7 +45,7 @@
 			beforePageText : '第',//页数文本框前显示的汉字 
 			afterPageText : '页    共 {pages} 页',
 			pagination : true, //分页工具栏
-			pagePosition : "top",
+			pagePosition : "bottom",
 			toolbar : "#toolbar",
 			/* onClickRow:function(rowIndex,rowData){
 				 var rowInfo = $("#tb").datagrid('getChecked');
