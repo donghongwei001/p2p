@@ -44,7 +44,7 @@
 					beforePageText : '第',//页数文本框前显示的汉字 
 					afterPageText : '页    共 {pages} 页',
 					pagination : true, //分页工具栏
-					pagePosition : "top",
+					pagePosition : "bottom",
 					toolbar : "#toolbar",
 					queryParams : {
 						name : $("#powername").val()
@@ -57,7 +57,7 @@
 							alert("已经选中的行");
 						}
 					}, */
-					//fit : true,  
+					fit : true,  
 					onLoadSuccess : function(list) {
 
 					},
@@ -69,7 +69,7 @@
 						hidden : true
 					}, {
 						field : 'USERID',
-						title : '用户id',
+						title : '用户编号',
 						width : 150,
 						align : 'center',
 						
@@ -215,7 +215,7 @@
 			beforePageText : '第',//页数文本框前显示的汉字 
 			afterPageText : '页    共 {pages} 页',
 			pagination : true, //分页工具栏
-			pagePosition : "top",
+			pagePosition : "bottom",
 			toolbar : "#toolbar",
 			/* queryParams: {
 				id: $("#powername").val()
@@ -228,7 +228,7 @@
 					alert("已经选中的行");
 				}
 			}, */
-			//fit : true,  
+			fit : true,  
 			onLoadSuccess : function(list) {
 
 			},
@@ -246,7 +246,7 @@
 				hidden : true
 			}, {
 				field : 'USERID',
-				title : '用户id',
+				title : '用户编号',
 				width : 150,
 				align : 'center',
 				

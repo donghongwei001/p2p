@@ -143,7 +143,6 @@
 		if (row.length==1) {
 			var index=row[0].EMPID;
 			if (window.confirm('你确定删除该角色吗？')) {
-			alert(index);
 			$.ajax({ //发送了一个新的请求，与按钮这个请求完全不是一马事
 				type : "post", //请求方式
 				url : "/p2p/emp/delete.do", //请求地址
@@ -171,7 +170,6 @@
 			var row = $('#tb').datagrid("getSelections");
 			if (row.length==1) {
 				var index=row[0].EMPID;
-				alert(index);
 				$.ajax({ //发送了一个新的请求，与按钮这个请求完全不是一马事
 					type : "post", //请求方式
 					url : "/p2p/emp/selone.do", //请求地址
@@ -219,7 +217,7 @@
 				beforePageText : '第',//页数文本框前显示的汉字 
 				afterPageText : '页    共 {pages} 页',
 				pagination : true, //分页工具栏
-				pagePosition : "top",
+				pagePosition : "bottom",
 				toolbar : "#toolbar",
 				queryParams : {
 					name : $("#powername").val()
@@ -232,7 +230,7 @@
 						alert("已经选中的行");
 					}
 				}, */
-				//fit : true,  
+				fit : true,  
 				onLoadSuccess : function(list) {
 
 				},
@@ -321,7 +319,6 @@
 											var s2=$("#shi1").val();
 											var s3=$("#xian1").val();
 											var s=s1+s2+s3;
-											alert(index);
 											var data = {};
 											data["empid"] = index;
 											data["empname"] = $("#empname1").val();
@@ -332,7 +329,6 @@
 											data["address"] = s;
 											data["Email"] = $("#emailaaa1").val();
 											data["addtime"] = $("#addtime1").val();
-											alert(data);
 											//data={id:$("#id").val(),name:$("#name").val(),code:$("#code").val(),page:$("#page").val(),description:$("#description").val(),generatenemu:$("#generatenemu").val(),pid:$("#pid").val(),zindex:$("#zindex").val()};
 											$
 													.ajax({ //发送了一个新的请求，与按钮这个请求完全不是一马事
@@ -453,7 +449,7 @@
 		fitColumns : true,
 		singleSelect : false, //是否只能选择一行
 		pagination : true, //分页工具栏
-		pagePosition : "top",
+		pagePosition : "bottom",
 		toolbar : "#toolbar",
 		/* onClickRow:function(rowIndex,rowData){
 			 var rowInfo = $("#tb").datagrid('getChecked');
@@ -462,7 +458,7 @@
 				alert("已经选中的行");
 			}
 		}, */
-		//fit : true,  
+		fit : true,  
 		onLoadSuccess : function(list) {
 
 		},

@@ -230,6 +230,9 @@ body { /* background-color:#F5F5F5; */
 	width: 33.3%;
 	text-align: center;
 }
+#usermoney{
+	display:none;
+}
 </style>
 
 <script type="text/javascript">
@@ -263,9 +266,10 @@ body { /* background-color:#F5F5F5; */
 
 					<c:forEach items="${listp }" var="li">
 
-						<span> 类型：<c:if test="${li.projecttype ==1}">建筑类</c:if> <c:if
-								test="${li.projecttype==2 }">科学类</c:if> <c:if
-								test="${li.projecttype ==3}">医药类</c:if> <c:if
+						<span> 类型：<c:if test="${li.projecttype ==1}">建筑类</c:if> 
+						<c:if   test="${li.projecttype==2 }">科学类</c:if> 
+						<c:if	test="${li.projecttype ==3}">医药类</c:if> 
+						<c:if
 								test="${li.projecttype ==4}">金融类</c:if> <c:if
 								test="${li.projecttype==5 }">食品类</c:if> <c:if
 								test="${li.projecttype==6 }">军火类</c:if> &nbsp; &nbsp; &nbsp;
@@ -541,7 +545,6 @@ body { /* background-color:#F5F5F5; */
 						return false;
 					}else{
 							if(mm>asspan){
-								
 								sp.html("金额不能大于当前项目剩余的最大金额");
 								sp.css("color","purple");
 							return false;

@@ -12,16 +12,24 @@
 <link rel="stylesheet" type="text/css" href="../easyui/css/icon.css" />
 <link rel="stylesheet" type="text/css" href="../easyui/css/easyui.css" />
 </head>
+<style>
+	#ssdd{
+		width:100%;
+		height:100%;
+	}
+</style>
 <body>
-	<a id="btn" href="#">禁用</a>  <a id="btna" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'">启用</a>  
-	 
-	<table id="dg" >	</table>
+	<div id="ssdd" class="easyui-layout">
+		<a id="btn" href="#">禁用</a>  <a id="btna" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'">启用</a>  
+		 
+		<table id="dg" >	</table>
+	</div>
 </body>
 </html>
 <script type="text/javascript"> 
 	$(function(){
 		$('#btn').linkbutton({    
-		    iconCls: 'icon-search'   
+		    iconCls: 'icon-no'   
 		}); 
 		
 		
@@ -35,12 +43,12 @@
 		        {field:'STATE',title:'是否禁用',width:100}
 		    ]]  ,
 		    striped:true, //斑马线
-		    
+		    fit :true,
 			pagination:true, //分页
 			pageSize:5,
 			fitColumns : true,
 			pageList:[5,10,15,20],
-			pagePosition : "top",
+			pagePosition : "bottom",
 			showFooter:true ,  //行脚
 			rownumbers:true   //行号
 
@@ -59,7 +67,6 @@
 			for(i;i<str.length-1;i++){
 				str1=str1+str[i];
 			}
-			 alert(str1);
 			// 循环组装："tom,zhangsan"
 			 $.ajax({
 				 type:"post",
@@ -88,7 +95,6 @@
 			for(i;i<str.length-1;i++){
 				str1=str1+str[i];
 			}
-			 alert(str1);
 			// 循环组装："tom,zhangsan"
 			 $.ajax({
 				 type:"post",

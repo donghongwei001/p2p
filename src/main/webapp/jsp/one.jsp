@@ -16,7 +16,7 @@
 <script type="text/javascript" src="../easyui/js/easyui-lang-zh_CN.js"></script>
 </head>
 <body>
-<div id="toolbar">
+	<div id="toolbar">
 		<a id="updbtn"
 			href="javascript:void(0)" class="easyui-linkbutton"
 			data-options="iconCls:'icon-add'">查看详情并审核</a>

@@ -42,7 +42,7 @@ $('#tb').datagrid({
 	beforePageText : '第',//页数文本框前显示的汉字 
 	afterPageText : '页    共 {pages} 页',
 	pagination : true, //分页工具栏
-	pagePosition : "top",
+	pagePosition : "bottom",
 	toolbar : "#toolbar",
 	fit : true,  
 	onLoadSuccess : function(list) {
@@ -60,17 +60,17 @@ $('#tb').datagrid({
 		align : 'center'
 	},  {
 		field : 'time1',
-		title : '时间',
+		title : '投资时间',
 		width : 150,
 		align : 'center'
 	},{
 		field : 'MONEY',
-		title : '金额',
+		title : '投资金额',
 		width : 150,
 		align : 'center'
 	},{
 		field : 'LIFELOAN',
-		title : '使用年限',
+		title : '使用期限（个月）',
 		width : 150,
 		align : 'center'
 	},{
@@ -94,7 +94,7 @@ $("#selbtn").click(function() {
 			beforePageText : '第',//页数文本框前显示的汉字 
 			afterPageText : '页    共 {pages} 页',
 			pagination : true, //分页工具栏
-			pagePosition : "top",
+			pagePosition : "bottom",
 			toolbar : "#toolbar",
 			queryParams : {
 				name : $("#powername").val()
@@ -107,7 +107,7 @@ $("#selbtn").click(function() {
 					alert("已经选中的行");
 				}
 			}, */
-			//fit : true,  
+			fit : true,  
 			onLoadSuccess : function(list) {
 
 			},
@@ -123,17 +123,17 @@ $("#selbtn").click(function() {
 				align : 'center'
 			},  {
 				field : 'time1',
-				title : '时间',
+				title : '投资时间',
 				width : 150,
 				align : 'center'
 			},{
 				field : 'MONEY',
-				title : '金额',
+				title : '投资金额',
 				width : 150,
 				align : 'center'
 			},{
 				field : 'LIFELOAN',
-				title : '使用年限',
+				title : '使用期限（个月）',
 				width : 150,
 				align : 'center'
 			},{
