@@ -39,21 +39,21 @@
 			padding:0;		
 		}
 		#zeroDiv {
-			width:80%;
+			width:90%;
 			height:auto;
-			margin-left:10%;
+			margin-left:5%;
 			/* overflow-y:scroll; */
 		}
 		#firstDiv {
 			/* margin-top:-20px; */
-			width:80%;
+			width:100%;
 			height:auto;
 			/* padding-top:20px;
 			padding-left:40px; */
 		}
 		#secondDiv {
-			/* width:60%;
-			height:80%; */
+			width:100%;
+			height:auto;
 			font-size:14px;
 			/* margin-left:300px; */
 		}
@@ -107,57 +107,88 @@
 
 		<div id="content">
 			<div id="zeroDiv">
-				<div id="secondDiv" class="input-append date" id="datetimepicker"
-					data-date="12-02-2012" data-date-format="dd-mm-yyyy">
+				<div id="secondDiv" class="input-append date" id="datetimepicker" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
 					<form action="/p2p/ypgPerson/ypgNal.do" method="post">
 						<table class="table table-hover">
 							<tr class="warning">
-								<td><span
-									style="float: right; font-size: 12px;font-weight:bold; margin-top: 4px;">姓名:</span></td>
-								<td><input name="personalname"  style="width: 250px; height:20px;"
-									class="form-control" type="text" /></td>
+								<td width="35%">
+									<span style="float: right; font-size: 16px;font-weight:bold; margin-top: 4px;">姓名:</span>
+								</td>
+								<td width="30%">
+									<input name="personalname" id="personalname" style="width: 250px;" class="form-control" type="text" />
+								</td>
+								<td width="35%">
+									<span id="span1" style="font-size:16px;"></span>
+								</td>
 							</tr>
 							<tr class="warning">
-								<td><span
-									style="float: right; font-size: 12px;font-weight:bold; margin-top: 4px;">身份证号:</span></td>
-								<td><input name="idcard" style="width: 250px;height:20px;"
-									class="form-control" type="text" /></td>
+								<td width="35%">
+									<span style="float: right; font-size: 16px;font-weight:bold; margin-top: 4px;">身份证号:</span>
+								</td>
+								<td width="30%">
+									<input name="idcard" id="idcard" style="width: 250px;" class="form-control" type="text" />
+								</td>
+								<td width="35%">
+									<span id="span2" style="font-size:16px;"></span>
+								</td>
 							</tr>
 							<tr class="danger">
-								<td><span
-									style="float: right; font-size: 12px;font-weight:bold; margin-top: 4px;">手机号:</span></td>
-								<td><input name="iphone" style="width: 250px; height:20px;"
-									class="form-control" type="text" /></td>
+								<td width="35%">
+									<span style="float: right; font-size: 16px;font-weight:bold; margin-top: 4px;">手机号:</span>
+								</td>
+								<td width="30%">
+									<input name="iphone" id="iphone" style="width: 250px; " class="form-control" type="text" />
+								</td>
+								<td width="35%">
+									<span id="span3" style="font-size:16px;"></span>
+								</td>
 							</tr>
 							<tr class="active">
-								<td><span
-									style="float: right; font-size: 12px;font-weight:bold; margin-top: 4px;">银行卡号:</span></td>
-								<td><input name="accountnumber" style="width: 250px; height:20px;"
-									class="form-control" type="text" /></td>
+								<td width="35%">
+									<span style="float: right; font-size: 16px;font-weight:bold; margin-top: 4px;">银行卡号:</span>
+								</td>
+								<td width="30%">
+									<input name="accountnumber" id="accountnumber" style="width: 250px; "class="form-control" type="text" />
+								</td>
+								<td width="35%">
+									<span id="span4" style="font-size:16px;"></span>
+								</td>
 							</tr>
 							<tr class="danger">
-								<td><span
-									style="float: right; font-size: 12px;font-weight:bold; margin-top: 4px;">联系邮箱:</span></td>
-								<td><input name="mailbox" style="width: 250px; height:20px;"
-									class="form-control" type="text" /></td>
+								<td width="35%">
+									<span style="float: right; font-size: 16px;font-weight:bold; margin-top: 4px;">联系邮箱:</span>
+								</td>
+								<td width="30%">
+									<input name="mailbox" id="mailbox" style="width: 250px;" class="form-control" type="text" />
+								</td>
+								<td width="35%">
+									<span id="span5" style="font-size:16px;"></span>
+								</td>
 							</tr>
 							<tr class="info">
-								<td><span
-									style="float: right; font-size: 12px;font-weight:bold; margin-top: 4px;">性别:</span></td>
-								<td><select name="sex" style="width: 70px; height:20px;"
-									class="selectpicker show-tick ">
+								<td width="35%">
+									<span style="float: right; font-size: 16px;font-weight:bold; margin-top: 4px;">性别:</span>
+								</td>
+								<td width="30%">
+									<select name="sex" style="width: 60px; " class="selectpicker show-tick form-control">
 										<option>男</option>
 										<option>女</option>
-								</select></td>
+									</select>
+								</td>
+								<td width="35%">
+									<span id="span0"></span>
+								</td>
 							</tr>
 							<tr class="danger">
-								<td><span style="float: right; font-size: 12px;font-weight:bold; margin-top: 5px;">出生日期:</span></td>
-								<td>
+								<td width="35%">
+									<span style="float: right; font-size: 16px;font-weight:bold; margin-top: 5px;">出生日期:</span>
+								</td>
+								<td width="65%" colspan="2">
 									<div class="form-group">
 										<div class="input-group date form_date col-md-2" data-date=""
 											data-date-format="yyyy-mm-dd" data-link-field="dtp_input2"
 											data-link-format="yyyy-mm-dd">
-											<input id="datatime" name="birthday" style="height:20px;width:160px;margin-top:4px;" size="12" type="text" value="" > 
+											<input id="datatime" name="birthday" style="width:150px;margin-top:4px;" class="form-control"  size="16" type="text" value="" > 
 												<span class="input-group-addon">
 													<span class="glyphicon glyphicon-remove" ></span>
 												</span> 
@@ -167,136 +198,228 @@
 										</div>
 										<input type="hidden" id="dtp_input2" value="" /><br />
 									</div>
-								</td> 
+								</td>
+								 
 							</tr>
 							<tr class="success">
-								<td><span
-									style="float: right; font-size: 12px;font-weight:bold; margin-top: 4px;">学历:</span></td>
-								<td><input name="educational" style="width: 250px; height:20px;"
-									class="form-control" type="text" /></td>
+								<td width="35%">
+									<span style="float: right; font-size: 16px;font-weight:bold; margin-top: 4px;">学历:</span>
+								</td>
+								<td width="30%">
+									<input name="educational" style="width: 250px; " class="form-control" type="text" />
+								</td>
+								<td width="35%">
+									<span id="span0"></span>
+								</td>
 							</tr>
 							<tr class="active">
 
-								<td><span
-									style="float: right; font-size: 12px;font-weight:bold; margin-top: 4px;">婚姻状况:</span></td>
-								<td><select name="marriage" style="width: 250px; height:20px;"
-									class="selectpicker show-tick">
+								<td width="35%">
+									<span style="float: right; font-size: 16px;font-weight:bold; margin-top: 4px;">婚姻状况:</span>
+								</td>
+								<td width="30%">
+									<select name="marriage" style="width: 80px;" class="selectpicker show-tick form-control">
 
 										<option>未婚</option>
 										<option>已婚</option>
-								</select></td>
+									</select>
+							 	</td>
+							 	<td width="35%">
+									<span id="span0"></span>
+								</td>
 							</tr>
 							<tr class="active">
-								<td><span
-									style="float: right; font-size: 12px;font-weight:bold; margin-top: 4px;">是否有子女:</span></td>
-								<td><select name="havachidren" style="width: 70px; height:20px;"
-									class="selectpicker show-tick">
+								<td width="35%">
+									<span style="float: right; font-size: 16px;font-weight:bold; margin-top: 4px;">是否有子女:</span>
+								</td>
+								<td width="30%">
+									<select name="havachidren" style="width: 60px;" class="selectpicker show-tick">
 										<option>是</option>
 										<option>否</option>
-								</select></td>
+									</select>
+								</td>
+								<td width="35%">
+									<span id="span0"></span>
+								</td>
 							</tr>
 							<tr class="success">
-								<td>
-									<span style="float: right; font-size: 12px;font-weight:bold; margin-top: 4px;">地点:</span>
+								<td width="35%">
+									<span style="float: right; font-size: 16px;font-weight:bold; margin-top: 4px;">地点:</span>
 								</td>
-								<td><div class="col-sm-9" id="distpicker2" name="address">
-										  <select name="location1" style="width: 130px; height:20px;"   id="s1"></select>
-										  <select name="location2" style="width: 130px; height:20px;"  id="s2"></select>
-										  <select name="location3" style="width: 130px; height:20px;"  id="s3" ></select>
+								<td width="65%" colspan="2">
+									<div class="col-sm-9" id="distpicker2" name="address">
+										  <select name="location1" style="width: 130px; float:left;"  class="selectpicker show-tick form-control" id="s1"></select>
+										  <select name="location2" style="width: 130px; float:left;" class="selectpicker show-tick form-control" id="s2"></select>
+										  <select name="location3" style="width: 130px; float:left;" class="selectpicker show-tick form-control" id="s3" ></select>
 									</div>
 								</td>
+								
 							</tr>
 							<tr class="success">
-								<td><span
-									style="float: right; font-size: 12px;font-weight:bold; margin-top: 4px;">家庭电话:</span></td>
-								<td><input name="homephone" style="width: 250px; height:20px;"
-									class="form-control" type="text" /></td>
+								<td width="35%">
+									<span style="float: right; font-size: 16px;font-weight:bold; margin-top: 4px;">家庭电话:</span>
+								</td>
+								<td width="30%">
+									<input name="homephone" id="homephone" style="width: 250px; " class="form-control" type="text" />
+								</td>
+								<td width="35%">
+									<span id="span6"></span>
+								</td>
 							</tr>
 							<tr class="success">
-								<td><span
-									style="float: right; font-size: 12px;font-weight:bold; margin-top: 4px;">工作年限:</span></td>
-								<td><input name="worklife" style="width: 250px; height:20px;"
-									class="form-control" type="text" /></td>
+								<td width="35%">
+									<span style="float: right; font-size: 16px;font-weight:bold; margin-top: 4px;">工作年限:</span>
+								</td>
+								<td width="30%">
+									<input name="worklife" style="width: 250px; " class="form-control" type="text" />
+								</td>
+								<td width="35%">
+									<span id="span7"></span>
+								</td>
 							</tr>
 							<tr class="success">
-								<td><span
-									style="float: right; font-size: 12px;font-weight:bold; margin-top: 4px;">职业:</span></td>
-								<td><input name="occupation" style="width: 250px; height:20px;"
-									class="form-control" type="text" /></td>
+								<td width="35%">
+									<span style="float: right; font-size: 16px;font-weight:bold; margin-top: 4px;">职业:</span>
+								</td>
+								<td width="30%">
+									<input name="occupation" style="width: 250px; " class="form-control" type="text" />
+								</td>
+								<td width="35%">
+									<span id="span8"></span>
+								</td>
 							</tr>
 							<tr class="success">
-								<td><span
-									style="float: right; font-size: 12px;font-weight:bold; margin-top: 4px;">工作单位:</span></td>
-								<td><input name="workunit" style="width: 250px; height:20px;"
-									class="form-control" type="text" /></td>
+								<td width="35%">
+									<span style="float: right; font-size: 16px;font-weight:bold; margin-top: 4px;">工作单位:</span>
+								</td>
+								<td width="30%">
+									<input name="workunit" style="width: 250px; " class="form-control" type="text" />
+								</td>
+								<td width="35%">
+									<span id="span0"></span>
+								</td>
 							</tr>
 							<tr class="success">
-								<td><span
-									style="float: right; font-size: 12px;font-weight:bold; margin-top: 4px;">单位性质:</span></td>
-								<td><input name="unitproperties" style="width: 250px; height:20px;"
-									class="form-control" type="text" /></td>
+								<td width="35%">
+									<span style="float: right; font-size: 16px;font-weight:bold; margin-top: 4px;">单位性质:</span>
+								</td>
+								<td width="30%">
+									<input name="unitproperties" style="width: 250px; " class="form-control" type="text" />
+								</td>
+								<td width="35%">
+									<span id="span0"></span>
+								</td>
 							</tr>
 							<tr class="success">
-								<td><span
-									style="float: right; font-size: 12px;font-weight:bold; margin-top: 4px;">单位电话:</span></td>
-								<td><input name="unitphone" style="width: 250px; height:20px;"
-									class="form-control" type="text" /></td>
+								<td width="35%">
+									<span style="float: right; font-size: 16px;font-weight:bold; margin-top: 4px;">单位电话:</span>
+								</td>
+								<td width="30%">
+									<input name="unitphone" style="width: 250px; " class="form-control" type="text" />
+								</td>
+								<td width="35%">
+									<span id="span9"></span>
+								</td>
 							</tr>
 							<tr class="success">
-								<td><span
-									style="float: right; font-size: 12px;font-weight:bold; margin-top: 4px;">月收入:</span></td>
-								<td><input name="monthlyincome" style="width: 250px; height:20px;"
-									class="form-control" type="text" /></td>
+								<td width="35%">
+									<span style="float: right; font-size: 16px;font-weight:bold; margin-top: 4px;">月收入:</span>
+								</td>
+								<td width="30%">
+									<input name="monthlyincome" style="width: 250px;" class="form-control" type="text" />
+								</td>
+								<td width="35%">
+									<span id="span10"></span>
+								</td>
 							</tr>
 							<tr class="active">
-								<td><span
-									style="float: right; font-size: 12px;font-weight:bold; margin-top: 4px;">是否有房:</span></td>
-								<td><select name="haveroom" style="width: 70px; height:20px;">
+								<td width="35%">		
+									<span style="float: right; font-size: 16px;font-weight:bold; margin-top: 4px;">是否有房:</span>
+								</td>
+								<td width="30%">
+									<select name="haveroom" style="width: 60px; " class="selectpicker show-tick form-control">
 										<option>是</option>
 										<option>否</option>
-								</select></td>
+									</select>
+								</td>
+								<td width="35%">
+									<span id="span0"></span>
+								</td>
 							</tr>
 							<tr class="active">
-								<td><span
-									style="float: right; font-size: 12px;font-weight:bold; margin-top: 4px;">是否有房贷:</span></td>
-								<td><select name="houseloan" style="width: 70px; height:20px;">
+								<td width="35% ">
+									<span style="float: right; font-size: 16px;font-weight:bold; margin-top: 4px;">是否有房贷:</span>
+								</td>
+								<td width="30%">
+									<select name="houseloan" style="width: 60px; " class="selectpicker show-tick form-control">
 										<option>是</option>
 										<option>否</option>
-								</select></td>
+									</select>
+								</td>
+								<td width="35%">
+									<span id="span0"></span>
+								</td>
 							</tr>
 							<tr class="active">
-								<td><span
-									style="float: right; font-size: 12px;font-weight:bold; margin-top: 4px;">是否有车:</span></td>
-								<td><select name="havecar" style="width: 70px; height:20px;">
+								<td width="35%"> 
+									<span style="float: right; font-size: 16px;font-weight:bold; margin-top: 4px;">是否有车:</span>
+								</td>
+								<td width="30%">
+									<select name="havecar" style="width: 60px; " class="selectpicker show-tick form-control">
 										<option>是</option>
 										<option>否</option>
-								</select></td>
+									</select>
+								</td>
+								<td width="35%">
+									<span id="span0"></span>
+								</td>
 							</tr>
 							<tr class="active">
-								<td><span
-									style="float: right; font-size: 12px;font-weight:bold; margin-top: 4px;">是否有车贷:</span></td>
-								<td><select name="carloan" style="width: 70px; height:20px; font-size: 10px;">
+								<td width="35%">
+									<span style="float: right; font-size: 16px;font-weight:bold; margin-top: 4px;">是否有车贷:</span>
+								</td>
+								<td width="30%">
+									<select name="carloan" style="width: 60px;  " class="selectpicker show-tick form-control">
 										<option>是</option>
 										<option>否</option>
-								</select></td>
+									</select>
+								</td>
+								<td width="35%">
+									<span id="span0"></span>
+								</td>
 							</tr>
 							<tr class="danger">
-								<td><span
-									style="float: right; font-size: 12px;font-weight:bold; margin-top: 4px;">亲属姓名:</span></td>
-								<td><input name="contactname" class="form-control"
-									style="width: 250px; height:20px;" type="text" /></td>
+								<td width="35%">
+									<span style="float: right; font-size: 16px;font-weight:bold; margin-top: 4px;">亲属姓名:</span>
+								</td>
+								<td width="30%">
+									<input name="contactname" class="form-control" style="width: 250px;" type="text" />
+								</td>
+								<td width="35%">
+									<span id="span0"></span>
+								</td>
 							</tr>
 							<tr class="danger">
-								<td><span
-									style="float: right; font-size: 12px;font-weight:bold; margin-top: 4px;">亲属关系:</span></td>
-								<td><input name="contactrelation" class="form-control"
-									style="width: 250px; height:20px;" type="text" /></td>
+								<td width="35%">
+									<span style="float: right; font-size: 16px;font-weight:bold; margin-top: 4px;">亲属关系:</span>
+								</td>
+								<td width="30%">
+									<input name="contactrelation" class="form-control" style="width: 250px; " type="text" />
+								</td>
+								<td width="35%">
+									<span id="span0"></span>
+								</td>
 							</tr>
 							<tr class="danger">
-								<td><span
-									style="float: right; font-size: 12px;font-weight:bold; margin-top: 4px;">亲属电话:</span></td>
-								<td><input id="contactphone" onfocus="contactphone(this)" onblur="contactph(this)" name="contactphone" class="form-control"
-									style="width: 250px; height:20px;" type="text" /></td>
+								<td width="35%">
+									<span style="float: right; font-size: 16px;font-weight:bold; margin-top: 4px;">亲属电话:</span>
+								</td>
+								<td width="30%">
+									<input id="contactphone" onfocus="contactphone(this)" onblur="contactph(this)" name="contactphone" class="form-control"style="width: 250px; " type="text" />
+								</td>
+								<td width="35%">
+									<span id="span0"></span>
+								</td>
 							</tr>
 						</table>
 						<div id="but">
@@ -330,7 +453,6 @@
 <script src="../bootstrap/js/shengshijilian/distpicker.js"></script>
 <script src="../bootstrap/js/shengshijilian/main.js"></script>
 
-
 <script>
 	$('.form_date').datetimepicker({
         language:  'zh-CN',
@@ -348,6 +470,111 @@
 		  district: "---- 所在区 ----"
 		});
 	
+	</script>
+	
+	<script type="text/javascript">
+		/* 姓名验证 */
+		$("#personalname").focus(function(){
+			$("#span1").html("请输入2-7个汉字").css("color","#A9A9A9");
+		})
+		$("#personalname").blur(function(){
+			var name=$("#personalname").val();
+			var re=/^([\u4e00-\u9fa5]){2,7}$/;
+			if(name==""){
+				$("#span1").html("不能为空").css("color","red");
+			}else{
+				if(re.test(name)){
+					$("#span1").html("");
+				}else{
+					$("#span1").html("请输入正确的姓名").css("color","red");
+				}
+			}		
+		})
+		/* 身份证验证 */
+		$("#idcard").focus(function(){
+			$("#span2").html("请输入18位身份证号").css("color","#A9A9A9");
+		})
+		$("#idcard").blur(function(){
+			var name=$("#idcard").val();
+			var re=/^[1-9][0-9]{5}(19[0-9]{2}|200[0-9]|2010)(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01])[0-9]{3}[0-9xX]$/;
+			if(name==""){
+				$("#span2").html("不能为空").css("color","red");
+			}else{
+				if(re.test(name)){
+					$("#span2").html("");
+				}else{
+					$("#span2").html("请输入正确的身份证号").css("color","red");
+				}
+			}		
+		})
+		/* 手机号验证 */
+		$("#iphone").focus(function(){
+			$("#span3").html("请输入手机号").css("color","#A9A9A9");
+		})
+		$("#iphone").blur(function(){
+			var name=$("#iphone").val();
+			var re=/^1[3|4|5|8][0-9]\d{8}$/;
+			if(name==""){
+				$("#span3").html("不能为空").css("color","red");
+			}else{
+				if(re.test(name)){
+					$("#span3").html("");
+				}else{
+					$("#span3").html("请输入正确的手机号").css("color","red");
+				}
+			}		
+		})
+		/* 银行卡号 */accountnumber
+		$("#accountnumber").focus(function(){
+			$("#span4").html("请输入银行卡号").css("color","#A9A9A9");
+		})
+		$("#accountnumber").blur(function(){
+			var name=$("#accountnumber").val();
+			var re=/\d{18}/;
+			if(name==""){
+				$("#span4").html("不能为空").css("color","red");
+			}else{
+				if(re.test(name)){
+					$("#span4").html("");
+				}else{
+					$("#span4").html("请输入正确的银行卡号").css("color","red");
+				}
+			}		
+		})
+		/* 联系邮箱 */mailbox
+		$("#mailbox").focus(function(){
+			$("#span5").html("请输入银行卡号").css("color","#A9A9A9");
+		})
+		$("#mailbox").blur(function(){
+			var name=$("#mailbox").val();
+			var re=/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
+			if(name==""){
+				$("#span5").html("不能为空").css("color","red");
+			}else{
+				if(re.test(name)){
+					$("#span5").html("");
+				}else{
+					$("#span5").html("请输入正确的银行卡号").css("color","red");
+				}
+			}		
+		})
+		/* 家庭电话 */homephone
+		$("#homephone").focus(function(){
+			$("#span6").html("请输入联系电话").css("color","#A9A9A9");
+		})
+		$("#homephone").blur(function(){
+			var name=$("#homephone").val();
+			var re=/^1(3|4|5|7|8)\d{9}$/;
+			if(name==""){
+				$("#span6").html("不能为空").css("color","red");
+			}else{
+				if(re.test(name)){
+					$("#span6").html("");
+				}else{
+					$("#span6").html("请输入正确的联系电话").css("color","red");
+				}
+			}		
+		})
 	</script>
 
 </html>
