@@ -59,7 +59,7 @@
 						class="easyui-validatebox" style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 				</tr>
 				<tr>
-					<th height="28">已筹到金额:</th>
+					<th height="28">已筹到金额(元):</th>
 					<td><input id="nowmoney1" name="nowmoney"
 						class="easyui-validatebox" style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 				</tr>
@@ -100,7 +100,7 @@ $(function(){
 	
 	columns : [ [{
 		field : 'PROJECTID',
-		title : '项目ID',
+		title : '编号',
 		width : 50,
 		
 	},{
@@ -123,7 +123,7 @@ $(function(){
 		width : 120
 	},{
 		field : 'MONEY',
-		title : '申请金额',
+		title : '申请金额(元)',
 		width : 200
 	},{
 		field : 'POSTSTATUS',
@@ -202,8 +202,6 @@ $(function(){
 		}
 	})
 
-	
-	
 	$("#seldo").click(function() {
 		var row = $('#proDataGrid').datagrid("getSelections");
 		if (row.length==1) {
@@ -266,38 +264,5 @@ $(function(){
 		}
 	});
 $('#dialog').dialog("close"); 
-
-
-
-
-	$("#xiajia").click(function(){
-		var row = $('#proDataGrid').datagrid("getSelections");
-		if (row.length==1) {
-			var index=row[0].POSTSTATUS;
-			if (index='5') {
-				if (window.confirm('你确定下架该项目吗？')) {
-					var pid=row[0].PROJECTID;
-				$.ajax({ //发送了一个新的请求，与按钮这个请求完全不是一马事
-					type : "post", //请求方式
-					url : "/p2p/first/xiajia.do", //请求地址
-					data : {
-						id : pid
-					},//{nameha:$("#username").val(),passha:$("#password").val()},
-					//dataType : "json",
-					success : function(data) { //请求成功后调用的回调函数，参数1【data】 请求返回的数据，这个数据类型是dataType制定
-						alert("下架成功!")
-						window.location.reload();
-					}
-				})
-				}
-			} else {
-				alert("该项目不可以下架")
-			}
-		}else {
-			alert("请选择一条要下架的项目");
-		}
-	})
-
-
 });
 </script>

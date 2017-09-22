@@ -52,7 +52,7 @@
 				</tr>
 				
 				<tr>
-					<th height="28">金额:</th>
+					<th height="28">金额(元):</th>
 					<td><input id="money1" name="money"
 						class="easyui-validatebox"style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 				</tr>
@@ -61,12 +61,6 @@
 					<td><input id="lifeloan1" name="lifeloan"
 						class="easyui-validatebox"style="border:0px;background:rgba(0, 0, 0, 0);"></td>
 				</tr>
-				<tr>
-					<th height="28">附件:</th>
-					<td><input id="appendix1" name="appendix"
-						class="easyui-validatebox"style="border:0px;background:rgba(0, 0, 0, 0);"></td>
-				</tr>
-				
 			<tr>
 				<th height="28">个人姓名:</th>
 				<td><input id="personalname1" name="personalname"
@@ -185,7 +179,7 @@ $(function(){
 
 	columns : [ [{
 		field : 'PROJECTID',
-		title : '项目ID',
+		title : '编号',
 		width : 200,
 		
 	},
@@ -229,7 +223,6 @@ $(function(){
 						$("#time1").val(a.TIME);
 						$("#money1").val(a.MONEY);
 						$("#lifeloan1").val(a.LIFELOAN);
-						$("#appendix1").val(a.APPENDIX);
 						$("#personalname1").val(a.PERSONALNAME);
 						$("#idcard1").val(a.IDCARD);
 						$("#iphone1").val(a.IPHONE);

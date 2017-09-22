@@ -19,7 +19,7 @@
 	<select id="querylm" resultType="java.util.HashMap" parameterType="int">
 		select u.username,p.projectname,s.name,p.location,p.time,p.money,p.lifeloan,p.appendix,
 		pp.personalname,pp.idcard,pp.iphone,pp.mailbox,pp.marriage,pp.havachidren,pp.address,pp.worklife,pp.occupation,pp.workunit,pp.unitphone,pp.monthlyincome,pp.haveroom,pp.houseloan,pp.havecar,pp.carloan,pp.contactname,pp.contactrelation,pp.contactphone
-		from projectapplication p,firsttable f,usertable u,subjectType s,psersonalform  pp where p.projecttype=s.id and p.userid=u.userid and p.projecttype=s.id and f.projectid=p.id and f.projectid=#{projectid} and p.userid=u.userid and pp.userid=u.userid and p.id=#{projectid}
+		from projectapplication p,firsttable f,usertable u,subjectType s,psersonalform  pp where p.projecttype=s.id and p.userid=u.userid and p.projecttype=s.id and f.projectid=p.id and f.projectid=#{id} and p.userid=u.userid and pp.userid=u.userid and p.id=#{id}
 	</select>
 	<!-- 查询要发布的项目 -->
 	<select id="queryfabu" resultType="java.util.HashMap">
@@ -32,7 +32,7 @@
 	</select>
 	<!-- 第二次审核没通过的 -->
 	<select id="querynottwo" resultType="java.util.HashMap">
-		select pp.projectid,p.projectname,pp.begintime,pp.twoperson,pp.tworeason from projectrelease pp,projectapplication p where pp.projectid=p.id and pp.status='11'
+	select pp.projectid,p.projectname,f.firstdate,f.firstname,f.firstremarks,pp.begintime,pp.twoperson,pp.tworeason from projectrelease pp,projectapplication p,firsttable f where pp.projectid=p.id and pp.projectid=f.projectid and pp.status='11'
 	</select>
 	<!-- 初审根据id查用户信息 -->
 	<select id="queryuser" resultType="java.util.HashMap" parameterType="int">
@@ -40,9 +40,9 @@
 	</select>
 	<!--初审没通过查详情  -->
 	<select id="queryfirst" resultType="java.util.HashMap" parameterType="int">
-	select u.username,p.projectname,s.name,p.location,p.time,p.money,p.lifeloan,p.appendix,
-		pp.personalname,pp.idcard,pp.iphone,pp.mailbox,pp.marriage,pp.havachidren,pp.address,pp.worklife,pp.occupation,pp.workunit,pp.unitphone,pp.monthlyincome,pp.haveroom,pp.houseloan,pp.havecar,pp.carloan,pp.contactname,pp.contactrelation,pp.contactphone
-		from projectapplication p,firsttable f,usertable u,subjectType s,psersonalform  pp where p.projecttype=s.id and p.userid=u.userid and p.projecttype=s.id and f.projectid=p.id and f.projectid=#{projectid} and p.userid=u.userid and pp.userid=u.userid and p.id=#{projectid}
+	select u.username,p.projectname,s.name,p.location,p.time,p.money,p.lifeloan,
+    pp.personalname,pp.idcard,pp.iphone,pp.mailbox,pp.marriage,pp.havachidren,pp.address,pp.worklife,pp.occupation,pp.workunit,pp.unitphone,pp.monthlyincome,pp.haveroom,pp.houseloan,pp.havecar,pp.carloan,pp.contactname,pp.contactrelation,pp.contactphone
+    from projectapplication p,projectrelease pj,usertable u,subjectType s,psersonalform  pp where p.projecttype=s.id and p.userid=u.userid and p.projecttype=s.id and pj.projectid=p.id and pj.projectid=#{projectid} and p.userid=u.userid and pp.userid=u.userid and p.id=#{projectid}
 	</select>
 	<!-- 下架的项目查看详情 -->
 	<select id="queryremove" resultType="java.util.HashMap" parameterType="int">
