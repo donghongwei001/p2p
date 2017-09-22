@@ -4,15 +4,15 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dao.SzhMoneyDao">
 	<select id="queryMoney" resultType="com.entity.SzhMoney">
-		select a.name,b.projectname,c.time,c.money,d.hktime,d.hkmoney,d.ptmoney,e.codename,f.outday
-		,f.outmoney from investor a,projectapplication b,invest c,repaymoney d,code e,outtime f where
-		c.investorid = a.id and b.id = c.subjectid and d.projrctid = c.subjectid and d.statu = e.codeid and f.projrctid = c.subjectid
+		select a.name,b.projectname,b.time,b.money,c.time,c.money,d.time,d.money,e.codename,f.lasttime,f.lastmoney
+		from investor a,projectapplication b,invest c,huankuantable d,code e,outtimetable f where c.investorid = a.id and
+		b.id = c.subjectid and d.projectid = c.investorid and d.status = e.codeid and f.projectid = c.subjectid order by b.time asc
 	</select>
 	<select id="queryMoneyName" resultType="com.entity.SzhMoney" parameterType="String">
 		select a.name,b.projectname,b.time,b.money,c.time,c.money,d.hktime,d.hkmoney,d.ptmoney,e.codename,f.outday
 		,f.outmoney from investor a,projectapplication b,invest c,repaymoney d,code e,outtime f
 		<where>
-			c.investorid = a.id and b.id = c.subjectid and d.projrctid = c.subjectid and d.statu = e.codeid and f.projrctid = c.subjectid
+			c.investorid = a.id and b.id = c.subjectid and d.projrctid = c.investorid and d.statu = e.codeid and f.projrctid = c.subjectid
 			<if test="_parameter != null">
 				and a.name like '%' || #{_parameter} || '%'
 			</if>
@@ -22,7 +22,7 @@
 		select a.name,b.projectname,b.time,b.money,c.time,c.money,d.hktime,d.hkmoney,d.ptmoney,e.codename,f.outday
 		,f.outmoney from investor a,projectapplication b,invest c,repaymoney d,code e,outtime f
 		<where>
-			c.investorid = a.id and b.id = c.subjectid and d.projrctid = c.subjectid and d.statu = e.codeid and f.projrctid = c.subjectid
+			c.investorid = a.id and b.id = c.subjectid and d.projrctid = c.investorid and d.statu = e.codeid and f.projrctid = c.subjectid
 			<if test="_parameter != null">
 				and b.projectname like '%' || #{_parameter} || '%'
 			</if>
@@ -32,7 +32,7 @@
 		select a.name,b.projectname,b.time,b.money,c.time,c.money,d.hktime,d.hkmoney,d.ptmoney,e.codename,f.outday
 		,f.outmoney from investor a,projectapplication b,invest c,repaymoney d,code e,outtime f
 		<where>
-			c.investorid = a.id and b.id = c.subjectid and d.projrctid = c.subjectid and d.statu = e.codeid and f.projrctid = c.subjectid
+			c.investorid = a.id and b.id = c.subjectid and d.projrctid = c.investorid and d.statu = e.codeid and f.projrctid = c.subjectid
 			<if test="_parameter != null">
 				and c.time between to_date('${param1}','yyyy-mm-dd')
 			</if>

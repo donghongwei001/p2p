@@ -242,10 +242,10 @@
 				<dd>
 
 					<ul><shiro:hasPermission name="peojecttongji">
-						<li><a data-href="../jsp/SzhJsp/Xmtj.jsp" data-title="系统设置"
+						<li><a data-href="../jsp/SzhJsp/Xmtj.jsp" data-title="项目统计"
 							href="javascript:void(0)">项目统计</a></li></shiro:hasPermission>
 						<shiro:hasPermission name="zijintongji">
-						<li><a data-href="../jsp/SzhJsp/Zjtj.jsp" data-title="栏目管理"
+						<li><a data-href="../jsp/SzhJsp/Zjtj.jsp" data-title="资金统计"
 							href="javascript:void(0)">资金统计</a></li></shiro:hasPermission>
 
 					</ul>

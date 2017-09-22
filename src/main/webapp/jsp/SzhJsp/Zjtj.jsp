@@ -16,11 +16,12 @@
 <body>
 	<div id="toolbar">
 		申请人检索：<input id="ss1" class="easyui-searchbox change"/>
-		项目名检索：<input id="sss1" class="easyui-searchbox change"/>  
-                                    日期检索：<input id="begindate1" type="text" class="easyui-datebox" currentText="今天" closeText="关闭" />到     
+		项目名检索：<input id="sss1" class="easyui-searchbox change"/><br/>
+            	日&nbsp;期&nbsp;检&nbsp;索：<input id="begindate1" type="text" class="easyui-datebox" currentText="今天" closeText="关闭" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;到&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
             <input id="enddate1" type="text" class="easyui-datebox" currentText="今天" closeText="关闭" />  
             <input style="width:10px;visibility:hidden" />  
-            <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'" onclick="searchOrder()">查询</a>
+            <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'" onclick="searchOrder()">查询</a>&nbsp;&nbsp;&nbsp;
+            <a href="SzhCeshi3.jsp" class="easyui-linkbutton c1" data-options="iconCls:'icon-large-chart'" style="width:80px">统计图</a>
 	</div>
 	<table id="dg1"></table>
 	
@@ -28,8 +29,9 @@
         $(function () {
             $('#dg1').datagrid({
                 singleSelect: true,
-                onLoadSuccess: compute,//加载完毕后执行计算
+                //onLoadSuccess: compute,//加载完毕后执行计算
                 url: '/p2p/queryMoney.do',
+                
                 fitColumns: true,
 				striped : true,
                 pagination: true,
@@ -41,7 +43,7 @@
                 toolbar : "#toolbar",
                 columns: [[{
 					field : 'name',
-					title : '申请人',
+					title : '投资人',
 					width : 160
 				},{
 					field : 'projectname',
@@ -82,7 +84,7 @@
 				}]]
             });
         });
-        function compute() {//计算函数
+       /*  function compute() {//计算函数
             var rows = $('#dg1').datagrid('getRows')//获取当前的数据行
             var ptotal = 0//计算listprice的总和
             ,utotal=0,htotal = 0,stotal = 0;//统计unitcost的总和
@@ -95,7 +97,7 @@
             //新增一行显示统计信息
             $('#dg1').datagrid('appendRow', { name: '<b style="font-size:14px;font-family:仿宋;">统计：</b>', money: '<b style="font-size:14px;font-family:仿宋;">总额：'+ptotal+'元</b>', hkmoney: '<b style="font-size:14px;font-family:仿宋;">总额：'+utotal+'元</b>',
             ptmoney: '<b style="font-size:14px;font-family:仿宋;">总额：'+htotal+'元</b>',outmoney: '<b style="font-size:14px;font-family:仿宋;">总额：'+stotal+'元</b>'});
-        }
+        } */
         
         $(function(){
         	$('#ss1').searchbox({ 
@@ -103,7 +105,7 @@
             		$('#dg1').datagrid({
                         singleSelect: true,
                         method:'post',
-                        onLoadSuccess: compute,//加载完毕后执行计算
+                        //onLoadSuccess: compute,//加载完毕后执行计算
                         url:'/p2p/queryMoneyName.do',
                         fitColumns: true,
         				striped : true,
@@ -170,7 +172,7 @@
             		$('#dg1').datagrid({
                         singleSelect: true,
                         method:'post',
-                        onLoadSuccess: compute,//加载完毕后执行计算
+                        //onLoadSuccess: compute,//加载完毕后执行计算
                         url:'/p2p/queryMoneyProject.do',
                         fitColumns: true,
         				striped : true,
@@ -237,7 +239,7 @@
             $('#dg1').datagrid({
                 singleSelect: true,
                 method:'post',
-                onLoadSuccess: compute,//加载完毕后执行计算
+                //onLoadSuccess: compute,//加载完毕后执行计算
                 url:'/p2p/queryMoneyTime.do',
                 fitColumns: true,
 				striped : true,
