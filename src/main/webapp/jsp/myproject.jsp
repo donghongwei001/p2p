@@ -123,7 +123,7 @@
 								<tr>
 									<th><h4>项目编号</h4></th>
 									<th><h4>项目名称</h4></th>
-									<th><h4>借款资金</h4></th>
+									<th><h4>借款资金(元)</h4></th>
 									<th><h4>借款时间</h4></th>
 									<th><h4>状态</h4></th>
 								</tr>
@@ -163,8 +163,8 @@
 								<tr>
 									<th><h4>项目编号</h4></th>
 									<th><h4>项目名称</h4></th>
-									<th><h4>借款资金</h4></th>
-									<th><h4>当前已筹到金额</h4></th>
+									<th><h4>借款资金(元)</h4></th>
+									<th><h4>当前已筹到金额(元)</h4></th>
 									<th><h4>发布时间</h4></th>
 									
 								</tr>
@@ -201,8 +201,8 @@
 								<tr>
 									<th><h4>项目编号</h4></th>
 									<th><h4>项目名称</h4></th>
-									<th><h4>借款资金</h4></th>
-									<th><h4>当前已筹到金额</h4></th>
+									<th><h4>借款资金(元)</h4></th>
+									<th><h4>当前已筹到金额(元)</h4></th>
 									<th><h4>发布时间</h4></th>
 									
 								</tr>
@@ -240,12 +240,13 @@
 								<tr>
 									<th><h5>项目编号</h4></th>
 									<th><h5>项目名称</h4></th>
-									<th><h5>借款资金</h4></th>
-									<th><h5>当前已筹到金额</h4></th>
+									<th><h5>借款资金(元)</h4></th>
+									<th><h5>当前已筹到金额(元)</h4></th>
 									<th><h5>发布时间</h4></th>
 									<th><h5>截止时间</h4></th>
 									<th><h5>当前状态</h4></th>
-									<th><h5>原因</h4></th>
+									<th><h5>初审原因</h4></th>
+									<th><h5>终审原因</h4></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -259,6 +260,7 @@
 										<td><fmt:formatDate value="${user.LASTTIME}" pattern="yyyy年MM月dd日"/></td>
 										<td>${user.CODENAME}</td>
 										<td>${user.ONEREASON}</td>
+										<td>${user.TWOREASON}</td>
 									</tr>
 								</c:forEach>
 							</tbody>

@@ -24,6 +24,9 @@ import oracle.net.aso.p;
 public class DhwrolepowerController {
 	@Autowired
 	private Dhwrolepowerservice dhwrolepowerservice;
+	/*
+	 * 查询所有角色
+	 */
 	@RequestMapping("/querypower")
 	@ResponseBody
 	public Pageresult querypower( Integer page,Integer rows){

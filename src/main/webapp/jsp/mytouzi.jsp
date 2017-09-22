@@ -70,7 +70,7 @@
 	<div id="body">
 		<div id="top">
 			<div id="top-img">
-				<img src="../image/title2.png" />
+				<img src="../image/top.PNG" />
 			</div>			
 			<div id="top-menu">
 				<a href="/p2p/user/listpro.do">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -107,7 +107,7 @@
 								<tr>
 									<th><h4>项目编号</h4></th>
 									<th><h4>项目名称</h4></th>
-									<th><h4>放款资金</h4></th>
+									<th><h4>放款资金(元)</h4></th>
 									<th><h4>放款时间</h4></th>
 									<th><h4>项目开始收益日期</h4></th>
 									<th><h4>项目状态</h4></th>

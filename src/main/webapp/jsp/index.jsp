@@ -43,7 +43,7 @@
 		#right-but{float:left;width:100%;height:auto;margin-top:50px;}
 		#right-tzbut{float:left;}
 		#right-jkbut{float:left;margin-left:20px;}
-		#right-span{width:100%;height:auto;border:1px solid red;}
+		#right-span{width:100%;height:auto;}
 		#total1{float:left;font-size:18px;width:100%;margin-top:50px;margin-left:10%;}
 		#total2{float:left;font-size:18px;width:100%;margin-top:10px;margin-left:40%;}
 		#total3{float:left;font-size:18px;width:100%;margin-top:10px;margin-left:10%;}
@@ -134,13 +134,13 @@
 						<span>累计投资笔数：</span>
 					</div>
 					<div id="total2">
-						<span>${zong.ccount}</span><span>笔</span>
+						<span style="font-size:20px;color:red;">${zong.ccount}</span><span style="font-size:16px;">&nbsp;笔</span>
 					</div>
 					<div id="total3">
 						<span>总投资金额：</span>
 					</div>
 					<div id="total4">
-						<span>${zong.sum}</span><span>元</span>
+						<span style="font-size:20px;color:red;">${zong.sum}</span><span style="font-size:16px;">&nbsp;元</span>
 					</div>
 				</div>
 					

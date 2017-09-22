@@ -265,7 +265,7 @@ $("#asd").click(function(){
 				checkbox : true
 			},{
 				field : 'ID',
-				title : '项目id',
+				title : '项目编号',
 				width : 150,
 				align : 'center'
 			}, {
@@ -280,7 +280,7 @@ $("#asd").click(function(){
 				align : 'center'
 			},{
 				field : 'MONTHMONEY',
-				title : '还款本金',
+				title : '还款本金(元)',
 				width : 150,
 				align : 'center'
 			},{
@@ -290,7 +290,7 @@ $("#asd").click(function(){
 				align : 'center'
 			},{
 				field : 'MONTHPRINCIPAL',
-				title : '还款本息',
+				title : '还款本息(元)',
 				width : 150,
 				align : 'center'
 			},{
@@ -339,7 +339,7 @@ $("#asd").click(function(){
 					alert("该条账单不可以还款")
 				}
 			} else {
-				alert("请选择一条账单再进行还款！");
+				alert("只能选择一条账单再进行还款！");
 			} 
 		})
 	})
