@@ -212,7 +212,7 @@ public class YxFirsttableController {
 				double money3 = Double.parseDouble(df.format(money39));
 				double money4=qian*0.01;
 				if (i==0) {
-					/*int userid=zxluserservice.seluser(id);
+					int userid=zxluserservice.seluser(id);
 					int usermoney=zxluserservice.seljinqian(userid);
 					double usermoney1=usermoney-money4;
 					String name=zxluserservice.selusername(userid);
@@ -221,7 +221,7 @@ public class YxFirsttableController {
 					int total=zhishouservices.querytotalmoney();
 					double totalmoney=total+money4;
 					int totalmon=(int) totalmoney;
-					firservice.updatetotalmoney(totalmon);*/
+					firservice.updatetotalmoney(totalmon);
 					money3=money3+money4;
 				}
 				System.out.println(money3);
