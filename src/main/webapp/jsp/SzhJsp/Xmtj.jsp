@@ -15,71 +15,69 @@
 </head>
 <body>
 	<div id="toolbar">
-		<input id="changeName1" size="24" maxlength="50" class="easyui-combobox change"
-		data-options="required:false,validType:'special'"/>
 		项目检索：<input id="ss" class="easyui-searchbox change"/>
 		用户检索：<input id="sss" class="easyui-searchbox change"/>
 		<br/>    
-                                    日期检索：<input id="begindate" type="text" class="easyui-datebox" currentText="今天" closeText="关闭" />到     
+                                    日期检索：<input id="begindate" type="text" class="easyui-datebox" currentText="今天" closeText="关闭" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;到&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <input id="enddate" type="text" class="easyui-datebox" currentText="今天" closeText="关闭" />  
             <input style="width:10px;visibility:hidden" />  
-            <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'" onclick="searchOrder()">查询</a>
-            <a href="index.html" class="easyui-linkbutton c1" data-options="iconCls:'icon-large-chart'" style="width:80px">统计图</a>
-            <!-- <input type="button" value="统计图" onclick="window.location='index.html?name=row1&参数2=值2'"> -->
+            <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'" onclick="searchOrder()">查询</a>&nbsp;&nbsp;&nbsp;
+            <a href="SzhCeshi3.jsp" class="easyui-linkbutton c1" data-options="iconCls:'icon-large-chart'" style="width:80px">统计图</a>
 	</div>
     <table id="dg"></table>
 	<script>
         $(function () {
             $('#dg').datagrid({
                 singleSelect: true,
-                onLoadSuccess: compute,//加载完毕后执行计算
+                //onLoadSuccess: compute,//加载完毕后执行计算
                 url: '/p2p/queryProject.do',
                 fitColumns: true,
 				striped : true,
-                pagination: true,
                 fit : true,
 				rownumbers : true,
-                pageSize: 20,
-                pageList : [ 20, 40, 60 ],
+				pagination:true,
+			    pagePosition:"bottom",
+			    pageSize:'5',
+				pageList:[5,10,15,20,25],
                 title: '项目统计',
-                toolbar : "#toolbar",
+                toolbar : "#toolbar", 
                 columns: [[
              	{
-					field : 'username',
-					title : '申请人',
+					field : 'USERNAME',
+					title : '用户名',
 					width : 200
 				},{
-					field : 'projectname',
+					field : 'PROJECTNAME',
 					title : '项目名称',
 					width : 200
 				}, {
-					field : 'name',
+					field : 'NAME',
 					title : '项目类型',
 					width : 200
 				}, {
-					field : 'time',
+					field : 'TIME',
 					title : '申请时间',
 					width : 200
 				}, {
-					field : 'money',
+					field : 'MONEY',
 					title : '申请金额',
 					width : 200
 				}, {
-					field : 'lifeloan',
+					field : 'LIFELOAN',
 					title : '借款期限',
 					width : 200
 				}, {
-					field : 'ratemoney',
+					field : 'RATEMONEY',
 					title : '利率',
 					width : 200
 				}, {
-					field : 'codename',
+					field : 'CODENAME',
 					title : '审核状态',
 					width : 200
 				}]]
             });
         });
-        function compute() {//计算函数
+        /* function compute() {//计算函数
             var rows = $('#dg').datagrid('getRows')//获取当前的数据行
             var ptotal = 0//计算listprice的总和
             ,utotal=0;//统计unitcost的总和
@@ -88,27 +86,15 @@
                 utotal += rows[i]['lifeloan'];
             }
             //新增一行显示统计信息
-            $('#dg').datagrid('appendRow', { username: '<b style="font-size:14px;font-family:仿宋;">统计：</b>', money: '<b style="font-size:14px;font-family:仿宋;">共'+ptotal+'元</b>', lifeloan: '<b style="font-size:14px;font-family:仿宋;">共'+utotal+'天</b>' });
-        }
-        $(document).ready(function(){
-        	//自动搜索 
-        	$('#changeName1').combobox({
-	        	mode:'remote' ,
-	        	url:'/p2p/queryProject.do' ,
-	        	valueField:'projectname' ,
-	        	textField:'projectname' ,
-	        	delay:500
-        	});
-        });
+            $('#dg').datagrid('appendRow', { username: '<b style="font-size:14px;font-family:仿宋;">统计：</b>', money: '<b style="font-size:14px;font-family:仿宋;">共'+ptotal+'元</b>', lifeloan: '<b style="font-size:14px;font-family:仿宋;">共'+utotal+'月</b>' });
+        }  */
         $(function(){
         	$('#ss').searchbox({ 
             	searcher:function(value,name){ 
-            		/* var comName = $(".change").val();
-            		alert(value); */
             		$('#dg').datagrid({
                         singleSelect: true,
                         method:'post',
-                        onLoadSuccess: compute,//加载完毕后执行计算
+                        //onLoadSuccess: compute,//加载完毕后执行计算
                         url:'/p2p/queryPart.do',
                         fitColumns: true,
         				striped : true,
@@ -124,7 +110,7 @@
                        toolbar : "#toolbar",
                         columns: [[{
         					field : 'username',
-        					title : '申请人',
+        					title : '用户名',
         					width : 200
         				},{
         					field : 'projectname',
@@ -164,12 +150,10 @@
         $(function(){
         	$('#sss').searchbox({ 
             	searcher:function(value,name){ 
-            		/* var comName = $(".change").val();
-            		alert(value); */
             		$('#dg').datagrid({
                         singleSelect: true,
                         method:'post',
-                        onLoadSuccess: compute,//加载完毕后执行计算
+                        //onLoadSuccess: compute,//加载完毕后执行计算
                         url:'/p2p/queryUser.do',
                         fitColumns: true,
         				striped : true,
@@ -223,14 +207,12 @@
         });
         
         function searchOrder(){  
-            //$.messager.alert('提示',"search","info");
             var begindate = $('#begindate').datebox('getValue');    //获取查询的起始日期  
             var enddate = $('#enddate').datebox('getValue');    //获取查询的终止日期  
-            //$.messager.alert('提示',content+"&"+begindate+"&"+enddate,"info");  
             $('#dg').datagrid({
                 singleSelect: true,
                 method:'post',
-                onLoadSuccess: compute,//加载完毕后执行计算
+                //onLoadSuccess: compute,//加载完毕后执行计算
                 url:'/p2p/queryTime.do',
                 fitColumns: true,
 				striped : true,

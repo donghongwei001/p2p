@@ -10,16 +10,16 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class fileUpload {	
 	public String saveFiles(MultipartFile file ,HttpServletRequest request){
-		//ÅÐ¶ÏÊÇ·ñÎª¿Õ
+		//ï¿½Ð¶ï¿½ï¿½Ç·ï¿½Îªï¿½ï¿½
 		if (!file.isEmpty()) {		
 			String fileName = file.getOriginalFilename();
-			//System.out.println("ÎÄ¼þÂ·¾¶"+request.getSession().getServletContext().getRealPath("/stucy/src/main/webapp/caoImage/"));
+			//System.out.println("ï¿½Ä¼ï¿½Â·ï¿½ï¿½"+request.getSession().getServletContext().getRealPath("/stucy/src/main/webapp/caoImage/"));
 			//request.getSession().getServletContext().getRealPath("\\main\\webapp\\caoImage\\")
-			String filePath ="E:/eclipsejava/p2p/src/main/webapp/tupian/" +new Date().getTime()+
+			String filePath ="E:/tupian/" +new Date().getTime()+
 					fileName.substring(fileName.lastIndexOf("."));
 		    try {	
 				
-				file.transferTo(new File(filePath));//´«ËÍÎÄ¼þ½øÂ·¾¶(filePath)Àï			
+				file.transferTo(new File(filePath));//ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Â·ï¿½ï¿½(filePath)ï¿½ï¿½			
 				return filePath;
 			} catch (IllegalStateException e) {
 				e.printStackTrace();

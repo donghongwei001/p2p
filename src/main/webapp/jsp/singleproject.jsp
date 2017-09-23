@@ -605,7 +605,7 @@ body { /* background-color:#F5F5F5; */
 							contentType:"application/json;charset=utf-8",
 							data:JSON.stringify(datac), 
 							success:function(da){
-								alert(da);
+								
 								sp.html("预计所有收益为："+da.toFixed(2)+"元");
 							}
 						});
