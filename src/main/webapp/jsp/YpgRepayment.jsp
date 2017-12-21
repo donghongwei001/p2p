@@ -122,15 +122,18 @@
 										var time2=row[0].time1; 
 										var dateObj = new Date();
 										//alert(time);
-										var mytime=dateObj.toLocaleDateString(); //获取系统当前日期
-										var mytimes = mytime.replace(/\//gi,""); //转换成字符串
-										var time2s = time2.replace(/\-/gi,"");
-										 if(mytimes>time2s){   //日期型 转换成 字符串比较大小
-											alert(mytime + " 系统时间");
-											alert(id + "是否继续" + time2);
+									/*	var mytime=dateObj.toLocaleDateString(); //获取系统当前日期
+										 var mytimes = mytime.replace(/\//gi,""); //转换成字符串
+										var time2s = time2.replace(/\-/gi,""); */
+										
+										var sd=new Date(Date.parse(time2));
+										/* alert(dateObj);
+										alert(dateObj>sd); */
+										if(window.confirm("你确定要踢贷款人还款吗？")){
+										
+										 if(dateObj>sd){   //日期型 转换成 字符串比较大小
 											var getIndex=$('#proGrid').datagrid("getSelected");
 											var row2 = $('#proGrid').datagrid("getRowIndex",getIndex);
-											alert(row2+1);
 											data={};
 											data["id"]=id;
 											data["row2"]=row2+1;
@@ -150,6 +153,7 @@
 											})
 										}else{
 											alert("您当前选择的项目还未逾期,请重新选择");
+										} 
 										}
 								}
 							}else{

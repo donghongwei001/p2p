@@ -36,7 +36,7 @@ public class YpgRepaymentController {
 	}
 	
 	/**
-	 * ²éÑ¯»¹¿î¼Æ»®±í
+	 * ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½Æ»ï¿½ï¿½ï¿½
 	 * @param id
 	 * @return
 	 */
@@ -59,7 +59,7 @@ public class YpgRepaymentController {
 	public String problems(@RequestBody String data){
 		Ypg yy=JSON.parseObject(data,Ypg.class);
 		List<Map> problemList=reService.queryProblems(yy);
-		return "asd";
+		return "success";
 	}
 	
 	@RequestMapping("/ypgouttime")
