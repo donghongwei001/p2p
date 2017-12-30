@@ -91,17 +91,18 @@ public class Zkjserviceimplment implements Zkjservicedaointerface {
 	@Override
 	@Transactional
 	public void totalmoney(String name,String mm,int id) {
-		// TODO Auto-generated method stub
 		double dd=dao.selectusermoney(name);//投资人用户的钱
-	//	double total=dd+Double.parseDouble(mm);//用户投资的钱
 		
 		int userid=dao.selectuserid(id);
 		double aas=dao.selectuseridmoney(userid);//借款人的账户钱
+		System.out.println(aas+"借款人的账户钱");
+		System.out.println(mm+"mm投资的钱");
 		double total=aas+Double.parseDouble(mm);//用户投资的钱+借款人账户的钱
 		Zkjinvestmoney zz=new Zkjinvestmoney();
 			zz.setId(userid);
-			zz.setMoney(aas);
+			zz.setMoney(total);
 		dao.replaceinvestormoney(zz);//更新借款人的账户
+		System.out.println(zz+"更新借款人的账户");
 		double sheng=dd-Double.parseDouble(mm);
 		Zkjmoney zk=new Zkjmoney();
 		zk.setMoney(sheng);
