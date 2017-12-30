@@ -95,7 +95,7 @@
 		update shoukuantable set status=13 where projectid=#{0} and time=to_date(#{1},'yyyy-MM-dd')
 	</update>
 	<select id="seluserid" resultType="java.util.HashMap">
-		select userid,money from  shoukuantable where projectid=#{0} and time=to_Date(#{1}','yyyy-MM-dd')
+		select userid,money from  shoukuantable where projectid=#{0} and time=to_Date(#{1},'yyyy-MM-dd')
 	</select>
 	<select id="seljinqian" resultType="int" parameterType="int">
 		select money from usertable where userid=#{id}

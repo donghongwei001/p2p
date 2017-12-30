@@ -90,6 +90,7 @@ public class zhishouController {
 		String time=simpleDateFormat.format(new Date());
 		int flag=0;
 		yuqi yu=JSON.parseObject(str, yuqi.class);
+		System.out.println(str);
 		String shijian=zhishouservices.seltime(yu.getId(), yu.getLastmoney());
 		if (shijian==null||shijian=="") {
 			int id=zxluserservice.seluser(yu.getId());

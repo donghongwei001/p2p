@@ -9,6 +9,15 @@ public class SzhProject {
 	int lifeloan;
 	double ratemoney;
 	String codename;
+	private int toatl;
+	
+	
+	public int getToatl() {
+		return toatl;
+	}
+	public void setToatl(int toatl) {
+		this.toatl = toatl;
+	}
 	public String getUsername() {
 		return username;
 	}
