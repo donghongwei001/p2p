@@ -227,7 +227,7 @@ public class ZxlUserController {
 	@RequestMapping("/zxlpersonal")
 	public String listmoney(HttpServletRequest request){
 		String userna =(String)request.getSession().getAttribute("abcd");	
-		List<ZxlUser> listz= userservice.listmoney(userna);		
+		List<ZxlUser> listz= userservice.listmoney(userna);	
 		request.setAttribute("listmoney", listz);	
 		return "personal";	
 	}

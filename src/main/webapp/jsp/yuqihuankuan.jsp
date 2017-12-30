@@ -126,7 +126,7 @@
 									<td>${a.NEWTIME}</td>
 									<td>${a.NEWMONEY}</td>
 									<td>${a.NEWDAY}</td>
-									<td><button type="button" class="btn btn-success" onclick="huankuan(${a.ID},${a.LASTMONEY},${a.NEWMONEY},${a.NEWDAY})">还款</button></td>
+									<td><button type="button" class="btn btn-success" onclick="huankuan(${a.ID},${a.LASTMONEY},${a.NEWMONEY},${a.NEWDAY},${a.NEWTIME})">还款</button></td>
 								</tr>
 							</c:forEach>
 						</table>
@@ -171,8 +171,9 @@ $("#asd").click(function(){
 		 }
 	 });
 });
-function huankuan(id,lastmoney,newmoney,day){
-	if (window.confirm('确定还款吗？')) {
+function huankuan(id,lastmoney,newmoney,day,time){
+	if (time==null||time=="") {
+		if (window.confirm('确定还款吗？')) {
 			var data = {};
 			data["id"] = id;
 			data["lastmoney"] = lastmoney;
@@ -197,6 +198,8 @@ function huankuan(id,lastmoney,newmoney,day){
 				 }
 			 });
 	}
+	}
+	
 }
 </script>
 </html>

@@ -3,7 +3,7 @@ package com.entity;
 public class yuqi {
 	int id;
 	double money;
-	int lastmoney;
+	double lastmoney;
 	int day;
 	String time;
 	public int getId() {
@@ -19,10 +19,11 @@ public class yuqi {
 	public void setMoney(double money) {
 		this.money = money;
 	}
-	public int getLastmoney() {
+	
+	public double getLastmoney() {
 		return lastmoney;
 	}
-	public void setLastmoney(int lastmoney) {
+	public void setLastmoney(double lastmoney) {
 		this.lastmoney = lastmoney;
 	}
 	public int getDay() {

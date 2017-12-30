@@ -4,7 +4,7 @@ public class ZxlUser {
 	int userID;
 	String username;
 	String pwd;
-	int money;
+	double money;
 	String state;
 	public String getState() {
 		return state;
@@ -33,10 +33,11 @@ public class ZxlUser {
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
-	public int getMoney() {
+	public double getMoney() {
 		return money;
 	}
-	public void setMoney(int money) {
+	public void setMoney(double money) {
 		this.money = money;
 	}
+	
 }
